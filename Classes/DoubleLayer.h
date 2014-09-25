@@ -24,7 +24,7 @@ using namespace ui;
 #define BTN_BLACK 11
 #define BTN_X2 12
 #define BTN_X3 13
-#define BTN_X5 14
+#define BTN_X5 14 
 #define BTN_GET 15
 
 #define GET_MONEY_TIME 4.0f

@@ -1624,10 +1624,20 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
 
 void KCGameLayer::initUI()
 {
+    
     m_winret = 0;
     m_isGoldEnougth = true;
     m_setLineRewNum = 1;
     m_pv->setPetName(DataManager::sharedDataManager()->petID);
+    
+    float p = float(DataManager::sharedDataManager()->petCurrGold)/float(DataManager::sharedDataManager()->bossNeedGold);
+    if(p > 1)
+    {
+        p = 1;
+    }
+    
+    int dis = 700*p;
+    m_pv->setPetPos(dis);
     
     m_FlianNum = 0;
     m_FSkill = 0;
