@@ -254,23 +254,23 @@ void PetFightLayer::petPlay(int petState)
     armature1 = CCArmature::create(animType.c_str());
     armature1->getAnimation()->playWithIndex(0);
     armature1->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(PetFightLayer::onPetAnimationEvent));
-    armature1->setPosition(ccp(petX, petY));
+    armature1->setPosition(ccp(currentPetX, petY));
     addChild(armature1);
+}
+
+
+void PetFightLayer::setPetPos(int petPosX)
+{
+    currentPetX =petPosX;
+    armature1->setPosition(ccp(currentPetX, petY));
 }
 
 void PetFightLayer::movePet(int distance)
 {
-    //petX = armature1->getPosition().x+distance;
-    
     currentPetX = petX+distance;
-    
     CCLOG("currentPetX: %d",currentPetX);
-    
-    //CCMoveTo *petMoveto = CCMoveTo::create(5, ccp(currentPetX, petY));
-    //CCLOG("distance is %f",armature1->getPosition().x+distance);
-    //armature1->runAction(petMoveto);
-    
-    armature1->setPosition(ccp(currentPetX, petY));
+    CCMoveTo *petMoveto = CCMoveTo::create(5, ccp(currentPetX, petY));
+    armature1->runAction(petMoveto);
 }
 
 void PetFightLayer::stop()
@@ -286,7 +286,7 @@ void PetFightLayer::stop()
     armature1 = CCArmature::create((animName + "Idle").c_str());
     armature1->getAnimation()->playWithIndex(0);
     //armature1->getAnimation()->setMovementEventCallFunc(this, movementEvent_selector(PetFightLayer::onPetAnimationEvent));
-    armature1->setPosition(ccp(petX, petY));
+    armature1->setPosition(ccp(currentPetX, petY));
     
     CCLOG("stop current pet x is :%d",currentPetX);
     addChild(armature1);
@@ -354,7 +354,7 @@ void PetFightLayer::setGameScene(int gameScene)
             }
            
             petX = -400;
-            
+            currentPetX = -400;
             armature1 = CCArmature::create((animName + "Idle").c_str());
             armature1->getAnimation()->playWithIndex(0);
             armature1->setPosition(ccp(petX, petY));
@@ -388,6 +388,7 @@ void PetFightLayer::setGameScene(int gameScene)
             
 
             petX = -200;
+            currentPetX = -200;
             armature1->setPosition(ccp(petFightX, petFightY));
             
             if (armature2) {

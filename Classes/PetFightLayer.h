@@ -80,6 +80,7 @@ public:
     void setPetBloodValue(int value); //设置宠物血量 100%
     void setBossBloodValue(int value);//设置Boss血量 100%
     void movePet(int distance);//移动宠物
+    void setPetPos(int petPosX);
     
 protected:
     std::string animType;
