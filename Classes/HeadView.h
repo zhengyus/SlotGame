@@ -26,13 +26,11 @@ using namespace CocosDenshion;
  */
 class HeadView : public CCLayer
 {
-public:
-    HeadView();
-    ~HeadView();
     
 public:
    
-    CREATE_FUNC(HeadView);
+//    CREATE_FUNC(HeadView);
+    static HeadView* getInstance();
     
     bool init();
     
@@ -47,11 +45,14 @@ public:
     void playGoldAnimation();
     
     void setMenuVisible(bool);
+    void setBackVisible(bool);
     
 public:
     void clickedAddEvent(CCObject*,TouchEventType event);
     void clickedMenuEvent(CCObject*,TouchEventType event);
     
+private:
+    HeadView();
     
 private:
     ImageView*  _head;

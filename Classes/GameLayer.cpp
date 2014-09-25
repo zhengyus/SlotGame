@@ -54,7 +54,7 @@ bool GameLayer::init()
     
     addContentWithJsonFile("UI4Game.ExportJson");
     
-    _headView = HeadView::create();
+    _headView = HeadView::getInstance();
     addNodeTo("Panel_head",_headView);
     
     _hallLayer = GameHallLayer::create();

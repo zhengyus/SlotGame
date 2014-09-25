@@ -9,12 +9,9 @@
 #include "HeadView.h"
 #include "StartLayer.h"
 
-HeadView::HeadView()
-{
-    
-}
+static HeadView* instance = NULL;
 
-HeadView::~HeadView()
+HeadView::HeadView()
 {
     
 }
@@ -96,7 +93,12 @@ void HeadView::setMenuVisible(bool visible)
 {
     _menu->setTouchEnabled(visible);
     _menu->setVisible(visible);
-    _back->setVisible(!visible);
+    setBackVisible(!visible);
+}
+
+void HeadView::setBackVisible(bool visible)
+{
+    _back->setVisible(visible);
 }
 
 void HeadView::playGoldAnimation()
@@ -124,3 +126,20 @@ void HeadView::clickedMenuEvent(CCObject*,TouchEventType event)
         CCDirector::sharedDirector()->replaceScene(scene);
     }
 }
+
+HeadView* HeadView::getInstance()
+{
+    if (NULL == instance)
+    {
+        HeadView *tmp = new HeadView();
+        if (tmp && tmp->init())
+        {
+            tmp->autorelease();
+            instance = tmp;
+            return instance;
+        }
+        CC_SAFE_DELETE(tmp);
+    }
+    return instance;
+}
+

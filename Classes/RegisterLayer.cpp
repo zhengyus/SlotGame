@@ -29,13 +29,25 @@ bool RegisterLayer::init()
     _msg = static_cast<Label*>(getWidgetByName("Label_msg"));
     
     
-    CCSize visibleSize = CCDirector::sharedDirector()->getWinSize();
-    CCSize size = CCSize(450, 85);
+    CCSize vsize = CCDirector::sharedDirector()->getVisibleSize();
     
+    
+    Button* btn_back = static_cast<Button*>(getWidgetByName("Button_back"));
+
+    LayoutParameter* param = btn_back->getLayoutParameter(LAYOUT_PARAMETER_RELATIVE);
+    Margin margin = param->getMargin();
+    margin.setMargin(margin.left * 1136 / vsize.width, margin.top, margin.right, margin.bottom);
+    param->setMargin(margin);
+    btn_back->setLayoutParameter(param);
+    
+    
+    CCSize wsize = CCDirector::sharedDirector()->getWinSize();
+    
+    CCSize size = CCSize(450, 85);
     _account = CCEditBox::create(size,CCScale9Sprite::createWithSpriteFrameName("input_login.png"));
     _password = CCEditBox::create(size,CCScale9Sprite::createWithSpriteFrameName("input_login.png"));
     
-    _account->setPosition(ccp(visibleSize.width/2,visibleSize.height/2 + 68));
+    _account->setPosition(ccp(wsize.width/2,wsize.height/2 + 68));
     _password->setPosition(ccp(_account->getPositionX(),_account->getPositionY()-105));
     
     ccColor3B color = {147,140,115};

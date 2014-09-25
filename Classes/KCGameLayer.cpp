@@ -1863,7 +1863,7 @@ void KCGameLayer::update(float dt)
             }
             case 4://宠物战斗
             {
-                
+                m_Ffreenum = DataManager::sharedDataManager()->freeNum;
                 
                 //播发开始动画
                 m_isCanTouchAllBtn = false;//禁用所有按钮
