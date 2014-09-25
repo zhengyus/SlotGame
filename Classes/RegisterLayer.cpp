@@ -33,10 +33,10 @@ bool RegisterLayer::init()
     
     
     Button* btn_back = static_cast<Button*>(getWidgetByName("Button_back"));
-
+    
     LayoutParameter* param = btn_back->getLayoutParameter(LAYOUT_PARAMETER_RELATIVE);
     Margin margin = param->getMargin();
-    margin.setMargin(margin.left * 1136 / vsize.width, margin.top, margin.right, margin.bottom);
+    margin.left = margin.left * 1136 / vsize.width;
     param->setMargin(margin);
     btn_back->setLayoutParameter(param);
     
