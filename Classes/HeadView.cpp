@@ -16,6 +16,11 @@ HeadView::HeadView()
     
 }
 
+HeadView::~HeadView()
+{
+    instance = NULL;
+}
+
 bool HeadView::init()
 {
     if (!CCLayer::init()) {

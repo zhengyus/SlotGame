@@ -29,7 +29,7 @@ class HeadView : public CCLayer
     
 public:
    
-//    CREATE_FUNC(HeadView);
+    ~HeadView();
     static HeadView* getInstance();
     
     bool init();
