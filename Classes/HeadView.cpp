@@ -89,6 +89,11 @@ void HeadView::setBean(unsigned long long bean)
     _bean->setStringValue(CCString::createWithFormat("%lld",bean)->getCString());
 }
 
+unsigned long long HeadView::getBean()
+{
+    _bean->getStringValue();
+}
+
 void HeadView::setRank(unsigned long long rank)
 {
     _rank->setStringValue(CCString::createWithFormat("%lld",rank)->getCString());

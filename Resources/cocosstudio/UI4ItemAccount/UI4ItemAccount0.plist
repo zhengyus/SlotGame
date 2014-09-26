@@ -9,11 +9,11 @@
 				<key>width</key>
 				<integer>450</integer>
 				<key>height</key>
-				<integer>67</integer>
+				<integer>85</integer>
 				<key>originalWidth</key>
 				<integer>450</integer>
 				<key>originalHeight</key>
-				<integer>67</integer>
+				<integer>85</integer>
 				<key>x</key>
 				<integer>0</integer>
 				<key>y</key>
@@ -26,13 +26,13 @@
 			<key>button_delete.png</key>
 			<dict>
 				<key>width</key>
-				<integer>35</integer>
+				<integer>79</integer>
 				<key>height</key>
-				<integer>34</integer>
+				<integer>79</integer>
 				<key>originalWidth</key>
-				<integer>35</integer>
+				<integer>79</integer>
 				<key>originalHeight</key>
-				<integer>34</integer>
+				<integer>79</integer>
 				<key>x</key>
 				<integer>452</integer>
 				<key>y</key>

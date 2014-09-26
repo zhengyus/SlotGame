@@ -41,6 +41,7 @@ public:
     void setLevel(int level);
     void setExp(int exp,int exptotal);
     void setBean(unsigned long long bean);
+    unsigned long long getBean();
     void setRank(unsigned long long rank);
     void playGoldAnimation();
     
