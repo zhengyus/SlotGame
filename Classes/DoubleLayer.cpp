@@ -555,7 +555,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
 //                else
 //                {
                 
-                this->scheduleOnce(schedule_selector(DoubleLayer::runAwardAction), 1.0f);
+                this->scheduleOnce(schedule_selector(DoubleLayer::runAwardAction), 0.5f);
                 
 //                    if(tmeg->Bwingold >= 1 && tmeg->Bwingold < 2000)
 //                    {

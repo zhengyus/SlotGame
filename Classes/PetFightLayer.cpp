@@ -261,7 +261,7 @@ void PetFightLayer::petPlay(int petState)
 
 void PetFightLayer::setPetPos(int petPosX)
 {
-    currentPetX =petPosX;
+    currentPetX =petX+petPosX;
     armature1->setPosition(ccp(currentPetX, petY));
 }
 

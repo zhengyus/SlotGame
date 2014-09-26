@@ -38,6 +38,7 @@ GameLayer::~GameLayer()
 CCScene* GameLayer::scene()
 {
     CCScene* scene = CCScene::create();
+    scene->setTag(SceneTypeGame);
     auto layer = GameLayer::create();
     
     scene->addChild(layer);

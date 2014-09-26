@@ -45,33 +45,17 @@ bool MsgContentDialog::init()
     _prize = static_cast<ImageView*>(_uilayer->getWidgetByName("Image_prize"));
     _button = static_cast<Button*>(_uilayer->getWidgetByName("Button_button"));
     
-    bindTouchEvent("Button_button", this, toucheventselector(MsgContentDialog::button_clicked));
-    
     return true;
 }
 
-void MsgContentDialog::button_clicked(CCObject*,TouchEventType type)
+void MsgContentDialog::clickedReceive(CCObject*,TouchEventType type)
 {
     if (TOUCH_EVENT_ENDED == type)
     {
-        if (_data->mailNum <= 0)//确定执行关闭
-        {
-            close();
-        }
-        else//执行领取操作
-        {
-            if (_data->isOK)//显示已经领取提示
-            {
-                Alert::create(ALERTTEXT_ATTACHMENT)->show();
-            }
-            else//发送领取消息,提示领取成功
-            {
-                _data->isOK = 1;
-                _button->setTouchEnabled(false);
-                updateMail(MailType_Receive);
-                Alert::create(ALERTTEXT_ATTACHMENT_SUCCESS)->show();
-            }
-        }
+        _data->isOK = 1;
+        _button->setTouchEnabled(false);
+        updateMail(MailType_Receive);
+        Alert::create(ALERTTEXT_ATTACHMENT_SUCCESS)->show();
     }
 }
 
@@ -85,10 +69,6 @@ void MsgContentDialog::updateMail(MailType mailType)
     tmpMeg0.mailtype = mailType;//1-读取  3-收取附件
     tmpMeg0.mailid = _data->mailid;
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg0);
-    
-    GameLogicMeg2Sever tmpMeg1;
-    tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQMAILS;
-    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
 }
 
 void MsgContentDialog::show()
@@ -97,7 +77,7 @@ void MsgContentDialog::show()
     
     setTitle(_data->mailTitle);
     setContent(_data->mailContent);
-    setPrize("",_data->mailNum);
+    setPrize(_data->mailNum);
     
     updateMail(MailType_Read);
 }
@@ -114,22 +94,27 @@ void MsgContentDialog::setContent(string content)
     _content->setText(content.c_str());
 }
 
-void MsgContentDialog::setPrize(string filename,int num)
+void MsgContentDialog::setPrize(int num)
 {
+    
     if (num > 0)
     {
-        char tmp[10];
-        sprintf(tmp, "%d",num);
-        _number->setText(string(tmp));
-        _button->loadTextures("receive.png", "receive.png", "add.png");//领取
-        _wprize->setVisible(true);
-        
-        if (!filename.empty())
-            _prize->loadTexture(filename.c_str());
+        _prize->loadTexture(CCString::createWithFormat("prize%d.png",_data->mailType)->getCString(),UI_TEX_TYPE_PLIST);
     }
     else
     {
-        _button->loadTextures("add.png", "add.png", "add.png");//确定
         _wprize->setVisible(false);
+    }
+    
+    if ( _data->isOK )
+    {
+        _button->loadTextures("button_confirm.png", NULL, NULL , UI_TEX_TYPE_PLIST);//确定
+        _button->addTouchEventListener(this, toucheventselector(Dialog::close));
+    }
+    else
+    {
+        _number->setText(CCString::createWithFormat("%D",num)->getCString());
+        _button->loadTextures("button_receive.png", NULL, NULL,UI_TEX_TYPE_PLIST);//领取
+        _button->addTouchEventListener(this, toucheventselector(MsgContentDialog::clickedReceive));
     }
 }

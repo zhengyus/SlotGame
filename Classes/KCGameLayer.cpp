@@ -9,7 +9,7 @@
 #include "KCGameLayer.h"
 #include "DataManager.h"
 #include "ext/ui/Alert.h"
-
+#include "HeadView.h"
 
 // on "init" you need to initialize your instance
 bool KCGameLayer::init()
@@ -1624,10 +1624,20 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
 
 void KCGameLayer::initUI()
 {
+    
     m_winret = 0;
     m_isGoldEnougth = true;
     m_setLineRewNum = 1;
     m_pv->setPetName(DataManager::sharedDataManager()->petID);
+    
+    float p = float(DataManager::sharedDataManager()->petCurrGold)/float(DataManager::sharedDataManager()->bossNeedGold);
+    if(p > 1)
+    {
+        p = 1;
+    }
+    
+    int dis = 700*p;
+    m_pv->setPetPos(dis);
     
     m_FlianNum = 0;
     m_FSkill = 0;
@@ -1790,11 +1800,12 @@ void KCGameLayer::update(float dt)
     if(m_pageCurr != m_page && m_isCanGo && m_page != 0)
     {
         
-        
         switch (m_page)
         {
             case 1://老虎机
             {
+                HeadView::getInstance()->setBackVisible(true);
+                
                 //更新自动按钮状态
                 if(m_isCanAuto)
                 {
@@ -1855,6 +1866,7 @@ void KCGameLayer::update(float dt)
             }
             case 3://比倍
             {
+                HeadView::getInstance()->setBackVisible(false);
                 m_BtnBack->setVisible(false);
                 m_Widget->setVisible(false);
                 this->addChild(m_double);
@@ -1863,7 +1875,12 @@ void KCGameLayer::update(float dt)
             }
             case 4://宠物战斗
             {
+                HeadView::getInstance()->setBackVisible(false);
                 m_Ffreenum = DataManager::sharedDataManager()->freeNum;
+                char tmStr[50];
+                sprintf(tmStr, "%d", m_Ffreenum);
+                m_LabelAtlasSY->setStringValue(tmStr);
+
                 
                 //播发开始动画
                 m_isCanTouchAllBtn = false;//禁用所有按钮

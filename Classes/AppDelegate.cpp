@@ -57,8 +57,12 @@ void AppDelegate::applicationDidEnterBackground() {
     // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
 //    Alert::create(ALERTTEXT_UNCONNECT,"",this,touchesureventselector(AppDelegate::clickedSureCallback))->show();
     
-    SceneManager::getInstance()->replaceScene(SceneTypeStart);
-    
+    CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
+    CCLog("scene %d",scene->getTag());
+    if (SceneTypeStart != scene->getTag())
+    {
+        SceneManager::getInstance()->replaceScene(SceneTypeStart);
+    }
 }
 
 // this function will be called when the app is active again

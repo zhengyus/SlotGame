@@ -16,6 +16,11 @@ HeadView::HeadView()
     
 }
 
+HeadView::~HeadView()
+{
+    instance = NULL;
+}
+
 bool HeadView::init()
 {
     if (!CCLayer::init()) {
@@ -82,6 +87,12 @@ void HeadView::setExp(int exp,int exptotal)
 void HeadView::setBean(unsigned long long bean)
 {
     _bean->setStringValue(CCString::createWithFormat("%lld",bean)->getCString());
+}
+
+unsigned long long HeadView::getBean()
+{
+    CCAssert(NULL!=_bean, "The Bean view is null");
+    return atoll(_bean->getStringValue());
 }
 
 void HeadView::setRank(unsigned long long rank)

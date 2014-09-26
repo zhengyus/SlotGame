@@ -41,12 +41,12 @@ public:
     
     void setTitle(string title);
     void setContent(string content);
-    void setPrize(string filename,int num);
+    void setPrize(int num);
     void setNumber();
     
 public:
     
-    void button_clicked(CCObject*,TouchEventType);
+    void clickedReceive(CCObject*,TouchEventType);
     
 private:
     
