@@ -1877,6 +1877,10 @@ void KCGameLayer::update(float dt)
             {
                 HeadView::getInstance()->setBackVisible(false);
                 m_Ffreenum = DataManager::sharedDataManager()->freeNum;
+                char tmStr[50];
+                sprintf(tmStr, "%d", m_Ffreenum);
+                m_LabelAtlasSY->setStringValue(tmStr);
+
                 
                 //播发开始动画
                 m_isCanTouchAllBtn = false;//禁用所有按钮
