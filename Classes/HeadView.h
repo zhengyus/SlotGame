@@ -51,12 +51,14 @@ public:
 public:
     void clickedAddEvent(CCObject*,TouchEventType event);
     void clickedMenuEvent(CCObject*,TouchEventType event);
+    void clickedJPEvent(CCObject*,TouchEventType event);
     
 private:
     HeadView();
     
 private:
     ImageView*  _head;
+    ImageView*  _jp;
     Label*      _name;
     Label*      _level;
     Label*      _lexp;

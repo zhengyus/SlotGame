@@ -65,10 +65,10 @@ void GameHallLayer::onExit()
 
 void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
 {
-    Button* img = static_cast<Button*>(widget->getChildByName("Button_room"));
+    Button* img = static_cast<Button*>(UIHelper::seekWidgetByName(widget, "Button_room"));
     Button* enter = static_cast<Button*>(img->getChildByName("Button_enter"));
     Label*  lblWord = static_cast<Label*>(enter->getChildByName("Label_word"));
-    Widget* panelFree = widget->getChildByName("Image_free_back");
+    Widget* panelFree = UIHelper::seekWidgetByName(widget, "Image_free_back");
     
     
     string room_back;
