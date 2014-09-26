@@ -241,14 +241,14 @@ void LoginLayer::showUserAccounts()
         initAccountItem(_list->getItem(i),_userAccounts[i]);
     }
     
-    CCSize size = CCSizeMake(_list->getSize().width,160);
+    CCSize size = CCSizeMake(_list->getSize().width,170);
     if (0 == length)
     {
-        size.height = 67;
+        size.height = 85;
     }
     else if (length < 3)
     {
-        size.height = 67 * length;
+        size.height = 85 * length;
     }
     _list->setSize(size);
 }
