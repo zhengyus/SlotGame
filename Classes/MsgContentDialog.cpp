@@ -52,24 +52,10 @@ void MsgContentDialog::clickedReceive(CCObject*,TouchEventType type)
 {
     if (TOUCH_EVENT_ENDED == type)
     {
-        if (_data->isOK)//确定执行关闭
-        {
-            close();
-        }
-        else//执行领取操作
-        {
-            if (_data->isOK)//显示已经领取提示
-            {
-                Alert::create(ALERTTEXT_ATTACHMENT)->show();
-            }
-            else//发送领取消息,提示领取成功
-            {
-                _data->isOK = 1;
-                _button->setTouchEnabled(false);
-                updateMail(MailType_Receive);
-                Alert::create(ALERTTEXT_ATTACHMENT_SUCCESS)->show();
-            }
-        }
+        _data->isOK = 1;
+        _button->setTouchEnabled(false);
+        updateMail(MailType_Receive);
+        Alert::create(ALERTTEXT_ATTACHMENT_SUCCESS)->show();
     }
 }
 
@@ -83,10 +69,6 @@ void MsgContentDialog::updateMail(MailType mailType)
     tmpMeg0.mailtype = mailType;//1-读取  3-收取附件
     tmpMeg0.mailid = _data->mailid;
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg0);
-    
-    GameLogicMeg2Sever tmpMeg1;
-    tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQMAILS;
-    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
 }
 
 void MsgContentDialog::show()
