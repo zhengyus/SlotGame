@@ -89,7 +89,7 @@ bool LoginLayer::init()
     _up->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedUp));
     _down->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedDown));
     
-    setAccountAndPwd();
+//    setAccountAndPwd();
     
     toggleAccouts(false);
     return true;
