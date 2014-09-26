@@ -153,7 +153,7 @@ public:
         roomid = 2;
         msgtyoe = 2;
         petid = 1928644258;
-        mailtype = 0;
+        mailtype = 0;//奖励类型1宠物2道具3角色经验4宠物经验
         mailid = "";
         itemId = 0;
         num = 1;
