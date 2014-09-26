@@ -91,7 +91,8 @@ void HeadView::setBean(unsigned long long bean)
 
 unsigned long long HeadView::getBean()
 {
-    _bean->getStringValue();
+    CCAssert(NULL!=_bean, "The Bean view is null");
+    return atoll(_bean->getStringValue());
 }
 
 void HeadView::setRank(unsigned long long rank)
