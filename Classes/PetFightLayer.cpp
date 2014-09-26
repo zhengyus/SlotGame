@@ -269,7 +269,7 @@ void PetFightLayer::movePet(int distance)
 {
     currentPetX = petX+distance;
     CCLOG("currentPetX: %d",currentPetX);
-    CCMoveTo *petMoveto = CCMoveTo::create(5, ccp(currentPetX, petY));
+    CCMoveTo *petMoveto = CCMoveTo::create(3.0f, ccp(currentPetX, petY));
     armature1->runAction(petMoveto);
 }
 

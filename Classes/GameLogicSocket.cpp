@@ -988,7 +988,19 @@ void GameLogicSocket::onOGAckPetGetAward(const char* message, int size)
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
 }
 
-
+void GameLogicSocket::onOGAckDoubleJpResult(const char* message, int size)
+{
+    OGAckDoubleJpResult meg;
+    meg.ParseFromArray(message, size);
+    
+    CCLog("kkk id = %lld", meg.jp());
+    
+    GameLogicMegFromSever tmpMeg;
+    tmpMeg.m_id = OGID_TEXAS_SLOTS_DOUBLEJP;
+    tmpMeg.ackOGAckDoubleJpResult = meg;
+    
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
+}
 
 void GameLogicSocket::onLogin2(const char* message, int size)
 {
@@ -1193,11 +1205,18 @@ void GameLogicSocket::onReceiveData(int messageID, const char* message, int size
         case OGID_TEXAS_SLOTS_DOUBLEGAME:
         {
             onOGAckDoubleResult(message, size);
+            CCLog("比倍界面 返回消息～～～");
             break;
         }
         case OGID_TEXAS_SLOTS_FIGHTREWARD:
         {
             onOGAckPetGetAward(message, size);
+            break;
+        }
+        case OGID_TEXAS_SLOTS_DOUBLEJP:
+        {
+            onOGAckDoubleJpResult(message, size);
+            CCLog("比倍界面 JP巨奖消息～～～");
             break;
         }
         default:

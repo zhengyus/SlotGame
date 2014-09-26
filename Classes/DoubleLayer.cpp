@@ -8,6 +8,7 @@
 
 #include "DoubleLayer.h"
 #include "KCGameLayer.h"
+#include "HeadView.h"
 
 DoubleLayer::DoubleLayer()
 {
@@ -220,7 +221,6 @@ bool DoubleLayer::init()
     return true;
 }
 
-
 void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
 {
 //    m_armatureWin->getAnimation()->playWithIndex(0);
@@ -232,6 +232,10 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
 //    m_ptc->setAutoRemoveOnFinish(true);
 //    patBatchNode->addChild(m_ptc);
     
+    if(-1 != m_stopSound)
+    {
+        SimpleAudioEngine::sharedEngine()->stopEffect(m_stopSound);
+    }
     
     m_secondFlag = 0;
     
@@ -287,8 +291,22 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X2:
                 {
+                    
+//                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                    
                     if(m_beiNum != 2)
                     {
+                        //如果底金不足
+                        if(isNoGold(m_needgold*(2 - 1)))
+                        {
+                            return;
+                        }
+                        
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(2 - 1));
+                        
+                        
                         char strTmp[50];
                         unsigned long long tmpNum = m_needgold;
                         tmpNum = tmpNum*2;
@@ -302,6 +320,9 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     else
                     {
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+//                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(2 - 1));
+                        
                         m_beiNum = 1;
                         char strTmp[50];
                         unsigned long long tmpNum = m_needgold;
@@ -315,8 +336,21 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X3:
                 {
+//                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                    
                     if(m_beiNum != 3)
                     {
+                        
+                        //如果底金不足
+                        if(isNoGold(m_needgold*(3 - 1)))
+                        {
+                            return;
+                        }
+                        
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(3 - 1));
+                        
                         char strTmp[50];
                         unsigned long long tmpNum = m_needgold;
                         tmpNum = tmpNum*3;
@@ -330,7 +364,10 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     else
                     {
-                         m_beiNum = 1;
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+//                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(3 - 1));
+                        
+                        m_beiNum = 1;
                         char strTmp[50];
                         unsigned long long tmpNum = m_needgold;
                         sprintf(strTmp, "%lld", tmpNum);
@@ -343,8 +380,19 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X5:
                 {
+                    
                     if(m_beiNum != 5)
                     {
+                        //如果底金不足
+                        if(isNoGold(m_needgold*(5 - 1)))
+                        {
+                            return;
+                        }
+                        
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        
+                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(5 - 1));
+                        
                         char strTmp[50];
                         unsigned long long tmpNum = m_needgold;
                         tmpNum = tmpNum*5;
@@ -358,6 +406,8 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     else
                     {
+                       HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+//                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(5 - 1));
                         
                         m_beiNum = 1;
                         char strTmp[50];
@@ -376,6 +426,8 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     {
                         isBtnCanTouch = false;
                     }
+                    
+                    this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
                     
                     if(m_retWin != 0)
                     {
@@ -518,10 +570,16 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                                                      CCCallFunc::create(this, callfunc_selector(DoubleLayer::resetBGcard)),
                                                      CCCallFunc::create(this, callfunc_selector(DoubleLayer::isCanCloseThisUI)),
                                                      NULL));
+            
+            
             //比倍成功
             //赢取动画
             if(tmeg->Bret == 1)
             {
+                
+                //重置金币显示数量
+                HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_winGold);
+                
                 KCGameLayer::playSound(DOUBLE_WIN);
                 
                 m_needgold = tmeg->Bwingold;
@@ -577,10 +635,24 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             {
                 KCGameLayer::playSound(DOUBLE_LOST);
                 runMoneyFly();
+                
+                if(HeadView::getInstance()->getBean() >= m_winGold)
+                {
+                    //重置金币显示数量
+                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_winGold);
+
+                }
             }
             
             break;
 		}
+        case OGID_TEXAS_SLOTS_DOUBLEJP:
+        {
+            m_stopSound = KCGameLayer::playSound(BIG_AWARD4);
+            m_armatureAward[2]->setVisible(true);
+            m_armatureAward[2]->getAnimation()->playWithIndex(0);
+            break;
+        }
         default:
         {
             CCLog("No this Message ID in DoubleLayer!!!!!");
@@ -616,7 +688,9 @@ void DoubleLayer::runBiBei(int color)
 
 void DoubleLayer::initUI()
 {
+    m_stopSound = -1;
     //增加自动收分
+    this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
     this->schedule(schedule_selector(DoubleLayer::autoGetScore), 1.0f);
     
     m_secondFlag = 0;
@@ -666,6 +740,18 @@ void DoubleLayer::initUI()
         m_armatureGetWin[i]->setVisible(false);
         m_armatureGetWin[i]->getAnimation()->stop();
     }
+    
+    //删除卡牌
+    for (int i = 0; i < m_arrCardImg->count(); i++)
+    {
+        m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+        
+    }
+    
+    m_arrCardImg->removeAllObjects();
+    
+    //背景图片
+    resetBGcard();
 }
 
 void DoubleLayer::setcardBGImg(CCNode* pSender)
@@ -782,7 +868,6 @@ void DoubleLayer::isCanCloseThisUI()
     else if(-19 == m_starNum)
     {
         m_starNum = 0;
-        CCLog("heredsfsdf~~~~~");
         
         ((KCGameLayer*)this->getParent())->m_page = m_page;
         
@@ -836,6 +921,8 @@ void DoubleLayer::setLabelWinNum()
     }
     
     m_arrCardImg->removeAllObjects();
+    
+    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_winGold);
 }
 
 void DoubleLayer::runMoneyFly()
@@ -887,6 +974,29 @@ void DoubleLayer::setActionFly1()
     m_armatureChiBangRight->stopAllActions();
     m_armatureChiBangRight->setVisible(false);
     m_armatureChiBangRight->setPosition(ccp(600, 550));
+    
+    //金币小于底金 直接返回老虎机界面
+
+    if(HeadView::getInstance()->getBean() < m_winGold)
+    {
+        GameLogicMeg2Sever tmpMeg1;
+        tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
+        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+        
+        for (int i = 0; i < m_arrCardImg->count(); i++)
+        {
+            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+            
+        }
+        
+        m_arrCardImg->removeAllObjects();
+        this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+        m_starNum = 0;
+        
+        ((KCGameLayer*)this->getParent())->m_page = 1;//返回老虎机界面
+        
+    }
+    
 }
 
 void DoubleLayer::runAwardAction()
@@ -919,11 +1029,22 @@ void DoubleLayer::autoGetScore()
     if(5 == m_secondFlag)
     {
         m_secondFlag = 0;
+        isBtnCanTouch = true;
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
         touchEvent(tBtnget, TOUCH_EVENT_ENDED);
     }
     
     m_secondFlag++;
+}
+
+bool DoubleLayer::isNoGold(unsigned long long wingold)
+{
+    if(HeadView::getInstance()->getBean() < wingold)
+    {
+        return true;
+    }
+    
+    return false;
 }
 //void DoubleLayer::registerWithTouchDispatcher()
 //{

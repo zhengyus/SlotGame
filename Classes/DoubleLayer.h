@@ -57,6 +57,7 @@ public:
     void runAwardAction();
     void runUIStar();
     void autoGetScore();
+    bool isNoGold(unsigned long long gold);
     
     void setLabelMoneyFly();
     void setActionFly0();
@@ -73,6 +74,7 @@ public:
     
     int m_beiNum;//1, 2, 3, 5
     int m_secondFlag;
+    int m_stopSound;
     UIButton* tBtnX2;
     UIButton* tBtnX3;
     UIButton* tBtnX5;
