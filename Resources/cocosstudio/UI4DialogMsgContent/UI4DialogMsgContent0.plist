@@ -4,25 +4,6 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>dialog_default.png</key>
-			<dict>
-				<key>width</key>
-				<integer>499</integer>
-				<key>height</key>
-				<integer>385</integer>
-				<key>originalWidth</key>
-				<integer>499</integer>
-				<key>originalHeight</key>
-				<integer>385</integer>
-				<key>x</key>
-				<integer>0</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
 			<key>back_msg_content.png</key>
 			<dict>
 				<key>width</key>
@@ -34,7 +15,7 @@
 				<key>originalHeight</key>
 				<integer>129</integer>
 				<key>x</key>
-				<integer>501</integer>
+				<integer>0</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -53,7 +34,7 @@
 				<key>originalHeight</key>
 				<integer>75</integer>
 				<key>x</key>
-				<integer>948</integer>
+				<integer>447</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -72,7 +53,7 @@
 				<key>originalHeight</key>
 				<integer>81</integer>
 				<key>x</key>
-				<integer>1026</integer>
+				<integer>525</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -91,7 +72,7 @@
 				<key>originalHeight</key>
 				<integer>59</integer>
 				<key>x</key>
-				<integer>1116</integer>
+				<integer>615</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
