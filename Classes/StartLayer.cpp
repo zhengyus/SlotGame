@@ -32,6 +32,7 @@ StartLayer::~StartLayer()
 CCScene* StartLayer::scene(int tarIndex)
 {
     CCScene* scene = CCScene::create();
+    scene->setTag(SceneTypeStart);
     auto layer = StartLayer::create(tarIndex);
     
     scene->addChild(layer);

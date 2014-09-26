@@ -36,7 +36,7 @@ bool RegisterLayer::init()
     
     //设置返回按钮的位置，以防分辨率不同导致返回按钮不完全显示
     LayoutParameter* param = RelativeLayoutParameter::create();
-    param->setMargin(Margin(btn_back->getPositionX() * 1136 / vsize.width, vsize.height - btn_back->getPositionY(), 0, 0));
+    param->setMargin(Margin(btn_back->getPositionX() * 1136 / vsize.width, 40, 0, 0));
     btn_back->setLayoutParameter(param);
     
     CCSize wsize = CCDirector::sharedDirector()->getWinSize();

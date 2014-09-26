@@ -58,6 +58,7 @@ void AppDelegate::applicationDidEnterBackground() {
 //    Alert::create(ALERTTEXT_UNCONNECT,"",this,touchesureventselector(AppDelegate::clickedSureCallback))->show();
     
     CCScene* scene = CCDirector::sharedDirector()->getRunningScene();
+    CCLog("scene %d",scene->getTag());
     if (SceneTypeStart != scene->getTag())
     {
         SceneManager::getInstance()->replaceScene(SceneTypeStart);
