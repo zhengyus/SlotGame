@@ -910,6 +910,8 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
                 sendmeg.zs = 1;
             }
             
+            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+            
             break;
         }
         default:
