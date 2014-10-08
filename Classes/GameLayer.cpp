@@ -220,6 +220,18 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
             onClickBackEvent();
             break;
         }
+            case OGID_TEXAS_SLOTS_STOPGAME://手气差、止损
+        {
+            if( 0 == data->zs)
+            {
+                Alert::create(ALERTTEXT_TOMORROW_AGAIN)->show();
+            }
+            else if( 1 == data->zs)
+            {
+                Alert::create(ALERTTEXT_MORE_THEN_GOLD)->show();
+            }
+            break;
+        }
         default:
             break;
     }
