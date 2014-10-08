@@ -476,7 +476,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         
                         KCGameLayer::playSound(SHOW_GOLD);
                         
-                        m_armatureGetWin[wi]->setPosition(ccp(450, 180));
+                        m_armatureGetWin[wi]->setPosition(ccp(450, 195));
                         m_armatureGetWin[wi]->setVisible(true);
                         m_armatureGetWin[wi]->getAnimation()->playWithIndex(0);
 

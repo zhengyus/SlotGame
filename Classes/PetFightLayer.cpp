@@ -103,22 +103,24 @@ bool PetFightLayer::init()
 void PetFightLayer::setPetName(int petName)
 {
     petId =petName;
-    
-    switch (petName)
-    {
-        case LION:
-            animName = "Lion";
-            break;
-        case DOG:
-            animName = "Dog";
-            break;
-        case PANDA:
-            animName = "Panda";
-            break;
-        case BOSS:
-            animName = "Boss";
-            break;
-    }
+    animName ="Lion";
+//    switch (petName)
+//    {
+//        case LION:
+//            animName = "Lion";
+//            break;
+//        case DOG:
+//            animName = "Dog";
+//            break;
+//        case PANDA:
+//            animName = "Panda";
+//            break;
+//        case BOSS:
+//            animName = "Boss";
+//            break;
+            
+            
+//    }
 
 }
 
@@ -539,8 +541,8 @@ void PetFightLayer::moveFloor(float times)
     x = size.width;
     y = size.height+origin.y;
     
-    floorView->setPosition(CCPoint(floorView->getPositionX()-10.5,floorY));
-    floorView2->setPosition(CCPoint(floorView2->getPositionX()-10.5,floorY));
+    floorView->setPosition(CCPoint(floorView->getPositionX()-2.5,floorY));
+    floorView2->setPosition(CCPoint(floorView2->getPositionX()-2.5,floorY));
     
     if(floorView->getPositionX()<=-floorView->getContentSize().width)
     {
