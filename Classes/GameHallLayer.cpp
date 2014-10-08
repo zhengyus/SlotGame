@@ -7,7 +7,7 @@
 #include "PetDialog.h"
 #include "HallDataManager.h"
 #include "DataManager.h"
-#include "RoomView.h"
+
 
 
 USING_NS_CC;
@@ -48,19 +48,6 @@ bool GameHallLayer::init()
     bindTouchEvent("btn_message", this, toucheventselector(GameHallLayer::clickedMessageEvent));
     
     return true;
-}
-
-void GameHallLayer::onEnter()
-{
-    BaseLayer::onEnter();
-    
-    schedule(schedule_selector(GameHallLayer::updateNoticeView), 5.0f);
-}
-
-void GameHallLayer::onExit()
-{
-    unschedule(schedule_selector(GameHallLayer::updateNoticeView));
-    BaseLayer::onExit();
 }
 
 void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
@@ -116,23 +103,23 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
 void onSelectedRoomEvent( MyRoomList room)
 {
     SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
-    GameLogicMeg2Sever tmpMeg1;
-    tmpMeg1.m_id = OGID_TEXAS_SLOTS_JOINROOM;
-    tmpMeg1.roomid = room.roomid;
+    GameLogicMeg2Sever tmpMeg;
+    tmpMeg.m_id = OGID_TEXAS_SLOTS_JOINROOM;
+    tmpMeg.roomid = room.roomid;
     
     CCLog("----------selected room %d",room.roomid);
     
-    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg);
 }
 
 void GameHallLayer::showRooms(vector<MyRoomList> rooms)
 {
-    RoomView<MyRoomList>* view = RoomView<MyRoomList>::createWithItemJson("UI4ItemRoom.ExportJson");
-    view->setInitItemCallback(this,inititemventselector(GameHallLayer::initRoomItemCallback));
-    view->setSelectedItemCallback(onSelectedRoomEvent);
-    _wrooms->addNode(view);
-    view->addData(rooms);
-    view->display();
+    _roomView = RoomView<MyRoomList>::createWithItemJson("UI4ItemRoom.ExportJson");
+    _roomView->setInitItemCallback(this,inititemventselector(GameHallLayer::initRoomItemCallback));
+    _roomView->setSelectedItemCallback(onSelectedRoomEvent);
+    _wrooms->addNode(_roomView);
+    _roomView->addData(rooms);
+    _roomView->display();
 }
 
 void GameHallLayer::updateNoticeView(float)
@@ -159,7 +146,6 @@ void GameHallLayer::updateNoticeView(float)
 
 static void initRankItem(int i,Widget* item,MyRankList rank)
 {
-    char tmp[20];
     CCLOG("MyRankList---------%s",rank.rankName.c_str());
     Widget* wgt1 = UIHelper::seekWidgetByName(item,"Panel_num");
     Label* lbl2 = static_cast<Label*>(UIHelper::seekWidgetByName(item,"Label_nickname"));
@@ -178,8 +164,7 @@ static void initRankItem(int i,Widget* item,MyRankList rank)
     else
     {
         Label* lbl = Label::create();
-        sprintf(tmp, "%d",i + 1);
-        lbl->setText(string(tmp));
+        lbl->setText(CCString::createWithFormat("%d",i+1)->getCString());
         w = lbl;
     }
     
@@ -189,9 +174,7 @@ static void initRankItem(int i,Widget* item,MyRankList rank)
     }
     
     lbl2->setText(rank.rankName);
-    
-    sprintf(tmp, "%lld",rank.rankGold);
-    lbl3->setText(string(tmp));
+    lbl3->setText(CCString::createWithFormat("%lld",rank.rankGold)->getCString());
     
     if (i<3)
     {
@@ -247,4 +230,17 @@ void GameHallLayer::clickedHelpEvent(CCObject*,TouchEventType event)
         SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
         CCLOG("onHelp");
     }
+}
+
+void GameHallLayer::onEnter()
+{
+    BaseLayer::onEnter();
+    
+    schedule(schedule_selector(GameHallLayer::updateNoticeView), 5.0f);
+}
+
+void GameHallLayer::onExit()
+{
+    unschedule(schedule_selector(GameHallLayer::updateNoticeView));
+    BaseLayer::onExit();
 }

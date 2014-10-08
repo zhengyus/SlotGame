@@ -137,6 +137,7 @@ protected:
     
     void initUI()
     {
+        removeAllChildren();
         UILayer* root = UILayer::create();
         Widget* widget = NULL;
         Widget* room = NULL;
