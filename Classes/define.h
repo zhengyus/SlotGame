@@ -26,7 +26,7 @@ USING_NS_CC;
 
 #define OPEN_DEBUG 0//调试开关 1-开启调试 0其他关闭调试
 
-#define OPEN_NET_IP 1//内外网切换开关1-连外网 0其他-连内网
+#define OPEN_NET_IP 0//内外网切换开关1-连外网 0其他-连内网
 
 
 
