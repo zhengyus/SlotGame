@@ -5,6 +5,7 @@
 #include "HeadView.h"
 #include "NoticeView.h"
 #include "HallDataManager.h"
+#include "RoomView.h"
 
 USING_NS_CC;
 
@@ -46,6 +47,7 @@ public:
     
     Widget*     _wrooms;
     NoticeView* _noticeView;
+    RoomView<MyRoomList>* _roomView;
     
 public:
     HallDataManager* _hallData;

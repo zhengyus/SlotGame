@@ -290,6 +290,7 @@ void GameLayer::clickedSureCallback()
 
 void GameLayer::onClickBackEvent()
 {
+    _hallLayer->_roomView->display();
     showLayer(_hallLayer);
 }
 

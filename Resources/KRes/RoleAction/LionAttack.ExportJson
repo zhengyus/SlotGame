@@ -22,7 +22,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "shizigongji p 1.png",
+              "name": "shizigodfdfdfdfngji p 1.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -36,7 +36,7 @@
               ]
             },
             {
-              "name": "11111.png",
+              "name": "1dfdfdfdfdfdfdf1111.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -67,7 +67,7 @@
           "effectbyskeleton": false,
           "display_data": [
             {
-              "name": "shizigongji ap 3.png",
+              "name": "shizigondfdfdfdfdfgji ap 3.png",
               "displayType": 0,
               "skin_data": [
                 {
@@ -113,7 +113,7 @@
                   "kY": 0.0,
                   "fi": 0,
                   "twE": 0,
-                  "tweenFrame": true
+                  "tweenFrame": false
                 },
                 {
                   "dI": 1,
@@ -152,7 +152,7 @@
                   "kY": 0.0,
                   "fi": 9,
                   "twE": 0,
-                  "tweenFrame": true
+                  "tweenFrame": false
                 },
                 {
                   "dI": 0,
@@ -234,7 +234,7 @@
   ],
   "texture_data": [
     {
-      "name": "shizigongji p 1",
+      "name": "shizigodfdfdfdfngji p 1",
       "width": 133.0,
       "height": 124.0,
       "pX": 0.5,
@@ -242,7 +242,7 @@
       "plistFile": ""
     },
     {
-      "name": "11111",
+      "name": "1dfdfdfdfdfdfdf1111",
       "width": 171.0,
       "height": 120.0,
       "pX": 0.05175439,
@@ -250,7 +250,7 @@
       "plistFile": ""
     },
     {
-      "name": "shizigongji ap 3",
+      "name": "shizigondfdfdfdfdfgji ap 3",
       "width": 135.0,
       "height": 17.0,
       "pX": 0.00370370364,
