@@ -49,7 +49,7 @@ public:
     unsigned long long currGold;//当前人物拥有的金币（万能豆）
     int currExp;
     int needExp;
-    int currFreeNum;//免费转动次数
+    int currFreeNum;//免费转动次数 老虎机
     
     //游戏内部相关数据------------------------------------
     //房间内部配置数据
@@ -84,7 +84,7 @@ public:
     int roomPicInRoom;//房间显示图片类型
     unsigned long long bossPic;//boss图片类型
     unsigned long long petCurrGold;//宠物话费金币(位置)
-    int freeNum;//免费次数
+    int freeNum;//免费次数 战斗界面
     unsigned long long needGold;//每次转动花费金币
     int boosBlood;//boss当前血量
     int bossBloodMax;//boss满值血

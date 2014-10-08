@@ -90,6 +90,8 @@ bool LoginLayer::init()
     _down->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedDown));
     
 //    setAccountAndPwd();
+    UserAccountService userAccountService;
+    userAccountService.createTable();
     
     toggleAccouts(false);
     return true;
@@ -242,11 +244,7 @@ void LoginLayer::showUserAccounts()
     }
     
     CCSize size = CCSizeMake(_list->getSize().width,170);
-    if (0 == length)
-    {
-        size.height = 85;
-    }
-    else if (length < 3)
+    if (length < 3)
     {
         size.height = 85 * length;
     }

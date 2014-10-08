@@ -893,6 +893,12 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
             break;
         }
+        case OGID_TEXAS_SLOTS_DOUBLEJP://比倍界面返回jp巨奖
+        {
+            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_K2_REC_MEG_FROM_SEVER, &sendmeg);
+            
+            break;
+        }
         default:
         {
             CCLog("No this Message ID~~~!!!!!%d", tid);

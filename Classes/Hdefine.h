@@ -64,6 +64,7 @@ public:
     com::ourgame::texasSlots::OGAckPetFightResult ackOGAckPetFightResult;
     com::ourgame::texasSlots::OGAckDoubleResult ackOGAckDoubleResult;
     com::ourgame::texasSlots::OGAckPetGetAward ackOGAckPetGetAward;
+    com::ourgame::texasSlots::OGAckDoubleJpResult ackOGAckDoubleJpResult;
 };
 
 struct MyRoomList

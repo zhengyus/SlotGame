@@ -8,6 +8,8 @@
 
 #include "HeadView.h"
 #include "StartLayer.h"
+#include "HallDataManager.h"
+#include "RankJPDialog.h"
 
 static HeadView* instance = NULL;
 
@@ -41,6 +43,7 @@ bool HeadView::init()
     _rank = static_cast<LabelAtlas*>(uilayer->getWidgetByName("AtlasLabel_rank"));
     _back = static_cast<Button*>(uilayer->getWidgetByName("Button_back"));
     _menu = uilayer->getWidgetByName("Button_menu");
+    _jp = static_cast<ImageView*>(uilayer->getWidgetByName("Image_jpprize"));
     Widget* btnAdd = uilayer->getWidgetByName("Button_add");
     
     widget = uilayer->getWidgetByName("Panel_gold");
@@ -50,9 +53,9 @@ bool HeadView::init()
     _goldAnimation->setPosition(ccp(widget->getSize().width/2, widget->getSize().height/2));
     widget->addNode(_goldAnimation);
     
-
     btnAdd->addTouchEventListener(this, toucheventselector(HeadView::clickedAddEvent));
     _menu->addTouchEventListener(this, toucheventselector(HeadView::clickedMenuEvent));
+    _jp->addTouchEventListener(this, toucheventselector(HeadView::clickedJPEvent));
     
     setName("");
     setLevel(0);
@@ -135,6 +138,15 @@ void HeadView::clickedMenuEvent(CCObject*,TouchEventType event)
         
         CCScene* scene = StartLayer::scene(1);
         CCDirector::sharedDirector()->replaceScene(scene);
+    }
+}
+
+void HeadView::clickedJPEvent(CCObject*,TouchEventType event)
+{
+    if (TOUCH_EVENT_ENDED == event)
+    {
+        SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
+        RankJPDialog::create(HallDataManager::getInstance()->_JPRanks)->show();
     }
 }
 

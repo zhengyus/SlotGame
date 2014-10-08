@@ -1697,36 +1697,86 @@ void KCGameLayer::initUI()
         imgid = 1;
     }
     
-    for(int i = 0; i < DataManager::sharedDataManager()->roomBetList.size(); i++)
+    //无免费转动的时候
+    if(DataManager::sharedDataManager()->currFreeNum <= 0)
     {
-        if(m_roomID == 1)
+        DataManager::sharedDataManager()->currFreeNum = 0;
+        
+        //求倍数
+        for(int i = 0; i < DataManager::sharedDataManager()->roomBetList.size(); i++)
         {
-            if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
-               && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
+            if(m_roomID == 1)
             {
-                m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
+                if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
+                   && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
+                {
+                    m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
+                }
             }
-        }
-        else if(m_roomID == 2)
-        {
-            if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
-               && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
+            else if(m_roomID == 2)
             {
-                m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
+                if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
+                   && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
+                {
+                    m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
+                }
+                
+            }
+            else if(m_roomID == 3)
+            {
+                if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
+                   && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
+                {
+                    m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
+                }
+
             }
             
         }
-        else if(m_roomID == 3)
+        
+        //设置线数
+        if(25*m_baseGold*m_beiNum <= m_usrHavaGold)
         {
-            if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
-               && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
-            {
-                m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
-            }
-
+            m_setLineRewNum = 25;
+        }
+        else if(15*m_baseGold*m_beiNum <= m_usrHavaGold)
+        {
+            m_setLineRewNum = 15;
+        }
+        else if(10*m_baseGold*m_beiNum <= m_usrHavaGold)
+        {
+            m_setLineRewNum = 10;
+        }
+        else if(5*m_baseGold*m_beiNum <= m_usrHavaGold)
+        {
+            m_setLineRewNum = 5;
+        }
+        else if(3*m_baseGold*m_beiNum <= m_usrHavaGold)
+        {
+            m_setLineRewNum = 3;
+        }
+        else if(1*m_baseGold*m_beiNum <= m_usrHavaGold)
+        {
+            m_setLineRewNum = 1;
+        }
+        else
+        {
+            m_setLineRewNum = 1;
+        }
+        
+        if(m_setLineRewNum > m_maxLineRewNum)
+        {
+            m_setLineRewNum = m_maxLineRewNum;
         }
         
     }
+    //有免费转动的时候
+    else
+    {
+        m_setLineRewNum = m_maxLineRewNum;
+        m_beiNum = m_maxBeiNum;
+    }
+///////////////////////////////////////////////////
     
     char tmStr[50];
     //设置数字
@@ -1867,6 +1917,8 @@ void KCGameLayer::update(float dt)
             case 3://比倍
             {
                 HeadView::getInstance()->setBackVisible(false);
+                HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_winGold);
+                
                 m_BtnBack->setVisible(false);
                 m_Widget->setVisible(false);
                 this->addChild(m_double);
@@ -2384,9 +2436,9 @@ void KCGameLayer::setLoseL()
     
 }
 
-void KCGameLayer::playSound(const char * name)
+int KCGameLayer::playSound(const char * name)
 {
-    SimpleAudioEngine::sharedEngine()->playEffect(name);
+    return SimpleAudioEngine::sharedEngine()->playEffect(name);
 }
 
 void KCGameLayer::setGoLVisible()

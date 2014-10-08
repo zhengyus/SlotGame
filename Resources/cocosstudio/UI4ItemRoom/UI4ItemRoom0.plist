@@ -4,6 +4,25 @@
 	<dict>
 		<key>frames</key>
 		<dict>
+			<key>room1.png</key>
+			<dict>
+				<key>width</key>
+				<integer>304</integer>
+				<key>height</key>
+				<integer>444</integer>
+				<key>originalWidth</key>
+				<integer>304</integer>
+				<key>originalHeight</key>
+				<integer>444</integer>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<integer>0</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
 			<key>back_free.png</key>
 			<dict>
 				<key>width</key>
@@ -15,7 +34,7 @@
 				<key>originalHeight</key>
 				<integer>20</integer>
 				<key>x</key>
-				<integer>0</integer>
+				<integer>306</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -34,26 +53,7 @@
 				<key>originalHeight</key>
 				<integer>24</integer>
 				<key>x</key>
-				<integer>57</integer>
-				<key>y</key>
-				<integer>0</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>room1.png</key>
-			<dict>
-				<key>width</key>
-				<integer>304</integer>
-				<key>height</key>
-				<integer>444</integer>
-				<key>originalWidth</key>
-				<integer>304</integer>
-				<key>originalHeight</key>
-				<integer>444</integer>
-				<key>x</key>
-				<integer>85</integer>
+				<integer>363</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>

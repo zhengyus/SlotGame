@@ -130,7 +130,7 @@ public:
     // implement the "static node()" method manually
     CREATE_FUNC(KCGameLayer);
     
-    static void playSound(const char * name);//播放音效
+    static int playSound(const char * name);//播放音效
     
     void initUI();
     void runActionLHJ();//老虎机转动
