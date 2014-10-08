@@ -66,7 +66,7 @@ void GameHallLayer::onExit()
 void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
 {
     ImageView* img = static_cast<ImageView*>(UIHelper::seekWidgetByName(widget, "Image_back"));
-    Button* enter = static_cast<Button*>(img->getChildByName("Button_enter"));
+    ImageView* enter = static_cast<ImageView*>(img->getChildByName("Image_enter"));
     Label*  lblWord = static_cast<Label*>(enter->getChildByName("Label_word"));
     Widget* panelFree = UIHelper::seekWidgetByName(widget, "Image_free_back");
     
@@ -108,7 +108,7 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
     string room_btn = CCString::createWithFormat("button_room%d.png",room.roomid)->getCString();
     
   
-    enter->loadTextureNormal(room_btn.c_str(),UI_TEX_TYPE_PLIST);
+    enter->loadTexture(room_btn.c_str(),UI_TEX_TYPE_PLIST);
     img->loadTexture(room_back.c_str(),UI_TEX_TYPE_PLIST);
     lblWord->setText(word);
 }

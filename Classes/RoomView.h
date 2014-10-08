@@ -149,7 +149,7 @@ protected:
             widget->setPosition(ccp(_sX + _spacing * i, _y));
             
             room = widget->getChildByName("Image_back");
-            room_btn = room->getChildByName("Button_enter");
+            room_btn = room->getChildByName("Image_enter");
             room->setTouchEnabled(true);
             room->setTag(i);
             room_btn->setTag(i);
