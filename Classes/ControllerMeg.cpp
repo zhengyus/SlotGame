@@ -899,6 +899,19 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             
             break;
         }
+        case OGID_TEXAS_SLOTS_STOPGAME://止损
+        {
+            if(tmeg->ackOGAckStopGame.status() == OGAckStopGame::ET_STOPS)//游戏止损
+            {
+                sendmeg.zs = 0;
+            }
+            else if(tmeg->ackOGAckStopGame.status() == OGAckStopGame::ET_CARRYCAPS)//携带上限
+            {
+                sendmeg.zs = 1;
+            }
+            
+            break;
+        }
         default:
         {
             CCLog("No this Message ID~~~!!!!!%d", tid);

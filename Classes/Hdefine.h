@@ -65,6 +65,7 @@ public:
     com::ourgame::texasSlots::OGAckDoubleResult ackOGAckDoubleResult;
     com::ourgame::texasSlots::OGAckPetGetAward ackOGAckPetGetAward;
     com::ourgame::texasSlots::OGAckDoubleJpResult ackOGAckDoubleJpResult;
+    com::ourgame::texasSlots::OGAckStopGame ackOGAckStopGame;
 };
 
 struct MyRoomList
@@ -228,6 +229,7 @@ public:
     
     //-----------------------------------------------------
     
+    int zs;//止损0-游戏止损 1-携带上限
 };
 
 typedef struct

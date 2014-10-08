@@ -1002,6 +1002,18 @@ void GameLogicSocket::onOGAckDoubleJpResult(const char* message, int size)
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
 }
 
+void GameLogicSocket::onOGAckStopGame(const char* message, int size)
+{
+    OGAckStopGame meg;
+    meg.ParseFromArray(message, size);
+    
+    GameLogicMegFromSever tmpMeg;
+    tmpMeg.m_id = OGID_TEXAS_SLOTS_STOPGAME;
+    tmpMeg.ackOGAckStopGame = meg;
+    
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
+}
+
 void GameLogicSocket::onLogin2(const char* message, int size)
 {
     OGAckRoleLoginMsg meg;
@@ -1217,6 +1229,13 @@ void GameLogicSocket::onReceiveData(int messageID, const char* message, int size
         {
             onOGAckDoubleJpResult(message, size);
             CCLog("比倍界面 JP巨奖消息～～～");
+            break;
+        }
+        case OGID_TEXAS_SLOTS_STOPGAME:
+        {
+            onOGAckStopGame(message, size);
+            
+            CCLog("止损～～～～～～～");
             break;
         }
         default:
