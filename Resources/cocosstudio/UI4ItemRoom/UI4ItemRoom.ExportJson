@@ -21,7 +21,7 @@
     "name": null,
     "children": [
       {
-        "classname": "Button",
+        "classname": "ImageView",
         "name": null,
         "children": [
           {
@@ -371,10 +371,27 @@
               "flipY": false,
               "height": 53,
               "ignoreSize": true,
-              "layoutParameter": null,
+              "layoutParameter": {
+                "classname": null,
+                "name": null,
+                "align": 1,
+                "gravity": 0,
+                "layoutEageType": 0,
+                "layoutNormalHorizontal": 0,
+                "layoutNormalVertical": 0,
+                "layoutParentHorizontal": 0,
+                "layoutParentVertical": 0,
+                "marginDown": 0,
+                "marginLeft": 0,
+                "marginRight": -70,
+                "marginTop": 587,
+                "relativeName": "Button_enter",
+                "relativeToName": "Panel_1",
+                "type": 2
+              },
               "opacity": 255,
-              "positionPercentX": 0,
-              "positionPercentY": -0.3828829,
+              "positionPercentX": -0.00164473685,
+              "positionPercentY": -0.381756753,
               "positionType": 0,
               "rotation": 0,
               "scaleX": 1,
@@ -388,7 +405,7 @@
               "visible": true,
               "width": 141,
               "x": 0,
-              "y": -170,
+              "y": -169,
               "capInsetsHeight": 1,
               "capInsetsWidth": 1,
               "capInsetsX": 0,
@@ -425,14 +442,14 @@
           }
         ],
         "options": {
-          "__type": "ButtonSurrogate:#EditorCommon.JsonModel.Component.GUI",
-          "classname": "Button",
-          "name": "Button_room",
+          "__type": "ImageViewSurrogate:#EditorCommon.JsonModel.Component.GUI",
+          "classname": "ImageView",
+          "name": "Image_back",
           "ZOrder": 0,
-          "actiontag": 62970394,
+          "actiontag": 2186017,
           "anchorPointX": 0.5,
           "anchorPointY": 0.5,
-          "classType": "CocoStudio.EngineAdapterWrap.CSButton",
+          "classType": "CocoStudio.EngineAdapterWrap.CSImageView",
           "colorB": 255,
           "colorG": 255,
           "colorR": 255,
@@ -452,10 +469,10 @@
             "layoutParentHorizontal": 0,
             "layoutParentVertical": 0,
             "marginDown": 0,
-            "marginLeft": -307,
+            "marginLeft": -29,
             "marginRight": 0,
-            "marginTop": -29,
-            "relativeName": "Button_room",
+            "marginTop": 29,
+            "relativeName": "Image_back",
             "relativeToName": "Panel_1",
             "type": 2
           },
@@ -466,11 +483,11 @@
           "rotation": 0,
           "scaleX": 1,
           "scaleY": 1,
-          "sizePercentX": 1,
-          "sizePercentY": 1,
+          "sizePercentX": 0.2631579,
+          "sizePercentY": 0.180180177,
           "sizeType": 0,
-          "tag": 15,
-          "touchAble": true,
+          "tag": 33,
+          "touchAble": false,
           "useMergedTexture": true,
           "visible": true,
           "width": 304,
@@ -480,34 +497,15 @@
           "capInsetsWidth": 1,
           "capInsetsX": 0,
           "capInsetsY": 0,
-          "disabled": null,
-          "disabledData": {
-            "path": null,
-            "plistFile": null,
-            "resourceType": 0
-          },
-          "fontName": "微软雅黑",
-          "fontSize": 14,
-          "fontType": 0,
-          "normal": null,
-          "normalData": {
+          "fileName": null,
+          "fileNameData": {
             "path": "room1.png",
             "plistFile": "",
             "resourceType": 1
           },
-          "pressed": null,
-          "pressedData": {
-            "path": null,
-            "plistFile": null,
-            "resourceType": 0
-          },
           "scale9Enable": false,
           "scale9Height": 444,
-          "scale9Width": 304,
-          "text": "",
-          "textColorB": 255,
-          "textColorG": 255,
-          "textColorR": 255
+          "scale9Width": 304
         }
       }
     ],

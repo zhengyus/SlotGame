@@ -89,38 +89,37 @@ public:
     
     void onSelectedRoomEvent(CCObject* pSender, TouchEventType type)
     {
-        if (type == TOUCH_EVENT_ENDED)
-        {
-            Widget* widget = dynamic_cast<Widget*>(pSender);
-            if (NULL != _selectedItemCallback)
+        static bool scale = false;
+        Widget* widget = dynamic_cast<Widget*>(pSender);
+        
+        switch (type) {
+            case TOUCH_EVENT_BEGAN:
             {
-                _selectedItemCallback(_data[widget->getTag()]);
-            }
-            /*
-            if(_room == img)
-            {
-                if (NULL != _selectedItemCallback)
+                if (!scale)
                 {
-                    _selectedItemCallback(_data[img->getTag()]);
+                    scale = true;
+                    widget->setScale(.95);
                 }
             }
-            else
+                break;
+            case TOUCH_EVENT_MOVED:
+                break;
+            case TOUCH_EVENT_ENDED:
             {
-                CCMoveTo* mv1 = CCMoveTo::create(.4, _room->getParent()->getPosition());
-                CCScaleTo* to1 = CCScaleTo::create(.4, 1);
-                
-                CCMoveTo* mv2 = CCMoveTo::create(.4, img->getParent()->getPosition());
-                CCScaleTo* to2 = CCScaleTo::create(.4, _miniscale);
-                
-                img->setZOrder(2);
-                _room->setZOrder(1);
-                
-                img->getParent()->runAction(CCSpawn::create(mv1,to1,NULL));
-                _room->getParent()->runAction(CCSpawn::create(mv2,to2,NULL));
-                
-                _room = img;
+                widget->setScale(1);
+                scale = false;
+            
+                if (NULL != _selectedItemCallback)
+                    _selectedItemCallback(_data[widget->getTag()]);
+                 
             }
-             */
+                break;
+            default:
+            {
+                widget->setScale(1);
+                scale = false;
+            }
+                break;
         }
     }
     
@@ -149,7 +148,7 @@ protected:
             widget->setScale(.9);
             widget->setPosition(ccp(_sX + _spacing * i, _y));
             
-            room = widget->getChildByName("Button_room");
+            room = widget->getChildByName("Image_back");
             room_btn = room->getChildByName("Button_enter");
             room->setTouchEnabled(true);
             room->setTag(i);
