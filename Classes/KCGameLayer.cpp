@@ -278,6 +278,9 @@ bool KCGameLayer::init()
 
 void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
 {
+    
+    m_usrHavaGold = DataManager::sharedDataManager()->currGold;
+    
     if(m_isAllThingsStop)
     {
         return;
@@ -327,41 +330,28 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
                     UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
-                    
+                    //免费的
                     if(DataManager::sharedDataManager()->currFreeNum > 0)
                     {
                         pnc->setVisible(false);
                         pnf->setVisible(true);
-                    }
-                    else
-                    {
-                        pnf->setVisible(false);
-                        pnc->setVisible(true);
-                    }
-
-                    sprintf(tmStr, "ZD%d.png", imgid);
-                    m_Panel_MoveCell00->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell01->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell10->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell11->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell20->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell21->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell30->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell31->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell40->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    m_Panel_MoveCell41->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
-                    
-                    
-                    
-                    m_roleExp = 0;
-                    stopRewardAction();
-                    
-                    unsigned long long tmpLNum = m_setLineRewNum*m_beiNum*m_baseGold;
-                    
-                    //金币足够的情况下发送消息
-                    if(tmpLNum <= m_usrHavaGold)
-                    {
                         
+                        sprintf(tmStr, "ZD%d.png", imgid);
+                        m_Panel_MoveCell00->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell01->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell10->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell11->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell20->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell21->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell30->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell31->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell40->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell41->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        
+                        
+                        m_roleExp = 0;
+                        stopRewardAction();
+                            
                         if(m_roomID == 2)
                         {
                             playSound(ROLL_EFFECT_EG);
@@ -374,7 +364,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         {
                             playSound(ROLL_EFFECT_CH);
                         }
-
+                        
                         
                         runActionLHJ();
                         
@@ -387,11 +377,69 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         
                         m_isGoldEnougth = true;
                         
+
                     }
+                    //正常转动
                     else
                     {
-                        Alert::create(ALERTTEXT_GOLD)->show();
-                        m_isGoldEnougth = false;
+                        pnf->setVisible(false);
+                        pnc->setVisible(true);
+
+                        sprintf(tmStr, "ZD%d.png", imgid);
+                        m_Panel_MoveCell00->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell01->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell10->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell11->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell20->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell21->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell30->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell31->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell40->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        m_Panel_MoveCell41->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
+                        
+                        
+                        
+                        m_roleExp = 0;
+                        stopRewardAction();
+                        
+                        unsigned long long tmpLNum = m_setLineRewNum*m_beiNum*m_baseGold;
+                        
+                        //金币足够的情况下发送消息
+                        if(tmpLNum <= m_usrHavaGold)
+                        {
+                            
+                            if(m_roomID == 2)
+                            {
+                                playSound(ROLL_EFFECT_EG);
+                            }
+                            else if(m_roomID == 3)
+                            {
+                                playSound(ROLL_EFFECT_US);
+                            }
+                            else if(m_roomID == 1)
+                            {
+                                playSound(ROLL_EFFECT_CH);
+                            }
+
+                            
+                            runActionLHJ();
+                            
+                            GameLogicMeg2Sever tmpMeg1;
+                            tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQGAMESTRT;
+                            tmpMeg1.line = m_setLineRewNum;
+                            tmpMeg1.times = m_beiNum;
+                            tmpMeg1.autop = m_isCanAuto;
+                            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+                            
+                            m_isGoldEnougth = true;
+                            
+                        }
+                        else
+                        {
+                            Alert::create(ALERTTEXT_GOLD)->show();
+                            m_isGoldEnougth = false;
+                        }
+                    
                     }
                     
                     break;
@@ -442,6 +490,12 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 case BTN_LINE:
                 {
                     if(!m_isCanTouchAllBtn)
+                    {
+                        return;
+                    }
+                    
+                    //免费不处理
+                    if(DataManager::sharedDataManager()->currFreeNum > 0)
                     {
                         return;
                     }
@@ -530,6 +584,12 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         return;
                     }
                     
+                    //免费不处理
+                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    {
+                        return;
+                    }
+                    
                     m_beiNum++;
                     
                     if(m_beiNum > m_maxBeiNum)
@@ -595,62 +655,26 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         return;
                     }
                     
-                    stopRewardAction();
-                    
-                    if(m_baseGold == 0)
-                    {
-                        m_baseGold = 999999999;
-                    }
-                    
-                    int tmpLineNum = m_usrHavaGold/m_baseGold;
-                    
-                    if(tmpLineNum == 0)
-                    {
-                        tmpLineNum = 1;
-                    }
-                    
-                    if(tmpLineNum > m_maxLineRewNum)
-                    {
-                        tmpLineNum = m_maxLineRewNum;
-                    }
-                    
-                    m_setLineRewNum = tmpLineNum;
-                    
-                    if(m_setLineRewNum == 0 || m_baseGold == 0)
-                    {
-                        m_setLineRewNum = 999999999;
-                        m_baseGold = 999999999;
-                    }
-                    
-                    int tmpBeiNum = m_usrHavaGold/(m_setLineRewNum*m_baseGold);
-                    
-                    if(tmpBeiNum == 0)
-                    {
-                        tmpBeiNum = 1;
-                    }
-                    
-                    if(tmpBeiNum > m_maxBeiNum)
-                    {
-                        tmpBeiNum = m_maxBeiNum;
-                    }
-                    
-                    m_beiNum = tmpBeiNum;
-                    
                     char tmStr[50];
-                    //设置数字
-                    sprintf(tmStr, "%d", m_setLineRewNum);
-                    m_LabelAtlasLine->setStringValue(tmStr);
                     
-                    sprintf(tmStr, "%d", m_beiNum);
-                    m_LabelAtlasBei->setStringValue(tmStr);
-                    
-                    unsigned long long tmpLNum = m_setLineRewNum*m_beiNum*m_baseGold;
-                    
-                    sprintf(tmStr, "%lld", tmpLNum);
-                    m_LabelAtlasCost->setStringValue(tmStr);
-                    
-                    if(tmpLNum <= m_usrHavaGold)
+                    if(DataManager::sharedDataManager()->currFreeNum > 0)
                     {
+                        DataManager::sharedDataManager()->currFreeNum--;
+                    }
+                    
+                    
+                    sprintf(tmStr, "%d", DataManager::sharedDataManager()->currFreeNum);
+                    m_LabelAtlasFree->setStringValue(tmStr);
+                    
+                    UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
+                    UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
+                    //免费的
+                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    {
+                        pnc->setVisible(false);
+                        pnf->setVisible(true);
+                        
+                        stopRewardAction();
                         
                         if(m_roomID == 2)
                         {
@@ -678,11 +702,99 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     else
                     {
-                        Alert::create(ALERTTEXT_GOLD)->show();
-                        m_isGoldEnougth = false;
-                    }
+                        pnf->setVisible(false);
+                        pnc->setVisible(true);
                     
-                    updateZS();
+                    
+                        stopRewardAction();
+                        
+                        if(m_baseGold == 0)
+                        {
+                            m_baseGold = 999999999;
+                        }
+                        
+                        int tmpLineNum = m_usrHavaGold/m_baseGold;
+                        
+                        if(tmpLineNum == 0)
+                        {
+                            tmpLineNum = 1;
+                        }
+                        
+                        if(tmpLineNum > m_maxLineRewNum)
+                        {
+                            tmpLineNum = m_maxLineRewNum;
+                        }
+                        
+                        m_setLineRewNum = tmpLineNum;
+                        
+                        if(m_setLineRewNum == 0 || m_baseGold == 0)
+                        {
+                            m_setLineRewNum = 999999999;
+                            m_baseGold = 999999999;
+                        }
+                        
+                        int tmpBeiNum = m_usrHavaGold/(m_setLineRewNum*m_baseGold);
+                        
+                        if(tmpBeiNum == 0)
+                        {
+                            tmpBeiNum = 1;
+                        }
+                        
+                        if(tmpBeiNum > m_maxBeiNum)
+                        {
+                            tmpBeiNum = m_maxBeiNum;
+                        }
+                        
+                        m_beiNum = tmpBeiNum;
+                        
+                        char tmStr[50];
+                        //设置数字
+                        sprintf(tmStr, "%d", m_setLineRewNum);
+                        m_LabelAtlasLine->setStringValue(tmStr);
+                        
+                        sprintf(tmStr, "%d", m_beiNum);
+                        m_LabelAtlasBei->setStringValue(tmStr);
+                        
+                        unsigned long long tmpLNum = m_setLineRewNum*m_beiNum*m_baseGold;
+                        
+                        sprintf(tmStr, "%lld", tmpLNum);
+                        m_LabelAtlasCost->setStringValue(tmStr);
+                        
+                        if(tmpLNum <= m_usrHavaGold)
+                        {
+                            
+                            if(m_roomID == 2)
+                            {
+                                playSound(ROLL_EFFECT_EG);
+                            }
+                            else if(m_roomID == 3)
+                            {
+                                playSound(ROLL_EFFECT_US);
+                            }
+                            else if(m_roomID == 1)
+                            {
+                                playSound(ROLL_EFFECT_CH);
+                            }
+                            
+                            runActionLHJ();
+                            
+                            GameLogicMeg2Sever tmpMeg1;
+                            tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQGAMESTRT;
+                            tmpMeg1.line = m_setLineRewNum;
+                            tmpMeg1.times = m_beiNum;
+                            tmpMeg1.autop = m_isCanAuto;
+                            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+                            
+                            m_isGoldEnougth = true;
+                        }
+                        else
+                        {
+                            Alert::create(ALERTTEXT_GOLD)->show();
+                            m_isGoldEnougth = false;
+                        }
+                        
+                        updateZS();
+                    }
                     
                     break;
                 }
@@ -1912,6 +2024,24 @@ void KCGameLayer::update(float dt)
             }
             case 2://大厅
             {
+                m_pageCurr = m_page;
+                this->removeChild(m_double);
+                m_BtnBack->setVisible(true);
+                m_Widget->setVisible(true);
+                
+                stopRewardAction();
+                
+                GameLogicMeg2Sever tmpMeg1;
+                tmpMeg1.m_id = OGID_TEXAS_SLOTS_EXITGAME;
+                tmpMeg1.msgtyoe = 1;
+                CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+                
+                
+                Meg2UIDate sendmeg;
+                sendmeg.m_id = GAME_LAYER_BACK;
+                
+                CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+                
                 break;
             }
             case 3://比倍

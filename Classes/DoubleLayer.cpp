@@ -277,6 +277,11 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
             {
                 case BTN_RED:
                 {
+                    //大于2亿不再比倍
+                    if(m_winGold >= 200000000)
+                    {
+                        return;
+                    }
                     
                     runBiBei(1);
                     
@@ -284,6 +289,11 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_BLACK:
                 {
+                    //大于2亿不再比倍
+                    if(m_winGold >= 200000000)
+                    {
+                        return;
+                    }
                     
                     runBiBei(2);
                     
@@ -291,7 +301,11 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X2:
                 {
-                    
+                    //大于2亿不再比倍
+                    if(m_winGold >= 200000000)
+                    {
+                        return;
+                    }
 //                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
                     
                     if(m_beiNum != 2)
@@ -336,6 +350,11 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X3:
                 {
+                    //大于2亿不再比倍
+                    if(m_winGold >= 200000000)
+                    {
+                        return;
+                    }
 //                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
                     
                     if(m_beiNum != 3)
@@ -380,6 +399,11 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X5:
                 {
+                    //大于2亿不再比倍
+                    if(m_winGold >= 200000000)
+                    {
+                        return;
+                    }
                     
                     if(m_beiNum != 5)
                     {
@@ -923,6 +947,27 @@ void DoubleLayer::setLabelWinNum()
     m_arrCardImg->removeAllObjects();
     
     HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_winGold);
+    
+    //赢的金币大于2亿 直接返回大厅界面
+    if(m_winGold >= 200000000)
+    {
+        GameLogicMeg2Sever tmpMeg1;
+        tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
+        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+        
+        for (int i = 0; i < m_arrCardImg->count(); i++)
+        {
+            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+            
+        }
+        
+        m_arrCardImg->removeAllObjects();
+        this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+        m_starNum = 0;
+        
+        ((KCGameLayer*)this->getParent())->m_page = 2;//返回大厅界面
+        
+    }
 }
 
 void DoubleLayer::runMoneyFly()
@@ -976,7 +1021,6 @@ void DoubleLayer::setActionFly1()
     m_armatureChiBangRight->setPosition(ccp(600, 550));
     
     //金币小于底金 直接返回老虎机界面
-
     if(HeadView::getInstance()->getBean() < m_winGold)
     {
         GameLogicMeg2Sever tmpMeg1;
