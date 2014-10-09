@@ -511,6 +511,8 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
                         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
                         
+                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
+                        
                         for (int i = 0; i < m_arrCardImg->count(); i++)
                         {
                             m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
@@ -518,6 +520,30 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         }
                         
                         m_arrCardImg->removeAllObjects();
+                        
+                        //赢的金币大于2亿 直接返回大厅界面
+                        if(m_winGold >= 200000000)
+                        {
+                            GameLogicMeg2Sever tmpMeg1;
+                            tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
+                            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+                            
+                            this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+                            
+                            for (int i = 0; i < m_arrCardImg->count(); i++)
+                            {
+                                m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+                                
+                            }
+                            
+                            m_arrCardImg->removeAllObjects();
+                            this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+                            m_starNum = 0;
+                            
+                            ((KCGameLayer*)this->getParent())->m_page = 2;//返回大厅界面
+                            
+                        }
+
                     }
 
                     
@@ -938,6 +964,8 @@ void DoubleLayer::setLabelWinNum()
     tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
     
+    this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
+    
     for (int i = 0; i < m_arrCardImg->count(); i++)
     {
         m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
@@ -1089,6 +1117,16 @@ bool DoubleLayer::isNoGold(unsigned long long wingold)
     }
     
     return false;
+}
+
+void DoubleLayer::ishaveChange()
+{
+    this->unschedule(schedule_selector(DoubleLayer::ishaveChange));
+    
+    if(((KCGameLayer*)this->getParent())->m_page == 3)
+    {
+        ((KCGameLayer*)this->getParent())->m_page = 2;
+    }
 }
 //void DoubleLayer::registerWithTouchDispatcher()
 //{

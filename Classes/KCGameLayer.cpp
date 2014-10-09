@@ -1751,6 +1751,8 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
             sendmeg.m_id = OGID_TEXAS_SLOTS_PLAYERINFO;
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
             
+            m_double->unschedule(schedule_selector(DoubleLayer::ishaveChange));;
+            
             break;
         }
         case SET_ALL_THINGS_RUN:
