@@ -157,7 +157,7 @@ void StartLayer::receiveBaseMsg(CCObject* obj)
             string password = _userDefault->getStringForKey(SAVE_H_PASSWORD);
             
             UserAccountService userAccountService;
-            userAccountService.addUserAccount(account,password);
+            userAccountService.addUserAccount(account.c_str(),password.c_str());
             
             SceneManager::shareSceneManager()->replaceScene(SceneTypeGame);
         }

@@ -66,7 +66,7 @@ public:
     
     DataManager*            _dataManager;
     HallDataManager*        _hallData;
-    
+    bool                    _continue_receive;
     
     
 };
