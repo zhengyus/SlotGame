@@ -333,6 +333,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         return;
                     }
                     
+                    if(m_pageCurr != 1)
+                    {
+                        return;
+                    }
+                    
                     char tmStr[50];
                     
                     if(DataManager::sharedDataManager()->currFreeNum > 0)
@@ -467,6 +472,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         return;
                     }
                     
+                    if(m_pageCurr != 4)
+                    {
+                        return;
+                    }
+                    
                     playSound(ROLL_EFFECT_FIGHT);
                     
                     char tmStr[50];
@@ -520,6 +530,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 case BTN_LINE:
                 {
                     if(!m_isCanTouchAllBtn)
+                    {
+                        return;
+                    }
+                    
+                    if(m_pageCurr != 1)
                     {
                         return;
                     }
@@ -614,6 +629,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         return;
                     }
                     
+                    if(m_pageCurr != 1)
+                    {
+                        return;
+                    }
+                    
                     //免费不处理
                     if(DataManager::sharedDataManager()->currFreeNum > 0)
                     {
@@ -647,6 +667,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_Auto:
                 {
+                    if(m_pageCurr != 1)
+                    {
+                        return;
+                    }
+                    
                     stopRewardAction();
                     
                     if(m_isCanAuto)
@@ -665,6 +690,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 case BTN_ZD:
                 {
                     
+                    if(m_pageCurr != 4)
+                    {
+                        return;
+                    }
+                    
                     if(m_isCanAuto)
                     {
                         m_isCanAuto = false;
@@ -681,6 +711,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 case BTN_HMAX:
                 {
                     if(!m_isCanTouchAllBtn)
+                    {
+                        return;
+                    }
+                    
+                    if(m_pageCurr != 1)
                     {
                         return;
                     }
@@ -750,10 +785,39 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                             tmpLineNum = 1;
                         }
                         
-                        if(tmpLineNum > m_maxLineRewNum)
+                        if(tmpLineNum >= m_maxLineRewNum)
                         {
                             tmpLineNum = m_maxLineRewNum;
                         }
+                        else
+                        {
+                            if(tmpLineNum >= 1 && tmpLineNum < 3)
+                            {
+                                tmpLineNum = 1;
+                            }
+                            else if(tmpLineNum >= 3 && tmpLineNum < 5)
+                            {
+                                tmpLineNum = 3;
+                            }
+                            else if(tmpLineNum >= 5 && tmpLineNum < 10)
+                            {
+                                tmpLineNum = 5;
+                            }
+                            else if(tmpLineNum >= 10 && tmpLineNum < 15)
+                            {
+                                tmpLineNum = 10;
+                            }
+                            else if(tmpLineNum >= 15 && tmpLineNum < 25)
+                            {
+                                tmpLineNum = 15;
+                            }
+                            else if(tmpLineNum >= 25)
+                            {
+                                tmpLineNum = 25;
+                            }
+
+                        }
+                        
                         
                         m_setLineRewNum = tmpLineNum;
                         
@@ -831,6 +895,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 case BTN_TP:
                 {
                     if(!m_isCanTouchAllBtn)
+                    {
+                        return;
+                    }
+                    
+                    if(m_pageCurr != 4)
                     {
                         return;
                     }

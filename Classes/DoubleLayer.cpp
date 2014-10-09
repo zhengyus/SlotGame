@@ -1064,8 +1064,8 @@ void DoubleLayer::setActionFly1()
         m_arrCardImg->removeAllObjects();
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
         m_starNum = 0;
-        
-        ((KCGameLayer*)this->getParent())->m_page = 1;//返回老虎机界面
+        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
+//        ((KCGameLayer*)this->getParent())->m_page = 1;//返回老虎机界面
         
     }
     
