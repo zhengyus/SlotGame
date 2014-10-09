@@ -177,6 +177,22 @@ bool KCGameLayer::init()
   	tBtnFGO->addTouchEventListener(this, toucheventselector(KCGameLayer::touchEvent));
     tBtnFGO->setTag(BTN_FGO);
     
+    //免费战斗结束 花费金币
+    m_PanelCostZD = dynamic_cast<UIImageView*>(m_Widget->getWidgetByName("Image_Cost_ZD"));
+    
+    if(DataManager::sharedDataManager()->freeNum > 0)
+    {
+        m_PanelCostZD->setVisible(false);
+    }
+    else
+    {
+        m_PanelCostZD->setVisible(true);
+    }
+    
+    sprintf(tmpStr, "%lld", DataManager::sharedDataManager()->needGold);
+    m_LabelCostZD = dynamic_cast<UILabelAtlas*>(m_Widget->getWidgetByName("AtlasLabel_Cost_ZD"));
+    m_LabelCostZD->setStringValue(tmpStr);
+    
     //25个钻石
     for(int i = 1; i <= 25; i++)
     {
@@ -476,6 +492,20 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     sprintf(tmStr, "%d", m_Ffreenum);
                     m_LabelAtlasSY->setStringValue(tmStr);
+                    
+                    //免费战斗结束是否显示花费钱数
+                    if(m_Ffreenum > 0)
+                    {
+                        m_PanelCostZD->setVisible(false);
+                    }
+                    else
+                    {
+                        m_PanelCostZD->setVisible(true);
+                    }
+                    
+                    sprintf(tmStr, "%lld", DataManager::sharedDataManager()->needGold);
+                    m_LabelCostZD->setStringValue(tmStr);
+                    
                     
                     //转动动画
                     runActionLHJ();
@@ -1633,10 +1663,12 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
             CCLog("中线~~~~~~~~~~~=%d", tmeg->Fret);
             CCLog("几连~~~~~~~~~~~=%d", tmeg->FpetJoinNum);
             CCLog("技能~~~~~~~~~~~=%d", tmeg->FpetSkill);
+            CCLog("技能boss~~~~~~~~~~~=%d", tmeg->FbossSkill);
             CCLog("page~~~~~~~~=%d", tmeg->Fpage);
             
             m_FlianNum = tmeg->FpetJoinNum;
             m_FSkill = tmeg->FpetSkill;
+            m_FSkillboss = tmeg->FbossSkill;
             
             //每次战斗结束都要更新boss最大血量
             //虽然不是实时更新，但是有更新肯定会改变
@@ -1753,6 +1785,7 @@ void KCGameLayer::initUI()
     
     m_FlianNum = 0;
     m_FSkill = 0;
+    m_FSkillboss = 0;
     m_armatureStart->setVisible(false);
     m_armatureStart->stopAllActions();
     
@@ -1949,6 +1982,19 @@ void KCGameLayer::initUI()
     m_Panel_MoveCell41->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
     
     updateZS();
+    
+    //战斗界面免费转动结束显示花费
+    if(DataManager::sharedDataManager()->freeNum > 0)
+    {
+        m_PanelCostZD->setVisible(false);
+    }
+    else
+    {
+        m_PanelCostZD->setVisible(true);
+    }
+    
+    sprintf(tmStr, "%lld", DataManager::sharedDataManager()->needGold);
+    m_LabelCostZD->setStringValue(tmStr);
 }
 
 void KCGameLayer::update(float dt)
@@ -2306,9 +2352,6 @@ void KCGameLayer::runFightAction()
     if(0 == m_ActionFightLogicFlag)
     {
         
-        m_pv->petPlay(ATTACK);
-        this->schedule(schedule_selector(KCGameLayer::runFightAction), 0.3f);
-        
         //加血
         if(5 == m_FSkill)
         {
@@ -2357,57 +2400,71 @@ void KCGameLayer::runFightAction()
             p = (float)petCurrBlood/(float)petMaxBlood;
             pa = p*100;
             m_pv->setPetBloodValue(pa);
+            
+            this->schedule(schedule_selector(KCGameLayer::runFightAction), 0.3f);
+        }
+        else
+        {
+            m_pv->petPlay(ATTACK);
+            this->schedule(schedule_selector(KCGameLayer::runFightAction), 0.3f);
         }
     }
     
     //boss被伤害
     if(1 == m_ActionFightLogicFlag)
     {
-        //播发标签动作
-        char tmpStr[50];
-        sprintf(tmpStr, ";%d", petAttack);
-        m_LabelAtlasBossACK->setVisible(true);
-        m_LabelAtlasBossACK->setStringValue(tmpStr);
-        
-        float posY = m_LabelAtlasBossACK->getPositionY();
-        
-        m_LabelAtlasBossACK->runAction(CCMoveTo::create(0.5f, ccp(m_LabelAtlasBossACK->getPositionX(), posY + 50)));
-        
-        m_LabelAtlasBossACK->runAction(CCSequence::create(CCFadeOut::create(0.5f),
-                                                    CCCallFunc::create(this, callfunc_selector(KCGameLayer::setLabelBossACK)),
-                                                    NULL));
-        
-        //播放boss被打动作
-        if(4 == m_FSkill)
+        if(5 != m_FSkill)
         {
-            m_pv->boosPlay(BOSS_LIGHTED);
+            //播发标签动作
+            char tmpStr[50];
+            sprintf(tmpStr, ";%d", petAttack);
+            m_LabelAtlasBossACK->setVisible(true);
+            m_LabelAtlasBossACK->setStringValue(tmpStr);
+            
+            float posY = m_LabelAtlasBossACK->getPositionY();
+            
+            m_LabelAtlasBossACK->runAction(CCMoveTo::create(0.5f, ccp(m_LabelAtlasBossACK->getPositionX(), posY + 50)));
+            
+            m_LabelAtlasBossACK->runAction(CCSequence::create(CCFadeOut::create(0.5f),
+                                                        CCCallFunc::create(this, callfunc_selector(KCGameLayer::setLabelBossACK)),
+                                                        NULL));
+            
+            //播放boss被打动作
+            if(4 == m_FSkill)
+            {
+                m_pv->boosPlay(BOSS_LIGHTED);
+            }
+            else
+            {
+                m_pv->boosPlay(BOSS_ONATTACKED);
+            }
+            
+            bossCurrBlood -= petAttack;
+            
+            if(bossCurrBlood < 0)
+            {
+                bossCurrBlood = 0;
+            }
+            
+            
+            float p = (float)bossCurrBlood/(float)bossMaxBlood;
+            int pa = p*100;
+            m_pv->setBossBloodValue(pa);
+            
+            if(m_winret == 1)//宠物赢了
+            {
+                bossCurrBlood = bossMaxBlood;
+                petCurrBlood = petMaxBlood;
+                this->scheduleOnce(schedule_selector(KCGameLayer::runFightWin0), 0.8f);
+            }
+            else
+            {
+               this->schedule(schedule_selector(KCGameLayer::runFightAction), 0.9f);
+            }
         }
         else
         {
-            m_pv->boosPlay(BOSS_ONATTACKED);
-        }
-        
-        bossCurrBlood -= petAttack;
-        
-        if(bossCurrBlood < 0)
-        {
-            bossCurrBlood = 0;
-        }
-        
-        
-        float p = (float)bossCurrBlood/(float)bossMaxBlood;
-        int pa = p*100;
-        m_pv->setBossBloodValue(pa);
-        
-        if(m_winret == 1)//宠物赢了
-        {
-            bossCurrBlood = bossMaxBlood;
-            petCurrBlood = petMaxBlood;
-            this->scheduleOnce(schedule_selector(KCGameLayer::runFightWin0), 0.8f);
-        }
-        else
-        {
-           this->schedule(schedule_selector(KCGameLayer::runFightAction), 0.9f);
+            this->schedule(schedule_selector(KCGameLayer::runFightAction), 0.9f);
         }
 
     }
