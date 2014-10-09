@@ -29,7 +29,7 @@ bool Dialog::init()
         return false;
     
     setTouchEnabled(true);
-    setTouchPriority(-1);
+//    setTouchPriority(-1);
     
     Widget* widget = GUIReader::shareReader()->widgetFromJsonFile("UI4Dialog.ExportJson");
     widget->setAnchorPoint(ccp(0.5, 0.5));
@@ -57,10 +57,8 @@ bool Dialog::init()
 
 bool Dialog::initContentWithJsonFile(const char* fileName)
 {
-    if(!Dialog::init())
-    {
+    if( !Dialog::init() )
         return false;
-    }
     
     _content->removeAllChildren();
 
@@ -120,4 +118,9 @@ void Dialog::registerWithTouchDispatcher()
 bool Dialog::ccTouchBegan (cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     return true;
+}
+
+void Dialog::ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent)
+{
+    close();
 }

@@ -52,12 +52,12 @@
 			<key>realTextureFileName</key>
 			<string>UI4Dialog0.png</string>
 			<key>size</key>
-			<string>{1024,1024}</string>
+			<string>{2048,1024}</string>
 		</dict>
 		<key>texture</key>
 		<dict>
 			<key>width</key>
-			<integer>1024</integer>
+			<integer>2048</integer>
 			<key>height</key>
 			<integer>1024</integer>
 		</dict>

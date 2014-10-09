@@ -29,6 +29,7 @@ public:
     bool init();
     void onEnter();
     void onExit();
+    virtual void onLoadFinish(){};
     
 public:
     
@@ -38,7 +39,7 @@ protected:
     
     void showLoading();
     void loadStepup();
-    virtual void loadFinish(){};
+    
     
     void addNodeTo(std::string,CCNode*);
     void addChildTo(std::string,CCNode*);

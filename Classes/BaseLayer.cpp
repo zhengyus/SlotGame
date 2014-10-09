@@ -80,7 +80,7 @@ void BaseLayer::loadStepup()
     {
         _loadingEnable = false;
         _loading->close();
-        loadFinish();
+        onLoadFinish();
     }
 }
 

@@ -23,6 +23,10 @@ public:
     bool init();
     
     CREATE_FUNC(LoginLayer);
+    virtual void registerWithTouchDispatcher();
+    virtual bool ccTouchBegan (CCTouch *pTouch, CCEvent *pEvent);
+    virtual void ccTouchMoved (CCTouch *pTouch, CCEvent *pEvent){};
+    virtual void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent);
     
 public:
     
