@@ -89,7 +89,7 @@ bool LoginLayer::init()
     _up->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedUp));
     _down->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedDown));
     
-//    setAccountAndPwd();
+    setAccountAndPwd();
     UserAccountService userAccountService;
     userAccountService.createTable();
     
@@ -99,14 +99,14 @@ bool LoginLayer::init()
 
 void LoginLayer::setAccountAndPwd()
 {
-    UserAccountService userAccountService;
-    userAccountService.createTable();
-    
-    for (int i = 1; i < 13; ++i)
-    {
-        const char* str = CCString::createWithFormat("fishtest%03d",i)->getCString();
-        userAccountService.addUserAccount(str,str);
-    }
+//    UserAccountService userAccountService;
+//    userAccountService.createTable();
+//    
+//    for (int i = 1; i < 13; ++i)
+//    {
+//        const char* str = CCString::createWithFormat("fishtest%03d",i)->getCString();
+//        userAccountService.addUserAccount(str,str);
+//    }
     
     string account = CCUserDefault::sharedUserDefault()->getStringForKey(SAVE_H_ACCOUNT);
     string password = CCUserDefault::sharedUserDefault()->getStringForKey(SAVE_H_PASSWORD);

@@ -38,6 +38,8 @@ protected:
     
     void showLoading();
     void loadStepup();
+    virtual void loadFinish(){};
+    
     void addNodeTo(std::string,CCNode*);
     void addChildTo(std::string,CCNode*);
     Widget* addContentWithJsonFile(std::string jsonFile,bool visible = true,int zorder = 0);
@@ -50,7 +52,6 @@ protected:
 //    cocos2d::ui::Widget*    _widget;
     LoadingDialog*          _loading;
     
-private:
     int         _loadStep;          //加载步骤
     int         _loadTotal;         //加载总数
     bool        _loadingEnable;     //是否启用loading

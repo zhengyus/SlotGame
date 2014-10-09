@@ -86,7 +86,11 @@ void Dialog::show()
 
 void Dialog::close()
 {
-    this->removeFromParent();
+    if (NULL != _onCloseCallback)
+    {
+        _onCloseCallback();
+    }
+    removeFromParent();
 }
 
 Widget* Dialog::getWidgetByName(string name)
@@ -99,10 +103,6 @@ void Dialog::onClickCloseEvent(CCObject *pSender, TouchEventType type)
     if (type == TOUCH_EVENT_ENDED)
     {
         SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
-        if (NULL != _onCloseCallback)
-        {
-            _onCloseCallback();
-        }
         this->close();
     }
 }

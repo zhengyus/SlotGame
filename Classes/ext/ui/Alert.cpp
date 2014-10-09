@@ -59,8 +59,6 @@ void Alert::show()
 {
 //    _lblTitle->setText(_title);
     _lblContent->setText(_content);
-    
-    
     Dialog::show();
 }
 
@@ -74,6 +72,6 @@ void Alert::clickedSureEvent(CCObject *pSender, TouchEventType type)
             (_sureEventListener->*_sureEventSelector)();
         }
         
-        Dialog::onClickCloseEvent(pSender, type);
+        Dialog::close();
     }
 }
