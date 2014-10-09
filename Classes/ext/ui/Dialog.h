@@ -53,6 +53,7 @@ public:
     void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent) override;
 
 protected:
+    int         _priority;
     
     string      _bgPath;
 

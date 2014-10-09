@@ -30,9 +30,7 @@ public:
     
 public:
     
-    bool init();
-    void registerWithTouchDispatcher();
-    
+    bool init();    
     static MsgContentDialog* create(MyMailMeg&);
     
 public:

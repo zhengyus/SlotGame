@@ -13,6 +13,7 @@
 MsgContentDialog::MsgContentDialog(MyMailMeg& data)
 {
     _data = &data;
+    _priority = -102;
 }
 
 MsgContentDialog::~ MsgContentDialog()
@@ -46,11 +47,6 @@ bool MsgContentDialog::init()
     _button = static_cast<Button*>(_uilayer->getWidgetByName("Button_button"));
     
     return true;
-}
-
-void MsgContentDialog::registerWithTouchDispatcher()
-{
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -102, true);
 }
 
 void MsgContentDialog::clickedReceive(CCObject*,TouchEventType type)
