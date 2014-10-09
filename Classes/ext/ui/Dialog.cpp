@@ -29,13 +29,13 @@ bool Dialog::init()
         return false;
     
     setTouchEnabled(true);
-//    setTouchPriority(-1);
     
     Widget* widget = GUIReader::shareReader()->widgetFromJsonFile("UI4Dialog.ExportJson");
     widget->setAnchorPoint(ccp(0.5, 0.5));
     widget->setPosition(ccp(m_obContentSize.width / 2, m_obContentSize.height / 2));
     
     _uilayer = UILayer::create();
+    _uilayer->setTouchPriority(-120);
     _uilayer->addWidget(widget);
     
     _colorPanel = static_cast<UIPanel*>(getWidgetByName("Panel_color"));
@@ -112,7 +112,7 @@ void Dialog::setOnCloseCallback(void (*onCloseCallback)())
 
 void Dialog::registerWithTouchDispatcher()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -100, true);
 }
 
 bool Dialog::ccTouchBegan (cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
