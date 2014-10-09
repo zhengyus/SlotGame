@@ -48,6 +48,11 @@ bool MsgContentDialog::init()
     return true;
 }
 
+void MsgContentDialog::registerWithTouchDispatcher()
+{
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, -102, true);
+}
+
 void MsgContentDialog::clickedReceive(CCObject*,TouchEventType type)
 {
     if (TOUCH_EVENT_ENDED == type)

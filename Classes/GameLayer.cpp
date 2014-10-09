@@ -204,7 +204,6 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
         {
             break;
         }
-        
         case OGID_TEXAS_SLOTS_ACKMAILS ://邮件，有新邮件显示new图片
         {
             _hallData->_mails = data->mMailvector;
@@ -238,6 +237,7 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
             {
                 msg = ALERTTEXT_MORE_THEN_GOLD;
             }
+
             Alert::create(msg,"",this,touchesureventselector(GameLayer::clickedSureCallback))->show();
             break;
         }

@@ -21,24 +21,9 @@ bool SettingDialog::init()
     progress_effect = dynamic_cast<LoadingBar*>(getWidgetByName("ProgressBar_effect"));
     
     bindTouchEvent("Button_switchAccount", this, toucheventselector(SettingDialog::clickedSwitchAccount));
-    button_music->addTouchEventListener(this, toucheventselector(SettingDialog::regulateSound));
     
+    button_music->addTouchEventListener(this, toucheventselector(SettingDialog::regulateSound));
     return true;
-}
-
-bool SettingDialog::ccTouchBegan (CCTouch *pTouch, CCEvent *pEvent)
-{
-    return true;
-}
-
-void SettingDialog::ccTouchMoved (CCTouch *pTouch, CCEvent *pEvent)
-{
-     CCLOG("ccTouchMoved");
-}
-
-void SettingDialog::ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent)
-{
-     CCLOG("ccTouchEnded");
 }
 
 void SettingDialog::regulateSound(CCObject* obj,TouchEventType type)

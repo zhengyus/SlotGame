@@ -19,10 +19,6 @@ public:
     CREATE_FUNC(SettingDialog);
     
     bool init()override;
-
-    virtual bool ccTouchBegan (CCTouch *pTouch, CCEvent *pEvent)override;
-    virtual void ccTouchMoved (CCTouch *pTouch, CCEvent *pEvent)override;
-    virtual void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent)override;
     
     void regulateSound(CCObject* obj,TouchEventType type);
     void clickedSwitchAccount(CCObject* obj,TouchEventType type);

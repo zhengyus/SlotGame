@@ -35,7 +35,7 @@ bool Dialog::init()
     widget->setPosition(ccp(m_obContentSize.width / 2, m_obContentSize.height / 2));
     
     _uilayer = UILayer::create();
-    _uilayer->setTouchPriority(-120);
+    _uilayer->setTouchPriority(-101);
     _uilayer->addWidget(widget);
     
     _colorPanel = static_cast<UIPanel*>(getWidgetByName("Panel_color"));

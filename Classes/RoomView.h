@@ -64,10 +64,10 @@ public:
     void addData(vector<T> data)
     {
         _data.clear();
-        for (int i = 0; i < data.size(); ++i)
-        {
-            _data.push_back(data[i]);
-        }
+        
+        _data.push_back(data[1]);
+        _data.push_back(data[0]);
+        _data.push_back(data[2]);
     }
     
     void display()

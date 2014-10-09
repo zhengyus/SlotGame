@@ -141,7 +141,6 @@ void HeadView::clickedMenuEvent(CCObject*,TouchEventType event)
         
         CCScene* scene = StartLayer::scene(1);
         CCDirector::sharedDirector()->replaceScene(scene);
-        
     }
 }
 

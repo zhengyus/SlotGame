@@ -23,6 +23,7 @@ public:
     
     bool init();
     void show();
+    void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent){}
     
     CREATE_FUNC(LoadingDialog);
     
