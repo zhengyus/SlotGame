@@ -178,6 +178,7 @@ public:
     void onOGAckDoubleResult(const char* message, int size);//服务器返回比倍结果（SERVER + 52）
     void onOGAckPetGetAward(const char* message, int size);//返回宠物战斗胜利后抽奖结果（SERVER + 56）
     void onOGAckDoubleJpResult(const char* message, int size);//返回宠物战斗胜利后抽奖结果（SERVER + 60）
+    void onOGAckStopGame(const char* message, int size);//止损（SERVER + 57）
     
     /*
     void onBoradCast(const char* message, int size);//接收广播信息

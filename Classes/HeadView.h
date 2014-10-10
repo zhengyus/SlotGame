@@ -14,6 +14,7 @@
 #include "SoundNameDefine.h"
 #include "SimpleAudioEngine.h"
 #include "SceneManager.h"
+#include "SettingDialog.h"
 
 USING_NS_CC;
 USING_NS_CC_EXT;

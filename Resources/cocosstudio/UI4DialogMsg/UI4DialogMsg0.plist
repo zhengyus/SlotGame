@@ -4,7 +4,7 @@
 	<dict>
 		<key>frames</key>
 		<dict>
-			<key>word_message.png</key>
+			<key>title_message.png</key>
 			<dict>
 				<key>width</key>
 				<integer>63</integer>

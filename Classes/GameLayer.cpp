@@ -16,11 +16,13 @@
 #include "ChoosePrizeDialog.h"
 #include "HallDataManager.h"
 #include "ext/ui/Alert.h"
+#include "StartLayer.h"
 
 
 GameLayer::GameLayer():BaseLayer(EVENT_REC_FROM_MSG_ALL , true , 2),
 _flag(false),_gameLayer(NULL)
 {
+    _continue_receive = true;
     _first = true;
     _dataManager = DataManager::sharedDataManager();
     _hallData = HallDataManager::getInstance();
@@ -108,6 +110,10 @@ void GameLayer::receiveUIMsg(CCObject* obj)
 
 void GameLayer::receiveBaseMsg(CCObject* obj)
 {
+    //是否继续接受消息，如果收到止损、万能豆达上限就不接受消息。
+    if (!_continue_receive)
+        return;
+    
     Meg2UIDate* data = (Meg2UIDate*)obj;
     
     switch (data->m_id)
@@ -198,7 +204,6 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
         {
             break;
         }
-        
         case OGID_TEXAS_SLOTS_ACKMAILS ://邮件，有新邮件显示new图片
         {
             _hallData->_mails = data->mMailvector;
@@ -218,6 +223,22 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
         case GAME_LAYER_BACK://游戏界面后退到大厅
         {
             onClickBackEvent();
+            break;
+        }
+            case OGID_TEXAS_SLOTS_STOPGAME://手气差、止损
+        {
+            _continue_receive = false;
+            string msg;
+            if( 0 == data->zs)
+            {
+                msg = ALERTTEXT_TOMORROW_AGAIN;
+            }
+            else if( 1 == data->zs)
+            {
+                msg = ALERTTEXT_MORE_THEN_GOLD;
+            }
+
+            Alert::create(msg,"",this,touchesureventselector(GameLayer::clickedSureCallback))->show();
             break;
         }
         default:
@@ -285,11 +306,13 @@ void GameLayer::enterRoomCallback()
 
 void GameLayer::clickedSureCallback()
 {
-    SceneManager::getInstance()->replaceScene(SceneTypeStart);
+    CCScene* scene = StartLayer::scene(1);
+    CCDirector::sharedDirector()->replaceScene(scene);
 }
 
 void GameLayer::onClickBackEvent()
 {
+    _hallLayer->_roomView->display();
     showLayer(_hallLayer);
 }
 

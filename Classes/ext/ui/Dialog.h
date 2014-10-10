@@ -48,12 +48,12 @@ public:
 
 public:
 
-    virtual void registerWithTouchDispatcher();
-    virtual bool ccTouchBegan (CCTouch *pTouch, CCEvent *pEvent);
-    virtual void ccTouchMoved (CCTouch *pTouch, CCEvent *pEvent){};
-    virtual void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent){};
+    void registerWithTouchDispatcher();
+    bool ccTouchBegan (CCTouch *pTouch, CCEvent *pEvent);
+    void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent) override;
 
 protected:
+    int         _priority;
     
     string      _bgPath;
 

@@ -28,6 +28,8 @@ bool LoginLayer::init()
     if ( !BaseLayer::init() )
         return false;
     
+    setTouchEnabled(true);
+    
     CCSize visibleSize = CCDirector::sharedDirector()->getWinSize();
     
     addContentWithJsonFile("UI4Login.ExportJson");
@@ -89,7 +91,7 @@ bool LoginLayer::init()
     _up->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedUp));
     _down->addTouchEventListener(this, toucheventselector(LoginLayer::onClickedDown));
     
-//    setAccountAndPwd();
+    setAccountAndPwd();
     UserAccountService userAccountService;
     userAccountService.createTable();
     
@@ -99,14 +101,14 @@ bool LoginLayer::init()
 
 void LoginLayer::setAccountAndPwd()
 {
-    UserAccountService userAccountService;
-    userAccountService.createTable();
-    
-    for (int i = 1; i < 13; ++i)
-    {
-        const char* str = CCString::createWithFormat("fishtest%03d",i)->getCString();
-        userAccountService.addUserAccount(str,str);
-    }
+//    UserAccountService userAccountService;
+//    userAccountService.createTable();
+//    
+//    for (int i = 1; i < 13; ++i)
+//    {
+//        const char* str = CCString::createWithFormat("fishtest%03d",i)->getCString();
+//        userAccountService.addUserAccount(str,str);
+//    }
     
     string account = CCUserDefault::sharedUserDefault()->getStringForKey(SAVE_H_ACCOUNT);
     string password = CCUserDefault::sharedUserDefault()->getStringForKey(SAVE_H_PASSWORD);
@@ -116,6 +118,21 @@ void LoginLayer::setAccountAndPwd()
         _account->setText(account.c_str());
         _password->setText(password.c_str());
     }
+}
+
+void LoginLayer::registerWithTouchDispatcher()
+{
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 1, true);
+}
+
+bool LoginLayer::ccTouchBegan (CCTouch *pTouch, CCEvent *pEvent)
+{
+    return true;
+}
+
+void LoginLayer::ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent)
+{
+    toggleAccouts(false);
 }
 
 void LoginLayer::showMsg(string msg)
@@ -207,7 +224,6 @@ void LoginLayer::onClickedDelete(CCObject *sender, TouchEventType event)
             {
                 toggleAccouts(false);
             }
-            
             break;
         }
         default:
@@ -243,7 +259,7 @@ void LoginLayer::showUserAccounts()
         initAccountItem(_list->getItem(i),_userAccounts[i]);
     }
     
-    CCSize size = CCSizeMake(_list->getSize().width,170);
+    CCSize size = CCSizeMake(_list->getSize().width,200);
     if (length < 3)
     {
         size.height = 85 * length;

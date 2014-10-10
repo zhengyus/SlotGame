@@ -13,6 +13,7 @@
 MsgContentDialog::MsgContentDialog(MyMailMeg& data)
 {
     _data = &data;
+    _priority = -102;
 }
 
 MsgContentDialog::~ MsgContentDialog()
@@ -97,7 +98,7 @@ void MsgContentDialog::setContent(string content)
 void MsgContentDialog::setPrize(int num)
 {
     
-    if (num > 0)
+    if (num > 0 && _data->mailType > 0 && _data->mailType < 5)
     {
         _prize->loadTexture(CCString::createWithFormat("prize%d.png",_data->mailType)->getCString(),UI_TEX_TYPE_PLIST);
     }

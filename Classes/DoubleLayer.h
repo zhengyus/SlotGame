@@ -58,6 +58,7 @@ public:
     void runUIStar();
     void autoGetScore();
     bool isNoGold(unsigned long long gold);
+    void ishaveChange();//是否返回比倍收分消息
     
     void setLabelMoneyFly();
     void setActionFly0();

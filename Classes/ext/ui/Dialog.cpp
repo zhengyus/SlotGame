@@ -17,6 +17,7 @@ using namespace std;
 Dialog::Dialog(string bgPath,bool modal):_onCloseCallback(NULL)
 {                                       
     _bgPath = bgPath;
+    _priority = -100;
 }
 
 Dialog::~Dialog()
@@ -29,7 +30,7 @@ bool Dialog::init()
         return false;
     
     setTouchEnabled(true);
-    setTouchPriority(-1);
+    
     
     Widget* widget = GUIReader::shareReader()->widgetFromJsonFile("UI4Dialog.ExportJson");
     widget->setAnchorPoint(ccp(0.5, 0.5));
@@ -37,6 +38,7 @@ bool Dialog::init()
     
     _uilayer = UILayer::create();
     _uilayer->addWidget(widget);
+    _uilayer->setTouchPriority(_priority - 1);
     
     _colorPanel = static_cast<UIPanel*>(getWidgetByName("Panel_color"));
     _background = static_cast<UIImageView*>(getWidgetByName("Image_background"));
@@ -57,10 +59,8 @@ bool Dialog::init()
 
 bool Dialog::initContentWithJsonFile(const char* fileName)
 {
-    if(!Dialog::init())
-    {
+    if( !Dialog::init() )
         return false;
-    }
     
     _content->removeAllChildren();
 
@@ -86,7 +86,11 @@ void Dialog::show()
 
 void Dialog::close()
 {
-    this->removeFromParent();
+    if (NULL != _onCloseCallback)
+    {
+        _onCloseCallback();
+    }
+    removeFromParent();
 }
 
 Widget* Dialog::getWidgetByName(string name)
@@ -99,10 +103,6 @@ void Dialog::onClickCloseEvent(CCObject *pSender, TouchEventType type)
     if (type == TOUCH_EVENT_ENDED)
     {
         SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
-        if (NULL != _onCloseCallback)
-        {
-            _onCloseCallback();
-        }
         this->close();
     }
 }
@@ -114,10 +114,15 @@ void Dialog::setOnCloseCallback(void (*onCloseCallback)())
 
 void Dialog::registerWithTouchDispatcher()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, _priority, true);
 }
 
 bool Dialog::ccTouchBegan (cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     return true;
+}
+
+void Dialog::ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent)
+{
+    close();
 }

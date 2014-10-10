@@ -48,7 +48,7 @@ bool UserAccountService::existsAccount(sqlite3* pdb,string account)
     return table.size() > 0;
 }
 
-bool UserAccountService::addUserAccount(string account,string password)
+bool UserAccountService::addUserAccount(const char* account,const char* password)
 {
     SqliteUtil::openDB(&_pdb, "Slot");
     
@@ -59,7 +59,7 @@ bool UserAccountService::addUserAccount(string account,string password)
     
     string sql = "insert into Account (account,password) values('%s','%s')";
 
-    bool ret = SqliteUtil::execute(_pdb,CCString::createWithFormat(sql.c_str(),account.c_str(),password.c_str())->getCString());
+    bool ret = SqliteUtil::execute(_pdb,CCString::createWithFormat(sql.c_str(),account,password)->getCString());
     
     SqliteUtil::close(_pdb);
     return ret;

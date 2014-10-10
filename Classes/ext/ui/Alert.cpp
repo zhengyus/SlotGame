@@ -12,6 +12,7 @@ using namespace std;
 
 Alert::Alert(string content, string title,CCObject* target,SEL_TouchSureEvent selector):Dialog("dialog_simple.png")
 {
+    _priority = -120;
     _title = title;
     _content = content;
     _sureEventListener = target;
@@ -59,8 +60,6 @@ void Alert::show()
 {
 //    _lblTitle->setText(_title);
     _lblContent->setText(_content);
-    
-    
     Dialog::show();
 }
 
@@ -74,6 +73,6 @@ void Alert::clickedSureEvent(CCObject *pSender, TouchEventType type)
             (_sureEventListener->*_sureEventSelector)();
         }
         
-        Dialog::onClickCloseEvent(pSender, type);
+        Dialog::close();
     }
 }

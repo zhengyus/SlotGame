@@ -25,7 +25,7 @@ public:
     
     vector<UserAccount> queryAllUserAccount();
     bool existsAccount(sqlite3* pdb,string account);
-    bool addUserAccount(string account,string password);
+    bool addUserAccount(const char* account,const char* password);
     bool deleteUserAccount(int id);
     
 private:

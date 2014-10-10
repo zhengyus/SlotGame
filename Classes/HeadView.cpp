@@ -136,6 +136,9 @@ void HeadView::clickedMenuEvent(CCObject*,TouchEventType event)
     {
         SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
         
+//        SettingDialog* dialog = SettingDialog::create();
+//        dialog->show();
+        
         CCScene* scene = StartLayer::scene(1);
         CCDirector::sharedDirector()->replaceScene(scene);
     }

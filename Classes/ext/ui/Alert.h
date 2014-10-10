@@ -25,6 +25,7 @@ public:
 public:
     
     bool init();
+    void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent){};
     
     static Alert* create(string content ,string title = "提示",CCObject* = NULL,SEL_TouchSureEvent = NULL);
     

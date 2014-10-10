@@ -30,8 +30,7 @@ public:
     
 public:
     
-    bool init();
-    
+    bool init();    
     static MsgContentDialog* create(MyMailMeg&);
     
 public:

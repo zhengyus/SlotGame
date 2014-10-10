@@ -830,6 +830,10 @@
 		5BE7C17C19B698E400380ABD /* Dialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17519B698E400380ABD /* Dialog.cpp */; };
 		5BE7C17E19B698E400380ABD /* RollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17A19B698E400380ABD /* RollView.cpp */; };
 		5BEE887219B8536500EB7787 /* ChoosePrizeDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE887019B8536500EB7787 /* ChoosePrizeDialog.cpp */; };
+		5BFFBE4B19E4DCB80027B5B2 /* UI4DialogSet.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4819E4DCB80027B5B2 /* UI4DialogSet.ExportJson */; };
+		5BFFBE4C19E4DCB80027B5B2 /* UI4DialogSet0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4919E4DCB80027B5B2 /* UI4DialogSet0.plist */; };
+		5BFFBE4D19E4DCB80027B5B2 /* UI4DialogSet0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4A19E4DCB80027B5B2 /* UI4DialogSet0.png */; };
+		5BFFBE5019E4DCE40027B5B2 /* SettingDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4E19E4DCE40027B5B2 /* SettingDialog.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712461292920000B8313A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB212928DE900B8313A /* libxml2.dylib */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -2020,6 +2024,11 @@
 		5BE7C17B19B698E400380ABD /* RollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollView.h; sourceTree = "<group>"; };
 		5BEE887019B8536500EB7787 /* ChoosePrizeDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChoosePrizeDialog.cpp; path = ../Classes/ChoosePrizeDialog.cpp; sourceTree = "<group>"; };
 		5BEE887119B8536500EB7787 /* ChoosePrizeDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoosePrizeDialog.h; path = ../Classes/ChoosePrizeDialog.h; sourceTree = "<group>"; };
+		5BFFBE4819E4DCB80027B5B2 /* UI4DialogSet.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UI4DialogSet.ExportJson; sourceTree = "<group>"; };
+		5BFFBE4919E4DCB80027B5B2 /* UI4DialogSet0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UI4DialogSet0.plist; sourceTree = "<group>"; };
+		5BFFBE4A19E4DCB80027B5B2 /* UI4DialogSet0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI4DialogSet0.png; sourceTree = "<group>"; };
+		5BFFBE4E19E4DCE40027B5B2 /* SettingDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SettingDialog.cpp; path = ../Classes/SettingDialog.cpp; sourceTree = "<group>"; };
+		5BFFBE4F19E4DCE40027B5B2 /* SettingDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingDialog.h; path = ../Classes/SettingDialog.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB212928DE900B8313A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -3450,6 +3459,8 @@
 				5BEE887119B8536500EB7787 /* ChoosePrizeDialog.h */,
 				5BAD0DF819C7DE800038753E /* CreateRoleDialog.cpp */,
 				5BAD0DF919C7DE800038753E /* CreateRoleDialog.h */,
+				5BFFBE4E19E4DCE40027B5B2 /* SettingDialog.cpp */,
+				5BFFBE4F19E4DCE40027B5B2 /* SettingDialog.h */,
 			);
 			name = dialog;
 			sourceTree = "<group>";
@@ -3457,6 +3468,7 @@
 		5B0AF69319D3C0B700AC1371 /* cocosstudio */ = {
 			isa = PBXGroup;
 			children = (
+				5BFFBE4719E4DCB80027B5B2 /* UI4DialogSet */,
 				5B0AF69419D3C0B700AC1371 /* glitter */,
 				5B0AF69819D3C0B700AC1371 /* UI4Dialog */,
 				5B0AF69C19D3C0B700AC1371 /* UI4DialogAlert */,
@@ -4372,6 +4384,16 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
+		5BFFBE4719E4DCB80027B5B2 /* UI4DialogSet */ = {
+			isa = PBXGroup;
+			children = (
+				5BFFBE4819E4DCB80027B5B2 /* UI4DialogSet.ExportJson */,
+				5BFFBE4919E4DCB80027B5B2 /* UI4DialogSet0.plist */,
+				5BFFBE4A19E4DCB80027B5B2 /* UI4DialogSet0.png */,
+			);
+			path = UI4DialogSet;
+			sourceTree = "<group>";
+		};
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -4629,6 +4651,7 @@
 				5B0AFA4019D3C0B800AC1371 /* LionIdle.ExportJson in Resources */,
 				5B0AFA7619D3C0B800AC1371 /* boss_over.mp3 in Resources */,
 				5B0AFA0819D3C0B800AC1371 /* x-0119.png in Resources */,
+				5BFFBE4B19E4DCB80027B5B2 /* UI4DialogSet.ExportJson in Resources */,
 				5B0AFA3419D3C0B800AC1371 /* Door.ExportJson in Resources */,
 				5B0AF99A19D3C0B700AC1371 /* x-0009.png in Resources */,
 				5B0AF9B119D3C0B800AC1371 /* x-0032.png in Resources */,
@@ -4754,6 +4777,7 @@
 				5B0AFA7319D3C0B800AC1371 /* boss_attack.mp3 in Resources */,
 				5B0AFA8219D3C0B800AC1371 /* roll_effect_ch.mp3 in Resources */,
 				5B0AF96D19D3C0B700AC1371 /* 50.png in Resources */,
+				5BFFBE4C19E4DCB80027B5B2 /* UI4DialogSet0.plist in Resources */,
 				5B0AF90219D3C0B700AC1371 /* 15.png in Resources */,
 				5B0AF8C919D3C0B700AC1371 /* UI4Gam0.plist in Resources */,
 				5B0AF95019D3C0B700AC1371 /* 24.png in Resources */,
@@ -4862,6 +4886,7 @@
 				5B0AF98919D3C0B700AC1371 /* loseL.png in Resources */,
 				5B0AF96619D3C0B700AC1371 /* 44.png in Resources */,
 				5B0AF95119D3C0B700AC1371 /* 25.png in Resources */,
+				5BFFBE4D19E4DCB80027B5B2 /* UI4DialogSet0.png in Resources */,
 				5B0AFA8519D3C0B800AC1371 /* roll_effect_stop.mp3 in Resources */,
 				5B0AF9F419D3C0B800AC1371 /* x-0099.png in Resources */,
 				5B0AF95C19D3C0B700AC1371 /* 35.png in Resources */,
@@ -5026,6 +5051,7 @@
 				3AE20CFD19A5E5510098F2C8 /* extension_set.cc in Sources */,
 				3AE20D1419A5E5510098F2C8 /* wire_format.cc in Sources */,
 				5BE7C17E19B698E400380ABD /* RollView.cpp in Sources */,
+				5BFFBE5019E4DCE40027B5B2 /* SettingDialog.cpp in Sources */,
 				3AE20D5019A5FD9B0098F2C8 /* Utils.cpp in Sources */,
 				375BD4C61868411B0024609E /* TriggerObj.cpp in Sources */,
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,

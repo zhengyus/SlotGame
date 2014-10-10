@@ -24,4 +24,8 @@
 
 #define ALERTTEXT_ATTACHMENT_SUCCESS "附件收取成功！"
 
+#define ALERTTEXT_TOMORROW_AGAIN "您今天手气太差，明天再来！"
+
+#define ALERTTEXT_MORE_THEN_GOLD "万能豆携带量已达到上限！"
+
 #endif

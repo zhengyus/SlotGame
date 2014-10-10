@@ -52,12 +52,9 @@ public:
             pRet->autorelease();
             return pRet;
         }
-        else
-        {
-            delete pRet;
-            pRet = NULL;
-            return NULL;
-        }
+        CC_SAFE_DELETE(pRet);
+        
+        return NULL;
     }
     
 public:

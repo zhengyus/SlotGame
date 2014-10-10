@@ -87,6 +87,7 @@ public:
         m_ActionStartLogicFlag = 0;
         m_FlianNum = 0;
         m_FSkill = 0;
+        m_FSkillboss = 0;
         m_isGoldEnougth = true;
         
         m_setLineRewNum = 1;
@@ -221,6 +222,7 @@ public:
     
     UIImageView* m_modelLineImg;//线模板
     UIPanel* m_PanelMid;//中间部分panel
+    UIImageView* m_PanelCostZD;//
     
     UILabelAtlas* m_LabelAtlasLine;
     UILabelAtlas* m_LabelAtlasBei;
@@ -234,6 +236,7 @@ public:
     UILabelAtlas* m_LabelPetExp;
     UILabelAtlas* m_LabelRoleExp;
     UILabelAtlas* m_LabelPetAddBlood;
+    UILabelAtlas* m_LabelCostZD;
     
     CCArmature* m_armatureStart;
     
@@ -256,6 +259,7 @@ public:
     int imgid;
     int m_FlianNum;//战斗界面连线数量
     int m_FSkill;//战斗界面技能结果
+    int m_FSkillboss;
     unsigned long long m_baseGold;//底金
     unsigned long long m_usrHavaGold;//玩家金
     unsigned long long m_winGold;//赢取钱数
