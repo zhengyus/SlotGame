@@ -13,7 +13,6 @@
 MsgContentDialog::MsgContentDialog(MyMailMeg& data)
 {
     _data = &data;
-    _priority = -102;
 }
 
 MsgContentDialog::~ MsgContentDialog()

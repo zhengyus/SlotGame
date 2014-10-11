@@ -14,14 +14,16 @@ USING_NS_CC_EXT;
 using namespace ui;
 using namespace std;
 
+static int priority = -100;
+
 Dialog::Dialog(string bgPath,bool modal):_onCloseCallback(NULL)
 {                                       
     _bgPath = bgPath;
-    _priority = -100;
 }
 
 Dialog::~Dialog()
 {
+    priority += 2;
 }
 
 bool Dialog::init()
@@ -38,7 +40,7 @@ bool Dialog::init()
     
     _uilayer = UILayer::create();
     _uilayer->addWidget(widget);
-    _uilayer->setTouchPriority(_priority - 1);
+    _uilayer->setTouchPriority(priority-2);
     
     _colorPanel = static_cast<UIPanel*>(getWidgetByName("Panel_color"));
     _background = static_cast<UIImageView*>(getWidgetByName("Image_background"));
@@ -114,7 +116,8 @@ void Dialog::setOnCloseCallback(void (*onCloseCallback)())
 
 void Dialog::registerWithTouchDispatcher()
 {
-    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, _priority, true);
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, priority, true);
+    priority -= 2;
 }
 
 bool Dialog::ccTouchBegan (cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
