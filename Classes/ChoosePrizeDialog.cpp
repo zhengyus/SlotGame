@@ -32,7 +32,7 @@ ChoosePrizeDialog* ChoosePrizeDialog::createWithData(vector<MyPetFAward> data)
     return NULL;
 }
 
-static void closeCallback()
+void ChoosePrizeDialog::closeCallback()
 {
     Meg2UIDate sendmeg;
     sendmeg.m_id = SET_ALL_THINGS_RUN;
@@ -60,7 +60,7 @@ bool ChoosePrizeDialog::init()
     }
 
     _confirm->addTouchEventListener(this, toucheventselector(ChoosePrizeDialog::onClickedConfirmEvent));
-    setOnCloseCallback(closeCallback);
+    setCloseListener(this, closeeventselector(ChoosePrizeDialog::closeCallback));
     schedule(schedule_selector(ChoosePrizeDialog::time), 1.0f);
     return true;
 }

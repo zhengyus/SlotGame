@@ -32,6 +32,7 @@ public:
     void time();
     void chooseCard(ImageView*);//选择卡牌
     void setCardAndPrize(int,string&,string&);
+    void closeCallback();
     
     void onClickedConfirmEvent(CCObject*,TouchEventType);
     void onClickedCardEvent(CCObject*,TouchEventType);

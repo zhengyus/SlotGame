@@ -20,6 +20,9 @@ using namespace ui;
 using namespace std;
 using namespace CocosDenshion;
 
+typedef void (CCObject::*SEL_closeEvent)();
+#define closeeventselector(_SELECTOR) (SEL_closeEvent)(&_SELECTOR)
+
 class Dialog:public CCLayer{
 
 public:
@@ -43,7 +46,7 @@ public:
     
 public:
     
-    void setOnCloseCallback(void (*onCloseCallback)());
+    void setCloseListener(CCObject* , SEL_closeEvent);
     virtual void onClickCloseEvent(CCObject *pSender, TouchEventType type);
 
 public:
@@ -64,7 +67,8 @@ protected:
     
 private:
     
-    void (*_onCloseCallback)();
-    
+    SEL_closeEvent  _closeEventSelector;
+    CCObject*       _closeEventListener;
 };
+
 #endif

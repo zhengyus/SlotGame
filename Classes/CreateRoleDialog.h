@@ -27,6 +27,7 @@ public:
     
     void onSelectedSexEvent(CCObject* pSender, TouchEventType type);
     void onCreateRoleEvent(CCObject* pSender, TouchEventType type);
+    void ccTouchEnded (CCTouch *pTouch, CCEvent *pEvent){}
     
 public:
     

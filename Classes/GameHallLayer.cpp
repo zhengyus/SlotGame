@@ -37,6 +37,7 @@ bool GameHallLayer::init()
     addContentWithJsonFile("UI4GameHall.ExportJson");
     
     _wrooms = _uilayer->getWidgetByName("panel_rooms");
+    _newMsg = _uilayer->getWidgetByName("Image_newMsg");
     
     Widget* widget = _uilayer->getWidgetByName("Panel_notice");
     _noticeView = NoticeView::create();
@@ -144,6 +145,20 @@ void GameHallLayer::updateNoticeView(float)
     ++i;
 }
 
+void GameHallLayer::updateMsgStatus()
+{
+    vector<MyMailMeg>  msgs = _hallData->_mails;
+    for (int i = 0; i < msgs.size(); ++i)
+    {
+        if(!msgs[i].isRead)
+        {
+            _newMsg->setVisible(true);
+            break;
+        }
+        _newMsg->setVisible(false);
+    }
+}
+
 static void initRankItem(int i,Widget* item,MyRankList rank)
 {
     CCLOG("MyRankList---------%s",rank.rankName.c_str());
@@ -219,6 +234,7 @@ void GameHallLayer::clickedMessageEvent(CCObject*,TouchEventType event)
     {
         SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
         Dialog* dialog = MsgDialog::create(_hallData->_mails);
+        dialog->setCloseListener(this, closeeventselector(GameHallLayer::updateMsgStatus));
         dialog->show();
     }
 }

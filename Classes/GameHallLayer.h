@@ -31,6 +31,8 @@ public:
     void showRooms(vector<MyRoomList>);   //初始化房间
     void updateNoticeView(float);
     
+    void updateMsgStatus();
+    
     void initRoomItemCallback(Widget* widget, MyRoomList room);
     
 public:
@@ -46,9 +48,9 @@ public:
 public:
     
     Widget*     _wrooms;
+    Widget*     _newMsg;
     NoticeView* _noticeView;
     RoomView<MyRoomList>* _roomView;
-    
 public:
     HallDataManager* _hallData;
 };

@@ -47,7 +47,7 @@ bool CreateRoleDialog::init()
     _roleName = CCEditBox::create(CCSize(337, 64),CCScale9Sprite::createWithSpriteFrameName("input_role.png"));
     _roleName->setMaxLength(8);
     _roleName->setFontColor(ccWHITE);
-    _roleName->setTouchPriority(0);
+    _roleName->setTouchPriority(-128);
     _roleName->setPlaceHolder("角色名称");
     _roleName->setFont("TrebuchetMS-Bold", 25);
     _roleName->setPlaceholderFontColor(ccWHITE);

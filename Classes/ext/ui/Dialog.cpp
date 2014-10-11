@@ -16,8 +16,10 @@ using namespace std;
 
 static int priority = -100;
 
-Dialog::Dialog(string bgPath,bool modal):_onCloseCallback(NULL)
-{                                       
+Dialog::Dialog(string bgPath,bool modal)
+{
+    _closeEventListener = NULL;
+    _closeEventSelector = NULL;
     _bgPath = bgPath;
 }
 
@@ -88,9 +90,9 @@ void Dialog::show()
 
 void Dialog::close()
 {
-    if (NULL != _onCloseCallback)
+    if (NULL != _closeEventSelector && NULL != _closeEventListener)
     {
-        _onCloseCallback();
+        (_closeEventListener->*_closeEventSelector)();
     }
     removeFromParent();
 }
@@ -109,9 +111,10 @@ void Dialog::onClickCloseEvent(CCObject *pSender, TouchEventType type)
     }
 }
 
-void Dialog::setOnCloseCallback(void (*onCloseCallback)())
+void Dialog::setCloseListener(CCObject* target, SEL_closeEvent selector)
 {
-    _onCloseCallback = onCloseCallback;
+    _closeEventSelector = selector;
+    _closeEventListener = target;
 }
 
 void Dialog::registerWithTouchDispatcher()

@@ -43,8 +43,8 @@ private:
 //    Label* _lblTitle;
     Label* _lblContent;
     
-    void (CCObject::*_sureEventSelector)();
-    CCObject*   _sureEventListener;
+    SEL_TouchSureEvent  _sureEventSelector;
+    CCObject*           _sureEventListener;
 };
 
 #endif /* defined(__Slot__Alert__) */

@@ -22,7 +22,6 @@
 GameLayer::GameLayer():BaseLayer(EVENT_REC_FROM_MSG_ALL , true , 2),
 _flag(false),_gameLayer(NULL)
 {
-    _continue_receive = true;
     _first = true;
     _dataManager = DataManager::sharedDataManager();
     _hallData = HallDataManager::getInstance();
@@ -108,12 +107,15 @@ void GameLayer::receiveUIMsg(CCObject* obj)
     }
 }
 
+//消息排序
+bool compMailByTime(const MyMailMeg& m1,const MyMailMeg& m2)
+{
+    return strcmp(m1.mailTime.c_str(), m2.mailTime.c_str()) > 0;
+}
+
 void GameLayer::receiveBaseMsg(CCObject* obj)
 {
     //是否继续接受消息，如果收到止损、万能豆达上限就不接受消息。
-    if (!_continue_receive)
-        return;
-    
     Meg2UIDate* data = (Meg2UIDate*)obj;
     
     switch (data->m_id)
@@ -193,20 +195,18 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
                 if (i > 1 && !_hallData->_ranks[i].empty())
                 {
                     MyRankList rank = _hallData->_ranks[i][0];
-                    string title = i==2 ? "周一榜冠军" : "周四榜冠军";
+                    string title = i == 2 ? "周一榜冠军" : "周四榜冠军";
                     Notice notice = {title,rank.rankName,rank.rankGold};
                     _hallData->_notices.push_back(notice);
                 }
             }
             break;
         }
-        case OGID_TEXAS_SLOTS_BORADCAST://广播消息（公告）
-        {
-            break;
-        }
         case OGID_TEXAS_SLOTS_ACKMAILS ://邮件，有新邮件显示new图片
         {
             _hallData->_mails = data->mMailvector;
+            std::sort(_hallData->_mails.begin(), _hallData->_mails.end(),compMailByTime);
+            _hallLayer->updateMsgStatus();
             break;
         }
         case OGID_TEXAS_SLOTS_ROOMSITE://选择房间服务器返回信息
@@ -227,7 +227,6 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
         }
             case OGID_TEXAS_SLOTS_STOPGAME://手气差、止损
         {
-            _continue_receive = false;
             string msg;
             if( 0 == data->zs)
             {

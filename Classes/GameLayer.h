@@ -65,10 +65,7 @@ public:
     bool                    _first;
     
     DataManager*            _dataManager;
-    HallDataManager*        _hallData;
-    bool                    _continue_receive;
-    
-    
+    HallDataManager*        _hallData;    
 };
 
 #endif /* defined(__Slot__GameLayer__) */
