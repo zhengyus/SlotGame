@@ -84,6 +84,7 @@ public:
     UIImageView* m_card;
     unsigned long long m_needgold;
     unsigned long long m_winGold;//每次赢的钱
+    unsigned long long m_yzGold;//押注金额
     
     bool isBtnCanTouch;//按钮是否可以按
     int m_whichColor;//1红色 2黑色
@@ -118,6 +119,8 @@ public:
     CCParticleBatchNode* patBatchNode;
     
     CCPoint m_pAtl;
+    
+    unsigned long long m_tmpGold;
     
 };
 

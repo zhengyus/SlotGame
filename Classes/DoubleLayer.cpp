@@ -21,6 +21,7 @@ DoubleLayer::DoubleLayer()
     m_winGold = 0;
     m_retWin = 1;
     winPos = ccp(160, 520);
+    m_yzGold = 0;
     
     m_p8[0] = ccp(310, 480);
     m_p8[1] = ccp(360, 480);
@@ -511,7 +512,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
                         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
                         
-                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
+//                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 5.0f);
                         
                         for (int i = 0; i < m_arrCardImg->count(); i++)
                         {
@@ -527,8 +528,6 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                             GameLogicMeg2Sever tmpMeg1;
                             tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
                             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
-                            
-                            this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
                             
                             for (int i = 0; i < m_arrCardImg->count(); i++)
                             {
@@ -587,6 +586,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             CCLog("~~~~~~~~~~玩家钱=%lld", tmeg->Brolegold);
             CCLog("~~~~~~~~~~界面page=%d", tmeg->Bpage);
             
+            m_yzGold = tmeg->Bneedgold;
             m_winGold = tmeg->Bwingold;
             m_cardID = tmeg->BcardNumber;
             m_retWin = tmeg->Bret;
@@ -686,10 +686,15 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 KCGameLayer::playSound(DOUBLE_LOST);
                 runMoneyFly();
                 
-                if(HeadView::getInstance()->getBean() >= m_winGold)
+                unsigned long long needBaseGold;
+                needBaseGold = atoi(m_atl->getStringValue());
+                
+                m_tmpGold = HeadView::getInstance()->getBean();
+                
+                if(HeadView::getInstance()->getBean() >= needBaseGold)
                 {
                     //重置金币显示数量
-                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_winGold);
+                    HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - needBaseGold);
 
                 }
             }
@@ -738,6 +743,7 @@ void DoubleLayer::runBiBei(int color)
 
 void DoubleLayer::initUI()
 {
+    m_yzGold = 0;
     m_stopSound = -1;
     //增加自动收分
     this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
@@ -855,15 +861,26 @@ void DoubleLayer::isCanCloseThisUI()
 {
     this->unschedule(schedule_selector(DoubleLayer::isCanCloseThisUI));
     
+    CCLog("kkk double3~~~~~");
     //退回老虎机界面
     if(m_starNum >= 9 && m_page != 3)
     {
+        CCLog("kkk double2~~~~~");
         isBtnCanTouch = false;
         m_starNum = -9;
         this->schedule(schedule_selector(DoubleLayer::isCanCloseThisUI), 2.0f);
     }
+    //退回对应界面
+    else if(m_page != 3)
+    {
+        CCLog("kkk double1~~~~~");
+        isBtnCanTouch = false;
+        m_starNum = -19;
+        this->schedule(schedule_selector(DoubleLayer::isCanCloseThisUI), 2.0f);
+    }
     else if(-9 == m_starNum)
     {
+        CCLog("kkk double0~~~~~");
         m_starNum = -19;
         
         KCGameLayer::playSound(BIG_AWARD1);
@@ -929,6 +946,8 @@ void DoubleLayer::isCanCloseThisUI()
         
         m_arrCardImg->removeAllObjects();
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+        
+        CCLog("kkk double~~~~~");
     }
 }
 
@@ -1049,8 +1068,9 @@ void DoubleLayer::setActionFly1()
     m_armatureChiBangRight->setPosition(ccp(600, 550));
     
     //金币小于底金 直接返回老虎机界面
-    if(HeadView::getInstance()->getBean() < m_winGold)
+    if(m_tmpGold < m_yzGold)
     {
+        /*
         GameLogicMeg2Sever tmpMeg1;
         tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
@@ -1066,6 +1086,14 @@ void DoubleLayer::setActionFly1()
         m_starNum = 0;
         this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
 //        ((KCGameLayer*)this->getParent())->m_page = 1;//返回老虎机界面
+        
+        resetBGcard();
+         */
+        
+        m_secondFlag = 0;
+        isBtnCanTouch = true;
+        this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+        touchEvent(tBtnget, TOUCH_EVENT_ENDED);
         
     }
     

@@ -820,6 +820,7 @@
 		5BA5740119C0641F00C798B4 /* RegisterLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BA573FF19C0641F00C798B4 /* RegisterLayer.cpp */; };
 		5BAD0DF419C7BE5F0038753E /* TestLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD0DF219C7BE5F0038753E /* TestLayer.cpp */; };
 		5BAD0DFA19C7DE800038753E /* CreateRoleDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD0DF819C7DE800038753E /* CreateRoleDialog.cpp */; };
+		5BCFF7E319EB61C9003566CA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BCFF7E219EB61C9003566CA /* icon.png */; };
 		5BE1A91E19B5851500A92EF9 /* HallDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1A91C19B5851500A92EF9 /* HallDataManager.cpp */; };
 		5BE7C17C19B698E400380ABD /* Dialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17519B698E400380ABD /* Dialog.cpp */; };
 		5BE7C17E19B698E400380ABD /* RollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17A19B698E400380ABD /* RollView.cpp */; };
@@ -2003,6 +2004,7 @@
 		5BAD0DF819C7DE800038753E /* CreateRoleDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreateRoleDialog.cpp; path = ../Classes/CreateRoleDialog.cpp; sourceTree = "<group>"; };
 		5BAD0DF919C7DE800038753E /* CreateRoleDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateRoleDialog.h; path = ../Classes/CreateRoleDialog.h; sourceTree = "<group>"; };
 		5BB77F2119BEF35D00D07251 /* SoundNameDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundNameDefine.h; path = ../Classes/SoundNameDefine.h; sourceTree = "<group>"; };
+		5BCFF7E219EB61C9003566CA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		5BE1A91C19B5851500A92EF9 /* HallDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HallDataManager.cpp; path = ../Classes/HallDataManager.cpp; sourceTree = "<group>"; };
 		5BE1A91D19B5851500A92EF9 /* HallDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HallDataManager.h; path = ../Classes/HallDataManager.h; sourceTree = "<group>"; };
 		5BE7C17519B698E400380ABD /* Dialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dialog.cpp; sourceTree = "<group>"; };
@@ -4385,7 +4387,11 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				4A4006CC19EBAD7F007E7F3A /* Icon.png */,
+=======
+				5BCFF7E219EB61C9003566CA /* icon.png */,
+>>>>>>> 5c749c507d82fe9b8ad0dd326eff75ac889fe12b
 				5B0AF68E19D3C0B700AC1371 /* back_start.png */,
 				5B0AF68F19D3C0B700AC1371 /* button.plist */,
 				5B0AF69019D3C0B700AC1371 /* button.png */,
@@ -4995,6 +5001,7 @@
 				5B0AF8D119D3C0B700AC1371 /* UI4GameHead0.png in Resources */,
 				5B0AF9B619D3C0B800AC1371 /* x-0037.png in Resources */,
 				5B0AFA1419D3C0B800AC1371 /* BossAttack.ExportJson in Resources */,
+				5BCFF7E319EB61C9003566CA /* icon.png in Resources */,
 				5B0AF96419D3C0B700AC1371 /* 42.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
