@@ -53,6 +53,7 @@ public:
     
 private:
 
+    int m_idleNum;
     
 };
 

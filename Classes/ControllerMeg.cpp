@@ -11,6 +11,7 @@
 ControllerMeg::ControllerMeg()
 {
 
+    m_idleNum = 5;
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this,
                                                                  callfuncO_selector(ControllerMeg::recLoginEventFromUI),
@@ -183,7 +184,23 @@ void ControllerMeg::sendLinkGame(CCObject * obj)
 
 void ControllerMeg::sendIdle()
 {
-    m_gameLogicSocket->sendIdle();
+//    m_gameLogicSocket->sendIdle();
+    m_idleNum--;
+    
+    if(m_idleNum <= 0)
+    {
+        CCLog("断开链接");
+        m_idleNum = 0;
+        
+        CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
+        
+        Meg2UIDate sendmeg;
+        sendmeg.m_id = ERR_RET;
+        sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
+        sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
+        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+    }
+    
     CCLog("idle~~~");
 }
 
@@ -210,10 +227,10 @@ void ControllerMeg::sendMeg2Sever(CCObject * obj)
         {
 //            m_gameLogicSocket->sendIdle();
             
-//            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
-//                                                                           this,
-//                                                                           2.0f,
-//                                                                           false);
+            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
+                                                                           this,
+                                                                           1.0f,
+                                                                           false);
             break;
         }
         case OGID_TEXAS_SLOTS_JOINROOM:
@@ -498,9 +515,9 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             
             for(int i = 0; i < tmeg->ackOGAckPetList.petlist_size(); i++)
             {
-                //如果为参战状态1
-                if(1 == tmeg->ackOGAckPetList.petlist(i).status())
-                {
+//                //如果为参战状态1
+//                if(1 == tmeg->ackOGAckPetList.petlist(i).status())
+//                {
                     //参战宠物攻击
                     if(tmeg->ackOGAckPetList.petlist(i).status() == 1)
                     {
@@ -538,7 +555,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
                     
                     DataManager::sharedDataManager()->petID = tmeg->ackOGAckPetList.petlist(i).petid();
                     
-                }
+//                }
             }
             
             sendmeg.roleLv = DataManager::sharedDataManager()->AckRoleLoginMsg.level();
@@ -559,6 +576,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         case OGID_TEXAS_SLOTS_JACKPOT:
         {
 //            CCLog("OGID_TEXAS_SLOTS_JACKPOT");
+            m_idleNum = 5;
             
             sendmeg.jp = tmeg->ackOGAckJP.jp();
 
