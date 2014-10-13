@@ -284,6 +284,7 @@
 		3AE20F0A19A643430098F2C8 /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AE20F0019A643430098F2C8 /* StartLayer.cpp */; };
 		3AE20F0D19A643A20098F2C8 /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AE20F0B19A643A20098F2C8 /* BaseLayer.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
+		4A4006CD19EBAD7F007E7F3A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4006CC19EBAD7F007E7F3A /* Icon.png */; };
 		4CA8B8EE19AB1D45008D09AB /* ControllerMeg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8B8EC19AB1D45008D09AB /* ControllerMeg.cpp */; };
 		4CA8B8F119AB1D54008D09AB /* GameLogicSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8B8EF19AB1D54008D09AB /* GameLogicSocket.cpp */; };
 		4CA8B8F419AB1D62008D09AB /* LinkGameSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8B8F219AB1D62008D09AB /* LinkGameSocket.cpp */; };
@@ -376,13 +377,6 @@
 		5B0AF8F019D3C0B700AC1371 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F419D3C0B700AC1371 /* Default.png */; };
 		5B0AF8F119D3C0B700AC1371 /* dialog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F519D3C0B700AC1371 /* dialog.plist */; };
 		5B0AF8F219D3C0B700AC1371 /* dialog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F619D3C0B700AC1371 /* dialog.png */; };
-		5B0AF8F319D3C0B700AC1371 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F719D3C0B700AC1371 /* Icon-57.png */; };
-		5B0AF8F419D3C0B700AC1371 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F819D3C0B700AC1371 /* Icon-72.png */; };
-		5B0AF8F519D3C0B700AC1371 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F919D3C0B700AC1371 /* Icon-76.png */; };
-		5B0AF8F619D3C0B700AC1371 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FA19D3C0B700AC1371 /* Icon-114.png */; };
-		5B0AF8F719D3C0B700AC1371 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FB19D3C0B700AC1371 /* Icon-120.png */; };
-		5B0AF8F819D3C0B700AC1371 /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FC19D3C0B700AC1371 /* Icon-144.png */; };
-		5B0AF8F919D3C0B700AC1371 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FD19D3C0B700AC1371 /* Icon-152.png */; };
 		5B0AF8FA19D3C0B700AC1371 /* input.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FE19D3C0B700AC1371 /* input.plist */; };
 		5B0AF8FB19D3C0B700AC1371 /* input.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FF19D3C0B700AC1371 /* input.png */; };
 		5B0AF8FC19D3C0B700AC1371 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF70219D3C0B700AC1371 /* 1.png */; };
@@ -1442,6 +1436,7 @@
 		3AE20F0C19A643A20098F2C8 /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseLayer.h; path = ../Classes/BaseLayer.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
+		4A4006CC19EBAD7F007E7F3A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4C18CC2819AB05AD0058062D /* Hdefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Hdefine.h; path = ../Classes/Hdefine.h; sourceTree = "<group>"; };
 		4CA8B8EB19AB1D2E008D09AB /* GameMsgDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMsgDefine.h; path = ../Classes/GameMsgDefine.h; sourceTree = "<group>"; };
 		4CA8B8EC19AB1D45008D09AB /* ControllerMeg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControllerMeg.cpp; path = ../Classes/ControllerMeg.cpp; sourceTree = "<group>"; };
@@ -1549,13 +1544,6 @@
 		5B0AF6F419D3C0B700AC1371 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5B0AF6F519D3C0B700AC1371 /* dialog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dialog.plist; sourceTree = "<group>"; };
 		5B0AF6F619D3C0B700AC1371 /* dialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog.png; sourceTree = "<group>"; };
-		5B0AF6F719D3C0B700AC1371 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
-		5B0AF6F819D3C0B700AC1371 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		5B0AF6F919D3C0B700AC1371 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
-		5B0AF6FA19D3C0B700AC1371 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
-		5B0AF6FB19D3C0B700AC1371 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
-		5B0AF6FC19D3C0B700AC1371 /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
-		5B0AF6FD19D3C0B700AC1371 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
 		5B0AF6FE19D3C0B700AC1371 /* input.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = input.plist; sourceTree = "<group>"; };
 		5B0AF6FF19D3C0B700AC1371 /* input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input.png; sourceTree = "<group>"; };
 		5B0AF70219D3C0B700AC1371 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -4397,6 +4385,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4A4006CC19EBAD7F007E7F3A /* Icon.png */,
 				5B0AF68E19D3C0B700AC1371 /* back_start.png */,
 				5B0AF68F19D3C0B700AC1371 /* button.plist */,
 				5B0AF69019D3C0B700AC1371 /* button.png */,
@@ -4407,13 +4396,6 @@
 				5B0AF6F419D3C0B700AC1371 /* Default.png */,
 				5B0AF6F519D3C0B700AC1371 /* dialog.plist */,
 				5B0AF6F619D3C0B700AC1371 /* dialog.png */,
-				5B0AF6F719D3C0B700AC1371 /* Icon-57.png */,
-				5B0AF6F819D3C0B700AC1371 /* Icon-72.png */,
-				5B0AF6F919D3C0B700AC1371 /* Icon-76.png */,
-				5B0AF6FA19D3C0B700AC1371 /* Icon-114.png */,
-				5B0AF6FB19D3C0B700AC1371 /* Icon-120.png */,
-				5B0AF6FC19D3C0B700AC1371 /* Icon-144.png */,
-				5B0AF6FD19D3C0B700AC1371 /* Icon-152.png */,
 				5B0AF6FE19D3C0B700AC1371 /* input.plist */,
 				5B0AF6FF19D3C0B700AC1371 /* input.png */,
 				5B0AF70019D3C0B700AC1371 /* KRes */,
@@ -4596,7 +4578,6 @@
 				5B0AF96819D3C0B700AC1371 /* 46.png in Resources */,
 				5B0AFA7719D3C0B800AC1371 /* button_click.mp3 in Resources */,
 				5B0AFA0519D3C0B800AC1371 /* x-0116.png in Resources */,
-				5B0AF8F519D3C0B700AC1371 /* Icon-76.png in Resources */,
 				5B0AFA8319D3C0B800AC1371 /* roll_effect_eg.mp3 in Resources */,
 				5B0AF9D319D3C0B800AC1371 /* x-0066.png in Resources */,
 				5B0AF90719D3C0B700AC1371 /* 2.png in Resources */,
@@ -4737,7 +4718,6 @@
 				5B0AF92519D3C0B700AC1371 /* 47.png in Resources */,
 				5B0AFA6019D3C0B800AC1371 /* Y150_20.png in Resources */,
 				5B0AF91F19D3C0B700AC1371 /* 41.png in Resources */,
-				5B0AF8F319D3C0B700AC1371 /* Icon-57.png in Resources */,
 				5B0AFA7419D3C0B800AC1371 /* boss_laugh.mp3 in Resources */,
 				5B0AFA0F19D3C0B800AC1371 /* par.plist in Resources */,
 				5B0AF90019D3C0B700AC1371 /* 13.png in Resources */,
@@ -4748,18 +4728,17 @@
 				5B0AFA0119D3C0B800AC1371 /* x-0112.png in Resources */,
 				5B0AF9A319D3C0B700AC1371 /* x-0018.png in Resources */,
 				5B0AF95F19D3C0B700AC1371 /* 38.png in Resources */,
-				5B0AF8F619D3C0B700AC1371 /* Icon-114.png in Resources */,
 				5B0AF9D819D3C0B800AC1371 /* x-0071.png in Resources */,
 				5B0AFA2119D3C0B800AC1371 /* BossLost0.plist in Resources */,
 				5B0AF90319D3C0B700AC1371 /* 16.png in Resources */,
 				5B0AF9A819D3C0B700AC1371 /* x-0023.png in Resources */,
 				5B0AF8FE19D3C0B700AC1371 /* 11.png in Resources */,
 				5B0AF94919D3C0B700AC1371 /* 18.png in Resources */,
-				5B0AF8F819D3C0B700AC1371 /* Icon-144.png in Resources */,
 				5B0AF8DE19D3C0B700AC1371 /* UI4ItemRankJP0.png in Resources */,
 				5B12CF1019D0317D00997011 /* show_award.mp3 in Resources */,
 				5B0AFA3C19D3C0B800AC1371 /* ftFloor.png in Resources */,
 				5B0AF9EB19D3C0B800AC1371 /* x-0090.png in Resources */,
+				4A4006CD19EBAD7F007E7F3A /* Icon.png in Resources */,
 				5B0AFA0019D3C0B800AC1371 /* x-0111.png in Resources */,
 				5B0AF91D19D3C0B700AC1371 /* 4.png in Resources */,
 				5B0AF99419D3C0B700AC1371 /* x-0003.png in Resources */,
@@ -4800,7 +4779,6 @@
 				5B0AF8A519D3C0B700AC1371 /* button.png in Resources */,
 				5B0AF9F519D3C0B800AC1371 /* x-0100.png in Resources */,
 				5B12CF0119D0317D00997011 /* dog_onattacked.mp3 in Resources */,
-				5B0AF8F419D3C0B700AC1371 /* Icon-72.png in Resources */,
 				5B0AF8BB19D3C0B700AC1371 /* UI4DialogPet0.plist in Resources */,
 				5B0AF8C419D3C0B700AC1371 /* UI4DialogRankJP0.plist in Resources */,
 				5B0AF8C319D3C0B700AC1371 /* UI4DialogRankJP.ExportJson in Resources */,
@@ -4812,7 +4790,6 @@
 				5B0AF9B919D3C0B800AC1371 /* x-0040.png in Resources */,
 				5B0AFA2219D3C0B800AC1371 /* BossLost0.png in Resources */,
 				5B0AF98419D3C0B700AC1371 /* Gold030.png in Resources */,
-				5B0AF8F719D3C0B700AC1371 /* Icon-120.png in Resources */,
 				5B0AF9B819D3C0B800AC1371 /* x-0039.png in Resources */,
 				5B0AF94119D3C0B700AC1371 /* 10.png in Resources */,
 				5B0AF90F19D3C0B700AC1371 /* 27.png in Resources */,
@@ -4860,7 +4837,6 @@
 				5B0AF94B19D3C0B700AC1371 /* 2.png in Resources */,
 				5B0AFA3B19D3C0B800AC1371 /* frames0.plist in Resources */,
 				5B0AF93419D3C0B700AC1371 /* chibang0.png in Resources */,
-				5B0AF8F919D3C0B700AC1371 /* Icon-152.png in Resources */,
 				5B0AF8D219D3C0B700AC1371 /* Y150_20.png in Resources */,
 				5B0AF8AE19D3C0B700AC1371 /* UI4DialogAlert.ExportJson in Resources */,
 				5B0AF93A19D3C0B700AC1371 /* dajiang030.png in Resources */,
