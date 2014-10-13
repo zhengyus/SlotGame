@@ -284,7 +284,6 @@
 		3AE20F0A19A643430098F2C8 /* StartLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AE20F0019A643430098F2C8 /* StartLayer.cpp */; };
 		3AE20F0D19A643A20098F2C8 /* BaseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AE20F0B19A643A20098F2C8 /* BaseLayer.cpp */; };
 		46513EB1187BFBA200B5ABE1 /* UITouchGroup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */; };
-		4A4006CD19EBAD7F007E7F3A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A4006CC19EBAD7F007E7F3A /* Icon.png */; };
 		4CA8B8EE19AB1D45008D09AB /* ControllerMeg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8B8EC19AB1D45008D09AB /* ControllerMeg.cpp */; };
 		4CA8B8F119AB1D54008D09AB /* GameLogicSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8B8EF19AB1D54008D09AB /* GameLogicSocket.cpp */; };
 		4CA8B8F419AB1D62008D09AB /* LinkGameSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4CA8B8F219AB1D62008D09AB /* LinkGameSocket.cpp */; };
@@ -825,6 +824,15 @@
 		5BE7C17C19B698E400380ABD /* Dialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17519B698E400380ABD /* Dialog.cpp */; };
 		5BE7C17E19B698E400380ABD /* RollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17A19B698E400380ABD /* RollView.cpp */; };
 		5BEE887219B8536500EB7787 /* ChoosePrizeDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BEE887019B8536500EB7787 /* ChoosePrizeDialog.cpp */; };
+		5BF256DC19EBD88B004B5065 /* card_bean.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D119EBD88A004B5065 /* card_bean.ExportJson */; };
+		5BF256DD19EBD88B004B5065 /* card_bean0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D219EBD88A004B5065 /* card_bean0.plist */; };
+		5BF256DE19EBD88B004B5065 /* card_bean0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D319EBD88A004B5065 /* card_bean0.png */; };
+		5BF256DF19EBD88B004B5065 /* card_exp.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D519EBD88B004B5065 /* card_exp.ExportJson */; };
+		5BF256E019EBD88B004B5065 /* card_exp0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D619EBD88B004B5065 /* card_exp0.plist */; };
+		5BF256E119EBD88B004B5065 /* card_exp0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D719EBD88B004B5065 /* card_exp0.png */; };
+		5BF256E219EBD88B004B5065 /* card_petExp.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256D919EBD88B004B5065 /* card_petExp.ExportJson */; };
+		5BF256E319EBD88B004B5065 /* card_petExp0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256DA19EBD88B004B5065 /* card_petExp0.plist */; };
+		5BF256E419EBD88B004B5065 /* card_petExp0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BF256DB19EBD88B004B5065 /* card_petExp0.png */; };
 		5BFFBE4B19E4DCB80027B5B2 /* UI4DialogSet.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4819E4DCB80027B5B2 /* UI4DialogSet.ExportJson */; };
 		5BFFBE4C19E4DCB80027B5B2 /* UI4DialogSet0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4919E4DCB80027B5B2 /* UI4DialogSet0.plist */; };
 		5BFFBE4D19E4DCB80027B5B2 /* UI4DialogSet0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BFFBE4A19E4DCB80027B5B2 /* UI4DialogSet0.png */; };
@@ -1437,7 +1445,6 @@
 		3AE20F0C19A643A20098F2C8 /* BaseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseLayer.h; path = ../Classes/BaseLayer.h; sourceTree = "<group>"; };
 		46513EAF187BFBA200B5ABE1 /* UITouchGroup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITouchGroup.cpp; sourceTree = "<group>"; };
 		46513EB0187BFBA200B5ABE1 /* UITouchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITouchGroup.h; sourceTree = "<group>"; };
-		4A4006CC19EBAD7F007E7F3A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		4C18CC2819AB05AD0058062D /* Hdefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Hdefine.h; path = ../Classes/Hdefine.h; sourceTree = "<group>"; };
 		4CA8B8EB19AB1D2E008D09AB /* GameMsgDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameMsgDefine.h; path = ../Classes/GameMsgDefine.h; sourceTree = "<group>"; };
 		4CA8B8EC19AB1D45008D09AB /* ControllerMeg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ControllerMeg.cpp; path = ../Classes/ControllerMeg.cpp; sourceTree = "<group>"; };
@@ -2014,6 +2021,15 @@
 		5BE7C17B19B698E400380ABD /* RollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollView.h; sourceTree = "<group>"; };
 		5BEE887019B8536500EB7787 /* ChoosePrizeDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChoosePrizeDialog.cpp; path = ../Classes/ChoosePrizeDialog.cpp; sourceTree = "<group>"; };
 		5BEE887119B8536500EB7787 /* ChoosePrizeDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChoosePrizeDialog.h; path = ../Classes/ChoosePrizeDialog.h; sourceTree = "<group>"; };
+		5BF256D119EBD88A004B5065 /* card_bean.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = card_bean.ExportJson; sourceTree = "<group>"; };
+		5BF256D219EBD88A004B5065 /* card_bean0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = card_bean0.plist; sourceTree = "<group>"; };
+		5BF256D319EBD88A004B5065 /* card_bean0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_bean0.png; sourceTree = "<group>"; };
+		5BF256D519EBD88B004B5065 /* card_exp.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = card_exp.ExportJson; sourceTree = "<group>"; };
+		5BF256D619EBD88B004B5065 /* card_exp0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = card_exp0.plist; sourceTree = "<group>"; };
+		5BF256D719EBD88B004B5065 /* card_exp0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_exp0.png; sourceTree = "<group>"; };
+		5BF256D919EBD88B004B5065 /* card_petExp.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = card_petExp.ExportJson; sourceTree = "<group>"; };
+		5BF256DA19EBD88B004B5065 /* card_petExp0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = card_petExp0.plist; sourceTree = "<group>"; };
+		5BF256DB19EBD88B004B5065 /* card_petExp0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card_petExp0.png; sourceTree = "<group>"; };
 		5BFFBE4819E4DCB80027B5B2 /* UI4DialogSet.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UI4DialogSet.ExportJson; sourceTree = "<group>"; };
 		5BFFBE4919E4DCB80027B5B2 /* UI4DialogSet0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UI4DialogSet0.plist; sourceTree = "<group>"; };
 		5BFFBE4A19E4DCB80027B5B2 /* UI4DialogSet0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UI4DialogSet0.png; sourceTree = "<group>"; };
@@ -3458,6 +3474,7 @@
 		5B0AF69319D3C0B700AC1371 /* cocosstudio */ = {
 			isa = PBXGroup;
 			children = (
+				5BF256CF19EBD88A004B5065 /* choosePrize */,
 				5BFFBE4719E4DCB80027B5B2 /* UI4DialogSet */,
 				5B0AF69419D3C0B700AC1371 /* glitter */,
 				5B0AF69819D3C0B700AC1371 /* UI4Dialog */,
@@ -4374,6 +4391,46 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
+		5BF256CF19EBD88A004B5065 /* choosePrize */ = {
+			isa = PBXGroup;
+			children = (
+				5BF256D019EBD88A004B5065 /* card_bean */,
+				5BF256D419EBD88B004B5065 /* card_exp */,
+				5BF256D819EBD88B004B5065 /* card_petExp */,
+			);
+			path = choosePrize;
+			sourceTree = "<group>";
+		};
+		5BF256D019EBD88A004B5065 /* card_bean */ = {
+			isa = PBXGroup;
+			children = (
+				5BF256D119EBD88A004B5065 /* card_bean.ExportJson */,
+				5BF256D219EBD88A004B5065 /* card_bean0.plist */,
+				5BF256D319EBD88A004B5065 /* card_bean0.png */,
+			);
+			path = card_bean;
+			sourceTree = "<group>";
+		};
+		5BF256D419EBD88B004B5065 /* card_exp */ = {
+			isa = PBXGroup;
+			children = (
+				5BF256D519EBD88B004B5065 /* card_exp.ExportJson */,
+				5BF256D619EBD88B004B5065 /* card_exp0.plist */,
+				5BF256D719EBD88B004B5065 /* card_exp0.png */,
+			);
+			path = card_exp;
+			sourceTree = "<group>";
+		};
+		5BF256D819EBD88B004B5065 /* card_petExp */ = {
+			isa = PBXGroup;
+			children = (
+				5BF256D919EBD88B004B5065 /* card_petExp.ExportJson */,
+				5BF256DA19EBD88B004B5065 /* card_petExp0.plist */,
+				5BF256DB19EBD88B004B5065 /* card_petExp0.png */,
+			);
+			path = card_petExp;
+			sourceTree = "<group>";
+		};
 		5BFFBE4719E4DCB80027B5B2 /* UI4DialogSet */ = {
 			isa = PBXGroup;
 			children = (
@@ -4387,11 +4444,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
-				4A4006CC19EBAD7F007E7F3A /* Icon.png */,
-=======
 				5BCFF7E219EB61C9003566CA /* icon.png */,
->>>>>>> 5c749c507d82fe9b8ad0dd326eff75ac889fe12b
 				5B0AF68E19D3C0B700AC1371 /* back_start.png */,
 				5B0AF68F19D3C0B700AC1371 /* button.plist */,
 				5B0AF69019D3C0B700AC1371 /* button.png */,
@@ -4517,8 +4570,10 @@
 				5B0AF9E019D3C0B800AC1371 /* x-0079.png in Resources */,
 				5B0AF92619D3C0B700AC1371 /* 48.png in Resources */,
 				5B0AFA8019D3C0B800AC1371 /* lion_onattacked.mp3 in Resources */,
+				5BF256DF19EBD88B004B5065 /* card_exp.ExportJson in Resources */,
 				5B0AFA6619D3C0B800AC1371 /* zhandou0.png in Resources */,
 				5B0AF98A19D3C0B700AC1371 /* winL.png in Resources */,
+				5BF256DC19EBD88B004B5065 /* card_bean.ExportJson in Resources */,
 				5B0AFA6319D3C0B800AC1371 /* Win0.png in Resources */,
 				5B0AF9AB19D3C0B700AC1371 /* x-0026.png in Resources */,
 				5B0AF8EA19D3C0B700AC1371 /* UI4Register0.png in Resources */,
@@ -4564,6 +4619,7 @@
 				5B0AFA8419D3C0B800AC1371 /* roll_effect_fight.mp3 in Resources */,
 				5B0AFA3819D3C0B800AC1371 /* egFloor.png in Resources */,
 				5B0AF93019D3C0B700AC1371 /* 9.png in Resources */,
+				5BF256E119EBD88B004B5065 /* card_exp0.png in Resources */,
 				5B0AF96C19D3C0B700AC1371 /* 5.png in Resources */,
 				5B0AF96F19D3C0B700AC1371 /* 52.png in Resources */,
 				5B12CF0319D0317D00997011 /* double_turnover.mp3 in Resources */,
@@ -4698,6 +4754,7 @@
 				5B0AF9D419D3C0B800AC1371 /* x-0067.png in Resources */,
 				5B12CEFE19D0317D00997011 /* boss_over.mp3 in Resources */,
 				5B0AFA7C19D3C0B800AC1371 /* double_win.mp3 in Resources */,
+				5BF256E319EBD88B004B5065 /* card_petExp0.plist in Resources */,
 				5B0AF9D219D3C0B800AC1371 /* x-0065.png in Resources */,
 				5B0AF98C19D3C0B700AC1371 /* FontRed21_27.png in Resources */,
 				5B0AF8B719D3C0B700AC1371 /* UI4DialogMsgContent.ExportJson in Resources */,
@@ -4739,12 +4796,12 @@
 				5B0AF90319D3C0B700AC1371 /* 16.png in Resources */,
 				5B0AF9A819D3C0B700AC1371 /* x-0023.png in Resources */,
 				5B0AF8FE19D3C0B700AC1371 /* 11.png in Resources */,
+				5BF256DE19EBD88B004B5065 /* card_bean0.png in Resources */,
 				5B0AF94919D3C0B700AC1371 /* 18.png in Resources */,
 				5B0AF8DE19D3C0B700AC1371 /* UI4ItemRankJP0.png in Resources */,
 				5B12CF1019D0317D00997011 /* show_award.mp3 in Resources */,
 				5B0AFA3C19D3C0B800AC1371 /* ftFloor.png in Resources */,
 				5B0AF9EB19D3C0B800AC1371 /* x-0090.png in Resources */,
-				4A4006CD19EBAD7F007E7F3A /* Icon.png in Resources */,
 				5B0AFA0019D3C0B800AC1371 /* x-0111.png in Resources */,
 				5B0AF91D19D3C0B700AC1371 /* 4.png in Resources */,
 				5B0AF99419D3C0B700AC1371 /* x-0003.png in Resources */,
@@ -4814,6 +4871,7 @@
 				5B0AF95D19D3C0B700AC1371 /* 36.png in Resources */,
 				5B0AF9DB19D3C0B800AC1371 /* x-0074.png in Resources */,
 				5B0AFA3E19D3C0B800AC1371 /* LionAttack0.plist in Resources */,
+				5BF256E419EBD88B004B5065 /* card_petExp0.png in Resources */,
 				5B0AFA2719D3C0B800AC1371 /* chFloor.png in Resources */,
 				5B0AF9D019D3C0B800AC1371 /* x-0063.png in Resources */,
 				5B0AF97319D3C0B700AC1371 /* 8.png in Resources */,
@@ -4869,6 +4927,7 @@
 				5B0AF96619D3C0B700AC1371 /* 44.png in Resources */,
 				5B0AF95119D3C0B700AC1371 /* 25.png in Resources */,
 				5BFFBE4D19E4DCB80027B5B2 /* UI4DialogSet0.png in Resources */,
+				5BF256E019EBD88B004B5065 /* card_exp0.plist in Resources */,
 				5B0AFA8519D3C0B800AC1371 /* roll_effect_stop.mp3 in Resources */,
 				5B0AF9F419D3C0B800AC1371 /* x-0099.png in Resources */,
 				5B0AF95C19D3C0B700AC1371 /* 35.png in Resources */,
@@ -4941,6 +5000,7 @@
 				5B0AF97F19D3C0B700AC1371 /* Gold02.ExportJson in Resources */,
 				5B12CF0819D0317D00997011 /* lion_onattacked.mp3 in Resources */,
 				5B0AF8EC19D3C0B700AC1371 /* UI4Start0.plist in Resources */,
+				5BF256DD19EBD88B004B5065 /* card_bean0.plist in Resources */,
 				5B12CF0019D0317D00997011 /* dog_attack.mp3 in Resources */,
 				5B0AF8B619D3C0B700AC1371 /* UI4DialogMsg0.png in Resources */,
 				5B0AF8DF19D3C0B700AC1371 /* UI4ItemRoom.ExportJson in Resources */,
@@ -4961,6 +5021,7 @@
 				5B12CEFA19D0317D00997011 /* big_award4.mp3 in Resources */,
 				5B0AFA7A19D3C0B800AC1371 /* double_lost.mp3 in Resources */,
 				5B0AF9A519D3C0B700AC1371 /* x-0020.png in Resources */,
+				5BF256E219EBD88B004B5065 /* card_petExp.ExportJson in Resources */,
 				5B0AF92F19D3C0B700AC1371 /* 8.png in Resources */,
 				5B0AF8B519D3C0B700AC1371 /* UI4DialogMsg0.plist in Resources */,
 				5B0AF91219D3C0B700AC1371 /* 3.png in Resources */,

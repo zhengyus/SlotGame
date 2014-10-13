@@ -9,13 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/LoginLayer.cpp"
-            timestampString = "433427199.414609"
+            filePath = "../Classes/GameLayer.cpp"
+            timestampString = "434884767.338141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
-            landmarkName = "LoginLayer::showUserAccounts()"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "GameLayer::receiveBaseMsg(CCObject* obj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,73 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/LoginLayer.cpp"
-            timestampString = "433427199.414609"
+            filePath = "../Classes/GameLayer.cpp"
+            timestampString = "434884767.338141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "LoginLayer::refreshUserAccounts()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginLayer::onClickedDown(cocos2d::CCObject*, cocos2d::ui::TouchEventType)"
-                  moduleName = "&#x8fde;&#x7ebf;&#x82f1;&#x96c4;"
-                  urlString = "file:///Users/huxf/workspace/cocos2d-x-2.2.3/projects/SlotGame/Classes/LoginLayer.cpp"
-                  timestampString = "433427199.774938"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "59">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginLayer::refreshUserAccounts()"
-                  moduleName = "&#x8fde;&#x7ebf;&#x82f1;&#x96c4;"
-                  urlString = "file:///Users/huxf/workspace/cocos2d-x-2.2.3/projects/SlotGame/Classes/LoginLayer.cpp"
-                  timestampString = "433427199.775129"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "13">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoginLayer::onClickedDelete(cocos2d::CCObject*, cocos2d::ui::TouchEventType)"
-                  moduleName = "&#x8fde;&#x7ebf;&#x82f1;&#x96c4;"
-                  urlString = "file:///Users/huxf/workspace/cocos2d-x-2.2.3/projects/SlotGame/Classes/LoginLayer.cpp"
-                  timestampString = "433427199.775269"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "233"
-                  endingLineNumber = "233"
-                  offsetFromSymbolStart = "133">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/StartLayer.cpp"
-            timestampString = "433427106.670671"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "StartLayer::receiveBaseMsg(CCObject* obj)"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "GameLayer::receiveBaseMsg(CCObject* obj)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
