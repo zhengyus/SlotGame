@@ -376,13 +376,6 @@
 		5B0AF8F019D3C0B700AC1371 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F419D3C0B700AC1371 /* Default.png */; };
 		5B0AF8F119D3C0B700AC1371 /* dialog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F519D3C0B700AC1371 /* dialog.plist */; };
 		5B0AF8F219D3C0B700AC1371 /* dialog.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F619D3C0B700AC1371 /* dialog.png */; };
-		5B0AF8F319D3C0B700AC1371 /* Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F719D3C0B700AC1371 /* Icon-57.png */; };
-		5B0AF8F419D3C0B700AC1371 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F819D3C0B700AC1371 /* Icon-72.png */; };
-		5B0AF8F519D3C0B700AC1371 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6F919D3C0B700AC1371 /* Icon-76.png */; };
-		5B0AF8F619D3C0B700AC1371 /* Icon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FA19D3C0B700AC1371 /* Icon-114.png */; };
-		5B0AF8F719D3C0B700AC1371 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FB19D3C0B700AC1371 /* Icon-120.png */; };
-		5B0AF8F819D3C0B700AC1371 /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FC19D3C0B700AC1371 /* Icon-144.png */; };
-		5B0AF8F919D3C0B700AC1371 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FD19D3C0B700AC1371 /* Icon-152.png */; };
 		5B0AF8FA19D3C0B700AC1371 /* input.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FE19D3C0B700AC1371 /* input.plist */; };
 		5B0AF8FB19D3C0B700AC1371 /* input.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF6FF19D3C0B700AC1371 /* input.png */; };
 		5B0AF8FC19D3C0B700AC1371 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B0AF70219D3C0B700AC1371 /* 1.png */; };
@@ -826,6 +819,7 @@
 		5BA5740119C0641F00C798B4 /* RegisterLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BA573FF19C0641F00C798B4 /* RegisterLayer.cpp */; };
 		5BAD0DF419C7BE5F0038753E /* TestLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD0DF219C7BE5F0038753E /* TestLayer.cpp */; };
 		5BAD0DFA19C7DE800038753E /* CreateRoleDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD0DF819C7DE800038753E /* CreateRoleDialog.cpp */; };
+		5BCFF7E319EB61C9003566CA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BCFF7E219EB61C9003566CA /* icon.png */; };
 		5BE1A91E19B5851500A92EF9 /* HallDataManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1A91C19B5851500A92EF9 /* HallDataManager.cpp */; };
 		5BE7C17C19B698E400380ABD /* Dialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17519B698E400380ABD /* Dialog.cpp */; };
 		5BE7C17E19B698E400380ABD /* RollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5BE7C17A19B698E400380ABD /* RollView.cpp */; };
@@ -1549,13 +1543,6 @@
 		5B0AF6F419D3C0B700AC1371 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		5B0AF6F519D3C0B700AC1371 /* dialog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dialog.plist; sourceTree = "<group>"; };
 		5B0AF6F619D3C0B700AC1371 /* dialog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dialog.png; sourceTree = "<group>"; };
-		5B0AF6F719D3C0B700AC1371 /* Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-57.png"; sourceTree = "<group>"; };
-		5B0AF6F819D3C0B700AC1371 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
-		5B0AF6F919D3C0B700AC1371 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
-		5B0AF6FA19D3C0B700AC1371 /* Icon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-114.png"; sourceTree = "<group>"; };
-		5B0AF6FB19D3C0B700AC1371 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
-		5B0AF6FC19D3C0B700AC1371 /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
-		5B0AF6FD19D3C0B700AC1371 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-152.png"; sourceTree = "<group>"; };
 		5B0AF6FE19D3C0B700AC1371 /* input.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = input.plist; sourceTree = "<group>"; };
 		5B0AF6FF19D3C0B700AC1371 /* input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = input.png; sourceTree = "<group>"; };
 		5B0AF70219D3C0B700AC1371 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
@@ -2015,6 +2002,7 @@
 		5BAD0DF819C7DE800038753E /* CreateRoleDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreateRoleDialog.cpp; path = ../Classes/CreateRoleDialog.cpp; sourceTree = "<group>"; };
 		5BAD0DF919C7DE800038753E /* CreateRoleDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreateRoleDialog.h; path = ../Classes/CreateRoleDialog.h; sourceTree = "<group>"; };
 		5BB77F2119BEF35D00D07251 /* SoundNameDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SoundNameDefine.h; path = ../Classes/SoundNameDefine.h; sourceTree = "<group>"; };
+		5BCFF7E219EB61C9003566CA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		5BE1A91C19B5851500A92EF9 /* HallDataManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HallDataManager.cpp; path = ../Classes/HallDataManager.cpp; sourceTree = "<group>"; };
 		5BE1A91D19B5851500A92EF9 /* HallDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HallDataManager.h; path = ../Classes/HallDataManager.h; sourceTree = "<group>"; };
 		5BE7C17519B698E400380ABD /* Dialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dialog.cpp; sourceTree = "<group>"; };
@@ -4397,6 +4385,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5BCFF7E219EB61C9003566CA /* icon.png */,
 				5B0AF68E19D3C0B700AC1371 /* back_start.png */,
 				5B0AF68F19D3C0B700AC1371 /* button.plist */,
 				5B0AF69019D3C0B700AC1371 /* button.png */,
@@ -4407,13 +4396,6 @@
 				5B0AF6F419D3C0B700AC1371 /* Default.png */,
 				5B0AF6F519D3C0B700AC1371 /* dialog.plist */,
 				5B0AF6F619D3C0B700AC1371 /* dialog.png */,
-				5B0AF6F719D3C0B700AC1371 /* Icon-57.png */,
-				5B0AF6F819D3C0B700AC1371 /* Icon-72.png */,
-				5B0AF6F919D3C0B700AC1371 /* Icon-76.png */,
-				5B0AF6FA19D3C0B700AC1371 /* Icon-114.png */,
-				5B0AF6FB19D3C0B700AC1371 /* Icon-120.png */,
-				5B0AF6FC19D3C0B700AC1371 /* Icon-144.png */,
-				5B0AF6FD19D3C0B700AC1371 /* Icon-152.png */,
 				5B0AF6FE19D3C0B700AC1371 /* input.plist */,
 				5B0AF6FF19D3C0B700AC1371 /* input.png */,
 				5B0AF70019D3C0B700AC1371 /* KRes */,
@@ -4596,7 +4578,6 @@
 				5B0AF96819D3C0B700AC1371 /* 46.png in Resources */,
 				5B0AFA7719D3C0B800AC1371 /* button_click.mp3 in Resources */,
 				5B0AFA0519D3C0B800AC1371 /* x-0116.png in Resources */,
-				5B0AF8F519D3C0B700AC1371 /* Icon-76.png in Resources */,
 				5B0AFA8319D3C0B800AC1371 /* roll_effect_eg.mp3 in Resources */,
 				5B0AF9D319D3C0B800AC1371 /* x-0066.png in Resources */,
 				5B0AF90719D3C0B700AC1371 /* 2.png in Resources */,
@@ -4737,7 +4718,6 @@
 				5B0AF92519D3C0B700AC1371 /* 47.png in Resources */,
 				5B0AFA6019D3C0B800AC1371 /* Y150_20.png in Resources */,
 				5B0AF91F19D3C0B700AC1371 /* 41.png in Resources */,
-				5B0AF8F319D3C0B700AC1371 /* Icon-57.png in Resources */,
 				5B0AFA7419D3C0B800AC1371 /* boss_laugh.mp3 in Resources */,
 				5B0AFA0F19D3C0B800AC1371 /* par.plist in Resources */,
 				5B0AF90019D3C0B700AC1371 /* 13.png in Resources */,
@@ -4748,14 +4728,12 @@
 				5B0AFA0119D3C0B800AC1371 /* x-0112.png in Resources */,
 				5B0AF9A319D3C0B700AC1371 /* x-0018.png in Resources */,
 				5B0AF95F19D3C0B700AC1371 /* 38.png in Resources */,
-				5B0AF8F619D3C0B700AC1371 /* Icon-114.png in Resources */,
 				5B0AF9D819D3C0B800AC1371 /* x-0071.png in Resources */,
 				5B0AFA2119D3C0B800AC1371 /* BossLost0.plist in Resources */,
 				5B0AF90319D3C0B700AC1371 /* 16.png in Resources */,
 				5B0AF9A819D3C0B700AC1371 /* x-0023.png in Resources */,
 				5B0AF8FE19D3C0B700AC1371 /* 11.png in Resources */,
 				5B0AF94919D3C0B700AC1371 /* 18.png in Resources */,
-				5B0AF8F819D3C0B700AC1371 /* Icon-144.png in Resources */,
 				5B0AF8DE19D3C0B700AC1371 /* UI4ItemRankJP0.png in Resources */,
 				5B12CF1019D0317D00997011 /* show_award.mp3 in Resources */,
 				5B0AFA3C19D3C0B800AC1371 /* ftFloor.png in Resources */,
@@ -4800,7 +4778,6 @@
 				5B0AF8A519D3C0B700AC1371 /* button.png in Resources */,
 				5B0AF9F519D3C0B800AC1371 /* x-0100.png in Resources */,
 				5B12CF0119D0317D00997011 /* dog_onattacked.mp3 in Resources */,
-				5B0AF8F419D3C0B700AC1371 /* Icon-72.png in Resources */,
 				5B0AF8BB19D3C0B700AC1371 /* UI4DialogPet0.plist in Resources */,
 				5B0AF8C419D3C0B700AC1371 /* UI4DialogRankJP0.plist in Resources */,
 				5B0AF8C319D3C0B700AC1371 /* UI4DialogRankJP.ExportJson in Resources */,
@@ -4812,7 +4789,6 @@
 				5B0AF9B919D3C0B800AC1371 /* x-0040.png in Resources */,
 				5B0AFA2219D3C0B800AC1371 /* BossLost0.png in Resources */,
 				5B0AF98419D3C0B700AC1371 /* Gold030.png in Resources */,
-				5B0AF8F719D3C0B700AC1371 /* Icon-120.png in Resources */,
 				5B0AF9B819D3C0B800AC1371 /* x-0039.png in Resources */,
 				5B0AF94119D3C0B700AC1371 /* 10.png in Resources */,
 				5B0AF90F19D3C0B700AC1371 /* 27.png in Resources */,
@@ -4860,7 +4836,6 @@
 				5B0AF94B19D3C0B700AC1371 /* 2.png in Resources */,
 				5B0AFA3B19D3C0B800AC1371 /* frames0.plist in Resources */,
 				5B0AF93419D3C0B700AC1371 /* chibang0.png in Resources */,
-				5B0AF8F919D3C0B700AC1371 /* Icon-152.png in Resources */,
 				5B0AF8D219D3C0B700AC1371 /* Y150_20.png in Resources */,
 				5B0AF8AE19D3C0B700AC1371 /* UI4DialogAlert.ExportJson in Resources */,
 				5B0AF93A19D3C0B700AC1371 /* dajiang030.png in Resources */,
@@ -5019,6 +4994,7 @@
 				5B0AF8D119D3C0B700AC1371 /* UI4GameHead0.png in Resources */,
 				5B0AF9B619D3C0B800AC1371 /* x-0037.png in Resources */,
 				5B0AFA1419D3C0B800AC1371 /* BossAttack.ExportJson in Resources */,
+				5BCFF7E319EB61C9003566CA /* icon.png in Resources */,
 				5B0AF96419D3C0B700AC1371 /* 42.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
