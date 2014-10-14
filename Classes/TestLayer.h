@@ -22,6 +22,11 @@ public:
     bool init();
     
     void onEnter();
+    
+    void click(CCObject*,CCControlEvent);
+    
+private:
+    vector<MyPetFAward> _data;
 };
 
 #endif

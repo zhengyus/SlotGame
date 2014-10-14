@@ -60,15 +60,27 @@ bool TestLayer::init()
 //    view->display();
     
 //    CCDirector::sharedDirector()
+    
+    CCControlButton* btn = CCControlButton::create("test", "Arial", 30);
+    btn->setPosition(1136/2, 640/2);
+    btn->addTargetWithActionForControlEvents(this, cccontrol_selector(TestLayer::click), CCControlEventTouchDown);
+    addChild(btn);
+
 
     
     return true;
 }
 
+void TestLayer::click(CCObject*,CCControlEvent eventType)
+{
+    
+        ChoosePrizeDialog::createWithData(_data)->show();
+}
+
 void TestLayer::onEnter()
 {
     CCLayer::onEnter();
-    vector<MyPetFAward> data;
+    
     MyPetFAward d1;
     d1.Atype = 1;
     d1.Anum = 1000;
@@ -84,9 +96,9 @@ void TestLayer::onEnter()
     d3.Anum = 3000;
     d3.Aok = 1;
     
-    data.push_back(d1);
-    data.push_back(d2);
-    data.push_back(d3);
+    _data.push_back(d1);
+    _data.push_back(d2);
+    _data.push_back(d3);
     
-    ChoosePrizeDialog::createWithData(data)->show();
+    ChoosePrizeDialog::createWithData(_data)->show();
 }
