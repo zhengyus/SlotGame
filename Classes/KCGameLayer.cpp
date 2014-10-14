@@ -340,7 +340,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     char tmStr[50];
                     
-                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0 && m_roomID == 1)
                     {
                         DataManager::sharedDataManager()->currFreeNum--;
                     }
@@ -352,7 +352,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
                     UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
                     //免费的
-                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0 && m_roomID == 1)
                     {
                         if(DataManager::sharedDataManager()->currFreeNum == 0)
                         {
@@ -548,7 +548,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     
                     //免费不处理
-                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    if(DataManager::sharedDataManager()->currFreeNum > 0 && m_roomID == 1)
                     {
                         return;
                     }
@@ -643,7 +643,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     
                     //免费不处理
-                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    if(DataManager::sharedDataManager()->currFreeNum > 0 && m_roomID == 1)
                     {
                         return;
                     }
@@ -730,7 +730,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     char tmStr[50];
                     
-                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0 && m_roomID == 1)
                     {
                         DataManager::sharedDataManager()->currFreeNum--;
                     }
@@ -742,7 +742,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
                     UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
                     //免费的
-                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0 && m_roomID == 1)
                     {
                         if(DataManager::sharedDataManager()->currFreeNum == 0)
                         {
@@ -1998,10 +1998,16 @@ void KCGameLayer::initUI()
         imgid = 1;
     }
     
-    //无免费转动的时候
-    if(DataManager::sharedDataManager()->currFreeNum <= 0)
+    //有免费转动的时候
+    if(DataManager::sharedDataManager()->currFreeNum > 0 && m_roomID == 1)
     {
-        DataManager::sharedDataManager()->currFreeNum = 0;
+        m_setLineRewNum = m_maxLineRewNum;
+        m_beiNum = m_maxBeiNum;
+    }
+    //无免费转动的时候
+    else
+    {
+//        DataManager::sharedDataManager()->currFreeNum = 0;
         
         //求倍数
         for(int i = 0; i < DataManager::sharedDataManager()->roomBetList.size(); i++)
@@ -2071,12 +2077,7 @@ void KCGameLayer::initUI()
         }
         
     }
-    //有免费转动的时候
-    else
-    {
-        m_setLineRewNum = m_maxLineRewNum;
-        m_beiNum = m_maxBeiNum;
-    }
+    
 ///////////////////////////////////////////////////
     
     char tmStr[50];
@@ -2106,7 +2107,7 @@ void KCGameLayer::initUI()
     pnf->setVisible(false);
     pnc->setVisible(false);
     
-    if(DataManager::sharedDataManager()->currFreeNum > 0)
+    if(DataManager::sharedDataManager()->currFreeNum > 0 && m_roomID == 1)
     {
         pnf->setVisible(true);
     }
