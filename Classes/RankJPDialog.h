@@ -21,8 +21,8 @@ class RankJPDialog : public ListDialog<MyJPRankList>
     
     typedef enum
     {
-        JPRankType_Star = 0,
-        JPRankType_Big = 1
+        JPRankType_Big = 0,
+        JPRankType_Star = 1
     } JPRankType;
     
 public:

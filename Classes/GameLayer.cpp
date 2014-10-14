@@ -142,6 +142,7 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
             _headView->setHead(CCString::createWithFormat("head_small%d.png",sex)->getCString());
             
             _hallData->_pets = data->mPetList;
+            CCLOG("pets num %ld",data->mPetList.size());
             loadStepup();   
             break;
         }

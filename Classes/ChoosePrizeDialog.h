@@ -30,12 +30,22 @@ public:
     
 public:
     void time();
-    void chooseCard(ImageView*);//选择卡牌
-    void setCardAndPrize(int,string&,string&);
+    
+    void selectCard(ImageView*);//选择卡牌
     void closeCallback();
     
     void onClickedConfirmEvent(CCObject*,TouchEventType);
     void onClickedCardEvent(CCObject*,TouchEventType);
+    
+protected:
+    
+    void setCardAndPrize(int,string&,string&);
+    void setTexture(CCObject*);
+    void setWord(ImageView* img,string prizeStr);
+    
+    void playSelectAnimation(vector<ImageView*> imgs);
+    void playAnimation(CCObject*);
+    void playOtherAnimation(vector<ImageView*> imgs);
     
 private:
     vector<MyPetFAward>     _data;

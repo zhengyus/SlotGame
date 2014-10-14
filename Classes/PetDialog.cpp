@@ -89,8 +89,17 @@ void PetDialog::setPetProperty(int i)
 {
     MyPetList pet = _pets[i];
     
+    string quality;
+    if (1 == pet.petpinzhi)
+        quality = "精英";
+    else if( 2 == pet.petpinzhi)
+        quality = "稀有";
+    else
+        quality = "传说";
+    
+    
     _name->setText(pet.petName.c_str());
-    _character->setText(CCString::createWithFormat("%d",pet.petpinzhi)->getCString());
+    _character->setText(CCString::createWithFormat("%s",quality.c_str())->getCString());
     _level->setText(CCString::createWithFormat("Lv%d",pet.petlevel)->getCString());
     _pet->loadTexture(CCString::createWithFormat("pet%d.png",i)->getCString(),UI_TEX_TYPE_PLIST);
     _expbar->setPercent(pet.petexp * 1.0 / pet.petreqexp * 100);

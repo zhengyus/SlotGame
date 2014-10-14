@@ -74,7 +74,7 @@ void ChoosePrizeDialog::time()
     else
     {
         //自动选择奖励
-        chooseCard(_imgs[0]);
+        selectCard(_imgs[0]);
     }
 }
 
@@ -93,11 +93,11 @@ void ChoosePrizeDialog::onClickedCardEvent(CCObject* pSender,TouchEventType type
     {
         ImageView* target = static_cast<ImageView*>(pSender);
 
-        chooseCard(target);
+        selectCard(target);
     }
 }
 
-void ChoosePrizeDialog::chooseCard(ImageView* img)
+void ChoosePrizeDialog::selectCard(ImageView* img)
 {
     //取消定时器
     unschedule(schedule_selector(ChoosePrizeDialog::time));
@@ -106,13 +106,10 @@ void ChoosePrizeDialog::chooseCard(ImageView* img)
     
     int target = img->getTag();
     
-    Label*      type = NULL;
-    Label*      num = NULL;
-    string      prizeStr;
-    string      card;
     MyPetFAward prize;
+    vector<ImageView*> imgs;
     ImageView*  tmpImg;
-    
+
     int ti = 0;
     for (int i = 0, j = 0; i < _data.size() ; ++i)
     {
@@ -132,22 +129,123 @@ void ChoosePrizeDialog::chooseCard(ImageView* img)
             ti = j++;
         }
         
-        CCLog("ti:%d,%d",ti,j);
-
         tmpImg = _imgs[ti];
-        setCardAndPrize(i,card,prizeStr);
+        tmpImg->setTag(i);
+        tmpImg->setTouchEnabled(false);
         
-        tmpImg->setTouchEnabled(false);//
-        tmpImg->loadTexture(card.c_str(),UI_TEX_TYPE_PLIST);
-        type = static_cast<Label*>(tmpImg->getChildByName("Label_type"));
-        num = static_cast<Label*>(tmpImg->getChildByName("Label_num"));
+        if (prize.Aok)
+        {
+            imgs.insert(imgs.begin() , tmpImg);
+        }
+        else
+        {
+            imgs.push_back(tmpImg);
+        }
         
-        type->setVisible(true);
-        num->setVisible(true);
-        
-        type->setText(prizeStr);
-        num->setText(CCString::createWithFormat("%lld",prize.Anum)->getCString());
+//        setCardAndPrize(i,card,prizeStr);
+//        
+//
+//        tmpImg->loadTexture(card.c_str(),UI_TEX_TYPE_PLIST);
+//        type = static_cast<Label*>(tmpImg->getChildByName("Label_type"));
+//        num = static_cast<Label*>(tmpImg->getChildByName("Label_num"));
+//        
+//        type->setVisible(true);
+//        num->setVisible(true);
+//        
+//        type->setText(prizeStr);
+//        num->setText(CCString::createWithFormat("%lld",prize.Anum)->getCString());
     }
+    
+    playSelectAnimation(imgs);
+}
+
+void ChoosePrizeDialog::playSelectAnimation(vector<ImageView*> imgs)
+{
+    CCAction* action = NULL;
+    ImageView* img =   NULL;
+    for (int i = 0; i < 3; ++i)
+    {
+        img = imgs[i];
+        if(0 == i)
+        {
+            action = CCSequence::create(
+                                                    CCScaleTo::create(.4, 0,1),
+                                                    CCCallFuncO::create(this, callfuncO_selector(ChoosePrizeDialog::playAnimation), img),NULL);
+        }
+        else
+        {
+            action = CCSequence::create(
+                                                    CCScaleTo::create(.4, 0,1),
+                                                    CCCallFuncO::create(this, callfuncO_selector(ChoosePrizeDialog::setTexture), img),
+                                                    CCScaleTo::create(.2, 1,1),NULL);
+            
+            
+        }
+        img->runAction(action);
+    }
+}
+
+
+void ChoosePrizeDialog::playAnimation(CCObject* obj)
+{
+    string      prizeStr;
+    string      card;
+    
+    ImageView* img = static_cast<ImageView*>(obj);
+    
+    setCardAndPrize(img->getTag(),card,prizeStr);
+    
+    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo(CCString::createWithFormat("%s%s",card.c_str(),".ExportJson")->getCString());
+    
+    CCArmature* armature = CCArmature::create(card.c_str());
+    armature->setScaleX(0);
+    armature->setAnchorPoint(ccp(.5, 0));
+    armature->setPositionX(armature->getContentSize().width / 2);
+    static_cast<Widget*>(img->getParent())->addNode(armature);
+    armature->getAnimation()->playWithIndex(0);
+    
+    armature->runAction(CCScaleTo::create(.4, 1,1));
+    setWord(img,prizeStr);
+    img->removeFromParent();
+}
+
+void ChoosePrizeDialog::setTexture(CCObject* obj)
+{
+    string      prizeStr;
+    string      card;
+    
+    
+    ImageView* img      = static_cast<ImageView*>(obj);
+    
+    
+    setCardAndPrize(img->getTag(),card,prizeStr);
+    
+    img->loadTexture(card.c_str(),UI_TEX_TYPE_PLIST);
+    setWord(img,prizeStr);
+    
+}
+
+void ChoosePrizeDialog::setWord(ImageView* img,string prizeStr)
+{
+    MyPetFAward prize   = _data[img->getTag()];
+    Widget*     parent   = static_cast<Widget*>(img->getParent());
+    
+    Label*      type = static_cast<Label*>(parent->getChildByName("Label_type"));
+    Label*      num = static_cast<Label*>(parent->getChildByName("Label_num"));
+    
+    type->setVisible(true);
+    num->setVisible(true);
+    type->setZOrder(10);
+    num->setZOrder(10);
+    
+    type->setScaleX(0);
+    num->setScaleX(0);
+    
+    type->setText(prizeStr);
+    num->setText(CCString::createWithFormat("%lld",prize.Anum)->getCString());
+    
+    type->runAction(CCScaleTo::create(.4, 1,1));
+    num->runAction(CCScaleTo::create(.4, 1,1));
 }
 
 void ChoosePrizeDialog::setCardAndPrize(int i,string&card,string&prizeStr)
@@ -194,9 +292,7 @@ void ChoosePrizeDialog::setCardAndPrize(int i,string&card,string&prizeStr)
     }
     
     if ( !_data[i].Aok )
-    {
-        tmp.append("_grey");
-    }
-    tmp.append(".png");
+        tmp.append("_grey.png");
+    
     card = tmp;
 }
