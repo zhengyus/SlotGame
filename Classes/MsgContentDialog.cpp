@@ -96,25 +96,27 @@ void MsgContentDialog::setContent(string content)
 
 void MsgContentDialog::setPrize(int num)
 {
+    string texture = "button_confirm.png";
+    SEL_TouchEvent func = toucheventselector(MsgContentDialog::close);
     
+    //奖励物品数量大于0 并且 奖励物品的范围，以防奖励不存在的物品
     if (num > 0 && _data->mailType > 0 && _data->mailType < 5)
     {
+        _number->setText(CCString::createWithFormat("%d",num)->getCString());
         _prize->loadTexture(CCString::createWithFormat("prize%d.png",_data->mailType)->getCString(),UI_TEX_TYPE_PLIST);
+        
+        if ( !_data->isOK )
+        {
+            texture = "button_receive.png";
+            func = toucheventselector(MsgContentDialog::clickedReceive);
+        }
     }
     else
     {
         _wprize->setVisible(false);
     }
     
-    if ( _data->isOK )
-    {
-        _button->loadTextures("button_confirm.png", NULL, NULL , UI_TEX_TYPE_PLIST);//确定
-        _button->addTouchEventListener(this, toucheventselector(Dialog::close));
-    }
-    else
-    {
-        _number->setText(CCString::createWithFormat("%D",num)->getCString());
-        _button->loadTextures("button_receive.png", NULL, NULL,UI_TEX_TYPE_PLIST);//领取
-        _button->addTouchEventListener(this, toucheventselector(MsgContentDialog::clickedReceive));
-    }
+    _button->loadTextures(texture.c_str(), NULL, NULL , UI_TEX_TYPE_PLIST);//确定
+    _button->addTouchEventListener(this, func);
+
 }

@@ -70,7 +70,7 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
         room_back = CCString::createWithFormat("room%d.png",room.roomid)->getCString();
         
         //显示免费转动次数
-        if (DataManager::sharedDataManager()->currFreeNum > 0)
+        if (1 == room.roomid && DataManager::sharedDataManager()->currFreeNum > 0)
         {
             ImageView* freeIcon = static_cast<ImageView*>(UIHelper::seekWidgetByName(panelFree, "Image_free"));
             Label* freeNum = static_cast<Label*>(UIHelper::seekWidgetByName(panelFree, "Label_freeNum"));
@@ -82,7 +82,6 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
     }
     else
     {
-        panelFree->setVisible(false);
         if (2 == room.roomid)
         {
             word = "5级";
