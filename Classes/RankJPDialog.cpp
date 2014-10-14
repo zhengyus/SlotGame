@@ -36,7 +36,7 @@ static void initRankItem(int i,Widget* item,MyJPRankList dataItem)
     lbl3->setText(string(tmp));
     
     string date = dataItem.JPrankTime;
-    sprintf(tmp, "%c%c.%c%c %c%c:%c%c",date[5],date[6],date[8],date[9],date[11],date[12],date[14],date[15]);
+    sprintf(tmp, "%c%c-%c%c %c%c:%c%c",date[5],date[6],date[8],date[9],date[11],date[12],date[14],date[15]);
     lbl4->setText(tmp);
     
     if (i<3)
@@ -52,7 +52,7 @@ static void initRankItem(int i,Widget* item,MyJPRankList dataItem)
 bool RankJPDialog::initWithData(vector<MyJPRankList> data[2])
 {
     
-    if ( !ListDialog::initWithJson("UI4DialogRankJP.ExportJson", "UI4ItemRankJP.ExportJson", data[0]) )
+    if ( !ListDialog::initWithJson("UI4DialogRankJP.ExportJson", "UI4ItemRankJP.ExportJson", data[JPRankType_Star]) )
     {
         return false;
     }
