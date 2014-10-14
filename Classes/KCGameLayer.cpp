@@ -340,7 +340,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     char tmStr[50];
                     
-                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
                     {
                         DataManager::sharedDataManager()->currFreeNum--;
                     }
@@ -352,10 +352,18 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
                     UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
                     //免费的
-                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
                     {
-                        pnc->setVisible(false);
-                        pnf->setVisible(true);
+                        if(DataManager::sharedDataManager()->currFreeNum == 0)
+                        {
+                            pnc->setVisible(true);
+                            pnf->setVisible(false);
+                        }
+                        else
+                        {
+                            pnc->setVisible(false);
+                            pnf->setVisible(true);
+                        }
                         
                         sprintf(tmStr, "ZD%d.png", imgid);
                         m_Panel_MoveCell00->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
@@ -722,7 +730,7 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     char tmStr[50];
                     
-                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
                     {
                         DataManager::sharedDataManager()->currFreeNum--;
                     }
@@ -734,10 +742,18 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
                     UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
                     //免费的
-                    if(DataManager::sharedDataManager()->currFreeNum > 0)
+                    if(DataManager::sharedDataManager()->currFreeNum >= 0)
                     {
-                        pnc->setVisible(false);
-                        pnf->setVisible(true);
+                        if(DataManager::sharedDataManager()->currFreeNum == 0)
+                        {
+                            pnc->setVisible(true);
+                            pnf->setVisible(false);
+                        }
+                        else
+                        {
+                            pnc->setVisible(false);
+                            pnf->setVisible(true);
+                        }
                         
                         stopRewardAction();
                         
@@ -1314,6 +1330,10 @@ void KCGameLayer::updateCellImg()
 		sprintf(strTmp, "Image_Img4Cell%d", i);
 		UIImageView* tCellImg = dynamic_cast<UIImageView*>(m_Widget->getWidgetByName(strTmp));
         
+        sprintf(strTmp, "AtlasLabel_c%d", i);
+		UILabelAtlas* tAtlas = dynamic_cast<UILabelAtlas*>(m_Widget->getWidgetByName(strTmp));
+        tAtlas->setVisible(false);
+        
         int img = m_roomID;
         
         if(m_roomID == 2)
@@ -1332,6 +1352,14 @@ void KCGameLayer::updateCellImg()
         if(m_pageCurr == 4)
         {
             img = 0;
+        }
+        
+        if(m_arrCellsDate[i] == 9)
+        {
+            img = 6;
+            tAtlas->setVisible(true);
+            sprintf(strTmp, "%lld", m_roleExp);
+            tAtlas->setStringValue(strTmp);
         }
         
 		sprintf(strTmp, "c%d%d.png", img, m_arrCellsDate[i]);
@@ -1371,7 +1399,39 @@ void KCGameLayer::updateCellsDate()
     //对0的图片进行防止图片重复处理
     std::vector<int> noRepeat;//存储重复容器
     std::vector<int> vid;//存储可用id
+    std::vector<int> vExp;//存储连线中奖元素 为了贴钻石用
     
+    vExp.clear();
+    
+    //如果有人物经验，计算贴钻石方法
+    if(m_roleExp > 0 && m_pageCurr == 1)
+    {
+        for(int i = 0; i < 15; i++)
+        {
+            if(0 != m_arrCellsDate[i])
+            {
+                bool ishave = false;
+                
+                //判断容器中是否存在该元素了
+                for(int j = 0; j < vExp.size(); j++)
+                {
+                    if(vExp[j] == m_arrCellsDate[i])
+                    {
+                        ishave = true;
+                        break;
+                    }
+                }
+                
+                //如果不存在就加入容器中
+                if(!ishave)
+                {
+                    vExp.push_back(m_arrCellsDate[i]);
+                }
+            }
+        }
+    }
+    
+    //防止重复
     for(int i = 0; i < 15; i++)
     {
         noRepeat.clear();
@@ -1495,6 +1555,31 @@ void KCGameLayer::updateCellsDate()
             int rd = rand() % (max - min + 1) + min;
             m_arrCellsDate[i] = vid[rd];
             
+        }
+    }
+    
+    
+    //如果有人物经验开始贴钻石
+    if(m_roleExp > 0 && m_pageCurr == 1)
+    {
+        for(int i = 0; i < 15; i++)
+        {
+            bool isCanShow = false;
+            
+            for(int j = 0; j < vExp.size(); j++)
+            {
+                if(m_arrCellsDate[i] == vExp[j])
+                {
+                    isCanShow = true;
+                    break;
+                }
+            }
+            
+            if(isCanShow)
+            {
+                m_arrCellsDate[i] = 9;
+                break;
+            }
         }
     }
     
@@ -2180,6 +2265,14 @@ void KCGameLayer::update(float dt)
                 sprintf(tmStr, "%d", m_Ffreenum);
                 m_LabelAtlasSY->setStringValue(tmStr);
 
+                if(DataManager::sharedDataManager()->freeNum > 0)
+                {
+                    m_PanelCostZD->setVisible(false);
+                }
+                else
+                {
+                    m_PanelCostZD->setVisible(true);
+                }
                 
                 //播发开始动画
                 m_isCanTouchAllBtn = false;//禁用所有按钮

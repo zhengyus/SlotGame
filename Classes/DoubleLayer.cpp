@@ -512,7 +512,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
                         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
                         
-//                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 5.0f);
+                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 5.0f);
                         
                         for (int i = 0; i < m_arrCardImg->count(); i++)
                         {
@@ -525,9 +525,9 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         //赢的金币大于2亿 直接返回大厅界面
                         if(m_winGold >= 200000000)
                         {
-                            GameLogicMeg2Sever tmpMeg1;
-                            tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
-                            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+//                            GameLogicMeg2Sever tmpMeg1;
+//                            tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
+//                            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
                             
                             for (int i = 0; i < m_arrCardImg->count(); i++)
                             {
@@ -539,7 +539,8 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                             this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
                             m_starNum = 0;
                             
-                            ((KCGameLayer*)this->getParent())->m_page = 2;//返回大厅界面
+                            ((KCGameLayer*)this->getParent())->m_page = m_page;
+//                            ((KCGameLayer*)this->getParent())->m_page = 2;//返回大厅界面
                             
                         }
 
@@ -861,26 +862,22 @@ void DoubleLayer::isCanCloseThisUI()
 {
     this->unschedule(schedule_selector(DoubleLayer::isCanCloseThisUI));
     
-    CCLog("kkk double3~~~~~");
     //退回老虎机界面
     if(m_starNum >= 9 && m_page != 3)
     {
-        CCLog("kkk double2~~~~~");
         isBtnCanTouch = false;
         m_starNum = -9;
         this->schedule(schedule_selector(DoubleLayer::isCanCloseThisUI), 2.0f);
     }
     //退回对应界面
-    else if(m_page != 3)
+    else if(m_starNum!= -19 && m_page != 3)
     {
-        CCLog("kkk double1~~~~~");
         isBtnCanTouch = false;
         m_starNum = -19;
         this->schedule(schedule_selector(DoubleLayer::isCanCloseThisUI), 2.0f);
     }
     else if(-9 == m_starNum)
     {
-        CCLog("kkk double0~~~~~");
         m_starNum = -19;
         
         KCGameLayer::playSound(BIG_AWARD1);
@@ -904,7 +901,7 @@ void DoubleLayer::isCanCloseThisUI()
                                                                     NULL
                                                                     ),
                                                     CCDelayTime::create(1.0f),
-                                                    CCCallFunc::create(this, callfunc_selector(DoubleLayer::setLabelWinNum)),
+//                                                    CCCallFunc::create(this, callfunc_selector(DoubleLayer::setLabelWinNum)),
                                                     NULL));
         
         this->schedule(schedule_selector(DoubleLayer::runUIStar), 3.5);
@@ -936,7 +933,7 @@ void DoubleLayer::isCanCloseThisUI()
     {
         m_starNum = 0;
         
-        ((KCGameLayer*)this->getParent())->m_page = m_page;
+//        ((KCGameLayer*)this->getParent())->m_page = m_page;
         
         for (int i = 0; i < m_arrCardImg->count(); i++)
         {
@@ -946,8 +943,14 @@ void DoubleLayer::isCanCloseThisUI()
         
         m_arrCardImg->removeAllObjects();
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+        this->unschedule(schedule_selector(DoubleLayer::ishaveChange));
         
-        CCLog("kkk double~~~~~");
+        //背景图片
+        resetBGcard();
+        
+        isBtnCanTouch = true;
+        touchEvent(tBtnget, TOUCH_EVENT_ENDED);
+        
     }
 }
 
@@ -983,7 +986,7 @@ void DoubleLayer::setLabelWinNum()
     tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
     
-    this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
+    this->schedule(schedule_selector(DoubleLayer::ishaveChange), 5.0f);
     
     for (int i = 0; i < m_arrCardImg->count(); i++)
     {
@@ -998,9 +1001,9 @@ void DoubleLayer::setLabelWinNum()
     //赢的金币大于2亿 直接返回大厅界面
     if(m_winGold >= 200000000)
     {
-        GameLogicMeg2Sever tmpMeg1;
-        tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
-        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
+//        GameLogicMeg2Sever tmpMeg1;
+//        tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
+//        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
         
         for (int i = 0; i < m_arrCardImg->count(); i++)
         {
@@ -1012,9 +1015,11 @@ void DoubleLayer::setLabelWinNum()
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
         m_starNum = 0;
         
-        ((KCGameLayer*)this->getParent())->m_page = 2;//返回大厅界面
+//        ((KCGameLayer*)this->getParent())->m_page = 2;//返回大厅界面
         
     }
+    
+    ((KCGameLayer*)this->getParent())->m_page = m_page;
 }
 
 void DoubleLayer::runMoneyFly()
