@@ -1564,13 +1564,13 @@ void KCGameLayer::updateCellsDate()
     {
         for(int i = 0; i < 15; i++)
         {
-            bool isCanShow = false;
+            bool isCanShow = true;
             
             for(int j = 0; j < vExp.size(); j++)
             {
                 if(m_arrCellsDate[i] == vExp[j])
                 {
-                    isCanShow = true;
+                    isCanShow = false;
                     break;
                 }
             }

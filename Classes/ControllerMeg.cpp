@@ -11,7 +11,7 @@
 ControllerMeg::ControllerMeg()
 {
 
-    m_idleNum = 5;
+    m_idleNum = 15;
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this,
                                                                  callfuncO_selector(ControllerMeg::recLoginEventFromUI),
@@ -185,23 +185,38 @@ void ControllerMeg::sendLinkGame(CCObject * obj)
 void ControllerMeg::sendIdle()
 {
 //    m_gameLogicSocket->sendIdle();
-    m_idleNum--;
     
-    if(m_idleNum <= 0)
+    CCLog("idle~~~ret=%d", m_gameLogicSocket->sendIdle());
+    if(!m_gameLogicSocket->sendIdle())
     {
         CCLog("断开链接");
         m_idleNum = 0;
-        
+
         CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
-        
+
         Meg2UIDate sendmeg;
         sendmeg.m_id = ERR_RET;
         sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
         sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
     }
+//    m_idleNum--;
+//    
+//    if(m_idleNum <= 0)
+//    {
+//        CCLog("断开链接");
+//        m_idleNum = 0;
+//        
+//        CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
+//        
+//        Meg2UIDate sendmeg;
+//        sendmeg.m_id = ERR_RET;
+//        sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
+//        sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
+//        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+//    }
     
-    CCLog("idle~~~");
+    
 }
 
 void ControllerMeg::sendMeg2Sever(CCObject * obj)
@@ -227,10 +242,15 @@ void ControllerMeg::sendMeg2Sever(CCObject * obj)
         {
 //            m_gameLogicSocket->sendIdle();
             
-            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
-                                                                           this,
-                                                                           1.0f,
-                                                                           false);
+//            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
+//                                                                           this,
+//                                                                           1.0f,
+//                                                                           false);
+            
+//            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
+//                                                                           this,
+//                                                                           5.0f,
+//                                                                           false);
             break;
         }
         case OGID_TEXAS_SLOTS_JOINROOM:
@@ -576,7 +596,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         case OGID_TEXAS_SLOTS_JACKPOT:
         {
 //            CCLog("OGID_TEXAS_SLOTS_JACKPOT");
-            m_idleNum = 5;
+            m_idleNum = 15;
             
             sendmeg.jp = tmeg->ackOGAckJP.jp();
 

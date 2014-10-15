@@ -167,7 +167,7 @@ bool TcpSocket::send(const char *data, int length)
         disconnect();
         connect(m_ip.c_str(), m_port);
         m_sendBuffer.setBuffer(data, length);
-        //return false;
+//        return false;
     }
     
     return true;
