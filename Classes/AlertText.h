@@ -20,6 +20,8 @@
 
 #define ALERTTEXT_UNCONNECT "服务器连接断开，请重新登录！"
 
+#define ALERTTEXT_CONNECTERROR "与认证服务通信失败，请稍后再试！"
+
 #define ALERTTEXT_ATTACHMENT "附件已收取！"
 
 #define ALERTTEXT_ATTACHMENT_SUCCESS "附件收取成功！"

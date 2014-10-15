@@ -75,10 +75,10 @@ bool PetFightLayer::init()
     
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Door0.png", "Door0.plist", "Door.ExportJson");
     
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("lionAttack0.png", "LionAttack0.plist", "LionAttack.ExportJson");
+    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LionAttack0.png", "LionAttack0.plist", "LionAttack.ExportJson");
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LionOnAttacked0.png", "LionOnAttacked0.plist", "LionOnAttacked.ExportJson");
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("lionIdle0.png", "LionIdle0.plist", "LionIdle.ExportJson");
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("lionWalk0.png", "LionWalk0.plist", "LionWalk.ExportJson");
+    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LionIdle0.png", "LionIdle0.plist", "LionIdle.ExportJson");
+    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("LionWalk0.png", "LionWalk0.plist", "LionWalk.ExportJson");
     
     
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("PandaAttack0.png", "PandaAttack0.plist", "PandaAttack.ExportJson");

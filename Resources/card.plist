@@ -4,7 +4,7 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>card_bean.png</key>
+            <key>card_bean_grey.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{2,2},{165,216}}</string>
@@ -17,7 +17,7 @@
                 <key>sourceSize</key>
                 <string>{165,216}</string>
             </dict>
-            <key>card_bean_grey.png</key>
+            <key>card_exp_grey.png</key>
             <dict>
                 <key>frame</key>
                 <string>{{169,2},{165,216}}</string>
@@ -30,49 +30,10 @@
                 <key>sourceSize</key>
                 <string>{165,216}</string>
             </dict>
-            <key>card_exp.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{336,2},{165,216}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{165,216}}</string>
-                <key>sourceSize</key>
-                <string>{165,216}</string>
-            </dict>
-            <key>card_exp_grey.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{503,2},{165,216}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{165,216}}</string>
-                <key>sourceSize</key>
-                <string>{165,216}</string>
-            </dict>
-            <key>card_petExp.png</key>
-            <dict>
-                <key>frame</key>
-                <string>{{670,2},{165,216}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,0},{165,216}}</string>
-                <key>sourceSize</key>
-                <string>{165,216}</string>
-            </dict>
             <key>card_petExp_grey.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{837,2},{165,216}}</string>
+                <string>{{336,2},{165,216}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -90,9 +51,9 @@
             <key>realTextureFileName</key>
             <string>card.png</string>
             <key>size</key>
-            <string>{1004,220}</string>
+            <string>{503,220}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f69c31f33bc6518a58f1a4b5399c909a:69a0f9c04960f94f5953dd47aad88f13:ac15c2787776c146127be3982bd2a622$</string>
+            <string>$TexturePacker:SmartUpdate:9476a40bc9b81346f3e5be9752856bb3:07727a6d5931e2edeaa2b7ad0e4d222b:ac15c2787776c146127be3982bd2a622$</string>
             <key>textureFileName</key>
             <string>card.png</string>
         </dict>

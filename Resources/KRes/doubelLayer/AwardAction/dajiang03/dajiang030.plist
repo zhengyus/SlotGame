@@ -384,120 +384,6 @@
 				<key>offsetY</key>
 				<real>0</real>
 			</dict>
-			<key>Bitmap 2445454545454545454.png</key>
-			<dict>
-				<key>width</key>
-				<integer>97</integer>
-				<key>height</key>
-				<integer>376</integer>
-				<key>originalWidth</key>
-				<integer>97</integer>
-				<key>originalHeight</key>
-				<integer>376</integer>
-				<key>x</key>
-				<integer>877</integer>
-				<key>y</key>
-				<integer>170</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>Bitmap 2945454545454545454.png</key>
-			<dict>
-				<key>width</key>
-				<integer>104</integer>
-				<key>height</key>
-				<integer>422</integer>
-				<key>originalWidth</key>
-				<integer>104</integer>
-				<key>originalHeight</key>
-				<integer>422</integer>
-				<key>x</key>
-				<integer>0</integer>
-				<key>y</key>
-				<integer>548</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>Bitmap 3045454545454545454.png</key>
-			<dict>
-				<key>width</key>
-				<integer>102</integer>
-				<key>height</key>
-				<integer>405</integer>
-				<key>originalWidth</key>
-				<integer>102</integer>
-				<key>originalHeight</key>
-				<integer>405</integer>
-				<key>x</key>
-				<integer>106</integer>
-				<key>y</key>
-				<integer>548</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>Bitmap 3145454545454545454.png</key>
-			<dict>
-				<key>width</key>
-				<integer>102</integer>
-				<key>height</key>
-				<integer>429</integer>
-				<key>originalWidth</key>
-				<integer>102</integer>
-				<key>originalHeight</key>
-				<integer>429</integer>
-				<key>x</key>
-				<integer>210</integer>
-				<key>y</key>
-				<integer>548</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>Bitmap 3245454545454545454.png</key>
-			<dict>
-				<key>width</key>
-				<integer>100</integer>
-				<key>height</key>
-				<integer>429</integer>
-				<key>originalWidth</key>
-				<integer>100</integer>
-				<key>originalHeight</key>
-				<integer>429</integer>
-				<key>x</key>
-				<integer>314</integer>
-				<key>y</key>
-				<integer>548</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
-			<key>Bitmap 3345454545454545454.png</key>
-			<dict>
-				<key>width</key>
-				<integer>106</integer>
-				<key>height</key>
-				<integer>424</integer>
-				<key>originalWidth</key>
-				<integer>106</integer>
-				<key>originalHeight</key>
-				<integer>424</integer>
-				<key>x</key>
-				<integer>416</integer>
-				<key>y</key>
-				<integer>548</integer>
-				<key>offsetX</key>
-				<real>0</real>
-				<key>offsetY</key>
-				<real>0</real>
-			</dict>
 			<key>Bitmap 3445454545454545454.png</key>
 			<dict>
 				<key>width</key>
@@ -509,9 +395,28 @@
 				<key>originalHeight</key>
 				<integer>395</integer>
 				<key>x</key>
-				<integer>524</integer>
+				<integer>0</integer>
 				<key>y</key>
-				<integer>548</integer>
+				<integer>538</integer>
+				<key>offsetX</key>
+				<real>0</real>
+				<key>offsetY</key>
+				<real>0</real>
+			</dict>
+			<key>Bitmap 2745454545454545454.png</key>
+			<dict>
+				<key>width</key>
+				<integer>397</integer>
+				<key>height</key>
+				<integer>397</integer>
+				<key>originalWidth</key>
+				<integer>397</integer>
+				<key>originalHeight</key>
+				<integer>397</integer>
+				<key>x</key>
+				<integer>249</integer>
+				<key>y</key>
+				<integer>538</integer>
 				<key>offsetX</key>
 				<real>0</real>
 				<key>offsetY</key>
