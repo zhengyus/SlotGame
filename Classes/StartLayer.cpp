@@ -137,7 +137,7 @@ void StartLayer::receiveBaseMsg(CCObject* obj)
     
     if (-1 == data->ret)
     {
-        Alert::create(ALERTTEXT_UNCONNECT,"提示",this,touchesureventselector(StartLayer::enabledStart))->show();
+        Alert::create(ALERTTEXT_CONNECTERROR,"提示",this,touchesureventselector(StartLayer::enabledStart))->show();
     }
     else if (0 == data->ret)
     {
