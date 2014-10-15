@@ -11,7 +11,7 @@
 ControllerMeg::ControllerMeg()
 {
 
-    m_idleNum = 15;
+    m_idleNum = 10;
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this,
                                                                  callfuncO_selector(ControllerMeg::recLoginEventFromUI),
@@ -185,7 +185,7 @@ void ControllerMeg::sendLinkGame(CCObject * obj)
 void ControllerMeg::sendIdle()
 {
 //    m_gameLogicSocket->sendIdle();
-    
+//    
 //    CCLog("idle~~~ret=%d", m_gameLogicSocket->sendIdle());
 //    if(!m_gameLogicSocket->sendIdle())
 //    {
@@ -242,10 +242,10 @@ void ControllerMeg::sendMeg2Sever(CCObject * obj)
         {
 //            m_gameLogicSocket->sendIdle();
             
-//            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
-//                                                                           this,
-//                                                                           1.0f,
-//                                                                           false);
+            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
+                                                                           this,
+                                                                           1.0f,
+                                                                           false);
             
 //            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
 //                                                                           this,
@@ -596,7 +596,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         case OGID_TEXAS_SLOTS_JACKPOT:
         {
 //            CCLog("OGID_TEXAS_SLOTS_JACKPOT");
-            m_idleNum = 15;
+            m_idleNum = 10;
             
             sendmeg.jp = tmeg->ackOGAckJP.jp();
 
