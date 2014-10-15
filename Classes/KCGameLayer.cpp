@@ -245,7 +245,7 @@ bool KCGameLayer::init()
     m_LabelAtlasPetACK->setProperty("0", "FontRed21_27.png", 21, 27, "0");
     m_LabelAtlasBossACK->setProperty("0", "FontRed21_27.png", 21, 27, "0");
     m_LabelPetAddBlood->setProperty("0", "FontGreen21_27.png", 21, 27, "0");
-    m_LabelPetExp->setPosition(ccp(600, 320));
+    m_LabelPetExp->setPosition(ccp(512, 320));
     m_LabelRoleExp->setPosition(ccp(200, 480));
     m_LabelAtlasPetACK->setPosition(ccp(300, 480));
     m_LabelAtlasBossACK->setPosition(ccp(700, 480));
@@ -2481,7 +2481,7 @@ void KCGameLayer::stopRewardAction()
 
 void KCGameLayer::setLabelPetExp()
 {
-    m_LabelPetExp->setPosition(ccp(600, 320));
+    m_LabelPetExp->setPosition(ccp(512, 320));
     m_LabelPetExp->setVisible(false);
 }
 

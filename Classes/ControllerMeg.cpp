@@ -186,35 +186,35 @@ void ControllerMeg::sendIdle()
 {
 //    m_gameLogicSocket->sendIdle();
     
-    CCLog("idle~~~ret=%d", m_gameLogicSocket->sendIdle());
-    if(!m_gameLogicSocket->sendIdle())
-    {
-        CCLog("断开链接");
-        m_idleNum = 0;
-
-        CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
-
-        Meg2UIDate sendmeg;
-        sendmeg.m_id = ERR_RET;
-        sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
-        sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
-        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
-    }
-//    m_idleNum--;
-//    
-//    if(m_idleNum <= 0)
+//    CCLog("idle~~~ret=%d", m_gameLogicSocket->sendIdle());
+//    if(!m_gameLogicSocket->sendIdle())
 //    {
 //        CCLog("断开链接");
 //        m_idleNum = 0;
-//        
+//
 //        CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
-//        
+//
 //        Meg2UIDate sendmeg;
 //        sendmeg.m_id = ERR_RET;
 //        sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
 //        sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
 //        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
 //    }
+    m_idleNum--;
+    
+    if(m_idleNum <= 0)
+    {
+        CCLog("断开链接");
+        m_idleNum = 0;
+        
+        CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
+        
+        Meg2UIDate sendmeg;
+        sendmeg.m_id = ERR_RET;
+        sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
+        sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
+        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+    }
     
     
 }
