@@ -814,22 +814,21 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
 //                      tmeg->ackOGAckJpRecord.jprecordlist(i).gamename().c_str(),
 //                      tmeg->ackOGAckJpRecord.jprecordlist(i).createtime().c_str());
                     
+                    tmpJPRankList.JPrankName = tmeg->ackOGAckJpRecord.jprecordlist(i).userid();
+                    tmpJPRankList.JPrankwinGold = tmeg->ackOGAckJpRecord.jprecordlist(i).wingold();
+                    tmpJPRankList.JPrankcurrGold = tmeg->ackOGAckJpRecord.jprecordlist(i).currjp();
+                    tmpJPRankList.JPrankTime = tmeg->ackOGAckJpRecord.jprecordlist(i).createtime();
+                    tmpJPRankList.RoleName = tmeg->ackOGAckJpRecord.jprecordlist(i).rolename();
+                    
                     //jp明星巨奖
                     if(tmeg->ackOGAckJpRecord.jprecordlist(i).showtype() == 1)
                     {
-                        tmpJPRankList.JPrankName = tmeg->ackOGAckJpRecord.jprecordlist(i).userid();
-                        tmpJPRankList.JPrankwinGold = tmeg->ackOGAckJpRecord.jprecordlist(i).wingold();
-                        tmpJPRankList.JPrankcurrGold = tmeg->ackOGAckJpRecord.jprecordlist(i).currjp();
-                        tmpJPRankList.JPrankTime = tmeg->ackOGAckJpRecord.jprecordlist(i).createtime();
+                        
                         sendmeg.mJPRankList[0].push_back(tmpJPRankList);
                     }
                     //jp巨奖
                     else
                     {
-                        tmpJPRankList.JPrankName = tmeg->ackOGAckJpRecord.jprecordlist(i).userid();
-                        tmpJPRankList.JPrankwinGold = tmeg->ackOGAckJpRecord.jprecordlist(i).wingold();
-                        tmpJPRankList.JPrankcurrGold = tmeg->ackOGAckJpRecord.jprecordlist(i).currjp();
-                        tmpJPRankList.JPrankTime = tmeg->ackOGAckJpRecord.jprecordlist(i).createtime();
                         sendmeg.mJPRankList[1].push_back(tmpJPRankList);
                     }
                 }

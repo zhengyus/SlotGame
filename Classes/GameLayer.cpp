@@ -267,6 +267,7 @@ void GameLayer::enterRoomCallback()
         }
         default:
         {
+            _hallLayer->setEnableRoom(true);
             switch (_dataManager->err) {
                 case 0:
                 {

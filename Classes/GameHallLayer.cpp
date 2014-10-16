@@ -57,6 +57,10 @@ bool GameHallLayer::init()
     
     return true;
 }
+void GameHallLayer::setEnableRoom(bool enable)
+{
+    _roomView->setEnableRoom(enable);
+}
 
 void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
 {
@@ -64,8 +68,6 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
     ImageView* enter = static_cast<ImageView*>(img->getChildByName("Image_enter"));
     Label*  lblWord = static_cast<Label*>(enter->getChildByName("Label_word"));
     Widget* panelFree = UIHelper::seekWidgetByName(widget, "Image_free_back");
-    
-
     
     string room_back;
     string word;

@@ -87,6 +87,7 @@ struct MyRankList
 struct MyJPRankList
 {
     std::string JPrankName;
+    std::string RoleName;
     unsigned long long JPrankwinGold;
     unsigned long long JPrankcurrGold;
     std::string JPrankTime;

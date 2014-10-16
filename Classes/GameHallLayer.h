@@ -34,6 +34,7 @@ public:
     void updateMsgStatus();
     
     void initRoomItemCallback(Widget* widget, MyRoomList room);
+    void setEnableRoom(bool);
     
 public:
     

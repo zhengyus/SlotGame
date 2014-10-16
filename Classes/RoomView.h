@@ -52,7 +52,7 @@ public:
     void onEnter()
     {
         CCLayer::onEnter();
-        _enabledRoom = true;
+        setEnableRoom(true);
         setContentSize(m_pParent->getContentSize());
     }
     
@@ -74,6 +74,11 @@ public:
     {
         initData();
         initUI();
+    }
+    
+    void setEnableRoom(bool enable)
+    {
+        _enabledRoom = enable;
     }
     
     void setInitItemCallback(CCObject* ccObj,void (CCObject::*initItemCallback)(Widget*,T))
@@ -112,7 +117,7 @@ public:
             case TOUCH_EVENT_ENDED:
             {
                 scale = false;
-                _enabledRoom = false;
+                setEnableRoom(false);
                 
                 widget->setScale(1);
                 if (NULL != _selectedItemCallback)
