@@ -4,6 +4,7 @@
 <dict>
 	<key>texture</key>
 	<array>
+		<string>prize.png</string>
 		<string>dialog.png</string>
 		<string>rooms.png</string>
 		<string>pet.png</string>

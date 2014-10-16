@@ -100,6 +100,7 @@ struct MyMailMeg
     std::string mailTitle;//mail标题
     int mailNum;//数量
     int mailType;//邮件类型
+    int itemId;
     int isRead;//已读
     int isOK;//收取标记
     std::string mailPic;//图片路径

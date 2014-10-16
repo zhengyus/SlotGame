@@ -17,7 +17,6 @@ USING_NS_CC_EXT;
 using namespace ui;
 using namespace std;
 
-
 template <typename T>
 class RoomView :public CCLayer{
     
@@ -53,6 +52,7 @@ public:
     void onEnter()
     {
         CCLayer::onEnter();
+        _enabledRoom = true;
         setContentSize(m_pParent->getContentSize());
     }
     
@@ -89,6 +89,11 @@ public:
     
     void onSelectedRoomEvent(CCObject* pSender, TouchEventType type)
     {
+        if ( !_enabledRoom )
+        {
+            return;
+        }
+        
         static bool scale = false;
         Widget* widget = dynamic_cast<Widget*>(pSender);
         
@@ -106,12 +111,12 @@ public:
                 break;
             case TOUCH_EVENT_ENDED:
             {
-                widget->setScale(1);
                 scale = false;
-            
+                _enabledRoom = false;
+                
+                widget->setScale(1);
                 if (NULL != _selectedItemCallback)
                     _selectedItemCallback(_data[widget->getTag()]);
-                 
             }
                 break;
             default:
@@ -158,30 +163,21 @@ protected:
             room_btn->addTouchEventListener(this, toucheventselector(RoomView::onSelectedRoomEvent));
             if(NULL != _initItemCallback)
             {
-                //(_touchEventListener->*_touchEventSelector)(this,TOUCH_EVENT_BEGAN);
                 (_ccObj->*_initItemCallback)(widget,_data[i]);
             }
             
-            if (i != 1)
-            {
-                widget->setZOrder(1);
-                //widget->setScale(_miniscale);
-            }
-            else
-            {
-                _room = room;
-                widget->setZOrder(2);
-            }
             root->addWidget(widget);
+            _rooms.push_back(room);
         }
         addChild(root);
     }
     
 private:
     
-    Widget*         _room;
+    vector<Widget*> _rooms;
     vector<T>       _data;
     string          _itemJson;
+    bool            _enabledRoom;
     
     int _y;             //所有Item y位置
     float _sX;          //Item开始x位置
@@ -195,7 +191,6 @@ private:
     void (*_selectedItemCallback)(T);
     
     CCObject* _ccObj;
-    
 };
 
 #endif /* defined(__Slot__RoomView__) */

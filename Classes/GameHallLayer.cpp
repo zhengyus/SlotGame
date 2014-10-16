@@ -39,6 +39,13 @@ bool GameHallLayer::init()
     _wrooms = _uilayer->getWidgetByName("panel_rooms");
     _newMsg = _uilayer->getWidgetByName("Image_newMsg");
     
+    Widget* btn = getWidgetByName("btn_left");
+    btn->setTouchEnabled(false);
+    btn->setVisible(false);
+    btn = getWidgetByName("btn_right");
+    btn->setTouchEnabled(false);
+    btn->setVisible(false);
+    
     Widget* widget = _uilayer->getWidgetByName("Panel_notice");
     _noticeView = NoticeView::create();
     widget->addNode(_noticeView);
@@ -58,13 +65,14 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
     Label*  lblWord = static_cast<Label*>(enter->getChildByName("Label_word"));
     Widget* panelFree = UIHelper::seekWidgetByName(widget, "Image_free_back");
     
+
     
     string room_back;
     string word;
     int level = DataManager::sharedDataManager()->currLevel;
     unsigned long long gold = DataManager::sharedDataManager()->currGold;
     
-    if ( 1 == room.roomid || (2 == room.roomid && level >= 5) || (3 == room.roomid && gold >=1000000 ))
+    if (level >= room.roomLevelLimt && gold >= room.roomGoldLimt)
     {
         word = "进入";
         room_back = CCString::createWithFormat("room%d.png",room.roomid)->getCString();
@@ -82,19 +90,15 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
     }
     else
     {
-        if (2 == room.roomid)
-        {
-            word = "5级";
-        }else{
-            word = "100万";
-        }
+        if (level < room.roomLevelLimt)
+            word = CCString::createWithFormat("%d级" , room.roomLevelLimt)->getCString();
+        else
+            word = CCString::createWithFormat("%lld万", room.roomGoldLimt / 10000)->getCString();
+        
         room_back = CCString::createWithFormat("room%d_grey.png",room.roomid)->getCString();
     }
     
-
     string room_btn = CCString::createWithFormat("button_room%d.png",room.roomid)->getCString();
-    
-  
     enter->loadTexture(room_btn.c_str(),UI_TEX_TYPE_PLIST);
     img->loadTexture(room_back.c_str(),UI_TEX_TYPE_PLIST);
     lblWord->setText(word);

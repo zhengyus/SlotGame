@@ -286,6 +286,7 @@ void StartLayer::registerCallback(CCObject* obj)
         {
             msg = "服务器正在维护！";
         }
+        ((RegisterLayer*)_nodes[2])->setEnabledRegister(true);
         ((RegisterLayer*)_nodes[2])->showMsg(msg);
     }
 }

@@ -140,13 +140,13 @@
 			<key>back_rank.png</key>
 			<dict>
 				<key>width</key>
-				<integer>290</integer>
+				<integer>307</integer>
 				<key>height</key>
-				<integer>41</integer>
+				<integer>53</integer>
 				<key>originalWidth</key>
-				<integer>290</integer>
+				<integer>307</integer>
 				<key>originalHeight</key>
-				<integer>41</integer>
+				<integer>53</integer>
 				<key>x</key>
 				<integer>1596</integer>
 				<key>y</key>
@@ -167,7 +167,7 @@
 				<key>originalHeight</key>
 				<integer>21</integer>
 				<key>x</key>
-				<integer>1888</integer>
+				<integer>1905</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>
@@ -186,7 +186,7 @@
 				<key>originalHeight</key>
 				<integer>67</integer>
 				<key>x</key>
-				<integer>1948</integer>
+				<integer>1965</integer>
 				<key>y</key>
 				<integer>0</integer>
 				<key>offsetX</key>

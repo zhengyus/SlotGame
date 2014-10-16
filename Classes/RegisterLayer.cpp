@@ -27,6 +27,7 @@ bool RegisterLayer::init()
     addContentWithJsonFile("UI4Register.ExportJson");
     
     _msg = static_cast<Label*>(getWidgetByName("Label_msg"));
+    _btnReg = getWidgetByName("Button_register");
     
     
     CCSize vsize = CCDirector::sharedDirector()->getVisibleSize();
@@ -52,16 +53,16 @@ bool RegisterLayer::init()
     _account->setFont("TrebuchetMS-Bold",30);
     _account->setFontColor(color);
     _account->setPlaceholderFontColor(color);
-    _account->setPlaceHolder("新的联众账号");
-    _account->setMaxLength(16);
+    _account->setPlaceHolder("4到20位 仅支持英文数字和“_”");
+    _account->setMaxLength(20);
     _account->setSelected(true);
     _account->setReturnType(kKeyboardReturnTypeDone);
     
     _password->setFont("TrebuchetMS-Bold",30);
     _password->setFontColor(color);
     _password->setPlaceholderFontColor(color);
-    _password->setPlaceHolder("账号密码");
-    _password->setMaxLength(16);
+    _password->setPlaceHolder("6到15位 仅支持英文数字和“_”");
+    _password->setMaxLength(15);
     _password->setInputFlag(kEditBoxInputFlagPassword);
     _password->setInputMode(kEditBoxInputModeSingleLine);
     _password->setZOrder(-1);
@@ -70,7 +71,7 @@ bool RegisterLayer::init()
     _uilayer->addChild(_password);
     
     bindTouchEvent("Button_back", this, toucheventselector(RegisterLayer::onClickedBack));
-    bindTouchEvent("Button_register", this, toucheventselector(RegisterLayer::onClickedRegister));
+    _btnReg->addTouchEventListener(this, toucheventselector(RegisterLayer::onClickedRegister));
     
     return true;
 }
@@ -78,6 +79,11 @@ bool RegisterLayer::init()
 void RegisterLayer::showMsg(string str)
 {
     _msg->setText(str.c_str());
+}
+
+void RegisterLayer::setEnabledRegister(bool enable)
+{
+    _btnReg->setTouchEnabled(enable);
 }
 
 
@@ -114,6 +120,7 @@ void RegisterLayer::onClickedRegister(CCObject *sender, TouchEventType event)
             return;
         }
         
+        setEnabledRegister(false);
         CCUserDefault* userDefault = CCUserDefault::sharedUserDefault();
         userDefault->setStringForKey(SAVE_H_REGACCOUNT,msg.name);
         userDefault->setStringForKey(SAVE_H_REGPASSWORD,msg.pwd);

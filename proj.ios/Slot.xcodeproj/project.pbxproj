@@ -303,6 +303,8 @@
 		5B3D976F19B314CD00BB6939 /* KCGameLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D976B19B314CD00BB6939 /* KCGameLayer.cpp */; };
 		5B3D977019B314CD00BB6939 /* PetFightLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B3D976D19B314CD00BB6939 /* PetFightLayer.cpp */; };
 		5B5D38EC19C136F400410370 /* UserAccountService.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B5D38EA19C136F400410370 /* UserAccountService.cpp */; };
+		5B6E544719EFB54200648350 /* prize.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B6E544519EFB54200648350 /* prize.plist */; };
+		5B6E544819EFB54200648350 /* prize.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B6E544619EFB54200648350 /* prize.png */; };
 		5B6F120D19CAC8DB000C1A98 /* BuyStoneDialog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F120B19CAC8DB000C1A98 /* BuyStoneDialog.cpp */; };
 		5B6F121119CAFB72000C1A98 /* OutTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B6F120F19CAFB72000C1A98 /* OutTime.cpp */; };
 		5B832C2C19B6DD1A00B22A69 /* Alert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5B832C2A19B6DD1A00B22A69 /* Alert.cpp */; };
@@ -1455,6 +1457,8 @@
 		5B3D976E19B314CD00BB6939 /* PetFightLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PetFightLayer.h; path = ../Classes/PetFightLayer.h; sourceTree = "<group>"; };
 		5B5D38EA19C136F400410370 /* UserAccountService.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UserAccountService.cpp; path = ../Classes/UserAccountService.cpp; sourceTree = "<group>"; };
 		5B5D38EB19C136F400410370 /* UserAccountService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserAccountService.h; path = ../Classes/UserAccountService.h; sourceTree = "<group>"; };
+		5B6E544519EFB54200648350 /* prize.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = prize.plist; sourceTree = "<group>"; };
+		5B6E544619EFB54200648350 /* prize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prize.png; sourceTree = "<group>"; };
 		5B6F120B19CAC8DB000C1A98 /* BuyStoneDialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BuyStoneDialog.cpp; path = ../Classes/BuyStoneDialog.cpp; sourceTree = "<group>"; };
 		5B6F120C19CAC8DB000C1A98 /* BuyStoneDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BuyStoneDialog.h; path = ../Classes/BuyStoneDialog.h; sourceTree = "<group>"; };
 		5B6F120F19CAFB72000C1A98 /* OutTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OutTime.cpp; path = ../Classes/OutTime.cpp; sourceTree = "<group>"; };
@@ -4352,6 +4356,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B6E544519EFB54200648350 /* prize.plist */,
+				5B6E544619EFB54200648350 /* prize.png */,
 				5B90483719EE1D94002B8142 /* back_start.png */,
 				5B90483819EE1D94002B8142 /* button.plist */,
 				5B90483919EE1D94002B8142 /* button.png */,
@@ -4608,6 +4614,7 @@
 				5B904B9819EE1D95002B8142 /* x-0073.png in Resources */,
 				5B904A6A19EE1D95002B8142 /* UI4Dialog.ExportJson in Resources */,
 				5B904BB719EE1D95002B8142 /* x-0104.png in Resources */,
+				5B6E544719EFB54200648350 /* prize.plist in Resources */,
 				5B904AFC19EE1D95002B8142 /* Great0.plist in Resources */,
 				5B904ABA19EE1D95002B8142 /* 1.png in Resources */,
 				5B904A7019EE1D95002B8142 /* UI4DialogChoosePrize.ExportJson in Resources */,
@@ -4767,6 +4774,7 @@
 				5B904C2819EE1D95002B8142 /* rooms.plist in Resources */,
 				5B904A5C19EE1D95002B8142 /* card.plist in Resources */,
 				5B904C2519EE1D95002B8142 /* load.plist in Resources */,
+				5B6E544819EFB54200648350 /* prize.png in Resources */,
 				5B904AB019EE1D95002B8142 /* Y150_20.png in Resources */,
 				5B904BDA19EE1D95002B8142 /* BossLighted0.png in Resources */,
 				5B904BF319EE1D95002B8142 /* Door0.plist in Resources */,

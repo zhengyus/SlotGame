@@ -59,19 +59,6 @@
             <key>pet1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{182,148},{144,94}}</string>
-                <key>offset</key>
-                <string>{0,-15}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{8,32},{144,94}}</string>
-                <key>sourceSize</key>
-                <string>{160,128}</string>
-            </dict>
-            <key>pet2.png</key>
-            <dict>
-                <key>frame</key>
                 <string>{{2,2},{160,118}}</string>
                 <key>offset</key>
                 <string>{0,-5}</string>
@@ -79,6 +66,19 @@
                 <true/>
                 <key>sourceColorRect</key>
                 <string>{{0,10},{160,118}}</string>
+                <key>sourceSize</key>
+                <string>{160,128}</string>
+            </dict>
+            <key>pet2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{182,148},{144,94}}</string>
+                <key>offset</key>
+                <string>{0,-15}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{8,32},{144,94}}</string>
                 <key>sourceSize</key>
                 <string>{160,128}</string>
             </dict>
@@ -98,19 +98,6 @@
             <key>pethead1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{92,164},{88,73}}</string>
-                <key>offset</key>
-                <string>{0,0}</string>
-                <key>rotated</key>
-                <false/>
-                <key>sourceColorRect</key>
-                <string>{{0,4},{88,73}}</string>
-                <key>sourceSize</key>
-                <string>{88,81}</string>
-            </dict>
-            <key>pethead2.png</key>
-            <dict>
-                <key>frame</key>
                 <string>{{252,2},{78,81}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
@@ -118,6 +105,19 @@
                 <false/>
                 <key>sourceColorRect</key>
                 <string>{{5,0},{78,81}}</string>
+                <key>sourceSize</key>
+                <string>{88,81}</string>
+            </dict>
+            <key>pethead2.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{92,164},{88,73}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,4},{88,73}}</string>
                 <key>sourceSize</key>
                 <string>{88,81}</string>
             </dict>
@@ -131,7 +131,7 @@
             <key>size</key>
             <string>{332,247}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b04ff3568e76e5b978e0f66846927ef0:6d1a6b593bf61b70ba7e603663362c5d:c587330c4a48b4a3249f3ebb5c0e8bd8$</string>
+            <string>$TexturePacker:SmartUpdate:f4955273c649e631960ab0b330a5d997:695c01823466ac460d32ae89db677162:c587330c4a48b4a3249f3ebb5c0e8bd8$</string>
             <key>textureFileName</key>
             <string>pet.png</string>
         </dict>

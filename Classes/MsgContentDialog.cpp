@@ -102,8 +102,33 @@ void MsgContentDialog::setPrize(int num)
     //奖励物品数量大于0 并且 奖励物品的范围，以防奖励不存在的物品
     if (num > 0 && _data->mailType > 0 && _data->mailType < 5)
     {
+        int    d;
+        string prizeStr;
+        switch (_data->mailType) {
+            case 1://宠物奖励
+            {
+                d = _data->itemId - 1;//宠物图片从0开始计数，服务端数据从1开始计数
+                prizeStr = "pethead%d.png";
+                break;
+            }
+            case 2://道具奖励
+            {
+                d = _data->itemId;
+                prizeStr = "prop%d.png";
+                break;
+            }
+            default:
+            {
+                d = _data->mailType;
+                prizeStr = "prize%d.png";
+                break;
+            }
+        }
+        
+        prizeStr = CCString::createWithFormat(prizeStr.c_str(),d)->getCString();
+        
         _number->setText(CCString::createWithFormat("%d",num)->getCString());
-        _prize->loadTexture(CCString::createWithFormat("prize%d.png",_data->mailType)->getCString(),UI_TEX_TYPE_PLIST);
+        _prize->loadTexture(prizeStr.c_str(),UI_TEX_TYPE_PLIST);
         
         if ( !_data->isOK )
         {

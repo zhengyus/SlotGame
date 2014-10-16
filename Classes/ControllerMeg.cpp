@@ -720,6 +720,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
                 tmail.isRead = tmeg->ackOGAckMails.maillist(i).isread();//已读
                 tmail.isOK = tmeg->ackOGAckMails.maillist(i).isok();//收取标记
                 tmail.mailPic = tmeg->ackOGAckMails.maillist(i).pic();//图片路径
+                tmail.itemId = tmeg->ackOGAckMails.maillist(i).itemid();
                 char strID[30];
                 sprintf(strID, "%d", tmeg->ackOGAckMails.maillist(i).id());
                 tmail.mailid = strID;
