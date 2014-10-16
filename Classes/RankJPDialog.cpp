@@ -26,7 +26,7 @@ static void initRankItem(int i,Widget* item,MyJPRankList dataItem)
     Label* lbl3 =  static_cast<Label*>(UIHelper::seekWidgetByName(item,"Label_rankpool"));
     Label* lbl4 =  static_cast<Label*>(UIHelper::seekWidgetByName(item,"Label_date"));
     
-    lbl1->setText(CCString::createWithFormat("%s(%s)",dataItem.JPrankName.c_str(),dataItem.RoleName.c_str())->getCString());
+    lbl1->setText(dataItem.RoleName.c_str());
     
     char tmp[20];
     sprintf(tmp, "%lld",dataItem.JPrankwinGold);
