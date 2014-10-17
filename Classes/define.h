@@ -47,11 +47,11 @@ USING_NS_CC;
 //#define LOGIN_GAME_IP   "172.28.14.215"
 //#define LOGIN_GAME_PORT 5001
 //张明明
-#define LOGIN_GAME_IP   "172.28.26.181"
-#define LOGIN_GAME_PORT 5001
-//胡小峰
-//#define LOGIN_GAME_IP   "172.28.26.154"
+//#define LOGIN_GAME_IP   "172.28.26.181"
 //#define LOGIN_GAME_PORT 5001
+//胡小峰
+#define LOGIN_GAME_IP   "172.28.26.154"
+#define LOGIN_GAME_PORT 5001
 #endif
 
 #define LOGIN_TYPE 1

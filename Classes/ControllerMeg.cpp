@@ -937,7 +937,8 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         }
         case OGID_TEXAS_SLOTS_DOUBLEJP://比倍界面返回jp巨奖
         {
-            DataManager::sharedDataManager()->jpGold = tmeg->ackOGAckDoubleJpResult.jp();
+//            DataManager::sharedDataManager()->jpGold = tmeg->ackOGAckDoubleJpResult.jp();
+            DataManager::sharedDataManager()->jpGold = tmeg->ackOGAckDoubleJpResult.gold();
             CCLog("~~~~~~~~~jp=%lld", tmeg->ackOGAckDoubleJpResult.jp());
             
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_K2_REC_MEG_FROM_SEVER, &sendmeg);
