@@ -462,12 +462,6 @@
 		5B904AF019EE1D95002B8142 /* chibang.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048EF19EE1D94002B8142 /* chibang.ExportJson */; };
 		5B904AF119EE1D95002B8142 /* chibang0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048F019EE1D94002B8142 /* chibang0.plist */; };
 		5B904AF219EE1D95002B8142 /* chibang0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048F119EE1D94002B8142 /* chibang0.png */; };
-		5B904AF319EE1D95002B8142 /* Awards.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048F519EE1D94002B8142 /* Awards.ExportJson */; };
-		5B904AF419EE1D95002B8142 /* Awards0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048F619EE1D94002B8142 /* Awards0.plist */; };
-		5B904AF519EE1D95002B8142 /* Awards0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048F719EE1D94002B8142 /* Awards0.png */; };
-		5B904AFB19EE1D95002B8142 /* Great.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 5B9048FF19EE1D94002B8142 /* Great.ExportJson */; };
-		5B904AFC19EE1D95002B8142 /* Great0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B90490019EE1D94002B8142 /* Great0.plist */; };
-		5B904AFD19EE1D95002B8142 /* Great0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B90490119EE1D94002B8142 /* Great0.png */; };
 		5B904AFE19EE1D95002B8142 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B90490319EE1D94002B8142 /* 1.png */; };
 		5B904AFF19EE1D95002B8142 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B90490419EE1D94002B8142 /* 10.png */; };
 		5B904B0019EE1D95002B8142 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 5B90490519EE1D94002B8142 /* 11.png */; };
@@ -1620,12 +1614,6 @@
 		5B9048EF19EE1D94002B8142 /* chibang.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chibang.ExportJson; sourceTree = "<group>"; };
 		5B9048F019EE1D94002B8142 /* chibang0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = chibang0.plist; sourceTree = "<group>"; };
 		5B9048F119EE1D94002B8142 /* chibang0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chibang0.png; sourceTree = "<group>"; };
-		5B9048F519EE1D94002B8142 /* Awards.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Awards.ExportJson; sourceTree = "<group>"; };
-		5B9048F619EE1D94002B8142 /* Awards0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Awards0.plist; sourceTree = "<group>"; };
-		5B9048F719EE1D94002B8142 /* Awards0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Awards0.png; sourceTree = "<group>"; };
-		5B9048FF19EE1D94002B8142 /* Great.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Great.ExportJson; sourceTree = "<group>"; };
-		5B90490019EE1D94002B8142 /* Great0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Great0.plist; sourceTree = "<group>"; };
-		5B90490119EE1D94002B8142 /* Great0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Great0.png; sourceTree = "<group>"; };
 		5B90490319EE1D94002B8142 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		5B90490419EE1D94002B8142 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		5B90490519EE1D94002B8142 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -3901,30 +3889,8 @@
 			isa = PBXGroup;
 			children = (
 				5B26007E19EE505D0008DFB5 /* dajiang03 */,
-				5B9048F419EE1D94002B8142 /* Awards */,
-				5B9048FE19EE1D94002B8142 /* Great */,
 			);
 			path = AwardAction;
-			sourceTree = "<group>";
-		};
-		5B9048F419EE1D94002B8142 /* Awards */ = {
-			isa = PBXGroup;
-			children = (
-				5B9048F519EE1D94002B8142 /* Awards.ExportJson */,
-				5B9048F619EE1D94002B8142 /* Awards0.plist */,
-				5B9048F719EE1D94002B8142 /* Awards0.png */,
-			);
-			path = Awards;
-			sourceTree = "<group>";
-		};
-		5B9048FE19EE1D94002B8142 /* Great */ = {
-			isa = PBXGroup;
-			children = (
-				5B9048FF19EE1D94002B8142 /* Great.ExportJson */,
-				5B90490019EE1D94002B8142 /* Great0.plist */,
-				5B90490119EE1D94002B8142 /* Great0.png */,
-			);
-			path = Great;
 			sourceTree = "<group>";
 		};
 		5B90490219EE1D94002B8142 /* cardImg */ = {
@@ -4506,7 +4472,6 @@
 				5B904C3919EE1D95002B8142 /* double_turnover.mp3 in Resources */,
 				5B904BA119EE1D95002B8142 /* x-0082.png in Resources */,
 				5B904BA619EE1D95002B8142 /* x-0087.png in Resources */,
-				5B904AF419EE1D95002B8142 /* Awards0.plist in Resources */,
 				5B904ACB19EE1D95002B8142 /* 25.png in Resources */,
 				5B904ACD19EE1D95002B8142 /* 27.png in Resources */,
 				5B904BD719EE1D95002B8142 /* BossIdle0.png in Resources */,
@@ -4535,7 +4500,6 @@
 				5B904B7019EE1D95002B8142 /* x-0033.png in Resources */,
 				5B904BD219EE1D95002B8142 /* BossAttack.ExportJson in Resources */,
 				5B904C1819EE1D95002B8142 /* UI4LineHero1.png in Resources */,
-				5B904AF319EE1D95002B8142 /* Awards.ExportJson in Resources */,
 				5B904BED19EE1D95002B8142 /* DogOnAttacked0.plist in Resources */,
 				5B904B7F19EE1D95002B8142 /* x-0048.png in Resources */,
 				5B904C1419EE1D95002B8142 /* G200_28.png in Resources */,
@@ -4547,7 +4511,6 @@
 				5B904A8819EE1D95002B8142 /* UI4DialogSet.ExportJson in Resources */,
 				5B904A7E19EE1D95002B8142 /* UI4DialogPetStone0.png in Resources */,
 				5B904AEC19EE1D95002B8142 /* 7.png in Resources */,
-				5B904AF519EE1D95002B8142 /* Awards0.png in Resources */,
 				5B904BF019EE1D95002B8142 /* DogWalk0.plist in Resources */,
 				5B904BF619EE1D95002B8142 /* egFloor.png in Resources */,
 				5B904AB519EE1D95002B8142 /* arial.ttf in Resources */,
@@ -4579,7 +4542,6 @@
 				5B904AD619EE1D95002B8142 /* 35.png in Resources */,
 				5B904A9319EE1D95002B8142 /* UI4GameHead0.png in Resources */,
 				5B904B0419EE1D95002B8142 /* 15.png in Resources */,
-				5B904AFD19EE1D95002B8142 /* Great0.png in Resources */,
 				5B904BF919EE1D95002B8142 /* frames0.plist in Resources */,
 				5B904AD519EE1D95002B8142 /* 34.png in Resources */,
 				5B904AE519EE1D95002B8142 /* 49.png in Resources */,
@@ -4615,7 +4577,6 @@
 				5B904A6A19EE1D95002B8142 /* UI4Dialog.ExportJson in Resources */,
 				5B904BB719EE1D95002B8142 /* x-0104.png in Resources */,
 				5B6E544719EFB54200648350 /* prize.plist in Resources */,
-				5B904AFC19EE1D95002B8142 /* Great0.plist in Resources */,
 				5B904ABA19EE1D95002B8142 /* 1.png in Resources */,
 				5B904A7019EE1D95002B8142 /* UI4DialogChoosePrize.ExportJson in Resources */,
 				5B904C2419EE1D95002B8142 /* zhandou0.png in Resources */,
@@ -4805,7 +4766,6 @@
 				5B904A6D19EE1D95002B8142 /* UI4DialogAlert.ExportJson in Resources */,
 				5B904A7F19EE1D95002B8142 /* UI4DialogRank.ExportJson in Resources */,
 				5B904BA719EE1D95002B8142 /* x-0088.png in Resources */,
-				5B904AFB19EE1D95002B8142 /* Great.ExportJson in Resources */,
 				5B904BE319EE1D95002B8142 /* BossOnAttacked0.png in Resources */,
 				5B904C2119EE1D95002B8142 /* Win0.png in Resources */,
 				5B904A7519EE1D95002B8142 /* UI4DialogMsg0.png in Resources */,

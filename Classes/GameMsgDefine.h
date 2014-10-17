@@ -70,6 +70,9 @@
 #define OGID_TEXAS_SLOTS_REQPETFIGHT2               OGID_MSGBASE_TEXAS_SLOTS + 53				// 接收宠物战斗
 #define OGID_TEXAS_SLOTS_REQPETFLEE              OGID_MSGBASE_TEXAS_SLOTS + 54				// 接收宠物逃跑
 
+//断线返回
+#define OGID_TEXAS_SLOTS_CUT_LINE              OGID_MSGBASE_TEXAS_SLOTS + 61
+
 /***********************接收消息******************************/
 #define OGID_TEXAS_SLOTS_LINK 					   OGID_MSGBASE_TEXASPOKER_GAMEBASE + 1 		//接收服务器ip、端口
 #define OGID_TEXAS_SLOTS_ROLEMSG 				   OGID_MSGBASE_TEXASPOKER_GAMEBASE + 2 		//返回玩家信息

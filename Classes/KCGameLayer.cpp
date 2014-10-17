@@ -2003,42 +2003,42 @@ void KCGameLayer::initUI()
     {
         m_setLineRewNum = m_maxLineRewNum;
         m_beiNum = m_maxBeiNum;
+        
     }
     //无免费转动的时候
     else
     {
 //        DataManager::sharedDataManager()->currFreeNum = 0;
         
+        CCLog("~~~~~~~~~~~%d", m_beiNum);
+        
+        unsigned long long maxgold = 0;
+        
         //求倍数
         for(int i = 0; i < DataManager::sharedDataManager()->roomBetList.size(); i++)
         {
-            if(m_roomID == 1)
+            
+            if(DataManager::sharedDataManager()->roomBetList[i].max > maxgold)
             {
-                if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
-                   && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
-                {
-                    m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
-                }
-            }
-            else if(m_roomID == 2)
-            {
-                if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
-                   && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
-                {
-                    m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
-                }
-                
-            }
-            else if(m_roomID == 3)
-            {
-                if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
-                   && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
-                {
-                    m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
-                }
-
+                maxgold = DataManager::sharedDataManager()->roomBetList[i].max;
             }
             
+            if(m_usrHavaGold >= DataManager::sharedDataManager()->roomBetList[i].min
+               && m_usrHavaGold < DataManager::sharedDataManager()->roomBetList[i].max)
+            {
+                m_beiNum = DataManager::sharedDataManager()->roomBetList[i].bet;
+            }
+            
+        }
+        
+        if(m_beiNum >= m_maxBeiNum)
+        {
+            m_beiNum = m_maxBeiNum;
+        }
+        
+        if(m_usrHavaGold > maxgold)
+        {
+            m_beiNum = m_maxBeiNum;
         }
         
         //设置线数

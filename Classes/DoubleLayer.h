@@ -65,8 +65,10 @@ public:
     void setActionFly1();
     
     void setLabelWinNum();
+    void setlabelfalse();
     
     UILabelAtlas* m_LabelWinNum;
+    UILabelAtlas* m_LabelWinNumjp;
     
     UILayer * m_Widget;
     Layout* m_rootLy;
@@ -82,6 +84,7 @@ public:
     UIButton* tBtnget;
     UILabelAtlas* m_atl;
     UIImageView* m_card;
+    UILabel* m_plus;
     unsigned long long m_needgold;
     unsigned long long m_winGold;//每次赢的钱
     unsigned long long m_yzGold;//押注金额

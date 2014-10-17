@@ -139,8 +139,8 @@ bool DoubleLayer::init()
     
     
     //骨骼资源
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Awards.ExportJson");
-    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Great.ExportJson");
+//    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Awards.ExportJson");
+//    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Great.ExportJson");
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("dajiang03.ExportJson");
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Gold.ExportJson");
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("chibang.ExportJson");
@@ -149,20 +149,27 @@ bool DoubleLayer::init()
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Gold03.ExportJson");
 //    CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("Win.ExportJson");
 
-    m_armatureAward[0] = CCArmature::create("Awards");
-    m_armatureAward[1] = CCArmature::create("Great");
+//    m_armatureAward[0] = CCArmature::create("Awards");
+//    m_armatureAward[1] = CCArmature::create("Great");
     m_armatureAward[2] = CCArmature::create("dajiang03");
+    m_armatureAward[2]->setVisible(false);
+    m_armatureAward[2]->setPosition(500, 620/2);
     
-    for (int i = 0; i < 3; i++)
-    {
-        m_armatureAward[i]->setVisible(false);
-        m_armatureAward[i]->setPosition(500, 620/2);
-    }
+//    for (int i = 0; i < 3; i++)
+//    {
+//        m_armatureAward[i]->setVisible(false);
+//        m_armatureAward[i]->setPosition(500, 620/2);
+//    }
     
     m_LabelWinNum = UILabelAtlas::create();
     m_LabelWinNum->setProperty("0", "GETNUM37_46.png", 48, 62, "0");
     m_LabelWinNum->setVisible(false);
     m_LabelWinNum->setPosition(ccp(500, 320));
+    
+    m_LabelWinNumjp = UILabelAtlas::create();
+    m_LabelWinNumjp->setProperty("0", "GETNUM37_46.png", 48, 62, "0");
+    m_LabelWinNumjp->setVisible(false);
+    m_LabelWinNumjp->setPosition(ccp(500, 320));
 
     
     m_armatureGet = CCArmature::create("Gold");
@@ -207,14 +214,16 @@ bool DoubleLayer::init()
     this->addChild(m_armatureGetWin[1]);
     this->addChild(m_armatureGetWin[2]);
     this->addChild(m_LabelWinNum);
-    
     this->addChild(patBatchNode);
     
-    for(int i = 0; i < 3; i++)
-    {
-        this->addChild(m_armatureAward[i]);
-        
-    }
+//    for(int i = 0; i < 3; i++)
+//    {
+//        this->addChild(m_armatureAward[i]);
+//        
+//    }
+    
+    this->addChild(m_armatureAward[2]);
+    this->addChild(m_LabelWinNumjp);
     
     //增加自动收分
     this->schedule(schedule_selector(DoubleLayer::autoGetScore), 1.0f);
@@ -260,6 +269,11 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
         case cocos2d::ui::TOUCH_EVENT_BEGAN:
         {
             KCGameLayer::playSound(BUTTON_CLICK);
+            
+            m_LabelWinNumjp->setVisible(false);
+            m_armatureAward[2]->getAnimation()->stop();
+            m_armatureAward[2]->setVisible(false);
+            
             break;
         }
         case cocos2d::ui::TOUCH_EVENT_ENDED:
@@ -267,12 +281,14 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
             
             int tTag = ((UILayer*)pSender)->getTag();
             
-            for(int i = 0; i < 3; i++)
-            {
-                m_armatureAward[i]->getAnimation()->stop();
-                m_armatureAward[i]->setVisible(false);
-            }
+//            for(int i = 0; i < 3; i++)
+//            {
+//                m_LabelWinNumjp->setVisible(false);
+//                m_armatureAward[i]->getAnimation()->stop();
+//                m_armatureAward[i]->setVisible(false);
+//            }
 
+            
             
             switch(tTag)
             {
@@ -302,6 +318,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                 }
                 case BTN_X2:
                 {
+                    
                     //大于2亿不再比倍
                     if(m_winGold >= 200000000)
                     {
@@ -317,14 +334,20 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                             return;
                         }
                         
+                        char strTmp[50];
+                        unsigned long long tmpNum = m_needgold;
+                        tmpNum = tmpNum*2;
+                        
+                        //大于2亿没反应
+                        if(tmpNum >= 200000000)
+                        {
+                            return;
+                        }
+                        
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(2 - 1));
                         
-                        
-                        char strTmp[50];
-                        unsigned long long tmpNum = m_needgold;
-                        tmpNum = tmpNum*2;
                         sprintf(strTmp, "%lld", tmpNum);
                         m_atl->setStringValue(strTmp);
                         
@@ -367,13 +390,20 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                             return;
                         }
                         
+                        char strTmp[50];
+                        unsigned long long tmpNum = m_needgold;
+                        tmpNum = tmpNum*3;
+                        
+                        //大于2亿没反应
+                        if(tmpNum >= 200000000)
+                        {
+                            return;
+                        }
+                        
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(3 - 1));
                         
-                        char strTmp[50];
-                        unsigned long long tmpNum = m_needgold;
-                        tmpNum = tmpNum*3;
                         sprintf(strTmp, "%lld", tmpNum);
                         m_atl->setStringValue(strTmp);
                         
@@ -414,13 +444,20 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                             return;
                         }
                         
+                        char strTmp[50];
+                        unsigned long long tmpNum = m_needgold;
+                        tmpNum = tmpNum*5;
+                        
+                        //大于2亿没反应
+                        if(tmpNum >= 200000000)
+                        {
+                            return;
+                        }
+                        
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(5 - 1));
                         
-                        char strTmp[50];
-                        unsigned long long tmpNum = m_needgold;
-                        tmpNum = tmpNum*5;
                         sprintf(strTmp, "%lld", tmpNum);
                         m_atl->setStringValue(strTmp);
                         
@@ -586,7 +623,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             CCLog("~~~~~~~~~~赢的底金额=%lld", tmeg->Bwingold);
             CCLog("~~~~~~~~~~玩家钱=%lld", tmeg->Brolegold);
             CCLog("~~~~~~~~~~界面page=%d", tmeg->Bpage);
-            
+            CCLog("~~~~~~~~~~BgoldPlus=%d", tmeg->BgoldPlus);
             m_yzGold = tmeg->Bneedgold;
             m_winGold = tmeg->Bwingold;
             m_cardID = tmeg->BcardNumber;
@@ -664,7 +701,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
 //                else
 //                {
                 
-                this->scheduleOnce(schedule_selector(DoubleLayer::runAwardAction), 0.5f);
+//                this->scheduleOnce(schedule_selector(DoubleLayer::runAwardAction), 0.5f);
                 
 //                    if(tmeg->Bwingold >= 1 && tmeg->Bwingold < 2000)
 //                    {
@@ -704,6 +741,12 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
 		}
         case OGID_TEXAS_SLOTS_DOUBLEJP:
         {
+            char jpgold[30];
+            sprintf(jpgold, ":%lld", DataManager::sharedDataManager()->jpGold);
+            m_LabelWinNumjp->setStringValue(jpgold);
+            m_LabelWinNumjp->setVisible(true);
+            this->scheduleOnce(schedule_selector(DoubleLayer::setlabelfalse), 15.0f);
+            
             m_stopSound = KCGameLayer::playSound(BIG_AWARD4);
             m_armatureAward[2]->setVisible(true);
             m_armatureAward[2]->getAnimation()->playWithIndex(0);
@@ -715,6 +758,11 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             break;
         };
     }
+}
+
+void DoubleLayer::setlabelfalse()
+{
+    m_LabelWinNumjp->setVisible(false);
 }
 
 void DoubleLayer::runBiBei(int color)
@@ -744,6 +792,9 @@ void DoubleLayer::runBiBei(int color)
 
 void DoubleLayer::initUI()
 {
+    m_LabelWinNumjp->setVisible(false);
+    m_LabelWinNumjp->setPosition(ccp(500, 320));
+    
     m_yzGold = 0;
     m_stopSound = -1;
     //增加自动收分
@@ -791,12 +842,15 @@ void DoubleLayer::initUI()
     //初始化奖励动画 收分动画
     for (int i = 0; i < 3; i++)
     {
-        m_armatureAward[i]->setVisible(false);
-        m_armatureAward[i]->getAnimation()->stop();
+//        m_armatureAward[i]->setVisible(false);
+//        m_armatureAward[i]->getAnimation()->stop();
         
         m_armatureGetWin[i]->setVisible(false);
         m_armatureGetWin[i]->getAnimation()->stop();
     }
+    
+    m_armatureAward[2]->setVisible(false);
+    m_armatureAward[2]->getAnimation()->stop();
     
     //删除卡牌
     for (int i = 0; i < m_arrCardImg->count(); i++)

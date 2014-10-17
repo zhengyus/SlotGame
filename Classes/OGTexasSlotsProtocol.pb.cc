@@ -406,6 +406,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* OGAckAd_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   OGAckAd_reflection_ = NULL;
+const ::google::protobuf::Descriptor* OGAckLeaveGame_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  OGAckLeaveGame_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* E_TRCardColorType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* E_TRCardNumber_descriptor_ = NULL;
 
@@ -2182,7 +2185,7 @@ void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(OGAckJpRecord));
   OGAckJpRecord_JpRecord_descriptor_ = OGAckJpRecord_descriptor_->nested_type(0);
-  static const int OGAckJpRecord_JpRecord_offsets_[7] = {
+  static const int OGAckJpRecord_JpRecord_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, userid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, rolename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, wingold_),
@@ -2190,6 +2193,7 @@ void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, showtype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, gamename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, createtime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckJpRecord_JpRecord, gameid_),
   };
   OGAckJpRecord_JpRecord_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -2667,6 +2671,20 @@ void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(OGAckAd));
+  OGAckLeaveGame_descriptor_ = file->message_type(106);
+  static const int OGAckLeaveGame_offsets_[1] = {
+  };
+  OGAckLeaveGame_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      OGAckLeaveGame_descriptor_,
+      OGAckLeaveGame::default_instance_,
+      OGAckLeaveGame_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckLeaveGame, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckLeaveGame, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(OGAckLeaveGame));
   E_TRCardColorType_descriptor_ = file->enum_type(0);
   E_TRCardNumber_descriptor_ = file->enum_type(1);
 }
@@ -2931,6 +2949,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     OGAckJpHall_HallContent_descriptor_, &OGAckJpHall_HallContent::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     OGAckAd_descriptor_, &OGAckAd::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    OGAckLeaveGame_descriptor_, &OGAckLeaveGame::default_instance());
 }
 
 }  // namespace
@@ -3186,6 +3206,8 @@ void protobuf_ShutdownFile_OGTexasSlotsProtocol_2eproto() {
   delete OGAckJpHall_HallContent_reflection_;
   delete OGAckAd::default_instance_;
   delete OGAckAd_reflection_;
+  delete OGAckLeaveGame::default_instance_;
+  delete OGAckLeaveGame_reflection_;
 }
 
 void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
@@ -3456,73 +3478,74 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
     "\"!\n\rOGReqJpRecord\022\020\n\010roleName\030\001 \001(\t\"]\n\013O"
     "GReqJpStar\022\020\n\010roleName\030\001 \001(\t\022\022\n\njpStarNa"
     "me\030\002 \001(\t\022\024\n\014jpStarTemNum\030\003 \001(\003\022\022\n\njpStar"
-    "Time\030\004 \001(\t\"\375\001\n\rOGAckJpRecord\022D\n\014JpRecord"
+    "Time\030\004 \001(\t\"\215\002\n\rOGAckJpRecord\022D\n\014JpRecord"
     "List\030\001 \003(\0132..com.ourgame.texasSlots.OGAc"
     "kJpRecord.JpRecord\022\r\n\005tipOn\030\002 \002(\005\022\017\n\007tip"
-    "Text\030\003 \001(\t\032\205\001\n\010JpRecord\022\016\n\006userId\030\001 \002(\t\022"
+    "Text\030\003 \001(\t\032\225\001\n\010JpRecord\022\016\n\006userId\030\001 \002(\t\022"
     "\020\n\010roleName\030\002 \002(\t\022\017\n\007winGold\030\003 \002(\003\022\016\n\006cu"
     "rrJp\030\004 \002(\003\022\020\n\010showType\030\005 \002(\005\022\020\n\010gameName"
-    "\030\006 \002(\t\022\022\n\ncreatetime\030\007 \002(\t\"\"\n\017OGAckLogin"
-    "JpMsg\022\017\n\007content\030\001 \001(\t\"3\n\022OGReqLoginGetA"
-    "ward\022\020\n\010roleName\030\001 \001(\t\022\013\n\003lev\030\002 \001(\005\"\232\001\n\022"
-    "OGAckLoginGetAward\022\013\n\003pos\030\001 \001(\005\022\013\n\003pic\030\002"
-    " \001(\t\022\017\n\007content\030\003 \001(\t\022\020\n\010itemtype\030\004 \001(\005\022"
-    "\016\n\006itemid\030\005 \001(\005\022\013\n\003num\030\006 \001(\005\022\020\n\010roleName"
-    "\030\007 \001(\t\022\n\n\002ok\030\010 \001(\005\022\014\n\004jilv\030\t \001(\005\"\311\001\n\023OGA"
-    "ckLoginAwardList\022D\n\tAwardList\030\001 \003(\01321.co"
-    "m.ourgame.texasSlots.OGAckLoginAwardList"
-    ".Award\022\020\n\010roleName\030\002 \001(\t\032Z\n\005Award\022\013\n\003pos"
-    "\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\013\n\003lev\030\003 \001(\005\022\017\n\007cont"
-    "ent\030\004 \001(\t\022\013\n\003num\030\005 \001(\005\022\014\n\004type\030\006 \001(\005\"\177\n\023"
-    "OGReqDoubleJpResult\022\020\n\010needGold\030\001 \001(\003\022\020\n"
-    "\010roleName\030\002 \001(\t\022\016\n\006userId\030\003 \001(\t\022\017\n\007daygo"
-    "ld\030\004 \001(\003\022\020\n\010weekgold\030\005 \001(\003\022\021\n\tmonthgold\030"
-    "\006 \001(\003\"}\n\023OGAckDoubleJpResult\022\014\n\004gold\030\001 \001"
-    "(\003\022\020\n\010roleName\030\002 \001(\t\022\020\n\010needGold\030\003 \001(\003\022\n"
-    "\n\002jp\030\004 \001(\003\022\n\n\002id\030\005 \001(\005\022\r\n\005jilv1\030\006 \001(\005\022\r\n"
-    "\005jilv2\030\007 \001(\005\"\213\001\n\017OGAckDoublePlus\022J\n\016Doub"
-    "lePlusList\030\001 \003(\01322.com.ourgame.texasSlot"
-    "s.OGAckDoublePlus.DoublePlus\032,\n\nDoublePl"
-    "us\022\020\n\010startLev\030\001 \001(\005\022\014\n\004plus\030\002 \001(\005\"\"\n\016OG"
-    "ReqGetPlayer\022\020\n\010rolename\030\001 \001(\t\"E\n\022OGReqC"
-    "hangePutGold\022\014\n\004gold\030\001 \001(\003\022\017\n\007freeFlg\030\002 "
-    "\001(\003\022\020\n\010whiteGld\030\003 \001(\003\"%\n\023OGReqPetReturnA"
-    "ward\022\016\n\006action\030\001 \001(\005\"1\n\023OGAckPetReturnAw"
-    "ard\022\014\n\004type\030\001 \001(\005\022\014\n\004gold\030\002 \001(\003\"x\n\024OGReq"
-    "GetPutGoldAward\022\014\n\004gold\030\001 \001(\003\022\020\n\010roleNam"
-    "e\030\002 \001(\t\022\017\n\007putGold\030\003 \001(\003\022\016\n\006action\030\004 \001(\005"
-    "\022\013\n\003com\030\005 \001(\005\022\022\n\nputGoldSum\030\006 \001(\003\"\211\001\n\016OG"
-    "AckReSetFeed\022I\n\016playerFeedList\030\001 \003(\01321.c"
-    "om.ourgame.texasSlots.OGAckReSetFeed.Pla"
-    "yerFeed\032,\n\nPlayerFeed\022\020\n\010roleName\030\001 \001(\t\022"
-    "\014\n\004feed\030\002 \001(\005\" \n\014OGReqJpStart\022\020\n\010roleNam"
-    "e\030\001 \001(\t\"^\n\014OGAckJpStart\022\020\n\010roleName\030\001 \001("
-    "\t\022\022\n\njpStarName\030\002 \001(\t\022\024\n\014jpStarTemNum\030\003 "
-    "\001(\003\022\022\n\njpStarTime\030\004 \001(\t\"\020\n\016OGReqBindPhon"
-    "e\"/\n\016OGAckBindPhone\022\016\n\006result\030\001 \001(\005\022\r\n\005p"
-    "hone\030\002 \001(\t\"\"\n\021OGReqGetPhoneCode\022\r\n\005phone"
-    "\030\001 \001(\t\" \n\021OGAckGetPhoneCode\022\013\n\003msg\030\001 \001(\t"
-    "\"\"\n\022OGReqGetPhoneAward\022\014\n\004code\030\001 \001(\005\"@\n\022"
-    "OGAckGetPhoneAward\022\013\n\003msg\030\001 \001(\t\022\016\n\006resul"
-    "t\030\002 \001(\005\022\r\n\005phone\030\003 \001(\t\".\n\rOGAckAddJpNum\022"
-    "\020\n\010addJpNum\030\001 \001(\003\022\013\n\003flg\030\002 \001(\005\"\215\001\n\013OGAck"
-    "JpHall\022D\n\013ContentList\030\001 \003(\0132/.com.ourgam"
-    "e.texasSlots.OGAckJpHall.HallContent\0328\n\013"
-    "HallContent\022\014\n\004name\030\001 \001(\t\022\r\n\005golod\030\002 \001(\003"
-    "\022\014\n\004time\030\003 \001(\t\"&\n\007OGAckAd\022\n\n\002on\030\001 \001(\005\022\017\n"
-    "\007content\030\002 \001(\t*\214\001\n\021E_TRCardColorType\022\036\n\032"
-    "TR_CARD_COLOR_TYPE_DIAMOND\020\001\022\033\n\027TR_CARD_"
-    "COLOR_TYPE_CLUB\020\002\022\034\n\030TR_CARD_COLOR_TYPE_"
-    "HEART\020\003\022\034\n\030TR_CARD_COLOR_TYPE_SPADE\020\004*\257\002"
-    "\n\016E_TRCardNumber\022\024\n\020TR_CARD_NUMBER_A\020\001\022\024"
-    "\n\020TR_CARD_NUMBER_2\020\002\022\024\n\020TR_CARD_NUMBER_3"
-    "\020\003\022\024\n\020TR_CARD_NUMBER_4\020\004\022\024\n\020TR_CARD_NUMB"
-    "ER_5\020\005\022\024\n\020TR_CARD_NUMBER_6\020\006\022\024\n\020TR_CARD_"
-    "NUMBER_7\020\007\022\024\n\020TR_CARD_NUMBER_8\020\010\022\024\n\020TR_C"
-    "ARD_NUMBER_9\020\t\022\025\n\021TR_CARD_NUMBER_10\020\n\022\024\n"
-    "\020TR_CARD_NUMBER_J\020\013\022\024\n\020TR_CARD_NUMBER_Q\020"
-    "\014\022\024\n\020TR_CARD_NUMBER_K\020\rB-\n\026com.ourgame.t"
-    "exasSlotsB\023TexasSlotsTranspond", 13110);
+    "\030\006 \002(\t\022\022\n\ncreatetime\030\007 \002(\t\022\016\n\006gameId\030\010 \002"
+    "(\005\"\"\n\017OGAckLoginJpMsg\022\017\n\007content\030\001 \001(\t\"3"
+    "\n\022OGReqLoginGetAward\022\020\n\010roleName\030\001 \001(\t\022\013"
+    "\n\003lev\030\002 \001(\005\"\232\001\n\022OGAckLoginGetAward\022\013\n\003po"
+    "s\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\022\020\n"
+    "\010itemtype\030\004 \001(\005\022\016\n\006itemid\030\005 \001(\005\022\013\n\003num\030\006"
+    " \001(\005\022\020\n\010roleName\030\007 \001(\t\022\n\n\002ok\030\010 \001(\005\022\014\n\004ji"
+    "lv\030\t \001(\005\"\311\001\n\023OGAckLoginAwardList\022D\n\tAwar"
+    "dList\030\001 \003(\01321.com.ourgame.texasSlots.OGA"
+    "ckLoginAwardList.Award\022\020\n\010roleName\030\002 \001(\t"
+    "\032Z\n\005Award\022\013\n\003pos\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\013\n\003l"
+    "ev\030\003 \001(\005\022\017\n\007content\030\004 \001(\t\022\013\n\003num\030\005 \001(\005\022\014"
+    "\n\004type\030\006 \001(\005\"\177\n\023OGReqDoubleJpResult\022\020\n\010n"
+    "eedGold\030\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\016\n\006userI"
+    "d\030\003 \001(\t\022\017\n\007daygold\030\004 \001(\003\022\020\n\010weekgold\030\005 \001"
+    "(\003\022\021\n\tmonthgold\030\006 \001(\003\"}\n\023OGAckDoubleJpRe"
+    "sult\022\014\n\004gold\030\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\020\n\010"
+    "needGold\030\003 \001(\003\022\n\n\002jp\030\004 \001(\003\022\n\n\002id\030\005 \001(\005\022\r"
+    "\n\005jilv1\030\006 \001(\005\022\r\n\005jilv2\030\007 \001(\005\"\213\001\n\017OGAckDo"
+    "ublePlus\022J\n\016DoublePlusList\030\001 \003(\01322.com.o"
+    "urgame.texasSlots.OGAckDoublePlus.Double"
+    "Plus\032,\n\nDoublePlus\022\020\n\010startLev\030\001 \001(\005\022\014\n\004"
+    "plus\030\002 \001(\005\"\"\n\016OGReqGetPlayer\022\020\n\010rolename"
+    "\030\001 \001(\t\"E\n\022OGReqChangePutGold\022\014\n\004gold\030\001 \001"
+    "(\003\022\017\n\007freeFlg\030\002 \001(\003\022\020\n\010whiteGld\030\003 \001(\003\"%\n"
+    "\023OGReqPetReturnAward\022\016\n\006action\030\001 \001(\005\"1\n\023"
+    "OGAckPetReturnAward\022\014\n\004type\030\001 \001(\005\022\014\n\004gol"
+    "d\030\002 \001(\003\"x\n\024OGReqGetPutGoldAward\022\014\n\004gold\030"
+    "\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\017\n\007putGold\030\003 \001(\003"
+    "\022\016\n\006action\030\004 \001(\005\022\013\n\003com\030\005 \001(\005\022\022\n\nputGold"
+    "Sum\030\006 \001(\003\"\211\001\n\016OGAckReSetFeed\022I\n\016playerFe"
+    "edList\030\001 \003(\01321.com.ourgame.texasSlots.OG"
+    "AckReSetFeed.PlayerFeed\032,\n\nPlayerFeed\022\020\n"
+    "\010roleName\030\001 \001(\t\022\014\n\004feed\030\002 \001(\005\" \n\014OGReqJp"
+    "Start\022\020\n\010roleName\030\001 \001(\t\"^\n\014OGAckJpStart\022"
+    "\020\n\010roleName\030\001 \001(\t\022\022\n\njpStarName\030\002 \001(\t\022\024\n"
+    "\014jpStarTemNum\030\003 \001(\003\022\022\n\njpStarTime\030\004 \001(\t\""
+    "\020\n\016OGReqBindPhone\"/\n\016OGAckBindPhone\022\016\n\006r"
+    "esult\030\001 \001(\005\022\r\n\005phone\030\002 \001(\t\"\"\n\021OGReqGetPh"
+    "oneCode\022\r\n\005phone\030\001 \001(\t\" \n\021OGAckGetPhoneC"
+    "ode\022\013\n\003msg\030\001 \001(\t\"\"\n\022OGReqGetPhoneAward\022\014"
+    "\n\004code\030\001 \001(\005\"@\n\022OGAckGetPhoneAward\022\013\n\003ms"
+    "g\030\001 \001(\t\022\016\n\006result\030\002 \001(\005\022\r\n\005phone\030\003 \001(\t\"."
+    "\n\rOGAckAddJpNum\022\020\n\010addJpNum\030\001 \001(\003\022\013\n\003flg"
+    "\030\002 \001(\005\"\215\001\n\013OGAckJpHall\022D\n\013ContentList\030\001 "
+    "\003(\0132/.com.ourgame.texasSlots.OGAckJpHall"
+    ".HallContent\0328\n\013HallContent\022\014\n\004name\030\001 \001("
+    "\t\022\r\n\005golod\030\002 \001(\003\022\014\n\004time\030\003 \001(\t\"&\n\007OGAckA"
+    "d\022\n\n\002on\030\001 \001(\005\022\017\n\007content\030\002 \001(\t\"\020\n\016OGAckL"
+    "eaveGame*\214\001\n\021E_TRCardColorType\022\036\n\032TR_CAR"
+    "D_COLOR_TYPE_DIAMOND\020\001\022\033\n\027TR_CARD_COLOR_"
+    "TYPE_CLUB\020\002\022\034\n\030TR_CARD_COLOR_TYPE_HEART\020"
+    "\003\022\034\n\030TR_CARD_COLOR_TYPE_SPADE\020\004*\257\002\n\016E_TR"
+    "CardNumber\022\024\n\020TR_CARD_NUMBER_A\020\001\022\024\n\020TR_C"
+    "ARD_NUMBER_2\020\002\022\024\n\020TR_CARD_NUMBER_3\020\003\022\024\n\020"
+    "TR_CARD_NUMBER_4\020\004\022\024\n\020TR_CARD_NUMBER_5\020\005"
+    "\022\024\n\020TR_CARD_NUMBER_6\020\006\022\024\n\020TR_CARD_NUMBER"
+    "_7\020\007\022\024\n\020TR_CARD_NUMBER_8\020\010\022\024\n\020TR_CARD_NU"
+    "MBER_9\020\t\022\025\n\021TR_CARD_NUMBER_10\020\n\022\024\n\020TR_CA"
+    "RD_NUMBER_J\020\013\022\024\n\020TR_CARD_NUMBER_Q\020\014\022\024\n\020T"
+    "R_CARD_NUMBER_K\020\rB-\n\026com.ourgame.texasSl"
+    "otsB\023TexasSlotsTranspond", 13144);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "OGTexasSlotsProtocol.proto", &protobuf_RegisterTypes);
   OGReqTRLogin1::default_instance_ = new OGReqTRLogin1();
@@ -3650,6 +3673,7 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
   OGAckJpHall::default_instance_ = new OGAckJpHall();
   OGAckJpHall_HallContent::default_instance_ = new OGAckJpHall_HallContent();
   OGAckAd::default_instance_ = new OGAckAd();
+  OGAckLeaveGame::default_instance_ = new OGAckLeaveGame();
   OGReqTRLogin1::default_instance_->InitAsDefaultInstance();
   OGAckLinkServer::default_instance_->InitAsDefaultInstance();
   OGReqTRLogin2::default_instance_->InitAsDefaultInstance();
@@ -3775,6 +3799,7 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
   OGAckJpHall::default_instance_->InitAsDefaultInstance();
   OGAckJpHall_HallContent::default_instance_->InitAsDefaultInstance();
   OGAckAd::default_instance_->InitAsDefaultInstance();
+  OGAckLeaveGame::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_OGTexasSlotsProtocol_2eproto);
 }
 
@@ -37869,6 +37894,7 @@ const int OGAckJpRecord_JpRecord::kCurrJpFieldNumber;
 const int OGAckJpRecord_JpRecord::kShowTypeFieldNumber;
 const int OGAckJpRecord_JpRecord::kGameNameFieldNumber;
 const int OGAckJpRecord_JpRecord::kCreatetimeFieldNumber;
+const int OGAckJpRecord_JpRecord::kGameIdFieldNumber;
 #endif  // !_MSC_VER
 
 OGAckJpRecord_JpRecord::OGAckJpRecord_JpRecord()
@@ -37894,6 +37920,7 @@ void OGAckJpRecord_JpRecord::SharedCtor() {
   showtype_ = 0;
   gamename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   createtime_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  gameid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -37963,6 +37990,7 @@ void OGAckJpRecord_JpRecord::Clear() {
         createtime_->clear();
       }
     }
+    gameid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -38085,6 +38113,22 @@ bool OGAckJpRecord_JpRecord::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(64)) goto parse_gameId;
+        break;
+      }
+      
+      // required int32 gameId = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_gameId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gameid_)));
+          set_has_gameid();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -38158,6 +38202,11 @@ void OGAckJpRecord_JpRecord::SerializeWithCachedSizes(
       7, this->createtime(), output);
   }
   
+  // required int32 gameId = 8;
+  if (has_gameid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->gameid(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -38221,6 +38270,11 @@ void OGAckJpRecord_JpRecord::SerializeWithCachedSizes(
         7, this->createtime(), target);
   }
   
+  // required int32 gameId = 8;
+  if (has_gameid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->gameid(), target);
+  }
+  
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -38281,6 +38335,13 @@ int OGAckJpRecord_JpRecord::ByteSize() const {
           this->createtime());
     }
     
+    // required int32 gameId = 8;
+    if (has_gameid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->gameid());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -38329,6 +38390,9 @@ void OGAckJpRecord_JpRecord::MergeFrom(const OGAckJpRecord_JpRecord& from) {
     if (from.has_createtime()) {
       set_createtime(from.createtime());
     }
+    if (from.has_gameid()) {
+      set_gameid(from.gameid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -38346,7 +38410,7 @@ void OGAckJpRecord_JpRecord::CopyFrom(const OGAckJpRecord_JpRecord& from) {
 }
 
 bool OGAckJpRecord_JpRecord::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000007f) != 0x0000007f) return false;
+  if ((_has_bits_[0] & 0x000000ff) != 0x000000ff) return false;
   
   return true;
 }
@@ -38360,6 +38424,7 @@ void OGAckJpRecord_JpRecord::Swap(OGAckJpRecord_JpRecord* other) {
     std::swap(showtype_, other->showtype_);
     std::swap(gamename_, other->gamename_);
     std::swap(createtime_, other->createtime_);
+    std::swap(gameid_, other->gameid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -46698,6 +46763,161 @@ void OGAckAd::Swap(OGAckAd* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = OGAckAd_descriptor_;
   metadata.reflection = OGAckAd_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+OGAckLeaveGame::OGAckLeaveGame()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void OGAckLeaveGame::InitAsDefaultInstance() {
+}
+
+OGAckLeaveGame::OGAckLeaveGame(const OGAckLeaveGame& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void OGAckLeaveGame::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+OGAckLeaveGame::~OGAckLeaveGame() {
+  SharedDtor();
+}
+
+void OGAckLeaveGame::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void OGAckLeaveGame::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* OGAckLeaveGame::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return OGAckLeaveGame_descriptor_;
+}
+
+const OGAckLeaveGame& OGAckLeaveGame::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();  return *default_instance_;
+}
+
+OGAckLeaveGame* OGAckLeaveGame::default_instance_ = NULL;
+
+OGAckLeaveGame* OGAckLeaveGame::New() const {
+  return new OGAckLeaveGame;
+}
+
+void OGAckLeaveGame::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool OGAckLeaveGame::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void OGAckLeaveGame::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* OGAckLeaveGame::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int OGAckLeaveGame::ByteSize() const {
+  int total_size = 0;
+  
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void OGAckLeaveGame::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const OGAckLeaveGame* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const OGAckLeaveGame*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void OGAckLeaveGame::MergeFrom(const OGAckLeaveGame& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void OGAckLeaveGame::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OGAckLeaveGame::CopyFrom(const OGAckLeaveGame& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OGAckLeaveGame::IsInitialized() const {
+  
+  return true;
+}
+
+void OGAckLeaveGame::Swap(OGAckLeaveGame* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata OGAckLeaveGame::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = OGAckLeaveGame_descriptor_;
+  metadata.reflection = OGAckLeaveGame_reflection_;
   return metadata;
 }
 

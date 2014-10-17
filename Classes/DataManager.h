@@ -92,7 +92,8 @@ public:
     int petattack;//参战宠物攻击力
     int petblood;//参战宠物血量
     
-    
+    //jp巨奖金额
+    unsigned long long jpGold;//底金
  
 };
 

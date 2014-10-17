@@ -159,6 +159,7 @@ class OGAckAddJpNum;
 class OGAckJpHall;
 class OGAckJpHall_HallContent;
 class OGAckAd;
+class OGAckLeaveGame;
 
 enum OGAckLinkServer_E_ErrorType {
   OGAckLinkServer_E_ErrorType_ET_UNKNOWN = 0,
@@ -12256,6 +12257,13 @@ class OGAckJpRecord_JpRecord : public ::google::protobuf::Message {
   inline ::std::string* mutable_createtime();
   inline ::std::string* release_createtime();
   
+  // required int32 gameId = 8;
+  inline bool has_gameid() const;
+  inline void clear_gameid();
+  static const int kGameIdFieldNumber = 8;
+  inline ::google::protobuf::int32 gameid() const;
+  inline void set_gameid(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGAckJpRecord.JpRecord)
  private:
   inline void set_has_userid();
@@ -12272,6 +12280,8 @@ class OGAckJpRecord_JpRecord : public ::google::protobuf::Message {
   inline void clear_has_gamename();
   inline void set_has_createtime();
   inline void clear_has_createtime();
+  inline void set_has_gameid();
+  inline void clear_has_gameid();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -12280,11 +12290,12 @@ class OGAckJpRecord_JpRecord : public ::google::protobuf::Message {
   ::google::protobuf::int64 wingold_;
   ::google::protobuf::int64 currjp_;
   ::std::string* gamename_;
-  ::std::string* createtime_;
   ::google::protobuf::int32 showtype_;
+  ::google::protobuf::int32 gameid_;
+  ::std::string* createtime_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
   
   friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
   friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
@@ -15273,6 +15284,78 @@ class OGAckAd : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static OGAckAd* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OGAckLeaveGame : public ::google::protobuf::Message {
+ public:
+  OGAckLeaveGame();
+  virtual ~OGAckLeaveGame();
+  
+  OGAckLeaveGame(const OGAckLeaveGame& from);
+  
+  inline OGAckLeaveGame& operator=(const OGAckLeaveGame& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OGAckLeaveGame& default_instance();
+  
+  void Swap(OGAckLeaveGame* other);
+  
+  // implements Message ----------------------------------------------
+  
+  OGAckLeaveGame* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OGAckLeaveGame& from);
+  void MergeFrom(const OGAckLeaveGame& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGAckLeaveGame)
+ private:
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+  
+  friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
+  friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
+  friend void protobuf_ShutdownFile_OGTexasSlotsProtocol_2eproto();
+  
+  void InitAsDefaultInstance();
+  static OGAckLeaveGame* default_instance_;
 };
 // ===================================================================
 
@@ -28582,6 +28665,28 @@ inline ::std::string* OGAckJpRecord_JpRecord::release_createtime() {
   }
 }
 
+// required int32 gameId = 8;
+inline bool OGAckJpRecord_JpRecord::has_gameid() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void OGAckJpRecord_JpRecord::set_has_gameid() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void OGAckJpRecord_JpRecord::clear_has_gameid() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void OGAckJpRecord_JpRecord::clear_gameid() {
+  gameid_ = 0;
+  clear_has_gameid();
+}
+inline ::google::protobuf::int32 OGAckJpRecord_JpRecord::gameid() const {
+  return gameid_;
+}
+inline void OGAckJpRecord_JpRecord::set_gameid(::google::protobuf::int32 value) {
+  set_has_gameid();
+  gameid_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // OGAckJpRecord
@@ -31356,6 +31461,10 @@ inline ::std::string* OGAckAd::release_content() {
     return temp;
   }
 }
+
+// -------------------------------------------------------------------
+
+// OGAckLeaveGame
 
 
 // @@protoc_insertion_point(namespace_scope)

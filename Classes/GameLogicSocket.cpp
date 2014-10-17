@@ -1014,6 +1014,17 @@ void GameLogicSocket::onOGAckStopGame(const char* message, int size)
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
 }
 
+void GameLogicSocket::onOGAckCutGame(const char* message, int size)
+{
+    OGAckLeaveGame meg;
+    meg.ParseFromArray(message, size);
+    
+    GameLogicMegFromSever tmpMeg;
+    tmpMeg.m_id = OGID_TEXAS_SLOTS_CUT_LINE;
+    
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
+}
+
 void GameLogicSocket::onLogin2(const char* message, int size)
 {
     OGAckRoleLoginMsg meg;
@@ -1237,6 +1248,10 @@ void GameLogicSocket::onReceiveData(int messageID, const char* message, int size
             
             CCLog("止损～～～～～～～");
             break;
+        }
+        case OGID_TEXAS_SLOTS_CUT_LINE:
+        {
+            CCLog("断网");
         }
         default:
         {

@@ -242,10 +242,10 @@ void ControllerMeg::sendMeg2Sever(CCObject * obj)
         {
 //            m_gameLogicSocket->sendIdle();
             
-            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
-                                                                           this,
-                                                                           1.0f,
-                                                                           false);
+//            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
+//                                                                           this,
+//                                                                           1.0f,
+//                                                                           false);
             
 //            CCDirector::sharedDirector()->getScheduler()->scheduleSelector(schedule_selector(ControllerMeg::sendIdle),
 //                                                                           this,
@@ -819,7 +819,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
                     tmpJPRankList.JPrankcurrGold = tmeg->ackOGAckJpRecord.jprecordlist(i).currjp();
                     tmpJPRankList.JPrankTime = tmeg->ackOGAckJpRecord.jprecordlist(i).createtime();
                     tmpJPRankList.RoleName = tmeg->ackOGAckJpRecord.jprecordlist(i).rolename();
-                    
+
                     //jp明星巨奖
                     if(tmeg->ackOGAckJpRecord.jprecordlist(i).showtype() == 1)
                     {
@@ -907,6 +907,10 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             sendmeg.BgoldPlusValue = tmeg->ackOGAckDoubleResult.goldplusvalue();
             sendmeg.BcardNumber = tmeg->ackOGAckDoubleResult.cardnumber();
             
+            CCLog("in meg golplusvalue=%lld", tmeg->ackOGAckDoubleResult.goldplusvalue());
+            CCLog("in meg golplus=%d", tmeg->ackOGAckDoubleResult.goldplus());
+
+            
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_K2_REC_MEG_FROM_SEVER, &sendmeg);
             break;
         }
@@ -933,6 +937,9 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         }
         case OGID_TEXAS_SLOTS_DOUBLEJP://比倍界面返回jp巨奖
         {
+            DataManager::sharedDataManager()->jpGold = tmeg->ackOGAckDoubleJpResult.jp();
+            CCLog("~~~~~~~~~jp=%lld", tmeg->ackOGAckDoubleJpResult.jp());
+            
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_K2_REC_MEG_FROM_SEVER, &sendmeg);
             
             break;
@@ -950,6 +957,20 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
             
+            break;
+        }
+        case OGID_TEXAS_SLOTS_CUT_LINE://断网
+        {
+            CCLog("断开链接");
+            m_idleNum = 0;
+            
+            CCDirector::sharedDirector()->getScheduler()->unscheduleSelector(schedule_selector(ControllerMeg::sendIdle), this);
+            
+            Meg2UIDate sendmeg;
+            sendmeg.m_id = ERR_RET;
+            sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
+            sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
+            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
             break;
         }
         default:
