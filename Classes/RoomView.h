@@ -95,39 +95,30 @@ public:
     void onSelectedRoomEvent(CCObject* pSender, TouchEventType type)
     {
         if ( !_enabledRoom )
-        {
             return;
-        }
         
-        static bool scale = false;
         Widget* widget = dynamic_cast<Widget*>(pSender);
         
         switch (type) {
             case TOUCH_EVENT_BEGAN:
             {
-                if (!scale)
-                {
-                    scale = true;
-                    widget->setScale(.95);
-                }
+                widget->setScale(.95);
             }
                 break;
             case TOUCH_EVENT_MOVED:
                 break;
             case TOUCH_EVENT_ENDED:
             {
-                scale = false;
                 setEnableRoom(false);
-                
                 widget->setScale(1);
+                
                 if (NULL != _selectedItemCallback)
                     _selectedItemCallback(_data[widget->getTag()]);
-            }
                 break;
+            }
             default:
             {
                 widget->setScale(1);
-                scale = false;
             }
                 break;
         }

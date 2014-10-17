@@ -647,7 +647,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 posnum = 8;
             }
             
-            m_spCardBG->setVisible(true);
+            m_spCardBG->setVisible(
             m_spCardBG->runAction(CCSequence::create(CCMoveTo::create(0.1f, ccp(390 + 40*posnum, 314)),
                                                      CCScaleTo::create(0.1, 0.0f, 1.0f),
                                                      CCCallFuncN::create(this, callfuncN_selector(DoubleLayer::setcardBGImg)),

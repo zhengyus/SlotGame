@@ -133,6 +133,8 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
             _headView->setExp(data->currExp, data->needExp);
             _headView->setBean(data->gold);
             
+        
+            
             //Socket 链接
             int sex = DataManager::sharedDataManager()->sex;
             if (0 != sex && 1 != sex)
@@ -151,6 +153,9 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
             _headView->setLevel(_dataManager->currLevel);
             _headView->setExp(_dataManager->currExp, _dataManager->needExp);
             _headView->setBean(_dataManager->currGold);
+            
+            CCLog("getgoldmeg~~~~~~~~~~~~~~~~~~~~~~~~~");
+            
             break;
         }
         case OGID_TEXAS_SLOTS_JACKPOT://JP巨奖
