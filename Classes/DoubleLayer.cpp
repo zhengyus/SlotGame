@@ -345,8 +345,9 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         }
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
-                        
+                        CCLog("bean~~~~~~~3");
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(2 - 1));
+                        CCLog("bean~~~~~~~4");
                         
                         sprintf(strTmp, "%lld", tmpNum);
                         m_atl->setStringValue(strTmp);
@@ -359,6 +360,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     else
                     {
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        CCLog("bean~~~~~~~5");
 //                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(2 - 1));
                         
                         m_beiNum = 1;
@@ -401,8 +403,10 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         }
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        CCLog("bean~~~~~~~6");
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(3 - 1));
+                        CCLog("bean~~~~~~~7");
                         
                         sprintf(strTmp, "%lld", tmpNum);
                         m_atl->setStringValue(strTmp);
@@ -415,6 +419,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     else
                     {
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        CCLog("bean~~~~~~~8");
 //                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(3 - 1));
                         
                         m_beiNum = 1;
@@ -455,8 +460,10 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                         }
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        CCLog("bean~~~~~~~9");
                         
                         HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_needgold*(5 - 1));
+                        CCLog("bean~~~~~~~10");
                         
                         sprintf(strTmp, "%lld", tmpNum);
                         m_atl->setStringValue(strTmp);
@@ -469,6 +476,7 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     else
                     {
                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(m_beiNum - 1));
+                        CCLog("bean~~~~~~~11");
 //                        HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_needgold*(5 - 1));
                         
                         m_beiNum = 1;
@@ -647,7 +655,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 posnum = 8;
             }
             
-            m_spCardBG->setVisible(
+            m_spCardBG->setVisible(true);
             m_spCardBG->runAction(CCSequence::create(CCMoveTo::create(0.1f, ccp(390 + 40*posnum, 314)),
                                                      CCScaleTo::create(0.1, 0.0f, 1.0f),
                                                      CCCallFuncN::create(this, callfuncN_selector(DoubleLayer::setcardBGImg)),
@@ -667,6 +675,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 
                 //重置金币显示数量
                 HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_winGold);
+                CCLog("bean~~~~~~~0");
                 
                 KCGameLayer::playSound(DOUBLE_WIN);
                 
@@ -733,6 +742,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 {
                     //重置金币显示数量
                     HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - needBaseGold);
+                    CCLog("bean~~~~~~~1");
 
                 }
             }
@@ -799,7 +809,7 @@ void DoubleLayer::initUI()
     m_stopSound = -1;
     //增加自动收分
     this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
-    this->schedule(schedule_selector(DoubleLayer::autoGetScore), 1.0f);
+//    this->schedule(schedule_selector(DoubleLayer::autoGetScore), 1.0f);
     
     m_secondFlag = 0;
     m_starNum = 0;
@@ -1051,6 +1061,7 @@ void DoubleLayer::setLabelWinNum()
     m_arrCardImg->removeAllObjects();
     
     HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_winGold);
+    CCLog("bean~~~~~~~2");
     
     //赢的金币大于2亿 直接返回大厅界面
     if(m_winGold >= 200000000)
