@@ -12,7 +12,7 @@ static DataManager* s_dataManager = NULL;
 
 DataManager::DataManager()
 {
-
+    isCanMangerGoldJP = false;
 }
 
 DataManager::~DataManager()

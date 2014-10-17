@@ -507,6 +507,12 @@ void GameLogicSocket::onPlayerInfo(const char* message, int size)
     DataManager::sharedDataManager()->currExp = meg.exp();
     DataManager::sharedDataManager()->needExp = meg.reqexp();
     
+    if(DataManager::sharedDataManager()->isCanMangerGoldJP)
+    {
+        DataManager::sharedDataManager()->isCanMangerGoldJP = false;
+        DataManager::sharedDataManager()->currGold -= DataManager::sharedDataManager()->needGoldJP;
+    }
+    
     
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
 }

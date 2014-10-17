@@ -94,6 +94,10 @@ public:
     
     //jp巨奖金额
     unsigned long long jpGold;//底金
+    
+    //jp巨奖处理数据
+    bool isCanMangerGoldJP;
+    unsigned long long needGoldJP;//押金
  
 };
 

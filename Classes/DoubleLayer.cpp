@@ -755,11 +755,18 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             sprintf(jpgold, ":%lld", DataManager::sharedDataManager()->jpGold);
             m_LabelWinNumjp->setStringValue(jpgold);
             m_LabelWinNumjp->setVisible(true);
-            this->scheduleOnce(schedule_selector(DoubleLayer::setlabelfalse), 15.0f);
+            this->scheduleOnce(schedule_selector(DoubleLayer::setlabelfalse), 10.0f);
             
             m_stopSound = KCGameLayer::playSound(BIG_AWARD4);
             m_armatureAward[2]->setVisible(true);
             m_armatureAward[2]->getAnimation()->playWithIndex(0);
+            
+            
+            DataManager::sharedDataManager()->isCanMangerGoldJP = true;
+            unsigned long long needBaseGold;
+            needBaseGold = atoi(m_atl->getStringValue());
+            DataManager::sharedDataManager()->needGoldJP = needBaseGold;
+            
             break;
         }
         default:
@@ -809,7 +816,7 @@ void DoubleLayer::initUI()
     m_stopSound = -1;
     //增加自动收分
     this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
-//    this->schedule(schedule_selector(DoubleLayer::autoGetScore), 1.0f);
+    this->schedule(schedule_selector(DoubleLayer::autoGetScore), 1.0f);
     
     m_secondFlag = 0;
     m_starNum = 0;
@@ -1223,7 +1230,7 @@ void DoubleLayer::ishaveChange()
     
     if(((KCGameLayer*)this->getParent())->m_page == 3)
     {
-        ((KCGameLayer*)this->getParent())->m_page = 2;
+        ((KCGameLayer*)this->getParent())->m_page = m_page;
     }
 }
 //void DoubleLayer::registerWithTouchDispatcher()
