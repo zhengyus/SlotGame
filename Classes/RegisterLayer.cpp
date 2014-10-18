@@ -33,12 +33,12 @@ bool RegisterLayer::init()
     CCSize vsize = CCDirector::sharedDirector()->getVisibleSize();
     
     
-    Button* btn_back = static_cast<Button*>(getWidgetByName("Button_back"));
+    _btnBack = getWidgetByName("Button_back");
     
     //设置返回按钮的位置，以防分辨率不同导致返回按钮不完全显示
     LayoutParameter* param = RelativeLayoutParameter::create();
-    param->setMargin(Margin(btn_back->getPositionX() * 1136 / vsize.width, 40, 0, 0));
-    btn_back->setLayoutParameter(param);
+    param->setMargin(Margin(_btnBack->getPositionX() * 1136 / vsize.width, 40, 0, 0));
+    _btnBack->setLayoutParameter(param);
     
     CCSize wsize = CCDirector::sharedDirector()->getWinSize();
     
@@ -50,18 +50,18 @@ bool RegisterLayer::init()
     _password->setPosition(ccp(_account->getPositionX(),_account->getPositionY()-105));
     
     ccColor3B color = {147,140,115};
-    _account->setFont("TrebuchetMS-Bold",30);
+    _account->setFont("TrebuchetMS-Bold",20);
     _account->setFontColor(color);
     _account->setPlaceholderFontColor(color);
-    _account->setPlaceHolder("4到20位 仅支持英文数字和“_”");
-    _account->setMaxLength(20);
+    _account->setPlaceHolder("5-19位的英文字母、数字或下划进行组合");
+    _account->setMaxLength(19);
     _account->setSelected(true);
     _account->setReturnType(kKeyboardReturnTypeDone);
     
-    _password->setFont("TrebuchetMS-Bold",30);
+    _password->setFont("TrebuchetMS-Bold",20);
     _password->setFontColor(color);
     _password->setPlaceholderFontColor(color);
-    _password->setPlaceHolder("6到15位 仅支持英文数字和“_”");
+    _password->setPlaceHolder("8-15位的由英文字母、数字加其他字符组合");
     _password->setMaxLength(15);
     _password->setInputFlag(kEditBoxInputFlagPassword);
     _password->setInputMode(kEditBoxInputModeSingleLine);
@@ -86,6 +86,11 @@ void RegisterLayer::setEnabledRegister(bool enable)
     _btnReg->setTouchEnabled(enable);
 }
 
+void RegisterLayer::visibleBack(bool visible)
+{
+    _btnBack->setTouchEnabled(visible);
+    _btnBack->setVisible(visible);
+}
 
 void RegisterLayer::onClickedBack(CCObject *sender, TouchEventType event)
 {

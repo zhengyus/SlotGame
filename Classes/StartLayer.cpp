@@ -142,6 +142,7 @@ void StartLayer::receiveBaseMsg(CCObject* obj)
     else if (0 == data->ret)
     {
         _btnStart->setTouchEnabled(true);
+        _userDefault->setStringForKey(SAVE_H_PASSWORD,"");
         ((LoginLayer*)_nodes[1])->showMsg("很抱歉，您输入的密码错误！");
     }
     else if( 1 == data->ret)//登陆成功
@@ -276,6 +277,7 @@ void StartLayer::registerCallback(CCObject* obj)
         _userDefault->setStringForKey(SAVE_H_ACCOUNT,tmpMeg.name);
         _userDefault->setStringForKey(SAVE_H_PASSWORD,tmpMeg.pwd);
         _userDefault->flush();
+        
         
         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_LOGIN2MEG, &tmpMeg);
     }

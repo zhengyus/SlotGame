@@ -27,6 +27,7 @@ public:
 public:
     void showMsg(string);
     void setEnabledRegister(bool);
+    void visibleBack(bool);
     
     void onClickedBack(CCObject *sender, TouchEventType event);
     void onClickedRegister(CCObject *sender, TouchEventType event);
@@ -37,6 +38,7 @@ private:
     CCEditBox*  _account;
     CCEditBox*  _password;
     Widget*     _btnReg;
+    Widget*     _btnBack;
     
 };
 
