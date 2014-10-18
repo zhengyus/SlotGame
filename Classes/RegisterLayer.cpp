@@ -86,7 +86,7 @@ void RegisterLayer::setEnabledRegister(bool enable)
     _btnReg->setTouchEnabled(enable);
 }
 
-void RegisterLayer::visibleBack(bool visible)
+void RegisterLayer::setVisibleBack(bool visible)
 {
     _btnBack->setTouchEnabled(visible);
     _btnBack->setVisible(visible);

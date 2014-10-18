@@ -149,6 +149,7 @@ void StartLayer::receiveBaseMsg(CCObject* obj)
     {
         if (DataManager::sharedDataManager()->userid.empty())
         {   //未创建角色，显示创建角色框
+            ((RegisterLayer*)_nodes[2])->setVisibleBack(false);
             _roleDialog = CreateRoleDialog::create();
             _roleDialog->show();
         }

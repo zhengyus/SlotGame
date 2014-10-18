@@ -27,7 +27,7 @@ public:
 public:
     void showMsg(string);
     void setEnabledRegister(bool);
-    void visibleBack(bool);
+    void setVisibleBack(bool);
     
     void onClickedBack(CCObject *sender, TouchEventType event);
     void onClickedRegister(CCObject *sender, TouchEventType event);
