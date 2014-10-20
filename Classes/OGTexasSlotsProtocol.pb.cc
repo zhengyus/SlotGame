@@ -1194,7 +1194,7 @@ void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(OGAckPetList));
   OGAckPetList_Pet_descriptor_ = OGAckPetList_descriptor_->nested_type(0);
-  static const int OGAckPetList_Pet_offsets_[21] = {
+  static const int OGAckPetList_Pet_offsets_[22] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, petname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, pinzhi_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, blood_),
@@ -1216,6 +1216,7 @@ void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, petpic_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, maxlev_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckPetList_Pet, csvid_),
   };
   OGAckPetList_Pet_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -3357,9 +3358,9 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
     "e\030\002 \001(\t\022\020\n\010winTotal\030\003 \001(\003\022\r\n\005white\030\004 \001(\t"
     "\"Y\n\010OGAckPet\022\017\n\007petName\030\001 \001(\t\022\016\n\006pinzhi\030"
     "\002 \001(\005\022\r\n\005blood\030\003 \001(\005\022\016\n\006attack\030\004 \001(\005\022\r\n\005"
-    "award\030\005 \001(\005\"\016\n\014OGReqPetList\"\263\003\n\014OGAckPet"
+    "award\030\005 \001(\005\"\016\n\014OGReqPetList\"\302\003\n\014OGAckPet"
     "List\0229\n\007petList\030\001 \003(\0132(.com.ourgame.texa"
-    "sSlots.OGAckPetList.Pet\032\347\002\n\003Pet\022\017\n\007petNa"
+    "sSlots.OGAckPetList.Pet\032\366\002\n\003Pet\022\017\n\007petNa"
     "me\030\001 \001(\t\022\016\n\006pinzhi\030\002 \001(\005\022\r\n\005blood\030\003 \001(\005\022"
     "\020\n\010bloodMin\030\004 \001(\005\022\020\n\010bloodMax\030\005 \001(\005\022\021\n\tb"
     "loodPlus\030\006 \001(\005\022\016\n\006attack\030\007 \001(\005\022\021\n\tattack"
@@ -3368,184 +3369,184 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
     "\005\022\020\n\010awardMax\030\r \001(\005\022\021\n\tawardPlus\030\016 \001(\005\022\r"
     "\n\005level\030\017 \001(\005\022\013\n\003exp\030\020 \001(\005\022\016\n\006reqexp\030\021 \001"
     "(\005\022\r\n\005petId\030\022 \001(\005\022\016\n\006status\030\023 \001(\005\022\016\n\006pet"
-    "Pic\030\024 \001(\t\022\016\n\006maxLev\030\025 \001(\005\"\036\n\rOGReqPetReS"
-    "et\022\r\n\005petId\030\001 \001(\005\"\"\n\021OGReqPetJoinFight\022\r"
-    "\n\005petId\030\001 \001(\005\"\037\n\016OGReqPetChange\022\r\n\005petId"
-    "\030\001 \001(\005\"M\n\016OGAckPetChange\022\020\n\010itemName\030\001 \001"
-    "(\t\022\017\n\007itemNum\030\002 \001(\005\022\013\n\003tip\030\003 \001(\t\022\013\n\003pic\030"
-    "\004 \001(\t\"9\n\017OGReqItemChange\022\024\n\014debrisItemId"
-    "\030\001 \001(\005\022\020\n\010evolveId\030\002 \001(\005\"\025\n\023OGReqItemCha"
-    "ngeData\"\247\001\n\023OGAckItemChangeData\022F\n\nChang"
-    "eList\030\001 \003(\01322.com.ourgame.texasSlots.OGA"
-    "ckItemChangeData.Change\032H\n\006Change\022\020\n\010deb"
-    "risId\030\001 \001(\005\022\017\n\007needNum\030\002 \001(\005\022\r\n\005petId\030\003 "
-    "\001(\005\022\014\n\004jilv\030\004 \001(\005\"\024\n\022OGReqPetChangeData\""
-    "\222\001\n\022OGAckPetChangeData\022G\n\010DataList\030\001 \003(\013"
-    "25.com.ourgame.texasSlots.OGAckPetChange"
-    "Data.ChangeData\0323\n\nChangeData\022\013\n\003lev\030\001 \001"
-    "(\005\022\013\n\003min\030\002 \001(\005\022\013\n\003max\030\003 \001(\005\"P\n\017OGAckIte"
-    "mChange\022\016\n\006result\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\021\n\t"
-    "evolveFld\030\003 \001(\005\022\r\n\005petId\030\004 \001(\005\"L\n\rOGAckP"
-    "etReSet\022\r\n\005petId\030\001 \001(\005\022\r\n\005blood\030\002 \001(\005\022\016\n"
-    "\006attack\030\003 \001(\005\022\r\n\005award\030\004 \001(\005\"\253\001\n\022OGAckPe"
-    "tGridOnList\022G\n\013petGridList\030\001 \003(\01322.com.o"
-    "urgame.texasSlots.OGAckPetGridOnList.Pet"
-    "Grid\032L\n\007PetGrid\022\n\n\002id\030\001 \001(\005\022\014\n\004grid\030\002 \001("
-    "\005\022\014\n\004tips\030\003 \001(\t\022\013\n\003lev\030\004 \001(\005\022\014\n\004gold\030\005 \001"
-    "(\003\"\016\n\014OGReqPetGrid\"\032\n\tOGAckPage\022\r\n\005state"
-    "\030\001 \001(\005\"\017\n\rOGReqPetFight\"\203\002\n\023OGAckPetFigh"
-    "tResult\022\016\n\006result\030\001 \001(\005\022\021\n\twinResult\030\002 \001"
-    "(\005\022\020\n\010petSkill\030\003 \001(\005\022\022\n\npetJoinNum\030\004 \001(\005"
-    "\022\017\n\007petData\030\005 \001(\005\022\021\n\tbossSkill\030\006 \001(\005\022\023\n\013"
-    "bossJoinNum\030\007 \001(\005\022\020\n\010bossData\030\010 \001(\005\022\020\n\010p"
-    "etTimes\030\t \001(\005\022\021\n\tpetEffect\030\n \001(\005\022\021\n\tboss"
-    "Times\030\013 \001(\005\022\022\n\nbossEffect\030\014 \001(\005\022\014\n\004page\030"
-    "\r \001(\005\"\016\n\014OGReqPetFlee\"\022\n\020OGReqPetGetAwar"
-    "d\"\327\001\n\020OGAckPetGetAward\022A\n\tawardList\030\001 \003("
-    "\0132..com.ourgame.texasSlots.OGAckPetGetAw"
-    "ard.Award\022\020\n\010awardFlg\030\002 \001(\005\022\020\n\010roleName\030"
-    "\003 \001(\t\032\\\n\005Award\022\014\n\004type\030\001 \001(\005\022\013\n\003num\030\002 \001("
-    "\003\022\n\n\002ok\030\003 \001(\005\022\017\n\007petName\030\004 \001(\t\022\013\n\003pic\030\005 "
-    "\001(\t\022\016\n\006itemId\030\006 \001(\005\"\226\001\n\rOGAckRankList\022<\n"
-    "\010rankList\030\001 \003(\0132*.com.ourgame.texasSlots"
-    ".OGAckRankList.Rank\022\014\n\004type\030\002 \001(\005\0329\n\004Ran"
-    "k\022\016\n\006rankId\030\001 \001(\005\022\020\n\010roleName\030\002 \001(\t\022\017\n\007g"
-    "etGold\030\003 \001(\003\"\341\004\n\tOGAckRank\0229\n\trankListA\030"
-    "\001 \003(\0132&.com.ourgame.texasSlots.OGAckRank"
-    ".Rank\0229\n\trankListB\030\002 \003(\0132&.com.ourgame.t"
-    "exasSlots.OGAckRank.Rank\022\020\n\010roleName\030\003 \001"
-    "(\t\022\014\n\004aNum\030\004 \001(\005\022\r\n\005aGold\030\005 \001(\003\022\021\n\taRole"
-    "Name\030\006 \001(\t\022\014\n\004bNum\030\007 \001(\005\022\r\n\005bGold\030\010 \001(\003\022"
-    "\021\n\tbRoleName\030\t \001(\t\0229\n\tlastWeekA\030\n \003(\0132&."
-    "com.ourgame.texasSlots.OGAckRank.Rank\0229\n"
-    "\tlastWeekB\030\013 \003(\0132&.com.ourgame.texasSlot"
-    "s.OGAckRank.Rank\0229\n\trankListC\030\014 \003(\0132&.co"
-    "m.ourgame.texasSlots.OGAckRank.Rank\022\021\n\tc"
-    "RankName\030\r \001(\t\022\020\n\010aRankTip\030\016 \001(\t\022\020\n\010bRan"
-    "kTip\030\017 \001(\t\022\020\n\010cRankTip\030\020 \001(\t\022\021\n\tlaRankTi"
-    "p\030\021 \001(\t\022\021\n\tlbRankTip\030\022 \001(\t\022\021\n\trankBtnOn\030"
-    "\023 \001(\005\0329\n\004Rank\022\016\n\006rankId\030\001 \001(\005\022\020\n\010roleNam"
-    "e\030\002 \001(\t\022\017\n\007getGold\030\003 \001(\003\"\035\n\tOGReqRank\022\020\n"
-    "\010roleName\030\001 \001(\t\"E\n\rOGReqRankToJS\022\020\n\010role"
-    "Name\030\001 \001(\t\022\020\n\010getGold1\030\002 \001(\003\022\020\n\010getGold4"
-    "\030\003 \001(\003\"h\n\013OGReqNotice\022\013\n\003num\030\001 \001(\005\022\014\n\004ti"
-    "me\030\002 \001(\005\022\017\n\007content\030\003 \001(\t\022\r\n\005color\030\004 \001(\t"
-    "\022\020\n\010sendTime\030\005 \001(\t\022\014\n\004type\030\006 \001(\005\"*\n\nOGGu"
-    "angGao\022\013\n\003flg\030\001 \001(\005\022\017\n\007content\030\002 \001(\t\"\253\001\n"
-    "\014OGAckMessage\022\014\n\004type\030\001 \001(\005\022\017\n\007content\030\002"
-    " \001(\t\022\017\n\007subtype\030\003 \001(\005\022\013\n\003flg\030\004 \001(\005\022\020\n\010ro"
-    "leName\030\005 \001(\t\022\016\n\006userid\030\006 \001(\t\022\020\n\010rankType"
-    "\030\007 \001(\005\022\017\n\007rankNum\030\010 \001(\005\022\013\n\003tip\030\t \001(\t\022\014\n\004"
-    "time\030\n \001(\t\"{\n\rOGAckStopGame\022>\n\006status\030\001 "
-    "\001(\0162..com.ourgame.texasSlots.OGAckStopGa"
-    "me.E_Status\"*\n\010E_Status\022\014\n\010ET_STOPS\020\001\022\020\n"
-    "\014ET_CARRYCAPS\020\002\"\302\002\n\nOGAckMails\0229\n\010MailLi"
-    "st\030\001 \003(\0132\'.com.ourgame.texasSlots.OGAckM"
-    "ails.Mail\032\370\001\n\004Mail\022\n\n\002id\030\001 \001(\005\022\024\n\014sendRo"
-    "leName\030\002 \001(\t\022\024\n\014recvRoleName\030\003 \001(\t\022\017\n\007co"
-    "ntent\030\004 \001(\t\022\022\n\ncreateTime\030\005 \001(\t\022\021\n\tmailT"
-    "itle\030\006 \001(\t\022\021\n\tawardType\030\007 \001(\005\022\016\n\006itemId\030"
-    "\010 \001(\005\022\017\n\007itemNum\030\t \001(\005\022\016\n\006isRead\030\n \001(\005\022\014"
-    "\n\004isOk\030\013 \001(\005\022\013\n\003pic\030\014 \001(\t\022\020\n\010itemName\030\r "
-    "\001(\t\022\017\n\007itemTip\030\016 \001(\t\",\n\020OGReqHandleMails"
-    "\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\t\"\014\n\nOGReqMails"
-    "\"j\n\tOGAckMail\022\016\n\006result\030\001 \001(\005\022\013\n\003pic\030\002 \001"
-    "(\t\022\013\n\003num\030\003 \001(\005\022\021\n\tawardType\030\004 \001(\005\022\020\n\010er"
-    "rorMsg\030\005 \001(\t\022\016\n\006mailId\030\006 \001(\005\"\021\n\017OGAckUnr"
-    "eadMail\"\323\001\n\nOGAckItems\0229\n\010ItemList\030\001 \003(\013"
-    "2\'.com.ourgame.texasSlots.OGAckItems.Ite"
-    "m\032\211\001\n\004Item\022\n\n\002id\030\001 \001(\005\022\016\n\006itemId\030\002 \001(\005\022\017"
-    "\n\007itemNum\030\003 \001(\005\022\013\n\003pic\030\004 \001(\t\022\014\n\004name\030\005 \001"
-    "(\t\022\014\n\004type\030\006 \001(\005\022\013\n\003tip\030\007 \001(\t\022\016\n\006maxNum\030"
-    "\010 \001(\005\022\016\n\006effect\030\t \001(\005\"\321\001\n\021OGAckShopItemI"
-    "nfo\022D\n\010ShopList\030\001 \003(\01322.com.ourgame.texa"
-    "sSlots.OGAckShopItemInfo.ItemInfo\032v\n\010Ite"
-    "mInfo\022\016\n\006itemId\030\001 \001(\005\022\021\n\titemPrice\030\002 \001(\005"
-    "\022\020\n\010shopDesc\030\003 \001(\t\022\017\n\007shopPic\030\004 \001(\t\022\022\n\ns"
-    "hopMaxNum\030\005 \001(\005\022\020\n\010itemName\030\006 \001(\t\"\037\n\rOGR"
-    "eqShopItem\022\016\n\006itemId\030\001 \001(\005\"\177\n\rOGAckCutIt"
-    "ems\022<\n\010ItemList\030\001 \003(\0132*.com.ourgame.texa"
-    "sSlots.OGAckCutItems.Item\0320\n\004Item\022\n\n\002id\030"
-    "\001 \001(\005\022\017\n\007itemNum\030\002 \001(\005\022\013\n\003flg\030\003 \001(\005\" \n\rO"
-    "GAckErrorMsg\022\017\n\007content\030\001 \001(\t\"+\n\014OGReqBu"
-    "yItem\022\016\n\006itemId\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"\022\n\020OG"
-    "ReqNewHandOver\"\023\n\021OGReqNewHandAward\"\\\n\021O"
-    "GAckNewHandAward\022\016\n\006itemId\030\001 \001(\005\022\017\n\007item"
-    "Num\030\002 \001(\005\022\013\n\003pic\030\003 \001(\t\022\014\n\004name\030\004 \001(\t\022\013\n\003"
-    "dis\030\005 \001(\t\"\"\n\020OGAckPlayerLogot\022\016\n\006userId\030"
-    "\001 \001(\t\"I\n\rOGAckRankHour\022\014\n\004type\030\001 \001(\005\022\014\n\004"
-    "week\030\002 \001(\005\022\014\n\004hour\030\003 \001(\005\022\016\n\006minute\030\004 \001(\005"
-    "\"!\n\rOGReqJpRecord\022\020\n\010roleName\030\001 \001(\t\"]\n\013O"
-    "GReqJpStar\022\020\n\010roleName\030\001 \001(\t\022\022\n\njpStarNa"
-    "me\030\002 \001(\t\022\024\n\014jpStarTemNum\030\003 \001(\003\022\022\n\njpStar"
-    "Time\030\004 \001(\t\"\215\002\n\rOGAckJpRecord\022D\n\014JpRecord"
-    "List\030\001 \003(\0132..com.ourgame.texasSlots.OGAc"
-    "kJpRecord.JpRecord\022\r\n\005tipOn\030\002 \002(\005\022\017\n\007tip"
-    "Text\030\003 \001(\t\032\225\001\n\010JpRecord\022\016\n\006userId\030\001 \002(\t\022"
-    "\020\n\010roleName\030\002 \002(\t\022\017\n\007winGold\030\003 \002(\003\022\016\n\006cu"
-    "rrJp\030\004 \002(\003\022\020\n\010showType\030\005 \002(\005\022\020\n\010gameName"
-    "\030\006 \002(\t\022\022\n\ncreatetime\030\007 \002(\t\022\016\n\006gameId\030\010 \002"
-    "(\005\"\"\n\017OGAckLoginJpMsg\022\017\n\007content\030\001 \001(\t\"3"
-    "\n\022OGReqLoginGetAward\022\020\n\010roleName\030\001 \001(\t\022\013"
-    "\n\003lev\030\002 \001(\005\"\232\001\n\022OGAckLoginGetAward\022\013\n\003po"
-    "s\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\022\020\n"
-    "\010itemtype\030\004 \001(\005\022\016\n\006itemid\030\005 \001(\005\022\013\n\003num\030\006"
-    " \001(\005\022\020\n\010roleName\030\007 \001(\t\022\n\n\002ok\030\010 \001(\005\022\014\n\004ji"
-    "lv\030\t \001(\005\"\311\001\n\023OGAckLoginAwardList\022D\n\tAwar"
-    "dList\030\001 \003(\01321.com.ourgame.texasSlots.OGA"
-    "ckLoginAwardList.Award\022\020\n\010roleName\030\002 \001(\t"
-    "\032Z\n\005Award\022\013\n\003pos\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\013\n\003l"
-    "ev\030\003 \001(\005\022\017\n\007content\030\004 \001(\t\022\013\n\003num\030\005 \001(\005\022\014"
-    "\n\004type\030\006 \001(\005\"\177\n\023OGReqDoubleJpResult\022\020\n\010n"
-    "eedGold\030\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\016\n\006userI"
-    "d\030\003 \001(\t\022\017\n\007daygold\030\004 \001(\003\022\020\n\010weekgold\030\005 \001"
-    "(\003\022\021\n\tmonthgold\030\006 \001(\003\"}\n\023OGAckDoubleJpRe"
-    "sult\022\014\n\004gold\030\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\020\n\010"
-    "needGold\030\003 \001(\003\022\n\n\002jp\030\004 \001(\003\022\n\n\002id\030\005 \001(\005\022\r"
-    "\n\005jilv1\030\006 \001(\005\022\r\n\005jilv2\030\007 \001(\005\"\213\001\n\017OGAckDo"
-    "ublePlus\022J\n\016DoublePlusList\030\001 \003(\01322.com.o"
-    "urgame.texasSlots.OGAckDoublePlus.Double"
-    "Plus\032,\n\nDoublePlus\022\020\n\010startLev\030\001 \001(\005\022\014\n\004"
-    "plus\030\002 \001(\005\"\"\n\016OGReqGetPlayer\022\020\n\010rolename"
-    "\030\001 \001(\t\"E\n\022OGReqChangePutGold\022\014\n\004gold\030\001 \001"
-    "(\003\022\017\n\007freeFlg\030\002 \001(\003\022\020\n\010whiteGld\030\003 \001(\003\"%\n"
-    "\023OGReqPetReturnAward\022\016\n\006action\030\001 \001(\005\"1\n\023"
-    "OGAckPetReturnAward\022\014\n\004type\030\001 \001(\005\022\014\n\004gol"
-    "d\030\002 \001(\003\"x\n\024OGReqGetPutGoldAward\022\014\n\004gold\030"
-    "\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\017\n\007putGold\030\003 \001(\003"
-    "\022\016\n\006action\030\004 \001(\005\022\013\n\003com\030\005 \001(\005\022\022\n\nputGold"
-    "Sum\030\006 \001(\003\"\211\001\n\016OGAckReSetFeed\022I\n\016playerFe"
-    "edList\030\001 \003(\01321.com.ourgame.texasSlots.OG"
-    "AckReSetFeed.PlayerFeed\032,\n\nPlayerFeed\022\020\n"
-    "\010roleName\030\001 \001(\t\022\014\n\004feed\030\002 \001(\005\" \n\014OGReqJp"
-    "Start\022\020\n\010roleName\030\001 \001(\t\"^\n\014OGAckJpStart\022"
-    "\020\n\010roleName\030\001 \001(\t\022\022\n\njpStarName\030\002 \001(\t\022\024\n"
-    "\014jpStarTemNum\030\003 \001(\003\022\022\n\njpStarTime\030\004 \001(\t\""
-    "\020\n\016OGReqBindPhone\"/\n\016OGAckBindPhone\022\016\n\006r"
-    "esult\030\001 \001(\005\022\r\n\005phone\030\002 \001(\t\"\"\n\021OGReqGetPh"
-    "oneCode\022\r\n\005phone\030\001 \001(\t\" \n\021OGAckGetPhoneC"
-    "ode\022\013\n\003msg\030\001 \001(\t\"\"\n\022OGReqGetPhoneAward\022\014"
-    "\n\004code\030\001 \001(\005\"@\n\022OGAckGetPhoneAward\022\013\n\003ms"
-    "g\030\001 \001(\t\022\016\n\006result\030\002 \001(\005\022\r\n\005phone\030\003 \001(\t\"."
-    "\n\rOGAckAddJpNum\022\020\n\010addJpNum\030\001 \001(\003\022\013\n\003flg"
-    "\030\002 \001(\005\"\215\001\n\013OGAckJpHall\022D\n\013ContentList\030\001 "
-    "\003(\0132/.com.ourgame.texasSlots.OGAckJpHall"
-    ".HallContent\0328\n\013HallContent\022\014\n\004name\030\001 \001("
-    "\t\022\r\n\005golod\030\002 \001(\003\022\014\n\004time\030\003 \001(\t\"&\n\007OGAckA"
-    "d\022\n\n\002on\030\001 \001(\005\022\017\n\007content\030\002 \001(\t\"\020\n\016OGAckL"
-    "eaveGame*\214\001\n\021E_TRCardColorType\022\036\n\032TR_CAR"
-    "D_COLOR_TYPE_DIAMOND\020\001\022\033\n\027TR_CARD_COLOR_"
-    "TYPE_CLUB\020\002\022\034\n\030TR_CARD_COLOR_TYPE_HEART\020"
-    "\003\022\034\n\030TR_CARD_COLOR_TYPE_SPADE\020\004*\257\002\n\016E_TR"
-    "CardNumber\022\024\n\020TR_CARD_NUMBER_A\020\001\022\024\n\020TR_C"
-    "ARD_NUMBER_2\020\002\022\024\n\020TR_CARD_NUMBER_3\020\003\022\024\n\020"
-    "TR_CARD_NUMBER_4\020\004\022\024\n\020TR_CARD_NUMBER_5\020\005"
-    "\022\024\n\020TR_CARD_NUMBER_6\020\006\022\024\n\020TR_CARD_NUMBER"
-    "_7\020\007\022\024\n\020TR_CARD_NUMBER_8\020\010\022\024\n\020TR_CARD_NU"
-    "MBER_9\020\t\022\025\n\021TR_CARD_NUMBER_10\020\n\022\024\n\020TR_CA"
-    "RD_NUMBER_J\020\013\022\024\n\020TR_CARD_NUMBER_Q\020\014\022\024\n\020T"
-    "R_CARD_NUMBER_K\020\rB-\n\026com.ourgame.texasSl"
-    "otsB\023TexasSlotsTranspond", 13144);
+    "Pic\030\024 \001(\t\022\016\n\006maxLev\030\025 \001(\005\022\r\n\005csvid\030\026 \001(\005"
+    "\"\036\n\rOGReqPetReSet\022\r\n\005petId\030\001 \001(\005\"\"\n\021OGRe"
+    "qPetJoinFight\022\r\n\005petId\030\001 \001(\005\"\037\n\016OGReqPet"
+    "Change\022\r\n\005petId\030\001 \001(\005\"M\n\016OGAckPetChange\022"
+    "\020\n\010itemName\030\001 \001(\t\022\017\n\007itemNum\030\002 \001(\005\022\013\n\003ti"
+    "p\030\003 \001(\t\022\013\n\003pic\030\004 \001(\t\"9\n\017OGReqItemChange\022"
+    "\024\n\014debrisItemId\030\001 \001(\005\022\020\n\010evolveId\030\002 \001(\005\""
+    "\025\n\023OGReqItemChangeData\"\247\001\n\023OGAckItemChan"
+    "geData\022F\n\nChangeList\030\001 \003(\01322.com.ourgame"
+    ".texasSlots.OGAckItemChangeData.Change\032H"
+    "\n\006Change\022\020\n\010debrisId\030\001 \001(\005\022\017\n\007needNum\030\002 "
+    "\001(\005\022\r\n\005petId\030\003 \001(\005\022\014\n\004jilv\030\004 \001(\005\"\024\n\022OGRe"
+    "qPetChangeData\"\222\001\n\022OGAckPetChangeData\022G\n"
+    "\010DataList\030\001 \003(\01325.com.ourgame.texasSlots"
+    ".OGAckPetChangeData.ChangeData\0323\n\nChange"
+    "Data\022\013\n\003lev\030\001 \001(\005\022\013\n\003min\030\002 \001(\005\022\013\n\003max\030\003 "
+    "\001(\005\"P\n\017OGAckItemChange\022\016\n\006result\030\001 \001(\005\022\013"
+    "\n\003pic\030\002 \001(\t\022\021\n\tevolveFld\030\003 \001(\005\022\r\n\005petId\030"
+    "\004 \001(\005\"L\n\rOGAckPetReSet\022\r\n\005petId\030\001 \001(\005\022\r\n"
+    "\005blood\030\002 \001(\005\022\016\n\006attack\030\003 \001(\005\022\r\n\005award\030\004 "
+    "\001(\005\"\253\001\n\022OGAckPetGridOnList\022G\n\013petGridLis"
+    "t\030\001 \003(\01322.com.ourgame.texasSlots.OGAckPe"
+    "tGridOnList.PetGrid\032L\n\007PetGrid\022\n\n\002id\030\001 \001"
+    "(\005\022\014\n\004grid\030\002 \001(\005\022\014\n\004tips\030\003 \001(\t\022\013\n\003lev\030\004 "
+    "\001(\005\022\014\n\004gold\030\005 \001(\003\"\016\n\014OGReqPetGrid\"\032\n\tOGA"
+    "ckPage\022\r\n\005state\030\001 \001(\005\"\017\n\rOGReqPetFight\"\203"
+    "\002\n\023OGAckPetFightResult\022\016\n\006result\030\001 \001(\005\022\021"
+    "\n\twinResult\030\002 \001(\005\022\020\n\010petSkill\030\003 \001(\005\022\022\n\np"
+    "etJoinNum\030\004 \001(\005\022\017\n\007petData\030\005 \001(\005\022\021\n\tboss"
+    "Skill\030\006 \001(\005\022\023\n\013bossJoinNum\030\007 \001(\005\022\020\n\010boss"
+    "Data\030\010 \001(\005\022\020\n\010petTimes\030\t \001(\005\022\021\n\tpetEffec"
+    "t\030\n \001(\005\022\021\n\tbossTimes\030\013 \001(\005\022\022\n\nbossEffect"
+    "\030\014 \001(\005\022\014\n\004page\030\r \001(\005\"\016\n\014OGReqPetFlee\"\022\n\020"
+    "OGReqPetGetAward\"\327\001\n\020OGAckPetGetAward\022A\n"
+    "\tawardList\030\001 \003(\0132..com.ourgame.texasSlot"
+    "s.OGAckPetGetAward.Award\022\020\n\010awardFlg\030\002 \001"
+    "(\005\022\020\n\010roleName\030\003 \001(\t\032\\\n\005Award\022\014\n\004type\030\001 "
+    "\001(\005\022\013\n\003num\030\002 \001(\003\022\n\n\002ok\030\003 \001(\005\022\017\n\007petName\030"
+    "\004 \001(\t\022\013\n\003pic\030\005 \001(\t\022\016\n\006itemId\030\006 \001(\005\"\226\001\n\rO"
+    "GAckRankList\022<\n\010rankList\030\001 \003(\0132*.com.our"
+    "game.texasSlots.OGAckRankList.Rank\022\014\n\004ty"
+    "pe\030\002 \001(\005\0329\n\004Rank\022\016\n\006rankId\030\001 \001(\005\022\020\n\010role"
+    "Name\030\002 \001(\t\022\017\n\007getGold\030\003 \001(\003\"\341\004\n\tOGAckRan"
+    "k\0229\n\trankListA\030\001 \003(\0132&.com.ourgame.texas"
+    "Slots.OGAckRank.Rank\0229\n\trankListB\030\002 \003(\0132"
+    "&.com.ourgame.texasSlots.OGAckRank.Rank\022"
+    "\020\n\010roleName\030\003 \001(\t\022\014\n\004aNum\030\004 \001(\005\022\r\n\005aGold"
+    "\030\005 \001(\003\022\021\n\taRoleName\030\006 \001(\t\022\014\n\004bNum\030\007 \001(\005\022"
+    "\r\n\005bGold\030\010 \001(\003\022\021\n\tbRoleName\030\t \001(\t\0229\n\tlas"
+    "tWeekA\030\n \003(\0132&.com.ourgame.texasSlots.OG"
+    "AckRank.Rank\0229\n\tlastWeekB\030\013 \003(\0132&.com.ou"
+    "rgame.texasSlots.OGAckRank.Rank\0229\n\trankL"
+    "istC\030\014 \003(\0132&.com.ourgame.texasSlots.OGAc"
+    "kRank.Rank\022\021\n\tcRankName\030\r \001(\t\022\020\n\010aRankTi"
+    "p\030\016 \001(\t\022\020\n\010bRankTip\030\017 \001(\t\022\020\n\010cRankTip\030\020 "
+    "\001(\t\022\021\n\tlaRankTip\030\021 \001(\t\022\021\n\tlbRankTip\030\022 \001("
+    "\t\022\021\n\trankBtnOn\030\023 \001(\005\0329\n\004Rank\022\016\n\006rankId\030\001"
+    " \001(\005\022\020\n\010roleName\030\002 \001(\t\022\017\n\007getGold\030\003 \001(\003\""
+    "\035\n\tOGReqRank\022\020\n\010roleName\030\001 \001(\t\"E\n\rOGReqR"
+    "ankToJS\022\020\n\010roleName\030\001 \001(\t\022\020\n\010getGold1\030\002 "
+    "\001(\003\022\020\n\010getGold4\030\003 \001(\003\"h\n\013OGReqNotice\022\013\n\003"
+    "num\030\001 \001(\005\022\014\n\004time\030\002 \001(\005\022\017\n\007content\030\003 \001(\t"
+    "\022\r\n\005color\030\004 \001(\t\022\020\n\010sendTime\030\005 \001(\t\022\014\n\004typ"
+    "e\030\006 \001(\005\"*\n\nOGGuangGao\022\013\n\003flg\030\001 \001(\005\022\017\n\007co"
+    "ntent\030\002 \001(\t\"\253\001\n\014OGAckMessage\022\014\n\004type\030\001 \001"
+    "(\005\022\017\n\007content\030\002 \001(\t\022\017\n\007subtype\030\003 \001(\005\022\013\n\003"
+    "flg\030\004 \001(\005\022\020\n\010roleName\030\005 \001(\t\022\016\n\006userid\030\006 "
+    "\001(\t\022\020\n\010rankType\030\007 \001(\005\022\017\n\007rankNum\030\010 \001(\005\022\013"
+    "\n\003tip\030\t \001(\t\022\014\n\004time\030\n \001(\t\"{\n\rOGAckStopGa"
+    "me\022>\n\006status\030\001 \001(\0162..com.ourgame.texasSl"
+    "ots.OGAckStopGame.E_Status\"*\n\010E_Status\022\014"
+    "\n\010ET_STOPS\020\001\022\020\n\014ET_CARRYCAPS\020\002\"\302\002\n\nOGAck"
+    "Mails\0229\n\010MailList\030\001 \003(\0132\'.com.ourgame.te"
+    "xasSlots.OGAckMails.Mail\032\370\001\n\004Mail\022\n\n\002id\030"
+    "\001 \001(\005\022\024\n\014sendRoleName\030\002 \001(\t\022\024\n\014recvRoleN"
+    "ame\030\003 \001(\t\022\017\n\007content\030\004 \001(\t\022\022\n\ncreateTime"
+    "\030\005 \001(\t\022\021\n\tmailTitle\030\006 \001(\t\022\021\n\tawardType\030\007"
+    " \001(\005\022\016\n\006itemId\030\010 \001(\005\022\017\n\007itemNum\030\t \001(\005\022\016\n"
+    "\006isRead\030\n \001(\005\022\014\n\004isOk\030\013 \001(\005\022\013\n\003pic\030\014 \001(\t"
+    "\022\020\n\010itemName\030\r \001(\t\022\017\n\007itemTip\030\016 \001(\t\",\n\020O"
+    "GReqHandleMails\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001("
+    "\t\"\014\n\nOGReqMails\"j\n\tOGAckMail\022\016\n\006result\030\001"
+    " \001(\005\022\013\n\003pic\030\002 \001(\t\022\013\n\003num\030\003 \001(\005\022\021\n\tawardT"
+    "ype\030\004 \001(\005\022\020\n\010errorMsg\030\005 \001(\t\022\016\n\006mailId\030\006 "
+    "\001(\005\"\021\n\017OGAckUnreadMail\"\323\001\n\nOGAckItems\0229\n"
+    "\010ItemList\030\001 \003(\0132\'.com.ourgame.texasSlots"
+    ".OGAckItems.Item\032\211\001\n\004Item\022\n\n\002id\030\001 \001(\005\022\016\n"
+    "\006itemId\030\002 \001(\005\022\017\n\007itemNum\030\003 \001(\005\022\013\n\003pic\030\004 "
+    "\001(\t\022\014\n\004name\030\005 \001(\t\022\014\n\004type\030\006 \001(\005\022\013\n\003tip\030\007"
+    " \001(\t\022\016\n\006maxNum\030\010 \001(\005\022\016\n\006effect\030\t \001(\005\"\321\001\n"
+    "\021OGAckShopItemInfo\022D\n\010ShopList\030\001 \003(\01322.c"
+    "om.ourgame.texasSlots.OGAckShopItemInfo."
+    "ItemInfo\032v\n\010ItemInfo\022\016\n\006itemId\030\001 \001(\005\022\021\n\t"
+    "itemPrice\030\002 \001(\005\022\020\n\010shopDesc\030\003 \001(\t\022\017\n\007sho"
+    "pPic\030\004 \001(\t\022\022\n\nshopMaxNum\030\005 \001(\005\022\020\n\010itemNa"
+    "me\030\006 \001(\t\"\037\n\rOGReqShopItem\022\016\n\006itemId\030\001 \001("
+    "\005\"\177\n\rOGAckCutItems\022<\n\010ItemList\030\001 \003(\0132*.c"
+    "om.ourgame.texasSlots.OGAckCutItems.Item"
+    "\0320\n\004Item\022\n\n\002id\030\001 \001(\005\022\017\n\007itemNum\030\002 \001(\005\022\013\n"
+    "\003flg\030\003 \001(\005\" \n\rOGAckErrorMsg\022\017\n\007content\030\001"
+    " \001(\t\"+\n\014OGReqBuyItem\022\016\n\006itemId\030\001 \001(\005\022\013\n\003"
+    "num\030\002 \001(\005\"\022\n\020OGReqNewHandOver\"\023\n\021OGReqNe"
+    "wHandAward\"\\\n\021OGAckNewHandAward\022\016\n\006itemI"
+    "d\030\001 \001(\005\022\017\n\007itemNum\030\002 \001(\005\022\013\n\003pic\030\003 \001(\t\022\014\n"
+    "\004name\030\004 \001(\t\022\013\n\003dis\030\005 \001(\t\"\"\n\020OGAckPlayerL"
+    "ogot\022\016\n\006userId\030\001 \001(\t\"I\n\rOGAckRankHour\022\014\n"
+    "\004type\030\001 \001(\005\022\014\n\004week\030\002 \001(\005\022\014\n\004hour\030\003 \001(\005\022"
+    "\016\n\006minute\030\004 \001(\005\"!\n\rOGReqJpRecord\022\020\n\010role"
+    "Name\030\001 \001(\t\"]\n\013OGReqJpStar\022\020\n\010roleName\030\001 "
+    "\001(\t\022\022\n\njpStarName\030\002 \001(\t\022\024\n\014jpStarTemNum\030"
+    "\003 \001(\003\022\022\n\njpStarTime\030\004 \001(\t\"\215\002\n\rOGAckJpRec"
+    "ord\022D\n\014JpRecordList\030\001 \003(\0132..com.ourgame."
+    "texasSlots.OGAckJpRecord.JpRecord\022\r\n\005tip"
+    "On\030\002 \002(\005\022\017\n\007tipText\030\003 \001(\t\032\225\001\n\010JpRecord\022\016"
+    "\n\006userId\030\001 \002(\t\022\020\n\010roleName\030\002 \002(\t\022\017\n\007winG"
+    "old\030\003 \002(\003\022\016\n\006currJp\030\004 \002(\003\022\020\n\010showType\030\005 "
+    "\002(\005\022\020\n\010gameName\030\006 \002(\t\022\022\n\ncreatetime\030\007 \002("
+    "\t\022\016\n\006gameId\030\010 \002(\005\"\"\n\017OGAckLoginJpMsg\022\017\n\007"
+    "content\030\001 \001(\t\"3\n\022OGReqLoginGetAward\022\020\n\010r"
+    "oleName\030\001 \001(\t\022\013\n\003lev\030\002 \001(\005\"\232\001\n\022OGAckLogi"
+    "nGetAward\022\013\n\003pos\030\001 \001(\005\022\013\n\003pic\030\002 \001(\t\022\017\n\007c"
+    "ontent\030\003 \001(\t\022\020\n\010itemtype\030\004 \001(\005\022\016\n\006itemid"
+    "\030\005 \001(\005\022\013\n\003num\030\006 \001(\005\022\020\n\010roleName\030\007 \001(\t\022\n\n"
+    "\002ok\030\010 \001(\005\022\014\n\004jilv\030\t \001(\005\"\311\001\n\023OGAckLoginAw"
+    "ardList\022D\n\tAwardList\030\001 \003(\01321.com.ourgame"
+    ".texasSlots.OGAckLoginAwardList.Award\022\020\n"
+    "\010roleName\030\002 \001(\t\032Z\n\005Award\022\013\n\003pos\030\001 \001(\005\022\013\n"
+    "\003pic\030\002 \001(\t\022\013\n\003lev\030\003 \001(\005\022\017\n\007content\030\004 \001(\t"
+    "\022\013\n\003num\030\005 \001(\005\022\014\n\004type\030\006 \001(\005\"\177\n\023OGReqDoub"
+    "leJpResult\022\020\n\010needGold\030\001 \001(\003\022\020\n\010roleName"
+    "\030\002 \001(\t\022\016\n\006userId\030\003 \001(\t\022\017\n\007daygold\030\004 \001(\003\022"
+    "\020\n\010weekgold\030\005 \001(\003\022\021\n\tmonthgold\030\006 \001(\003\"}\n\023"
+    "OGAckDoubleJpResult\022\014\n\004gold\030\001 \001(\003\022\020\n\010rol"
+    "eName\030\002 \001(\t\022\020\n\010needGold\030\003 \001(\003\022\n\n\002jp\030\004 \001("
+    "\003\022\n\n\002id\030\005 \001(\005\022\r\n\005jilv1\030\006 \001(\005\022\r\n\005jilv2\030\007 "
+    "\001(\005\"\213\001\n\017OGAckDoublePlus\022J\n\016DoublePlusLis"
+    "t\030\001 \003(\01322.com.ourgame.texasSlots.OGAckDo"
+    "ublePlus.DoublePlus\032,\n\nDoublePlus\022\020\n\010sta"
+    "rtLev\030\001 \001(\005\022\014\n\004plus\030\002 \001(\005\"\"\n\016OGReqGetPla"
+    "yer\022\020\n\010rolename\030\001 \001(\t\"E\n\022OGReqChangePutG"
+    "old\022\014\n\004gold\030\001 \001(\003\022\017\n\007freeFlg\030\002 \001(\003\022\020\n\010wh"
+    "iteGld\030\003 \001(\003\"%\n\023OGReqPetReturnAward\022\016\n\006a"
+    "ction\030\001 \001(\005\"1\n\023OGAckPetReturnAward\022\014\n\004ty"
+    "pe\030\001 \001(\005\022\014\n\004gold\030\002 \001(\003\"x\n\024OGReqGetPutGol"
+    "dAward\022\014\n\004gold\030\001 \001(\003\022\020\n\010roleName\030\002 \001(\t\022\017"
+    "\n\007putGold\030\003 \001(\003\022\016\n\006action\030\004 \001(\005\022\013\n\003com\030\005"
+    " \001(\005\022\022\n\nputGoldSum\030\006 \001(\003\"\211\001\n\016OGAckReSetF"
+    "eed\022I\n\016playerFeedList\030\001 \003(\01321.com.ourgam"
+    "e.texasSlots.OGAckReSetFeed.PlayerFeed\032,"
+    "\n\nPlayerFeed\022\020\n\010roleName\030\001 \001(\t\022\014\n\004feed\030\002"
+    " \001(\005\" \n\014OGReqJpStart\022\020\n\010roleName\030\001 \001(\t\"^"
+    "\n\014OGAckJpStart\022\020\n\010roleName\030\001 \001(\t\022\022\n\njpSt"
+    "arName\030\002 \001(\t\022\024\n\014jpStarTemNum\030\003 \001(\003\022\022\n\njp"
+    "StarTime\030\004 \001(\t\"\020\n\016OGReqBindPhone\"/\n\016OGAc"
+    "kBindPhone\022\016\n\006result\030\001 \001(\005\022\r\n\005phone\030\002 \001("
+    "\t\"\"\n\021OGReqGetPhoneCode\022\r\n\005phone\030\001 \001(\t\" \n"
+    "\021OGAckGetPhoneCode\022\013\n\003msg\030\001 \001(\t\"\"\n\022OGReq"
+    "GetPhoneAward\022\014\n\004code\030\001 \001(\005\"@\n\022OGAckGetP"
+    "honeAward\022\013\n\003msg\030\001 \001(\t\022\016\n\006result\030\002 \001(\005\022\r"
+    "\n\005phone\030\003 \001(\t\".\n\rOGAckAddJpNum\022\020\n\010addJpN"
+    "um\030\001 \001(\003\022\013\n\003flg\030\002 \001(\005\"\215\001\n\013OGAckJpHall\022D\n"
+    "\013ContentList\030\001 \003(\0132/.com.ourgame.texasSl"
+    "ots.OGAckJpHall.HallContent\0328\n\013HallConte"
+    "nt\022\014\n\004name\030\001 \001(\t\022\r\n\005golod\030\002 \001(\003\022\014\n\004time\030"
+    "\003 \001(\t\"&\n\007OGAckAd\022\n\n\002on\030\001 \001(\005\022\017\n\007content\030"
+    "\002 \001(\t\"\020\n\016OGAckLeaveGame*\214\001\n\021E_TRCardColo"
+    "rType\022\036\n\032TR_CARD_COLOR_TYPE_DIAMOND\020\001\022\033\n"
+    "\027TR_CARD_COLOR_TYPE_CLUB\020\002\022\034\n\030TR_CARD_CO"
+    "LOR_TYPE_HEART\020\003\022\034\n\030TR_CARD_COLOR_TYPE_S"
+    "PADE\020\004*\257\002\n\016E_TRCardNumber\022\024\n\020TR_CARD_NUM"
+    "BER_A\020\001\022\024\n\020TR_CARD_NUMBER_2\020\002\022\024\n\020TR_CARD"
+    "_NUMBER_3\020\003\022\024\n\020TR_CARD_NUMBER_4\020\004\022\024\n\020TR_"
+    "CARD_NUMBER_5\020\005\022\024\n\020TR_CARD_NUMBER_6\020\006\022\024\n"
+    "\020TR_CARD_NUMBER_7\020\007\022\024\n\020TR_CARD_NUMBER_8\020"
+    "\010\022\024\n\020TR_CARD_NUMBER_9\020\t\022\025\n\021TR_CARD_NUMBE"
+    "R_10\020\n\022\024\n\020TR_CARD_NUMBER_J\020\013\022\024\n\020TR_CARD_"
+    "NUMBER_Q\020\014\022\024\n\020TR_CARD_NUMBER_K\020\rB-\n\026com."
+    "ourgame.texasSlotsB\023TexasSlotsTranspond", 13159);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "OGTexasSlotsProtocol.proto", &protobuf_RegisterTypes);
   OGReqTRLogin1::default_instance_ = new OGReqTRLogin1();
@@ -19885,6 +19886,7 @@ const int OGAckPetList_Pet::kPetIdFieldNumber;
 const int OGAckPetList_Pet::kStatusFieldNumber;
 const int OGAckPetList_Pet::kPetPicFieldNumber;
 const int OGAckPetList_Pet::kMaxLevFieldNumber;
+const int OGAckPetList_Pet::kCsvidFieldNumber;
 #endif  // !_MSC_VER
 
 OGAckPetList_Pet::OGAckPetList_Pet()
@@ -19924,6 +19926,7 @@ void OGAckPetList_Pet::SharedCtor() {
   status_ = 0;
   petpic_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   maxlev_ = 0;
+  csvid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -19997,6 +20000,7 @@ void OGAckPetList_Pet::Clear() {
       }
     }
     maxlev_ = 0;
+    csvid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -20341,6 +20345,22 @@ bool OGAckPetList_Pet::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(176)) goto parse_csvid;
+        break;
+      }
+      
+      // optional int32 csvid = 22;
+      case 22: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_csvid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &csvid_)));
+          set_has_csvid();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -20476,6 +20496,11 @@ void OGAckPetList_Pet::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->maxlev(), output);
   }
   
+  // optional int32 csvid = 22;
+  if (has_csvid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->csvid(), output);
+  }
+  
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -20597,6 +20622,11 @@ void OGAckPetList_Pet::SerializeWithCachedSizes(
   // optional int32 maxLev = 21;
   if (has_maxlev()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->maxlev(), target);
+  }
+  
+  // optional int32 csvid = 22;
+  if (has_csvid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->csvid(), target);
   }
   
   if (!unknown_fields().empty()) {
@@ -20761,6 +20791,13 @@ int OGAckPetList_Pet::ByteSize() const {
           this->maxlev());
     }
     
+    // optional int32 csvid = 22;
+    if (has_csvid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->csvid());
+    }
+    
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -20855,6 +20892,9 @@ void OGAckPetList_Pet::MergeFrom(const OGAckPetList_Pet& from) {
     if (from.has_maxlev()) {
       set_maxlev(from.maxlev());
     }
+    if (from.has_csvid()) {
+      set_csvid(from.csvid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -20899,6 +20939,7 @@ void OGAckPetList_Pet::Swap(OGAckPetList_Pet* other) {
     std::swap(status_, other->status_);
     std::swap(petpic_, other->petpic_);
     std::swap(maxlev_, other->maxlev_);
+    std::swap(csvid_, other->csvid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

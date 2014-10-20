@@ -6020,6 +6020,13 @@ class OGAckPetList_Pet : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 maxlev() const;
   inline void set_maxlev(::google::protobuf::int32 value);
   
+  // optional int32 csvid = 22;
+  inline bool has_csvid() const;
+  inline void clear_csvid();
+  static const int kCsvidFieldNumber = 22;
+  inline ::google::protobuf::int32 csvid() const;
+  inline void set_csvid(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGAckPetList.Pet)
  private:
   inline void set_has_petname();
@@ -6064,6 +6071,8 @@ class OGAckPetList_Pet : public ::google::protobuf::Message {
   inline void clear_has_petpic();
   inline void set_has_maxlev();
   inline void clear_has_maxlev();
+  inline void set_has_csvid();
+  inline void clear_has_csvid();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -6088,9 +6097,10 @@ class OGAckPetList_Pet : public ::google::protobuf::Message {
   ::google::protobuf::int32 status_;
   ::std::string* petpic_;
   ::google::protobuf::int32 maxlev_;
+  ::google::protobuf::int32 csvid_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(21 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(22 + 31) / 32];
   
   friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
   friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
@@ -22357,6 +22367,28 @@ inline ::google::protobuf::int32 OGAckPetList_Pet::maxlev() const {
 inline void OGAckPetList_Pet::set_maxlev(::google::protobuf::int32 value) {
   set_has_maxlev();
   maxlev_ = value;
+}
+
+// optional int32 csvid = 22;
+inline bool OGAckPetList_Pet::has_csvid() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void OGAckPetList_Pet::set_has_csvid() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void OGAckPetList_Pet::clear_has_csvid() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void OGAckPetList_Pet::clear_csvid() {
+  csvid_ = 0;
+  clear_has_csvid();
+}
+inline ::google::protobuf::int32 OGAckPetList_Pet::csvid() const {
+  return csvid_;
+}
+inline void OGAckPetList_Pet::set_csvid(::google::protobuf::int32 value) {
+  set_has_csvid();
+  csvid_ = value;
 }
 
 // -------------------------------------------------------------------

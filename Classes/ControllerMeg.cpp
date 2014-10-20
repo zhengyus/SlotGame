@@ -570,7 +570,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
                     tmplist.petstatus = tmeg->ackOGAckPetList.petlist(i).status();
                     tmplist.petPic = tmeg->ackOGAckPetList.petlist(i).petpic();
                     tmplist.petMaxLev = tmeg->ackOGAckPetList.petlist(i).maxlev();
-                    
+                    tmplist.csvid = tmeg->ackOGAckPetList.petlist(i).csvid();
                     sendmeg.mPetList.push_back(tmplist);
                     
                     DataManager::sharedDataManager()->petID = tmeg->ackOGAckPetList.petlist(i).petid();
