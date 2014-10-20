@@ -111,6 +111,7 @@ struct MyMailMeg
 struct MyPetList
 {
     std::string petName;//名称
+    int csvid = 1;          //宠物标识
     int petpinzhi;//品质
     int petblood;//基础血
     int petbloodMin;//最小值血
