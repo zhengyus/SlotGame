@@ -765,7 +765,16 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             DataManager::sharedDataManager()->isCanMangerGoldJP = true;
             unsigned long long needBaseGold;
             needBaseGold = atoi(m_atl->getStringValue());
-            DataManager::sharedDataManager()->needGoldJP = needBaseGold;
+            
+            //如果赢了底金除以2
+            if(m_retWin == 1)
+            {
+                DataManager::sharedDataManager()->needGoldJP = needBaseGold/2;
+            }
+            else
+            {
+                DataManager::sharedDataManager()->needGoldJP = needBaseGold;
+            }
             
             break;
         }
