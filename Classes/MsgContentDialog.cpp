@@ -55,7 +55,7 @@ void MsgContentDialog::clickedReceive(CCObject*,TouchEventType type)
         _data->isOK = 1;
         _button->setTouchEnabled(false);
         updateMail(MailType_Receive);
-        Alert::create(ALERTTEXT_ATTACHMENT_SUCCESS)->show();
+        Alert::create(ALERTTEXT_ATTACHMENT_SUCCESS,"",this,touchesureventselector(Dialog::close))->show();
     }
 }
 

@@ -74,11 +74,13 @@ void PetDialog::initUI()
         return;
     }
     
-    for (int i = 0; i < _pets.size(); ++i)//初始化宠物列表
+    for (int i = 0; i < 3 && i < _pets.size(); ++i)//初始化宠物列表
     {
+        MyPetList pet = _pets[i];
         Button* button = static_cast<Button*>(getWidgetByName(CCString::createWithFormat("Button_head%d",i)->getCString()));
         button->setTag(i);
-        button->loadTextureNormal(CCString::createWithFormat("pethead%d.png",i)->getCString(), UI_TEX_TYPE_PLIST);
+        
+        button->loadTextureNormal(CCString::createWithFormat("pethead%d.png",pet.csvid-1)->getCString(), UI_TEX_TYPE_PLIST);
         button->addTouchEventListener(this, toucheventselector(PetDialog::clickedPetEvent));
     }
     
@@ -101,7 +103,7 @@ void PetDialog::setPetProperty(int i)
     _name->setText(pet.petName.c_str());
     _character->setText(CCString::createWithFormat("%s",quality.c_str())->getCString());
     _level->setText(CCString::createWithFormat("Lv%d",pet.petlevel)->getCString());
-    _pet->loadTexture(CCString::createWithFormat("pet%d.png",i)->getCString(),UI_TEX_TYPE_PLIST);
+    _pet->loadTexture(CCString::createWithFormat("pet%d.png",pet.csvid - 1)->getCString(),UI_TEX_TYPE_PLIST);
     _expbar->setPercent(pet.petexp * 1.0 / pet.petreqexp * 100);
     
     _strengthGrow->setText(CCString::createWithFormat("%d",pet.petbloodPlus)->getCString());
@@ -132,7 +134,6 @@ void PetDialog::clickedPetEvent(CCObject *pSender, TouchEventType type)
     if (type == TOUCH_EVENT_ENDED)
     {
         Button* button = static_cast<Button*>(pSender);
-        CCLog("Click pet index of %d",button->getTag());
         setPetProperty(button->getTag());
     }
 }
