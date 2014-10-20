@@ -294,6 +294,8 @@ public:
     CCSprite *LoseL;
     CCSprite *GoL;
     
+    CCSprite *m_spPetExp;
+    CCSprite *m_spRoleExp;
     bool m_isGoldEnougth;//金币是否充足
     
 };

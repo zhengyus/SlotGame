@@ -240,12 +240,12 @@ bool KCGameLayer::init()
     m_LabelAtlasPetACK = UILabelAtlas::create();
     m_LabelAtlasBossACK = UILabelAtlas::create();
     m_LabelPetAddBlood = UILabelAtlas::create();
-    m_LabelPetExp->setProperty("0", "FontGreen21_27.png", 21, 27, "0");
+    m_LabelPetExp->setProperty("0", "FontZS21_27.png", 21, 27, "0");
     m_LabelRoleExp->setProperty("0", "FontGreen21_27.png", 21, 27, "0");
     m_LabelAtlasPetACK->setProperty("0", "FontRed21_27.png", 21, 27, "0");
     m_LabelAtlasBossACK->setProperty("0", "FontRed21_27.png", 21, 27, "0");
     m_LabelPetAddBlood->setProperty("0", "FontGreen21_27.png", 21, 27, "0");
-    m_LabelPetExp->setPosition(ccp(512, 320));
+    m_LabelPetExp->setPosition(ccp(512, 480));
     m_LabelRoleExp->setPosition(ccp(200, 480));
     m_LabelAtlasPetACK->setPosition(ccp(300, 480));
     m_LabelAtlasBossACK->setPosition(ccp(700, 480));
@@ -272,6 +272,13 @@ bool KCGameLayer::init()
     LoseL->setVisible(false);
     GoL->setVisible(false);
     
+    m_spPetExp = CCSprite::create("petExp.png");
+    m_spRoleExp = CCSprite::create("roleExp.png");
+    m_spPetExp->setPosition(ccp(450, 480));
+    m_spRoleExp->setPosition(ccp(130, 480));
+    m_spPetExp->setVisible(false);
+    m_spRoleExp->setVisible(false);
+    
     this->addChild(m_Widget);
     this->addChild(m_LabelPetExp);
     this->addChild(m_LabelRoleExp);
@@ -282,6 +289,8 @@ bool KCGameLayer::init()
     this->addChild(winL);
     this->addChild(LoseL);
     this->addChild(GoL);
+    this->addChild(m_spPetExp);
+    this->addChild(m_spRoleExp);
     this->setTouchEnabled(true);
     
     
@@ -1247,15 +1256,20 @@ void KCGameLayer::setFlag4()//转动停止后的动作在此调用
             char tmpStr[50];
             sprintf(tmpStr, ":%lld", m_roleExp);
             m_LabelRoleExp->setVisible(true);
+            m_spRoleExp->setVisible(true);
             m_LabelRoleExp->setStringValue(tmpStr);
             
             float posY = m_LabelRoleExp->getPositionY();
-            
             m_LabelRoleExp->runAction(CCMoveTo::create(0.5f, ccp(m_LabelRoleExp->getPositionX(), posY + 50)));
+            
+            posY = m_spRoleExp->getPositionY();
+            m_spRoleExp->runAction(CCMoveTo::create(0.5f, ccp(m_spRoleExp->getPositionX(), posY + 50)));
+            
             
             m_LabelRoleExp->runAction(CCSequence::create(CCFadeOut::create(0.5f),
                                                         CCCallFunc::create(this, callfunc_selector(KCGameLayer::setLabelRoleExp)),
                                                         NULL));
+            
         }
     }
     else if(m_pageCurr == 4)
@@ -1795,15 +1809,19 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
                 char tmpStr[50];
                 sprintf(tmpStr, ":%lld", tmeg->getPetExp);
                 m_LabelPetExp->setVisible(true);
+                m_spPetExp->setVisible(true);
                 m_LabelPetExp->setStringValue(tmpStr);
                 
                 float posY = m_LabelPetExp->getPositionY();
-                
                 m_LabelPetExp->runAction(CCMoveTo::create(0.5f, ccp(m_LabelPetExp->getPositionX(), posY + 50)));
+                
+                posY = m_spPetExp->getPositionY();
+                m_spPetExp->runAction(CCMoveTo::create(0.5f, ccp(m_spPetExp->getPositionX(), posY + 50)));
                 
                 m_LabelPetExp->runAction(CCSequence::create(CCFadeOut::create(0.5f),
                                                             CCCallFunc::create(this, callfunc_selector(KCGameLayer::setLabelPetExp)),
                                                             NULL));
+                
                 
             }
             
@@ -2481,14 +2499,18 @@ void KCGameLayer::stopRewardAction()
 
 void KCGameLayer::setLabelPetExp()
 {
-    m_LabelPetExp->setPosition(ccp(512, 320));
+    m_LabelPetExp->setPosition(ccp(512, 480));
     m_LabelPetExp->setVisible(false);
+    m_spPetExp->setPosition(ccp(450, 480));
+    m_spPetExp->setVisible(false);
 }
 
 void KCGameLayer::setLabelRoleExp()
 {
     m_LabelRoleExp->setPosition(ccp(200, 480));
     m_LabelRoleExp->setVisible(false);
+    m_spRoleExp->setPosition(ccp(130, 480));
+    m_spRoleExp->setVisible(false);
 }
 
 void KCGameLayer::setLabelBossACK()
