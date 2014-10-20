@@ -98,6 +98,7 @@ bool DoubleLayer::init()
   	tBtnget->addTouchEventListener(this, toucheventselector(DoubleLayer::touchEvent));
     tBtnget->setTag(BTN_GET);
     
+    //底金
     m_atl = dynamic_cast<UILabelAtlas*>(m_Widget->getWidgetByName("AtlasLabel_winMoney"));
     m_atl->setStringValue("0");
     m_pAtl = m_atl->getPosition();
@@ -690,14 +691,14 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 runStarAction(tmeg->BstartNum);
                 
                 //播放赢动画
-                m_spWin->runAction(CCSequence::create(CCDelayTime::create(0.5f),
+                m_spWin->runAction(CCSequence::create(CCDelayTime::create(0.2f),
                                                       CCCallFunc::create(this, callfunc_selector(DoubleLayer::setWinCanSee)),
                                                       CCMoveTo::create(0.1f, ccp(420 + 40*posnum, 380)),
                                                       NULL));
-                m_spWin->runAction(CCSequence::create(CCDelayTime::create(0.5f),
+                m_spWin->runAction(CCSequence::create(CCDelayTime::create(0.2f),
                                                       CCScaleTo::create(0.1f, 1.0f),
                                                       NULL));
-                m_spWin->runAction(CCSequence::create(CCDelayTime::create(0.5f),
+                m_spWin->runAction(CCSequence::create(CCDelayTime::create(0.2f),
                                                       CCFadeTo::create(0.08f, 255),
                                                       NULL));
                 
@@ -1176,6 +1177,7 @@ void DoubleLayer::setActionFly1()
         resetBGcard();
          */
         
+        m_atl->setStringValue("0");
         m_secondFlag = 0;
         isBtnCanTouch = true;
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));

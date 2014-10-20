@@ -510,7 +510,12 @@ void GameLogicSocket::onPlayerInfo(const char* message, int size)
     if(DataManager::sharedDataManager()->isCanMangerGoldJP)
     {
         DataManager::sharedDataManager()->isCanMangerGoldJP = false;
-        DataManager::sharedDataManager()->currGold -= DataManager::sharedDataManager()->needGoldJP;
+        
+        if(DataManager::sharedDataManager()->currGold >= DataManager::sharedDataManager()->needGoldJP)
+        {
+            DataManager::sharedDataManager()->currGold -= DataManager::sharedDataManager()->needGoldJP;
+    
+        }
     }
     
     
