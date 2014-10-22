@@ -83,7 +83,7 @@ void HeadView::setLevel(int level)
 
 void HeadView::setExp(int exp,int exptotal)
 {
-    _lexp->setText(CCString::createWithFormat("%d / %d",exp,exptotal)->getCString());
+    _lexp->setText(CCString::createWithFormat("%d",exp)->getCString());
     _pexp->setPercent(exp/(exptotal * 1.0) * 100);
 }
 
