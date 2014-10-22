@@ -1655,15 +1655,33 @@ void KCGameLayer::mangerCellsDate()
 			tnum++;
 		}
         
-		//如果中奖了把中奖id存在容器中
-		if(tnum > 1)
-		{
-			Date4ReWard tmpDate4ReWard;
-			tmpDate4ReWard.m_id = i;
-			tmpDate4ReWard.m_num = tnum;
-			m_id4Reward.push_back(tmpDate4ReWard);
-            
-		}
+        //如果id 1, 2= x2，x3，x4，x5
+        if(m_arrCellsDate[m_p4r[i].m_iCellID[0]] > 0 && m_arrCellsDate[m_p4r[i].m_iCellID[0]] <= 2)
+        {
+            //如果中奖了把中奖id存在容器中
+            if(tnum > 1)
+            {
+                Date4ReWard tmpDate4ReWard;
+                tmpDate4ReWard.m_id = i;
+                tmpDate4ReWard.m_num = tnum;
+                m_id4Reward.push_back(tmpDate4ReWard);
+                
+            }
+        }
+        //如果id 3, 4, 5, 6, 7, 8= x3，x4，x5
+        else if(m_arrCellsDate[m_p4r[i].m_iCellID[0]] > 2 && m_arrCellsDate[m_p4r[i].m_iCellID[0]] <= 8)
+        {
+            //如果中奖了把中奖id存在容器中
+            if(tnum > 2)
+            {
+                Date4ReWard tmpDate4ReWard;
+                tmpDate4ReWard.m_id = i;
+                tmpDate4ReWard.m_num = tnum;
+                m_id4Reward.push_back(tmpDate4ReWard);
+                
+            }
+
+        }
 	}
 }
 
