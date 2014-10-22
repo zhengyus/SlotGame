@@ -554,19 +554,22 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     }
                     else
                     {
+                        CCLog("here~~~~~2");
+                        
                         GameLogicMeg2Sever tmpMeg1;
                         tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
                         CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
                         
-                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 5.0f);
+                        this->schedule(schedule_selector(DoubleLayer::ishaveChange), 2.0f);
                         
-                        for (int i = 0; i < m_arrCardImg->count(); i++)
-                        {
-                            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
-                            
-                        }
-                        
-                        m_arrCardImg->removeAllObjects();
+//                        for (int i = 0; i < m_arrCardImg->count(); i++)
+//                        {
+//                            ((CCNode*)m_arrCardImg->objectAtIndex(i))->setVisible(false);
+//                            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+//                            
+//                        }
+//                        
+//                        m_arrCardImg->removeAllObjects();
                         
                         //赢的金币大于2亿 直接返回大厅界面
                         if(m_winGold >= 200000000)
@@ -575,13 +578,13 @@ void DoubleLayer::touchEvent(CCObject* pSender, TouchEventType type)
 //                            tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
 //                            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
                             
-                            for (int i = 0; i < m_arrCardImg->count(); i++)
-                            {
-                                m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
-                                
-                            }
+//                            for (int i = 0; i < m_arrCardImg->count(); i++)
+//                            {
+//                                m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+//                                
+//                            }
                             
-                            m_arrCardImg->removeAllObjects();
+//                            m_arrCardImg->removeAllObjects();
                             this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
                             m_starNum = 0;
                             
@@ -1016,13 +1019,13 @@ void DoubleLayer::isCanCloseThisUI()
         
 //        ((KCGameLayer*)this->getParent())->m_page = m_page;
         
-        for (int i = 0; i < m_arrCardImg->count(); i++)
-        {
-            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
-            
-        }
-        
-        m_arrCardImg->removeAllObjects();
+//        for (int i = 0; i < m_arrCardImg->count(); i++)
+//        {
+//            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+//            
+//        }
+//        
+//        m_arrCardImg->removeAllObjects();
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
         this->unschedule(schedule_selector(DoubleLayer::ishaveChange));
         
@@ -1030,7 +1033,11 @@ void DoubleLayer::isCanCloseThisUI()
         resetBGcard();
         
         isBtnCanTouch = true;
+        
+        CCLog("here~~~~~0");
+        
         touchEvent(tBtnget, TOUCH_EVENT_ENDED);
+        
         
     }
 }
@@ -1069,13 +1076,13 @@ void DoubleLayer::setLabelWinNum()
     
     this->schedule(schedule_selector(DoubleLayer::ishaveChange), 5.0f);
     
-    for (int i = 0; i < m_arrCardImg->count(); i++)
-    {
-        m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
-        
-    }
-    
-    m_arrCardImg->removeAllObjects();
+//    for (int i = 0; i < m_arrCardImg->count(); i++)
+//    {
+//        m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+//        
+//    }
+//    
+//    m_arrCardImg->removeAllObjects();
     
     HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() + m_winGold);
     CCLog("bean~~~~~~~2");
@@ -1087,13 +1094,13 @@ void DoubleLayer::setLabelWinNum()
 //        tmpMeg1.m_id = OGID_TEXAS_SLOTS_REQDOUBLEGETGOLD;
 //        CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_SEND_MEG2SEVER, &tmpMeg1);
         
-        for (int i = 0; i < m_arrCardImg->count(); i++)
-        {
-            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
-            
-        }
+//        for (int i = 0; i < m_arrCardImg->count(); i++)
+//        {
+//            m_cliper->removeChild((CCNode*)m_arrCardImg->objectAtIndex(i));
+//            
+//        }
         
-        m_arrCardImg->removeAllObjects();
+//        m_arrCardImg->removeAllObjects();
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
         m_starNum = 0;
         
@@ -1176,11 +1183,13 @@ void DoubleLayer::setActionFly1()
         
         resetBGcard();
          */
+        CCLog("here~~~~~1");
         
         m_atl->setStringValue("0");
         m_secondFlag = 0;
         isBtnCanTouch = true;
         this->unschedule(schedule_selector(DoubleLayer::autoGetScore));
+        resetBGcard();
         touchEvent(tBtnget, TOUCH_EVENT_ENDED);
         
     }
