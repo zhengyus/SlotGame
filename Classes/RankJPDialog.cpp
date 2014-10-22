@@ -26,15 +26,7 @@ static void initRankItem(int i,Widget* item,MyJPRankList dataItem)
     Label* lbl3 =  static_cast<Label*>(UIHelper::seekWidgetByName(item,"Label_rankpool"));
     Label* lbl4 =  static_cast<Label*>(UIHelper::seekWidgetByName(item,"Label_date"));
     
-    string nickName = dataItem.RoleName;
-    CCLOG("asdfasdfasdfsadf");
-    if(nickName.size() > 8)
-    {
-        nickName.replace(8, 3, "...");
-        CCLOG("%s",nickName.c_str());
-//        nickName = nickName.replace(8,1,"...");
-    }
-    lbl1->setText(nickName.c_str());
+    lbl1->setText(dataItem.RoleName.c_str());
     
     lbl2->setText(CCString::createWithFormat("%lld",dataItem.JPrankwinGold)->getCString());
     lbl3->setText(CCString::createWithFormat("%lld",dataItem.JPrankcurrGold)->getCString());
