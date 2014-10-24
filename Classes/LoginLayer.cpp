@@ -50,7 +50,7 @@ bool LoginLayer::init()
     _account->setFontColor(color);
     _account->setPlaceholderFontColor(color);
     _account->setPlaceHolder("联众账号");
-    _account->setMaxLength(16);
+    _account->setMaxLength(19);
     _account->setSelected(true);
     _account->setReturnType(kKeyboardReturnTypeDone);
     
@@ -58,7 +58,7 @@ bool LoginLayer::init()
     _password->setFontColor(color);
     _password->setPlaceholderFontColor(color);
     _password->setPlaceHolder("密码");
-    _password->setMaxLength(16);
+    _password->setMaxLength(15);
     _password->setInputFlag(kEditBoxInputFlagPassword);
     _password->setInputMode(kEditBoxInputModeSingleLine);
     _password->setZOrder(-1);

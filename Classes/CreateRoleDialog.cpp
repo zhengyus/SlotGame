@@ -8,6 +8,9 @@
 
 #include "CreateRoleDialog.h"
 #include "define.h"
+#include <stdio.h>
+#include <sys/types.h>
+#include <regex.h>
 
 
 CreateRoleDialog::CreateRoleDialog():Dialog("dialog_role.png")
@@ -80,6 +83,19 @@ void CreateRoleDialog::onSelectedSexEvent(CCObject* pSender, TouchEventType type
     }
 }
 
+bool validateRoleName(string roleName)
+{
+    regex_t reg;
+    const size_t size = 1;
+    regmatch_t pmatch[1];
+    int flag = REG_EXTENDED;
+    
+    regcomp(&reg, "^([^<>/\\\'\"=%&]+)$", flag);
+    int status = regexec(&reg, roleName.c_str(), size, pmatch, 0);
+    regfree(&reg);
+    return status != REG_NOMATCH;
+}
+
 void CreateRoleDialog::onCreateRoleEvent(CCObject* pSender, TouchEventType type)
 {
     if (type == TOUCH_EVENT_ENDED)
@@ -88,6 +104,12 @@ void CreateRoleDialog::onCreateRoleEvent(CCObject* pSender, TouchEventType type)
         if (name.empty())
         {
             _msg->setText("请输入角色名称！");
+            return;
+        }
+        
+        if(!validateRoleName(name))
+        {
+            _msg->setText("您输入的角色名称不符合规则！");
             return;
         }
         
