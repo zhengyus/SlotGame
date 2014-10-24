@@ -41,17 +41,22 @@ USING_NS_CC;
 #define LOGIN_GAME_PORT 22319
 #else//---------------------------------------------
 //平台服务－－－－－－－
-#define URLIP_PORT    "172.28.14.86:22447"
+//#define URLIP_PORT    "172.28.14.86:22447"//QA
+#define URLIP_PORT    "192.168.1.158:22447"//仿真
 //游戏服务－－－－－－－
 //QA
-//#define LOGIN_GAME_IP   "172.28.14.215"
-//#define LOGIN_GAME_PORT 5001
+#define LOGIN_GAME_IP   "172.28.14.215"
+#define LOGIN_GAME_PORT 5001
 //张明明
 //#define LOGIN_GAME_IP   "172.28.26.181"
 //#define LOGIN_GAME_PORT 5001
 //胡小峰
-#define LOGIN_GAME_IP   "172.28.26.154"
-#define LOGIN_GAME_PORT 5001
+//#define LOGIN_GAME_IP   "172.28.26.154"
+//#define LOGIN_GAME_PORT 5001
+//仿真环境
+//#define LOGIN_GAME_IP   "10.2.5.179"//内网
+#define LOGIN_GAME_IP   "115.182.20.179"//外网
+#define LOGIN_GAME_PORT 22319
 #endif
 
 #define LOGIN_TYPE 1
