@@ -45,8 +45,8 @@ USING_NS_CC;
 #define URLIP_PORT    "192.168.1.158:22447"//仿真
 //游戏服务－－－－－－－
 //QA
-#define LOGIN_GAME_IP   "172.28.14.215"
-#define LOGIN_GAME_PORT 5001
+//#define LOGIN_GAME_IP   "172.28.14.215"
+//#define LOGIN_GAME_PORT 5001
 //张明明
 //#define LOGIN_GAME_IP   "172.28.26.181"
 //#define LOGIN_GAME_PORT 5001
