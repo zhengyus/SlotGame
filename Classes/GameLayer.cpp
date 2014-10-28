@@ -180,11 +180,11 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
                 _hallData->_JPRanks[i] = data->mJPRankList[i];
             }
             
-            if (!_hallData->_JPRanks[0].empty())
+            if (!_hallData->_JPRanks[1].empty())
             {
-                MyJPRankList JPrank = _hallData->_JPRanks[0][0];
+                MyJPRankList JPrank = _hallData->_JPRanks[1][0];
                 string title = "JACKPOT明星";
-                Notice notice = {title,JPrank.JPrankName,JPrank.JPrankwinGold};
+                Notice notice = {0 , title,JPrank.JPrankName,JPrank.JPrankwinGold};
                 _hallData->_notices.push_back(notice);
             }
             break;
@@ -202,7 +202,7 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
                 {
                     MyRankList rank = _hallData->_ranks[i][0];
                     string title = i == 2 ? "周一榜冠军" : "周四榜冠军";
-                    Notice notice = {title,rank.rankName,rank.rankGold};
+                    Notice notice = {1 , title,rank.rankName,rank.rankGold};
                     _hallData->_notices.push_back(notice);
                 }
             }

@@ -13,6 +13,7 @@
 
 typedef struct
 {
+    int flag;               //0:JACKPOT明星 1：排行榜
     std::string title;
     std::string name;
     unsigned long long gold;    

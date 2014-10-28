@@ -144,7 +144,7 @@ void GameHallLayer::updateNoticeView(float)
     
     Notice notice = _hallData->_notices[i];
     
-    const char* rank = CCString::createWithFormat("奖励 %lld", notice.gold)->getCString();
+    const char* rank = CCString::createWithFormat("%s %lld",notice.flag ? "积分" : "奖励", notice.gold)->getCString();
     _noticeView->setNoticeWithAnimation(notice.title, notice.name, rank);
     
     ++i;
