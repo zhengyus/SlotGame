@@ -2205,6 +2205,7 @@ void KCGameLayer::update(float dt)
         {
             case 1://老虎机
             {
+                DataManager::sharedDataManager()->isCanMangerGoldJP = false;
                 HeadView::getInstance()->setBackVisible(true);
                 
                 //更新自动按钮状态
@@ -2263,6 +2264,7 @@ void KCGameLayer::update(float dt)
             }
             case 2://大厅
             {
+                DataManager::sharedDataManager()->isCanMangerGoldJP = false;
                 m_pageCurr = m_page;
                 this->removeChild(m_double);
                 m_BtnBack->setVisible(true);
@@ -2285,6 +2287,7 @@ void KCGameLayer::update(float dt)
             }
             case 3://比倍
             {
+                DataManager::sharedDataManager()->isCanMangerGoldJP = true;
                 HeadView::getInstance()->setBackVisible(false);
                 HeadView::getInstance()->setBean(HeadView::getInstance()->getBean() - m_winGold);
                 
@@ -2296,6 +2299,7 @@ void KCGameLayer::update(float dt)
             }
             case 4://宠物战斗
             {
+                DataManager::sharedDataManager()->isCanMangerGoldJP = false;
                 HeadView::getInstance()->setBackVisible(false);
                 m_Ffreenum = DataManager::sharedDataManager()->freeNum;
                 char tmStr[50];

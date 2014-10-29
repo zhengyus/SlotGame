@@ -751,6 +751,20 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
                 }
             }
             
+//            DataManager::sharedDataManager()->isCanMangerGoldJP = true;
+            unsigned long long needBaseGold;
+            needBaseGold = atoi(m_atl->getStringValue());
+            
+            //如果赢了底金除以2
+            if(m_retWin == 1)
+            {
+                DataManager::sharedDataManager()->needGoldJP = needBaseGold/2;
+            }
+            else
+            {
+                DataManager::sharedDataManager()->needGoldJP = needBaseGold;
+            }
+            
             break;
 		}
         case OGID_TEXAS_SLOTS_DOUBLEJP:
@@ -765,7 +779,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             m_armatureAward[2]->setVisible(true);
             m_armatureAward[2]->getAnimation()->playWithIndex(0);
             
-            
+            /*
             DataManager::sharedDataManager()->isCanMangerGoldJP = true;
             unsigned long long needBaseGold;
             needBaseGold = atoi(m_atl->getStringValue());
@@ -779,6 +793,7 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             {
                 DataManager::sharedDataManager()->needGoldJP = needBaseGold;
             }
+            */
             
             break;
         }
