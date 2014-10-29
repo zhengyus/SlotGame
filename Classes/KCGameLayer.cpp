@@ -1960,7 +1960,7 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
 
 void KCGameLayer::initUI()
 {
-    
+    DataManager::sharedDataManager()->isCanMangerGoldJP = false;
     m_winret = 0;
     m_isGoldEnougth = true;
     m_setLineRewNum = 1;
