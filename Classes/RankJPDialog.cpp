@@ -91,8 +91,8 @@ void RankJPDialog::initNoticeView()
         return;
     }
     
-    const char* rank = CCString::createWithFormat("奖励 %lld", _data[0][0].JPrankwinGold)->getCString();
-    _noticeView->setNotice("JACKPOT明星", _data[0][0].JPrankName, rank);
+    const char* rank = CCString::createWithFormat("奖励 %lld", _data[1][0].JPrankwinGold)->getCString();
+    _noticeView->setNotice("JACKPOT明星", _data[1][0].JPrankName, rank);
 }
 
 void RankJPDialog::clickedStarEvent(CCObject, TouchEventType event)

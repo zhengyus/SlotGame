@@ -133,8 +133,6 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
             _headView->setExp(data->currExp, data->needExp);
             _headView->setBean(data->gold);
             
-        
-            
             //Socket 链接
             int sex = DataManager::sharedDataManager()->sex;
             if (0 != sex && 1 != sex)
@@ -180,13 +178,22 @@ void GameLayer::receiveBaseMsg(CCObject* obj)
                 _hallData->_JPRanks[i] = data->mJPRankList[i];
             }
             
-            if (!_hallData->_JPRanks[1].empty())
-            {
-                MyJPRankList JPrank = _hallData->_JPRanks[1][0];
-                string title = "JACKPOT明星";
-                Notice notice = {0 , title,JPrank.JPrankName,JPrank.JPrankwinGold};
-                _hallData->_notices.push_back(notice);
-            }
+//            if (!_hallData->_JPRanks[1].empty())
+//            {
+//                MyJPRankList JPrank = _hallData->_JPRanks[1][0];
+//                string title = "JACKPOT明星";
+//                Notice notice = {0 , title,JPrank.JPrankName,JPrank.JPrankwinGold};
+//                _hallData->_notices.push_back(notice);
+//            }
+            break;
+        }
+        case OGID_TEXAS_SLOTS_ACKJPSTAR://Notice JACKPOT明星
+        {
+            MyJPRankList JPrank = data->myJpStar;
+            string title = "JACKPOT明星";
+            Notice notice = {0 , title,JPrank.JPrankName,JPrank.JPrankwinGold};
+            _hallData->_notices.push_back(notice);
+            
             break;
         }
         case OGID_TEXAS_SLOTS_RANKINGDATA://积分排行

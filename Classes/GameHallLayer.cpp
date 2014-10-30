@@ -107,7 +107,7 @@ void GameHallLayer::initRoomItemCallback(Widget* widget, MyRoomList room)
 }
 
 void onSelectedRoomEvent( MyRoomList room)
-{
+{    
     SimpleAudioEngine::sharedEngine()->playEffect(BUTTON_CLICK);
     GameLogicMeg2Sever tmpMeg;
     tmpMeg.m_id = OGID_TEXAS_SLOTS_JOINROOM;
