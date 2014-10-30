@@ -640,6 +640,11 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         case OGID_TEXAS_SLOTS_ACKJPSTAR:
         {
             CCLog("OGID_TEXAS_SLOTS_ACKJPSTAR");
+            sendmeg.myJpStar.JPrankName = tmeg->ackOGAckJpStart.jpstarname();
+            sendmeg.myJpStar.RoleName = tmeg->ackOGAckJpStart.rolename();
+            sendmeg.myJpStar.JPrankwinGold = tmeg->ackOGAckJpStart.jpstartemnum();
+            sendmeg.myJpStar.JPrankTime = tmeg->ackOGAckJpStart.jpstartime();
+            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
             break;
         }
         case OGID_TEXAS_SLOTS_RANKINGDATA:

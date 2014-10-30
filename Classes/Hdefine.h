@@ -233,6 +233,9 @@ public:
     //-----------------------------------------------------
     
     int zs;//止损0-游戏止损 1-携带上限
+    
+    //jp明星左下角滚动显示
+    MyJPRankList myJpStar;
 };
 
 typedef struct
