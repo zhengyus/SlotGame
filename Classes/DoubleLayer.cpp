@@ -755,10 +755,10 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             unsigned long long needBaseGold;
             needBaseGold = atoi(m_atl->getStringValue());
             
-            //如果赢了底金除以2
+            //如果赢了底金除以2(错误) 不该除以2的
             if(m_retWin == 1)
             {
-                DataManager::sharedDataManager()->needGoldJP = needBaseGold/2;
+                DataManager::sharedDataManager()->needGoldJP = needBaseGold;
             }
             else
             {
