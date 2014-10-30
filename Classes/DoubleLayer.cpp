@@ -837,6 +837,7 @@ void DoubleLayer::runBiBei(int color)
 
 void DoubleLayer::initUI()
 {
+    DataManager::sharedDataManager()->isCanMangerGoldJP = true;
     m_LabelWinNumjp->setVisible(false);
     m_LabelWinNumjp->setPosition(ccp(500, 320));
     

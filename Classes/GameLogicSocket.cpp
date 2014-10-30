@@ -511,6 +511,7 @@ void GameLogicSocket::onPlayerInfo(const char* message, int size)
     {
         if(DataManager::sharedDataManager()->currGold >= DataManager::sharedDataManager()->needGoldJP)
         {
+            CCLog("~~~~~~~~~~~~~~~kkk~~~~~~~~~~");
             DataManager::sharedDataManager()->currGold -= DataManager::sharedDataManager()->needGoldJP;
     
         }
