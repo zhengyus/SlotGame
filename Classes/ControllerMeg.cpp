@@ -824,17 +824,23 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
                     tmpJPRankList.JPrankcurrGold = tmeg->ackOGAckJpRecord.jprecordlist(i).currjp();
                     tmpJPRankList.JPrankTime = tmeg->ackOGAckJpRecord.jprecordlist(i).createtime();
                     tmpJPRankList.RoleName = tmeg->ackOGAckJpRecord.jprecordlist(i).rolename();
-
-                    //jp明星巨奖
-                    if(tmeg->ackOGAckJpRecord.jprecordlist(i).showtype() == 1)
+                    
+                    if("连线英雄" == tmeg->ackOGAckJpRecord.jprecordlist(i).gamename())
                     {
+                        //jp明星巨奖
+                        if(tmeg->ackOGAckJpRecord.jprecordlist(i).showtype() == 1)
+                        {
+                            
+                            sendmeg.mJPRankList[0].push_back(tmpJPRankList);
+                        }
+                        //jp巨奖
+                        else
+                        {
+                            sendmeg.mJPRankList[1].push_back(tmpJPRankList);
+                        }
                         
-                        sendmeg.mJPRankList[0].push_back(tmpJPRankList);
-                    }
-                    //jp巨奖
-                    else
-                    {
-                        sendmeg.mJPRankList[1].push_back(tmpJPRankList);
+                        CCLog("~~~in here~~~~=%s", tmeg->ackOGAckJpRecord.jprecordlist(i).gamename().c_str());
+                        
                     }
                 }
             
