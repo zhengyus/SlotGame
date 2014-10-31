@@ -37,12 +37,13 @@ USING_NS_CC;
 //平台服务－－－－－－－
 #define URLIP_PORT    "202.108.0.83:22447"
 //游戏服务－－－－－－－
-#define LOGIN_GAME_IP   "115.182.20.184"
-#define LOGIN_GAME_PORT 22319
+//#define LOGIN_GAME_IP   "115.182.20.184"
+//#define LOGIN_GAME_PORT 22319
 #else//---------------------------------------------
 //平台服务－－－－－－－
 //#define URLIP_PORT    "172.28.14.86:22447"//QA
-#define URLIP_PORT    "192.168.1.158:22447"//仿真
+//#define URLIP_PORT    "192.168.1.158:22447"//仿真
+#define URLIP_PORT    "202.108.0.83:22447"//真实外网环境
 //游戏服务－－－－－－－
 //QA
 //#define LOGIN_GAME_IP   "172.28.14.215"
@@ -55,7 +56,10 @@ USING_NS_CC;
 //#define LOGIN_GAME_PORT 5001
 //仿真环境
 //#define LOGIN_GAME_IP   "10.2.5.179"//内网
-#define LOGIN_GAME_IP   "115.182.20.179"//外网
+//#define LOGIN_GAME_IP   "115.182.20.179"//外网
+//#define LOGIN_GAME_PORT 22319
+//游戏外网ip
+#define LOGIN_GAME_IP   "115.182.20.184"
 #define LOGIN_GAME_PORT 22319
 #endif
 

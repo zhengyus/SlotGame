@@ -10,29 +10,29 @@
 	<string>Slot</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>EB6643AA-3877-4045-9375-E329425CD314</key>
-		<string>ssh://github.com/zhengyus/SlotGame.git</string>
+		<key>EB5587472D0B32F236A9D522A44A69FA49C6F0E9</key>
+		<string>https://github.com/zhengyus/SlotGame.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios/Slot.xcodeproj/project.xcworkspace</string>
+	<string>proj.ios/Slot.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>EB6643AA-3877-4045-9375-E329425CD314</key>
+		<key>EB5587472D0B32F236A9D522A44A69FA49C6F0E9</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/zhengyus/SlotGame.git</string>
+	<string>https://github.com/zhengyus/SlotGame.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>EB6643AA-3877-4045-9375-E329425CD314</string>
+	<string>EB5587472D0B32F236A9D522A44A69FA49C6F0E9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>EB6643AA-3877-4045-9375-E329425CD314</string>
+			<string>EB5587472D0B32F236A9D522A44A69FA49C6F0E9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SlotGame</string>
 		</dict>
