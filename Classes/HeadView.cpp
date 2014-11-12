@@ -45,6 +45,8 @@ bool HeadView::init()
     _menu = uilayer->getWidgetByName("Button_menu");
     _jp = static_cast<ImageView*>(uilayer->getWidgetByName("Image_jpprize"));
     Widget* btnAdd = uilayer->getWidgetByName("Button_add");
+    btnAdd->setVisible(false);
+    btnAdd->setTouchEnabled(false);
     
     widget = uilayer->getWidgetByName("Panel_gold");
     CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("glitter.ExportJson");
