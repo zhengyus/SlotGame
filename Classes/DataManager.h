@@ -41,6 +41,7 @@ public:
     std::string username;
     int sex;
     std::string errmeg;//错误信息
+    std::string come;
     
     com::ourgame::texasSlots::OGAckRoleLoginMsg AckRoleLoginMsg;
     
