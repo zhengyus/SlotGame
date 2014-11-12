@@ -1814,6 +1814,7 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
             CCLog("宠物经验~~~~~~~~=%lld", tmeg->getPetExp);
             CCLog("任务经验~~~~~~~~=%lld", tmeg->getRoleExp);
             CCLog("curr page~~~~~~~~=%d", m_pageCurr);
+            CCLog("免费转动次数~~~~~~~=%d", DataManager::sharedDataManager()->currFreeNum);
         
             m_page = tmeg->page;
             m_winGold = tmeg->wingold;
