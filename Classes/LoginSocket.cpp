@@ -214,6 +214,7 @@ void LoginSocket::onLogin(AckGameLogin ackLogin)
     DataManager::sharedDataManager()->entrance = "0";
     DataManager::sharedDataManager()->nickname = "";
     DataManager::sharedDataManager()->username = ackLogin.username();
+    DataManager::sharedDataManager()->come = "yd";
 #if (OPEN_DEBUG == 1)
     //如果登入成功，开启linkgamesocket，连接下个服务器ip，端口
     if(RET_SUCCESS == ret2UI.ret)

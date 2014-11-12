@@ -83,7 +83,8 @@ bool GameLogicSocket::sendLogin(string UserId,
                                 int32  comfromId,
                                 string userName,
                                 string nickName,
-                                string entrance)
+                                string entrance,
+                                string come)
 {
     bool result;
     OGReqTRLogin2 login;
@@ -99,6 +100,7 @@ bool GameLogicSocket::sendLogin(string UserId,
     login.set_username(userName);
     login.set_entrance(entrance);
     login.set_nickname(nickName);
+    login.set_come(come);
     result = send(&login,OGID_TEXAS_SLOTS_LOGIN);
     
 #if (OPEN_DEBUG == 1)//返回信息给UI
@@ -506,6 +508,7 @@ void GameLogicSocket::onPlayerInfo(const char* message, int size)
     
     DataManager::sharedDataManager()->currExp = meg.exp();
     DataManager::sharedDataManager()->needExp = meg.reqexp();
+    DataManager::sharedDataManager()->currFreeNum = meg.freenum();
     
     if(DataManager::sharedDataManager()->isCanMangerGoldJP)
     {

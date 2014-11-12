@@ -139,6 +139,7 @@ void ControllerMeg::sendLinkGame(CCObject * obj)
     std::string entrance = DataManager::sharedDataManager()->entrance;
     std::string nickname = DataManager::sharedDataManager()->nickname;
     std::string username = DataManager::sharedDataManager()->username;
+    std::string come = DataManager::sharedDataManager()->come;
     
     
 //    cert = "CAEQyOrUoAUaATAi0AIG0wlwXFoK9jzZMNA1hY4MpeI2MtqZkhjtexb2AtFBlRqehWI0fyb1CxqoyXLwuLUtX6KdhaIVRpJWnOvjaT/9RZ5Yoy9d1bu3hTKBUrhxR8Ys4dyfQmYeC3XiKcCvFS84N5LcyjLSvoc4EzTtgDFS0JWKuCIIR/yaD25%2BLiYyUBLwPZcrFbZL8KdOr0EnmppKZDadgoRTVs55lvTI/xEMXts9Si2bS7p0djC5JbpLeA/x8GhkOabvZrICxzbSbE4NT3s4Qi/pe0bGvHJe4HObyr4ysUqunIoVgjTSpZUjj54UcTxeRTRLLIsBVnJDawAY6Ik/vXsiom2MSOQqX2CBYUXQFgfGNSY0FKB939PtnLzfl1J4gTiaznmW9Mj/EQyMztFmXTsz/Itg%2BPcNG91vznmW9Mj/EQyFZkyRlasDGUes9nOrU0NOMyZSZ1WcSuc=";//test
@@ -177,7 +178,8 @@ void ControllerMeg::sendLinkGame(CCObject * obj)
                                  comfromid,
                                  username,
                                  nickname,
-                                 entrance);
+                                 entrance,
+                                 come);
     
     OutTime::sharedDataManager()->create(OGID_TEXAS_SLOTS_LOGIN);
 }

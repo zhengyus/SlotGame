@@ -207,11 +207,12 @@ enum OGAckRoleLoginMsg_E_ErrorType {
   OGAckRoleLoginMsg_E_ErrorType_ET_TYPE4 = 4,
   OGAckRoleLoginMsg_E_ErrorType_ET_TYPE5 = 5,
   OGAckRoleLoginMsg_E_ErrorType_ET_TYPE6 = 6,
-  OGAckRoleLoginMsg_E_ErrorType_ET_TYPE7 = 7
+  OGAckRoleLoginMsg_E_ErrorType_ET_TYPE7 = 7,
+  OGAckRoleLoginMsg_E_ErrorType_ET_TYPE8 = 8
 };
 bool OGAckRoleLoginMsg_E_ErrorType_IsValid(int value);
 const OGAckRoleLoginMsg_E_ErrorType OGAckRoleLoginMsg_E_ErrorType_E_ErrorType_MIN = OGAckRoleLoginMsg_E_ErrorType_ET_UNKNOWN;
-const OGAckRoleLoginMsg_E_ErrorType OGAckRoleLoginMsg_E_ErrorType_E_ErrorType_MAX = OGAckRoleLoginMsg_E_ErrorType_ET_TYPE7;
+const OGAckRoleLoginMsg_E_ErrorType OGAckRoleLoginMsg_E_ErrorType_E_ErrorType_MAX = OGAckRoleLoginMsg_E_ErrorType_ET_TYPE8;
 const int OGAckRoleLoginMsg_E_ErrorType_E_ErrorType_ARRAYSIZE = OGAckRoleLoginMsg_E_ErrorType_E_ErrorType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* OGAckRoleLoginMsg_E_ErrorType_descriptor();
@@ -834,6 +835,17 @@ class OGReqTRLogin2 : public ::google::protobuf::Message {
   inline ::std::string* mutable_entrance();
   inline ::std::string* release_entrance();
   
+  // optional string come = 8;
+  inline bool has_come() const;
+  inline void clear_come();
+  static const int kComeFieldNumber = 8;
+  inline const ::std::string& come() const;
+  inline void set_come(const ::std::string& value);
+  inline void set_come(const char* value);
+  inline void set_come(const char* value, size_t size);
+  inline ::std::string* mutable_come();
+  inline ::std::string* release_come();
+  
   // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGReqTRLogin2)
  private:
   inline void set_has_userid();
@@ -850,6 +862,8 @@ class OGReqTRLogin2 : public ::google::protobuf::Message {
   inline void clear_has_nickname();
   inline void set_has_entrance();
   inline void clear_has_entrance();
+  inline void set_has_come();
+  inline void clear_has_come();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -860,9 +874,10 @@ class OGReqTRLogin2 : public ::google::protobuf::Message {
   ::std::string* username_;
   ::std::string* nickname_;
   ::std::string* entrance_;
+  ::std::string* come_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
   
   friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
   friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
@@ -934,6 +949,7 @@ class OGAckRoleLoginMsg : public ::google::protobuf::Message {
   static const E_ErrorType ET_TYPE5 = OGAckRoleLoginMsg_E_ErrorType_ET_TYPE5;
   static const E_ErrorType ET_TYPE6 = OGAckRoleLoginMsg_E_ErrorType_ET_TYPE6;
   static const E_ErrorType ET_TYPE7 = OGAckRoleLoginMsg_E_ErrorType_ET_TYPE7;
+  static const E_ErrorType ET_TYPE8 = OGAckRoleLoginMsg_E_ErrorType_ET_TYPE8;
   static inline bool E_ErrorType_IsValid(int value) {
     return OGAckRoleLoginMsg_E_ErrorType_IsValid(value);
   }
@@ -3245,6 +3261,13 @@ class OGAckGameResult : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 goldplus() const;
   inline void set_goldplus(::google::protobuf::int64 value);
   
+  // optional int32 freeTimes = 26;
+  inline bool has_freetimes() const;
+  inline void clear_freetimes();
+  static const int kFreeTimesFieldNumber = 26;
+  inline ::google::protobuf::int32 freetimes() const;
+  inline void set_freetimes(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGAckGameResult)
  private:
   inline void set_has_grid1();
@@ -3297,6 +3320,8 @@ class OGAckGameResult : public ::google::protobuf::Message {
   inline void clear_has_freeflg();
   inline void set_has_goldplus();
   inline void clear_has_goldplus();
+  inline void set_has_freetimes();
+  inline void clear_has_freetimes();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -3325,9 +3350,10 @@ class OGAckGameResult : public ::google::protobuf::Message {
   ::std::string* wrongmsg_;
   ::google::protobuf::int64 goldplus_;
   ::google::protobuf::int32 freeflg_;
+  ::google::protobuf::int32 freetimes_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(26 + 31) / 32];
   
   friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
   friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
@@ -3817,6 +3843,13 @@ class OGAckDoubleResult : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 doubletype() const;
   inline void set_doubletype(::google::protobuf::int32 value);
   
+  // optional int32 freeTimes = 18;
+  inline bool has_freetimes() const;
+  inline void clear_freetimes();
+  static const int kFreeTimesFieldNumber = 18;
+  inline ::google::protobuf::int32 freetimes() const;
+  inline void set_freetimes(::google::protobuf::int32 value);
+  
   // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGAckDoubleResult)
  private:
   inline void set_has_result();
@@ -3853,6 +3886,8 @@ class OGAckDoubleResult : public ::google::protobuf::Message {
   inline void clear_has_d();
   inline void set_has_doubletype();
   inline void clear_has_doubletype();
+  inline void set_has_freetimes();
+  inline void clear_has_freetimes();
   
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
   
@@ -3873,9 +3908,10 @@ class OGAckDoubleResult : public ::google::protobuf::Message {
   ::google::protobuf::int32 whiteflg_;
   ::std::string* d_;
   ::google::protobuf::int32 doubletype_;
+  ::google::protobuf::int32 freetimes_;
   
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(18 + 31) / 32];
   
   friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
   friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
@@ -15900,6 +15936,64 @@ inline ::std::string* OGReqTRLogin2::release_entrance() {
   }
 }
 
+// optional string come = 8;
+inline bool OGReqTRLogin2::has_come() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void OGReqTRLogin2::set_has_come() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void OGReqTRLogin2::clear_has_come() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void OGReqTRLogin2::clear_come() {
+  if (come_ != &::google::protobuf::internal::kEmptyString) {
+    come_->clear();
+  }
+  clear_has_come();
+}
+inline const ::std::string& OGReqTRLogin2::come() const {
+  return *come_;
+}
+inline void OGReqTRLogin2::set_come(const ::std::string& value) {
+  set_has_come();
+  if (come_ == &::google::protobuf::internal::kEmptyString) {
+    come_ = new ::std::string;
+  }
+  come_->assign(value);
+}
+inline void OGReqTRLogin2::set_come(const char* value) {
+  set_has_come();
+  if (come_ == &::google::protobuf::internal::kEmptyString) {
+    come_ = new ::std::string;
+  }
+  come_->assign(value);
+}
+inline void OGReqTRLogin2::set_come(const char* value, size_t size) {
+  set_has_come();
+  if (come_ == &::google::protobuf::internal::kEmptyString) {
+    come_ = new ::std::string;
+  }
+  come_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* OGReqTRLogin2::mutable_come() {
+  set_has_come();
+  if (come_ == &::google::protobuf::internal::kEmptyString) {
+    come_ = new ::std::string;
+  }
+  return come_;
+}
+inline ::std::string* OGReqTRLogin2::release_come() {
+  clear_has_come();
+  if (come_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = come_;
+    come_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+
 // -------------------------------------------------------------------
 
 // OGAckRoleLoginMsg
@@ -18832,6 +18926,28 @@ inline void OGAckGameResult::set_goldplus(::google::protobuf::int64 value) {
   goldplus_ = value;
 }
 
+// optional int32 freeTimes = 26;
+inline bool OGAckGameResult::has_freetimes() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+inline void OGAckGameResult::set_has_freetimes() {
+  _has_bits_[0] |= 0x02000000u;
+}
+inline void OGAckGameResult::clear_has_freetimes() {
+  _has_bits_[0] &= ~0x02000000u;
+}
+inline void OGAckGameResult::clear_freetimes() {
+  freetimes_ = 0;
+  clear_has_freetimes();
+}
+inline ::google::protobuf::int32 OGAckGameResult::freetimes() const {
+  return freetimes_;
+}
+inline void OGAckGameResult::set_freetimes(::google::protobuf::int32 value) {
+  set_has_freetimes();
+  freetimes_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // GameToJSupport
@@ -19810,6 +19926,28 @@ inline ::google::protobuf::int32 OGAckDoubleResult::doubletype() const {
 inline void OGAckDoubleResult::set_doubletype(::google::protobuf::int32 value) {
   set_has_doubletype();
   doubletype_ = value;
+}
+
+// optional int32 freeTimes = 18;
+inline bool OGAckDoubleResult::has_freetimes() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void OGAckDoubleResult::set_has_freetimes() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void OGAckDoubleResult::clear_has_freetimes() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void OGAckDoubleResult::clear_freetimes() {
+  freetimes_ = 0;
+  clear_has_freetimes();
+}
+inline ::google::protobuf::int32 OGAckDoubleResult::freetimes() const {
+  return freetimes_;
+}
+inline void OGAckDoubleResult::set_freetimes(::google::protobuf::int32 value) {
+  set_has_freetimes();
+  freetimes_ = value;
 }
 
 // -------------------------------------------------------------------

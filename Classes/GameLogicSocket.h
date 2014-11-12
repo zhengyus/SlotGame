@@ -45,7 +45,8 @@ public:
                     int32  comfromId,
                     string userName,
                     string nickName,
-                    string entrance);
+                    string entrance,
+                    string come);
     
     //点击进入房间的操作 	( CLIENT + 3 ) s+4
     bool sendJoinRoom(int32	roomId);
