@@ -7,6 +7,7 @@
 //
 
 #include "ControllerMeg.h"
+#include "Alert.h"
 
 ControllerMeg::ControllerMeg()
 {
@@ -526,6 +527,12 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         {
             CCLog("OGID_TEXAS_SLOTS_PLAYERINFO");
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+            
+            if(tmeg->ackOGAckRoleMsg.freenum() > 0)
+            {
+                CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_K_REC_MEG_FROM_SEVER, &sendmeg);
+            }
+            
             break;
         }
         case OGID_TEXAS_SLOTS_PETLIST:
@@ -653,60 +660,62 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
         {
             CCLog("OGID_TEXAS_SLOTS_RANKINGDATA");
             
-            if(tmeg->ackOGAckRank.lastweeka_size() > 0)
+            CCLog("weeksize~~~~~~~=%d", tmeg->ackOGAckRank.lastweeka_size());
+            
+//            if(tmeg->ackOGAckRank.lastweeka_size() > 0)
+//            {
+//                sendmeg.rankName = tmeg->ackOGAckRank.lastweeka(0).rolename();
+//                sendmeg.rankGold = tmeg->ackOGAckRank.lastweeka(0).getgold();
+//            }
+            
+            MyRankList tmyronkList;
+            sendmeg.mrankListArr[0].clear();
+            sendmeg.mrankListArr[1].clear();
+            sendmeg.mrankListArr[2].clear();
+            sendmeg.mrankListArr[3].clear();
+            //初始化周一 排行数据
+            for(int i = 0; i < tmeg->ackOGAckRank.ranklista_size(); i++)
             {
-            
-                sendmeg.rankName = tmeg->ackOGAckRank.lastweeka(0).rolename();
-                sendmeg.rankGold = tmeg->ackOGAckRank.lastweeka(0).getgold();
+                tmyronkList.rankGold = tmeg->ackOGAckRank.ranklista(i).rankid();
+                tmyronkList.rankName = tmeg->ackOGAckRank.ranklista(i).rolename();
+                tmyronkList.rankGold = tmeg->ackOGAckRank.ranklista(i).getgold();
                 
-                MyRankList tmyronkList;
-                sendmeg.mrankListArr[0].clear();
-                sendmeg.mrankListArr[1].clear();
-                sendmeg.mrankListArr[2].clear();
-                sendmeg.mrankListArr[3].clear();
-                //初始化周一 排行数据
-                for(int i = 0; i < tmeg->ackOGAckRank.ranklista_size(); i++)
-                {
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.ranklista(i).rankid();
-                    tmyronkList.rankName = tmeg->ackOGAckRank.ranklista(i).rolename();
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.ranklista(i).getgold();
-                    
-                    sendmeg.mrankListArr[0].push_back(tmyronkList);
-                }
-                
-                //初始化周四 排行数据
-                for(int i = 0; i < tmeg->ackOGAckRank.ranklistb_size(); i++)
-                {
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.ranklistb(i).rankid();
-                    tmyronkList.rankName = tmeg->ackOGAckRank.ranklistb(i).rolename();
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.ranklistb(i).getgold();
-                    
-                    sendmeg.mrankListArr[1].push_back(tmyronkList);
-                }
-                
-                //初始化上周一 排行数据
-                for(int i = 0; i < tmeg->ackOGAckRank.lastweeka_size(); i++)
-                {
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.lastweeka(i).rankid();
-                    tmyronkList.rankName = tmeg->ackOGAckRank.lastweeka(i).rolename();
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.lastweeka(i).getgold();
-                    
-                    sendmeg.mrankListArr[2].push_back(tmyronkList);
-                }
-                
-                //初始化上周四 排行数据
-                for(int i = 0; i < tmeg->ackOGAckRank.lastweekb_size(); i++)
-                {
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.lastweekb(i).rankid();
-                    tmyronkList.rankName = tmeg->ackOGAckRank.lastweekb(i).rolename();
-                    tmyronkList.rankGold = tmeg->ackOGAckRank.lastweekb(i).getgold();
-                    
-                    sendmeg.mrankListArr[3].push_back(tmyronkList);
-                }
-                
-                CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
-            
+                sendmeg.mrankListArr[0].push_back(tmyronkList);
             }
+            
+            //初始化周四 排行数据
+            for(int i = 0; i < tmeg->ackOGAckRank.ranklistb_size(); i++)
+            {
+                tmyronkList.rankGold = tmeg->ackOGAckRank.ranklistb(i).rankid();
+                tmyronkList.rankName = tmeg->ackOGAckRank.ranklistb(i).rolename();
+                tmyronkList.rankGold = tmeg->ackOGAckRank.ranklistb(i).getgold();
+                
+                sendmeg.mrankListArr[1].push_back(tmyronkList);
+            }
+            
+            //初始化上周一 排行数据
+            for(int i = 0; i < tmeg->ackOGAckRank.lastweeka_size(); i++)
+            {
+                tmyronkList.rankGold = tmeg->ackOGAckRank.lastweeka(i).rankid();
+                tmyronkList.rankName = tmeg->ackOGAckRank.lastweeka(i).rolename();
+                tmyronkList.rankGold = tmeg->ackOGAckRank.lastweeka(i).getgold();
+                
+                sendmeg.mrankListArr[2].push_back(tmyronkList);
+            }
+            
+            //初始化上周四 排行数据
+            for(int i = 0; i < tmeg->ackOGAckRank.lastweekb_size(); i++)
+            {
+                tmyronkList.rankGold = tmeg->ackOGAckRank.lastweekb(i).rankid();
+                tmyronkList.rankName = tmeg->ackOGAckRank.lastweekb(i).rolename();
+                tmyronkList.rankGold = tmeg->ackOGAckRank.lastweekb(i).getgold();
+                
+                sendmeg.mrankListArr[3].push_back(tmyronkList);
+            }
+            
+            CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+            
+            
             
             break;
         }
@@ -774,6 +783,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             sendmeg.wrongmeg = tmeg->ackOGAckGameResult.wrongmsg();//错误消息
             sendmeg.freeZ = tmeg->ackOGAckGameResult.freeflg();//免费转动标记
             sendmeg.freeZgetGold = tmeg->ackOGAckGameResult.goldplus();//免费事件获得金币
+            sendmeg.freeNumLHJ = tmeg->ackOGAckGameResult.freetimes();//免费转动次数，为0时不做处理
             
             sendmeg.grid[0] = tmeg->ackOGAckGameResult.grid1();
             sendmeg.grid[1] = tmeg->ackOGAckGameResult.grid2();
@@ -919,6 +929,7 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             sendmeg.BgoldPlus = tmeg->ackOGAckDoubleResult.goldplus();
             sendmeg.BgoldPlusValue = tmeg->ackOGAckDoubleResult.goldplusvalue();
             sendmeg.BcardNumber = tmeg->ackOGAckDoubleResult.cardnumber();
+            sendmeg.freeNumBB = tmeg->ackOGAckDoubleResult.freetimes();//比倍免费奖励次数
             
             CCLog("in meg golplusvalue=%lld", tmeg->ackOGAckDoubleResult.goldplusvalue());
             CCLog("in meg golplus=%d", tmeg->ackOGAckDoubleResult.goldplus());
@@ -985,6 +996,18 @@ void ControllerMeg::onMegFromSever(CCObject * obj)
             sendmeg.errmeg = "与服务器断开链接,请重新登入游戏";
             sendmeg.errType = OGID_TEXAS_SLOTS_LOGIN;
             CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_FROM_MSG_ALL, &sendmeg);
+            break;
+        }
+        case OGID_TEXAS_SLOTS_AWARD_FREE_NUM://登入奖励
+        {
+            CCLog("登入奖励～～～=%d", tmeg->ackOGAckYDFreeTimes.num());
+//            if(tmeg->ackOGAckYDFreeTimes.num() > 0)
+//            {
+                char strTmp[100];
+                sprintf(strTmp, "欢迎您进入连线英雄\n系统赠送您%d次免费转动", tmeg->ackOGAckYDFreeTimes.num());
+                std::string tmpString = strTmp;
+                Alert::create(tmpString)->show();
+//            }
             break;
         }
         default:

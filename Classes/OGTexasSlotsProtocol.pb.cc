@@ -409,6 +409,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* OGAckLeaveGame_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   OGAckLeaveGame_reflection_ = NULL;
+const ::google::protobuf::Descriptor* OGAckYDFreeTimes_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  OGAckYDFreeTimes_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* E_TRCardColorType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* E_TRCardNumber_descriptor_ = NULL;
 
@@ -2689,6 +2692,21 @@ void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(OGAckLeaveGame));
+  OGAckYDFreeTimes_descriptor_ = file->message_type(107);
+  static const int OGAckYDFreeTimes_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckYDFreeTimes, num_),
+  };
+  OGAckYDFreeTimes_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      OGAckYDFreeTimes_descriptor_,
+      OGAckYDFreeTimes::default_instance_,
+      OGAckYDFreeTimes_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckYDFreeTimes, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(OGAckYDFreeTimes, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(OGAckYDFreeTimes));
   E_TRCardColorType_descriptor_ = file->enum_type(0);
   E_TRCardNumber_descriptor_ = file->enum_type(1);
 }
@@ -2955,6 +2973,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     OGAckAd_descriptor_, &OGAckAd::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     OGAckLeaveGame_descriptor_, &OGAckLeaveGame::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    OGAckYDFreeTimes_descriptor_, &OGAckYDFreeTimes::default_instance());
 }
 
 }  // namespace
@@ -3212,6 +3232,8 @@ void protobuf_ShutdownFile_OGTexasSlotsProtocol_2eproto() {
   delete OGAckAd_reflection_;
   delete OGAckLeaveGame::default_instance_;
   delete OGAckLeaveGame_reflection_;
+  delete OGAckYDFreeTimes::default_instance_;
+  delete OGAckYDFreeTimes_reflection_;
 }
 
 void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
@@ -3539,19 +3561,20 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
     "ll.HallContent\0328\n\013HallContent\022\014\n\004name\030\001 "
     "\001(\t\022\r\n\005golod\030\002 \001(\003\022\014\n\004time\030\003 \001(\t\"&\n\007OGAc"
     "kAd\022\n\n\002on\030\001 \001(\005\022\017\n\007content\030\002 \001(\t\"\020\n\016OGAc"
-    "kLeaveGame*\214\001\n\021E_TRCardColorType\022\036\n\032TR_C"
-    "ARD_COLOR_TYPE_DIAMOND\020\001\022\033\n\027TR_CARD_COLO"
-    "R_TYPE_CLUB\020\002\022\034\n\030TR_CARD_COLOR_TYPE_HEAR"
-    "T\020\003\022\034\n\030TR_CARD_COLOR_TYPE_SPADE\020\004*\257\002\n\016E_"
-    "TRCardNumber\022\024\n\020TR_CARD_NUMBER_A\020\001\022\024\n\020TR"
-    "_CARD_NUMBER_2\020\002\022\024\n\020TR_CARD_NUMBER_3\020\003\022\024"
-    "\n\020TR_CARD_NUMBER_4\020\004\022\024\n\020TR_CARD_NUMBER_5"
-    "\020\005\022\024\n\020TR_CARD_NUMBER_6\020\006\022\024\n\020TR_CARD_NUMB"
-    "ER_7\020\007\022\024\n\020TR_CARD_NUMBER_8\020\010\022\024\n\020TR_CARD_"
-    "NUMBER_9\020\t\022\025\n\021TR_CARD_NUMBER_10\020\n\022\024\n\020TR_"
-    "CARD_NUMBER_J\020\013\022\024\n\020TR_CARD_NUMBER_Q\020\014\022\024\n"
-    "\020TR_CARD_NUMBER_K\020\rB-\n\026com.ourgame.texas"
-    "SlotsB\023TexasSlotsTranspond", 13226);
+    "kLeaveGame\"\037\n\020OGAckYDFreeTimes\022\013\n\003num\030\001 "
+    "\001(\005*\214\001\n\021E_TRCardColorType\022\036\n\032TR_CARD_COL"
+    "OR_TYPE_DIAMOND\020\001\022\033\n\027TR_CARD_COLOR_TYPE_"
+    "CLUB\020\002\022\034\n\030TR_CARD_COLOR_TYPE_HEART\020\003\022\034\n\030"
+    "TR_CARD_COLOR_TYPE_SPADE\020\004*\257\002\n\016E_TRCardN"
+    "umber\022\024\n\020TR_CARD_NUMBER_A\020\001\022\024\n\020TR_CARD_N"
+    "UMBER_2\020\002\022\024\n\020TR_CARD_NUMBER_3\020\003\022\024\n\020TR_CA"
+    "RD_NUMBER_4\020\004\022\024\n\020TR_CARD_NUMBER_5\020\005\022\024\n\020T"
+    "R_CARD_NUMBER_6\020\006\022\024\n\020TR_CARD_NUMBER_7\020\007\022"
+    "\024\n\020TR_CARD_NUMBER_8\020\010\022\024\n\020TR_CARD_NUMBER_"
+    "9\020\t\022\025\n\021TR_CARD_NUMBER_10\020\n\022\024\n\020TR_CARD_NU"
+    "MBER_J\020\013\022\024\n\020TR_CARD_NUMBER_Q\020\014\022\024\n\020TR_CAR"
+    "D_NUMBER_K\020\rB-\n\026com.ourgame.texasSlotsB\023"
+    "TexasSlotsTranspond", 13259);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "OGTexasSlotsProtocol.proto", &protobuf_RegisterTypes);
   OGReqTRLogin1::default_instance_ = new OGReqTRLogin1();
@@ -3680,6 +3703,7 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
   OGAckJpHall_HallContent::default_instance_ = new OGAckJpHall_HallContent();
   OGAckAd::default_instance_ = new OGAckAd();
   OGAckLeaveGame::default_instance_ = new OGAckLeaveGame();
+  OGAckYDFreeTimes::default_instance_ = new OGAckYDFreeTimes();
   OGReqTRLogin1::default_instance_->InitAsDefaultInstance();
   OGAckLinkServer::default_instance_->InitAsDefaultInstance();
   OGReqTRLogin2::default_instance_->InitAsDefaultInstance();
@@ -3806,6 +3830,7 @@ void protobuf_AddDesc_OGTexasSlotsProtocol_2eproto() {
   OGAckJpHall_HallContent::default_instance_->InitAsDefaultInstance();
   OGAckAd::default_instance_->InitAsDefaultInstance();
   OGAckLeaveGame::default_instance_->InitAsDefaultInstance();
+  OGAckYDFreeTimes::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_OGTexasSlotsProtocol_2eproto);
 }
 
@@ -47103,6 +47128,213 @@ void OGAckLeaveGame::Swap(OGAckLeaveGame* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = OGAckLeaveGame_descriptor_;
   metadata.reflection = OGAckLeaveGame_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int OGAckYDFreeTimes::kNumFieldNumber;
+#endif  // !_MSC_VER
+
+OGAckYDFreeTimes::OGAckYDFreeTimes()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void OGAckYDFreeTimes::InitAsDefaultInstance() {
+}
+
+OGAckYDFreeTimes::OGAckYDFreeTimes(const OGAckYDFreeTimes& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void OGAckYDFreeTimes::SharedCtor() {
+  _cached_size_ = 0;
+  num_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+OGAckYDFreeTimes::~OGAckYDFreeTimes() {
+  SharedDtor();
+}
+
+void OGAckYDFreeTimes::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void OGAckYDFreeTimes::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* OGAckYDFreeTimes::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return OGAckYDFreeTimes_descriptor_;
+}
+
+const OGAckYDFreeTimes& OGAckYDFreeTimes::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();  return *default_instance_;
+}
+
+OGAckYDFreeTimes* OGAckYDFreeTimes::default_instance_ = NULL;
+
+OGAckYDFreeTimes* OGAckYDFreeTimes::New() const {
+  return new OGAckYDFreeTimes;
+}
+
+void OGAckYDFreeTimes::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    num_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool OGAckYDFreeTimes::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &num_)));
+          set_has_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+      
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void OGAckYDFreeTimes::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 num = 1;
+  if (has_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->num(), output);
+  }
+  
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* OGAckYDFreeTimes::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 num = 1;
+  if (has_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->num(), target);
+  }
+  
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int OGAckYDFreeTimes::ByteSize() const {
+  int total_size = 0;
+  
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 num = 1;
+    if (has_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->num());
+    }
+    
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void OGAckYDFreeTimes::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const OGAckYDFreeTimes* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const OGAckYDFreeTimes*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void OGAckYDFreeTimes::MergeFrom(const OGAckYDFreeTimes& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_num()) {
+      set_num(from.num());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void OGAckYDFreeTimes::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void OGAckYDFreeTimes::CopyFrom(const OGAckYDFreeTimes& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool OGAckYDFreeTimes::IsInitialized() const {
+  
+  return true;
+}
+
+void OGAckYDFreeTimes::Swap(OGAckYDFreeTimes* other) {
+  if (other != this) {
+    std::swap(num_, other->num_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata OGAckYDFreeTimes::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = OGAckYDFreeTimes_descriptor_;
+  metadata.reflection = OGAckYDFreeTimes_reflection_;
   return metadata;
 }
 

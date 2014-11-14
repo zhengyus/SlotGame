@@ -9,6 +9,7 @@
 #include "DoubleLayer.h"
 #include "KCGameLayer.h"
 #include "HeadView.h"
+#include "Alert.h"
 
 DoubleLayer::DoubleLayer()
 {
@@ -22,6 +23,7 @@ DoubleLayer::DoubleLayer()
     m_retWin = 1;
     winPos = ccp(160, 520);
     m_yzGold = 0;
+    m_iscanShowAlert = true;
     
     m_p8[0] = ccp(310, 480);
     m_p8[1] = ccp(360, 480);
@@ -636,6 +638,20 @@ void DoubleLayer::recGameLogicEventFromSever(CCObject * obj)
             CCLog("~~~~~~~~~~玩家钱=%lld", tmeg->Brolegold);
             CCLog("~~~~~~~~~~界面page=%d", tmeg->Bpage);
             CCLog("~~~~~~~~~~BgoldPlus=%d", tmeg->BgoldPlus);
+            CCLog("~~~~~~~~~~比倍界面奖励次数=%d", tmeg->freeNumBB);
+            
+            if(tmeg->freeNumBB > 0 && m_iscanShowAlert)
+            {
+                m_iscanShowAlert = false;
+                char strTmp[100];
+                sprintf(strTmp, "别灰心！继续玩就有机会获得大奖，\n系统赠送您%d次免费转动", tmeg->freeNumBB);
+                std::string tmpString = strTmp;
+                Alert::create(tmpString)->show();
+                
+                ((KCGameLayer*)this->getParent())->m_setLineRewNum = ((KCGameLayer*)this->getParent())->m_maxLineRewNum;
+                ((KCGameLayer*)this->getParent())->m_beiNum = ((KCGameLayer*)this->getParent())->m_maxBeiNum;
+            }
+            
             m_yzGold = tmeg->Bneedgold;
             m_winGold = tmeg->Bwingold;
             m_cardID = tmeg->BcardNumber;
@@ -837,6 +853,7 @@ void DoubleLayer::runBiBei(int color)
 
 void DoubleLayer::initUI()
 {
+    m_iscanShowAlert = true;
     DataManager::sharedDataManager()->isCanMangerGoldJP = true;
     m_LabelWinNumjp->setVisible(false);
     m_LabelWinNumjp->setPosition(ccp(500, 320));

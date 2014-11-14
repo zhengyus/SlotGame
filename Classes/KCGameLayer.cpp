@@ -496,6 +496,11 @@ void KCGameLayer::touchEvent(CCObject* pSender, TouchEventType type)
                     
                     playSound(ROLL_EFFECT_FIGHT);
                     
+                    if(m_Ffreenum <= 0 && m_usrHavaGold < 2000)
+                    {
+                        return;
+                    }
+                    
                     char tmStr[50];
                     sprintf(tmStr, "ZD%d.png", 0);
                     m_Panel_MoveCell00->setBackGroundImage(tmStr, UI_TEX_TYPE_PLIST);
@@ -1813,8 +1818,17 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
             CCLog("page~~~~~~~~=%d", tmeg->page);
             CCLog("宠物经验~~~~~~~~=%lld", tmeg->getPetExp);
             CCLog("任务经验~~~~~~~~=%lld", tmeg->getRoleExp);
+            CCLog("老虎机奖励转动次数~~~~~~~=%d", tmeg->freeNumLHJ);
             CCLog("curr page~~~~~~~~=%d", m_pageCurr);
-            CCLog("免费转动次数~~~~~~~=%d", DataManager::sharedDataManager()->currFreeNum);
+            
+            
+            if(tmeg->freeNumLHJ > 0)
+            {
+                char strTmp[100];
+                sprintf(strTmp, "别灰心！继续玩就有机会获得大奖，\n系统赠送您%d次免费转动", tmeg->freeNumLHJ);
+                std::string tmpString = strTmp;
+                Alert::create(tmpString)->show();
+            }
         
             m_page = tmeg->page;
             m_winGold = tmeg->wingold;
@@ -1949,6 +1963,32 @@ void KCGameLayer::recGameLogicEventFromSever(CCObject * obj)
         case SET_ALL_THINGS_RUN:
         {
             m_isAllThingsStop = false;
+            break;
+        }
+        case OGID_TEXAS_SLOTS_PLAYERINFO:
+        {
+            CCLog("人物信息免费转动次数=%d", DataManager::sharedDataManager()->currFreeNum);
+            char tmStr[50];
+            sprintf(tmStr, "%d", DataManager::sharedDataManager()->currFreeNum);
+            m_LabelAtlasFree->setStringValue(tmStr);
+            
+            UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
+            UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));
+            
+            pnf->setVisible(false);
+            pnc->setVisible(false);
+            
+            if(DataManager::sharedDataManager()->currFreeNum > 0 && m_roomID == 1)
+            {
+                pnf->setVisible(true);
+                m_setLineRewNum = m_maxLineRewNum;
+                m_beiNum = m_maxBeiNum;
+            }
+            else
+            {
+                pnc->setVisible(true);
+            }
+
             break;
         }
         default:
@@ -2129,14 +2169,12 @@ void KCGameLayer::initUI()
     sprintf(tmStr, "%lld", tmpLNum);
     m_LabelAtlasCost->setStringValue(tmStr);
     
-    
-    sprintf(tmStr, "%d", DataManager::sharedDataManager()->currFreeNum);
-    m_LabelAtlasFree->setStringValue(tmStr);
-    
-    
     m_Ffreenum = DataManager::sharedDataManager()->freeNum;
     sprintf(tmStr, "%d", m_Ffreenum);
     m_LabelAtlasSY->setStringValue(tmStr);
+    
+    sprintf(tmStr, "%d", DataManager::sharedDataManager()->currFreeNum);
+    m_LabelAtlasFree->setStringValue(tmStr);
     
     UIPanel *pnf = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_Free"));
     UIPanel *pnc = static_cast<UIPanel*>(m_Widget->getWidgetByName("Panel_CostM"));

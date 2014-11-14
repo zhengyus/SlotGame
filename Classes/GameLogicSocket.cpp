@@ -522,7 +522,6 @@ void GameLogicSocket::onPlayerInfo(const char* message, int size)
         }
     }
     
-    
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
 }
 
@@ -1040,6 +1039,18 @@ void GameLogicSocket::onOGAckCutGame(const char* message, int size)
     CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
 }
 
+void GameLogicSocket::onOGAckAwardFreeNum(const char* message, int size)
+{
+    OGAckYDFreeTimes meg;
+    meg.ParseFromArray(message, size);
+    
+    GameLogicMegFromSever tmpMeg;
+    tmpMeg.ackOGAckYDFreeTimes = meg;
+    tmpMeg.m_id = OGID_TEXAS_SLOTS_AWARD_FREE_NUM;
+    
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(EVENT_REC_MEG_FROM_SEVER, &tmpMeg);
+}
+
 void GameLogicSocket::onLogin2(const char* message, int size)
 {
     OGAckRoleLoginMsg meg;
@@ -1260,13 +1271,20 @@ void GameLogicSocket::onReceiveData(int messageID, const char* message, int size
         case OGID_TEXAS_SLOTS_STOPGAME:
         {
             onOGAckStopGame(message, size);
-            
             CCLog("止损～～～～～～～");
             break;
         }
         case OGID_TEXAS_SLOTS_CUT_LINE:
         {
+            onOGAckCutGame(message, size);
             CCLog("断网");
+            break;
+        }
+        case OGID_TEXAS_SLOTS_AWARD_FREE_NUM:
+        {
+            onOGAckAwardFreeNum(message, size);
+            CCLog("奖励免费登入消息");
+            break;
         }
         default:
         {

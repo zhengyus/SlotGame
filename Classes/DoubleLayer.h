@@ -90,6 +90,7 @@ public:
     unsigned long long m_yzGold;//押注金额
     
     bool isBtnCanTouch;//按钮是否可以按
+    bool m_iscanShowAlert;
     int m_whichColor;//1红色 2黑色
     int m_starNum;//星星数量
     CCPoint m_p8[8];

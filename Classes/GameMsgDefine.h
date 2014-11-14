@@ -71,7 +71,9 @@
 #define OGID_TEXAS_SLOTS_REQPETFLEE              OGID_MSGBASE_TEXAS_SLOTS + 54				// 接收宠物逃跑
 
 //断线返回
-#define OGID_TEXAS_SLOTS_CUT_LINE              OGID_MSGBASE_TEXAS_SLOTS + 61
+#define OGID_TEXAS_SLOTS_CUT_LINE              OGID_MSGBASE_TEXASPOKER_GAMEBASE + 61
+//奖励免费信息
+#define OGID_TEXAS_SLOTS_AWARD_FREE_NUM              OGID_MSGBASE_TEXASPOKER_GAMEBASE + 62
 
 /***********************接收消息******************************/
 #define OGID_TEXAS_SLOTS_LINK 					   OGID_MSGBASE_TEXASPOKER_GAMEBASE + 1 		//接收服务器ip、端口
@@ -138,6 +140,7 @@
 #define CREATE_ROLE_EVENT 331582//创建角色事件
 #define CREATE_ROLE_EVENT_RET "331583"//创建角色事件返回
 #define ERR_RET 331584//
+#define FREE_NUM_CHANGE_EVENT 331585
 
 
 #endif

@@ -66,6 +66,7 @@ public:
     com::ourgame::texasSlots::OGAckPetGetAward ackOGAckPetGetAward;
     com::ourgame::texasSlots::OGAckDoubleJpResult ackOGAckDoubleJpResult;
     com::ourgame::texasSlots::OGAckStopGame ackOGAckStopGame;
+    com::ourgame::texasSlots::OGAckYDFreeTimes ackOGAckYDFreeTimes;
 };
 
 struct MyRoomList
@@ -229,6 +230,8 @@ public:
     unsigned long long Bneedgold;//押注值
     int BgoldPlus;//额外反奖比例
     unsigned long long BgoldPlusValue;//额外反奖金额
+    int freeNumBB;//比倍界面奖励的免费转动次数
+    int freeNumLHJ;//老虎机界面奖励的免费转动次数
     
     //-----------------------------------------------------
     

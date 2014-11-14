@@ -181,7 +181,8 @@ public:
     void onOGAckDoubleJpResult(const char* message, int size);//返回宠物战斗胜利后抽奖结果（SERVER + 60）
     void onOGAckStopGame(const char* message, int size);//止损（SERVER + 57）
     
-    void onOGAckCutGame(const char* message, int size);//断线
+    void onOGAckCutGame(const char* message, int size);//断线(s+61)
+    void onOGAckAwardFreeNum(const char* message, int size);//登入赠送免费转动次数(s+62)
     
     /*
     void onBoradCast(const char* message, int size);//接收广播信息

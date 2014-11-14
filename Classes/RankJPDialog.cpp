@@ -86,7 +86,7 @@ RankJPDialog* RankJPDialog::create(vector<MyJPRankList> data[2])
 
 void RankJPDialog::initNoticeView()
 {
-    if (_data[0].empty())
+    if (_data[1].empty())
     {
         return;
     }

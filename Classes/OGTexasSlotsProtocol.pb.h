@@ -160,6 +160,7 @@ class OGAckJpHall;
 class OGAckJpHall_HallContent;
 class OGAckAd;
 class OGAckLeaveGame;
+class OGAckYDFreeTimes;
 
 enum OGAckLinkServer_E_ErrorType {
   OGAckLinkServer_E_ErrorType_ET_UNKNOWN = 0,
@@ -15402,6 +15403,88 @@ class OGAckLeaveGame : public ::google::protobuf::Message {
   
   void InitAsDefaultInstance();
   static OGAckLeaveGame* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OGAckYDFreeTimes : public ::google::protobuf::Message {
+ public:
+  OGAckYDFreeTimes();
+  virtual ~OGAckYDFreeTimes();
+  
+  OGAckYDFreeTimes(const OGAckYDFreeTimes& from);
+  
+  inline OGAckYDFreeTimes& operator=(const OGAckYDFreeTimes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+  
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+  
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OGAckYDFreeTimes& default_instance();
+  
+  void Swap(OGAckYDFreeTimes* other);
+  
+  // implements Message ----------------------------------------------
+  
+  OGAckYDFreeTimes* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OGAckYDFreeTimes& from);
+  void MergeFrom(const OGAckYDFreeTimes& from);
+  void Clear();
+  bool IsInitialized() const;
+  
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  
+  ::google::protobuf::Metadata GetMetadata() const;
+  
+  // nested types ----------------------------------------------------
+  
+  // accessors -------------------------------------------------------
+  
+  // optional int32 num = 1;
+  inline bool has_num() const;
+  inline void clear_num();
+  static const int kNumFieldNumber = 1;
+  inline ::google::protobuf::int32 num() const;
+  inline void set_num(::google::protobuf::int32 value);
+  
+  // @@protoc_insertion_point(class_scope:com.ourgame.texasSlots.OGAckYDFreeTimes)
+ private:
+  inline void set_has_num();
+  inline void clear_has_num();
+  
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+  
+  ::google::protobuf::int32 num_;
+  
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  
+  friend void  protobuf_AddDesc_OGTexasSlotsProtocol_2eproto();
+  friend void protobuf_AssignDesc_OGTexasSlotsProtocol_2eproto();
+  friend void protobuf_ShutdownFile_OGTexasSlotsProtocol_2eproto();
+  
+  void InitAsDefaultInstance();
+  static OGAckYDFreeTimes* default_instance_;
 };
 // ===================================================================
 
@@ -31635,6 +31718,32 @@ inline ::std::string* OGAckAd::release_content() {
 // -------------------------------------------------------------------
 
 // OGAckLeaveGame
+
+// -------------------------------------------------------------------
+
+// OGAckYDFreeTimes
+
+// optional int32 num = 1;
+inline bool OGAckYDFreeTimes::has_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OGAckYDFreeTimes::set_has_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OGAckYDFreeTimes::clear_has_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OGAckYDFreeTimes::clear_num() {
+  num_ = 0;
+  clear_has_num();
+}
+inline ::google::protobuf::int32 OGAckYDFreeTimes::num() const {
+  return num_;
+}
+inline void OGAckYDFreeTimes::set_num(::google::protobuf::int32 value) {
+  set_has_num();
+  num_ = value;
+}
 
 
 // @@protoc_insertion_point(namespace_scope)
